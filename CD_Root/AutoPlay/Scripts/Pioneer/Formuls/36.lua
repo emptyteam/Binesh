@@ -47,7 +47,7 @@ elseif FindV0_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV0_Speed) == "
 		Binesh.CreateHTMLFile("t<sub>0</sub> = <span>V<sub>0</sub>/a</span>", "V<sub>0</sub> = t<sub>0</sub>*a")
 		V0_Speed = (t0)*(a)
 		
-		Binesh.AddToHTML("V<sub>0</sub> = "..t0.."*"..a.." &#8658; V<sub>0</sub> = "..V0_Speed.."m/s")
+		Binesh.AddToHTML("V<sub>0</sub> = "..t0.."*"..a.." &#8658; V<sub>0</sub> = "..V0_Speed.." m/s")
 		Web.Refresh("Web1");
 		
 		Binesh.AddToHTML("t<sub>0</sub> = "..t0.." s","V")
@@ -65,7 +65,7 @@ elseif Finda ~= -1 and ListBox.GetItemData("unknowns", Finda) == "a" and ListBox
 		Binesh.CreateHTMLFile("t<sub>0</sub> = <span>V<sub>0</sub>/a</span>", "a = <span>V<sub>0</sub>/t<sub>0</sub></span>")
 		a = (V0_Speed)/(t0)
 		
-		Binesh.AddToHTML("a = <span>"..V0_Speed.."/"..t0.."</span> &#8658; a = "..a.."m/s<sup>2</sup>")
+		Binesh.AddToHTML("a = <span>"..V0_Speed.."/"..t0.."</span> &#8658; a = "..a.." m/s<sup>2</sup>")
 		Web.Refresh("Web1");
 		
 		Binesh.AddToHTML("V<sub>0</sub> = "..V0_Speed.." m/s","V")
