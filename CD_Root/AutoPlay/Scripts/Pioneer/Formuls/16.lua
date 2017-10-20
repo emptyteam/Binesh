@@ -38,13 +38,13 @@ end
 
 if i_Radian ~= nil then
 	i = Math.RadToDeg(i_Radian)
-	Binesh.AddToHTML("D<sub>i</sub> = <span>"..i_Radian.."*180/"..Zarib.Pi.."</span> &#8658; D<sub>i</sub> = "..i.."<sup>o</sup>")
+	Binesh.AddToHTML("D<sub>i</sub> = <span>"..i_Radian.."*180/"..Zarib.Pi.."</span> &#8658; D<sub>i</sub> = "..i.." <sup>o</sup>")
 	Binesh.AddToHTML("<br>")
 end
 
 if r_Glass_Radian ~= nil then
 	r_Glass = Math.RadToDeg(r_Glass_Radian)
-	Binesh.AddToHTML("D<sub>r</sub> = <span>"..r_Glass.."*180/"..Zarib.Pi.."</span> &#8658; D<sub>r</sub> = "..r_Glass.."<sup>o</sup>")
+	Binesh.AddToHTML("D<sub>r</sub> = <span>"..r_Glass.."*180/"..Zarib.Pi.."</span> &#8658; D<sub>r</sub> = "..r_Glass.." <sup>o</sup>")
 	Binesh.AddToHTML("<br>")
 end
 
@@ -54,8 +54,13 @@ if Findn2_Glass ~= -1 and ListBox.GetItemData("unknowns", Findn2_Glass) == "n2" 
 		
 		n2_Glass = Math.Sin(Math.Rad(i))*n1_Glass/Math.Sin(Math.Rad(r_Glass))
 	
-		Binesh.AddToHTML("n<sub>2</sub> = <span>sin"..i.."*"..n1_Glass.."/sin"..r_Glass.."</span> &#8658; n<sub>2</sub> = "..n2_Glass.."m")
+		Binesh.AddToHTML("n<sub>2</sub> = <span>sin"..i.."*"..n1_Glass.."/sin"..r_Glass.."</span> &#8658; n<sub>2</sub> = "..n2_Glass.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("i = "..i.." <sup>o</sup>" ,"V")
+		Binesh.AddToHTML("n<sub>1</sub> = "..n1_Glass.." m" ,"V")
+		Binesh.AddToHTML("r = "..r_Glass.." <sup>o</sup>","V")
+		Binesh.AddToHTML("n<sub>2</sub> = "..n2_Glass.." m" ,"V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ÷—Ì» ‘ò”  „ÕÌÿ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "n2");
@@ -68,8 +73,13 @@ elseif Findn1_Glass ~= -1 and ListBox.GetItemData("unknowns", Findn1_Glass) == "
 		Binesh.CreateHTMLFile("<span>n<sub>2</sub>/n<sub>1</sub> = <span>sini/sinr</span>", "n<sub>1</sub> = <span>sinr*n<sub>2</sub>/sini</span>")
 		n1_Glass = Math.Sin(Math.Rad(i))*n2_Glass/Math.Sin(Math.Rad(r_Glass))
 		
-		Binesh.AddToHTML("n<sub>1</sub> = <span>sin"..i.."*"..n2_Glass.."/sin"..r_Glass.."</span>  &#8658; n<sub>1</sub> = "..n1_Glass.."m")
+		Binesh.AddToHTML("n<sub>1</sub> = <span>sin"..i.."*"..n2_Glass.."/sin"..r_Glass.."</span>  &#8658; n<sub>1</sub> = "..n1_Glass.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("i = "..i.." <sup>o</sup>" ,"V")
+		Binesh.AddToHTML("n<sub>2</sub> = "..n2_Glass.." m" ,"V")
+		Binesh.AddToHTML("r = "..r_Glass.." <sup>o</sup>","V")
+		Binesh.AddToHTML("n<sub>1</sub> = "..n1_Glass.." m" ,"V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ÷—Ì» ‘ò”  „ÕÌÿ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "n1");
@@ -83,9 +93,15 @@ elseif Findi ~= -1 and ListBox.GetItemData("unknowns", Findi) == "i" and ListBox
 		
 		sini = Math.Sin(Math.Rad(r_Glass))*n2_Glass/n1_Glass
 		
-		Binesh.AddToHTML("sini = <span>sin"..r_Glass.."*"..n2_Glass.."/"..n1_Glass.."</span> &#8658; sini = "..sini.." &#8658; i = "..Math.Asin(sini).."<sup>o</sup>")
-
+		i = Math.Asin(sini)
+		
+		Binesh.AddToHTML("sini = <span>sin"..r_Glass.."*"..n2_Glass.."/"..n1_Glass.."</span> &#8658; sini = "..sini.." &#8658; i = "..i.." <sup>o</sup>")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("r = "..r_Glass.." <sup>o</sup>","V")
+		Binesh.AddToHTML("n<sub>2</sub> = "..n2_Glass.." m" ,"V")
+		Binesh.AddToHTML("n<sub>1</sub> = "..n1_Glass.." m" ,"V")
+		Binesh.AddToHTML("i = "..i.." <sup>o</sup>" ,"V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ  «»‘");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "i");
@@ -99,9 +115,15 @@ elseif Findr_Glass ~= -1 and ListBox.GetItemData("unknowns", Findr_Glass) == "r"
 		
 		sinr_Glass = Math.Sin(Math.Rad(i))*n1_Glass/n2_Glass
 		
-		Binesh.AddToHTML("sinr = <span>sin"..i.."*"..n1_Glass.."/"..n2_Glass.."</span> &#8658; sinr = "..sinr_Glass.." &#8658; r = "..Math.Asin(sinr_Glass).."<sup>o</sup>")
-
+		r_Glass = Math.Asin(sinr_Glass)
+		
+		Binesh.AddToHTML("sinr = <span>sin"..i.."*"..n1_Glass.."/"..n2_Glass.."</span> &#8658; sinr = "..sinr_Glass.." &#8658; r = "..r_Glass.." <sup>o</sup>")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("i = "..i.." <sup>o</sup>" ,"V")
+		Binesh.AddToHTML("n<sub>1</sub> = "..n1_Glass.." m" ,"V")
+		Binesh.AddToHTML("n<sub>2</sub> = "..n2_Glass.." m" ,"V")
+		Binesh.AddToHTML("r = "..r_Glass.." <sup>o</sup>","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ ‘ò” ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "r");

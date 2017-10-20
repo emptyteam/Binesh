@@ -36,8 +36,13 @@ if Findh_Glass ~= -1 and ListBox.GetItemData("unknowns", Findh_Glass) == "h" and
 		Binesh.CreateHTMLFile("<span>h/H</span> = <span>n<sub>1</sub>/n<sub>2</sub></span>")
 		h_Glass = H*n1_Glass/n2_Glass
 		
-		Binesh.AddToHTML("h = "..H.."*"..n1_Glass.."/"..n2_Glass.." &#8658; h = "..h.."m")
+		Binesh.AddToHTML("h = "..H.."*"..n1_Glass.."/"..n2_Glass.." &#8658; h = "..h_Glass.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("H = "..H.." m" ,"V")
+		Binesh.AddToHTML("n<sub>1</sub> = "..n1_Glass.." m","V")
+		Binesh.AddToHTML("n<sub>2</sub> = "..n2_Glass.." m","V")
+		Binesh.AddToHTML("h = "..h_Glass.." m","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "⁄„ﬁ Ÿ«Â—Ì");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "h");
@@ -50,8 +55,13 @@ elseif FindH ~= -1 and ListBox.GetItemData("unknowns", FindH) == "H" and ListBox
 		Binesh.CreateHTMLFile("<span>h/H</span> = <span>n<sub>1</sub>/n<sub>2</sub></span>", "H = <span>hn<sub>2</sub>/n<sub>1</sub></span>")
 		H = (h_Glass*n2_Glass)/n1_Glass
 		
-		Binesh.AddToHTML("H = <span>"..h_Glass.."*"..n2_Glass.."/"..n1_Glass.."</span> &#8658; H = "..H.."m")
+		Binesh.AddToHTML("H = <span>"..h_Glass.."*"..n2_Glass.."/"..n1_Glass.."</span> &#8658; H = "..H.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("h = "..h_Glass.." m","V")
+		Binesh.AddToHTML("n<sub>2</sub> = "..n2_Glass.." m","V")
+		Binesh.AddToHTML("n<sub>1</sub> = "..n1_Glass.." m","V")
+		Binesh.AddToHTML("H = "..H.." m" ,"V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "⁄„ﬁ Ê«ﬁ⁄Ì");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "H");
@@ -64,8 +74,13 @@ elseif Findn1_Glass ~= -1 and ListBox.GetItemData("unknowns", Findn1_Glass) == "
 		Binesh.CreateHTMLFile("<span>h/H</span> = <span>n<sub>1</sub>/n<sub>2</sub></span>", "n<sub>1</sub> = <span>hn<sub>2</sub>/H</span>")
 		n1_Glass = (h_Glass*n2_Glass)/H
 		
-		Binesh.AddToHTML("n<sub>1</sub> = <span>"..h_Glass.."*"..n2_Glass.."/"..H.."</span> &#8658; n<sub>1</sub> = "..n1_Glass.."m")
+		Binesh.AddToHTML("n<sub>1</sub> = <span>"..h_Glass.."*"..n2_Glass.."/"..H.."</span> &#8658; n<sub>1</sub> = "..n1_Glass.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("h = "..h_Glass.." m","V")
+		Binesh.AddToHTML("n<sub>2</sub> = "..n2_Glass.." m","V")
+		Binesh.AddToHTML("H = "..H.." m" ,"V")
+		Binesh.AddToHTML("n<sub>1</sub> = "..n1_Glass.." m","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ÷—Ì» ‘ò”  „ÕÌÿ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "n1");
@@ -78,8 +93,13 @@ elseif Findn2_Glass ~= -1 and ListBox.GetItemData("unknowns", Findn2_Glass) == "
 		Binesh.CreateHTMLFile("<span>h/H</span> = <span>n<sub>1</sub>/n<sub>2</sub></span>", "n<sub>2</sub> = n<sub>1</sub>H/h")
 		n2_Glass = (n1_Glass*H)/h_Glass
 		
-		Binesh.AddToHTML("n<sub>2</sub> = <span>"..n1_Glass.."*"..H.."/"..h_Glass.."</span> &#8658; n<sub>2</sub> = "..n2_Glass.."m")
+		Binesh.AddToHTML("n<sub>2</sub> = <span>"..n1_Glass.."*"..H.."/"..h_Glass.."</span> &#8658; n<sub>2</sub> = "..n2_Glass.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("n<sub>1</sub> = "..n1_Glass.." m","V")
+		Binesh.AddToHTML("H = "..H.." m" ,"V")
+		Binesh.AddToHTML("h = "..h_Glass.." m","V")
+		Binesh.AddToHTML("n<sub>2</sub> = "..n2_Glass.." m","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ÷—Ì» ‘ò”  „ÕÌÿ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "n2");

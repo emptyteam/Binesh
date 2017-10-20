@@ -28,8 +28,12 @@ if Findf_Lens ~= -1 and ListBox.GetItemData("unknowns", Findf_Lens) == "f" then
 		Binesh.CreateHTMLFile("<span>1/f</span> = <span>1/p+1/q</span>", "f = <span>qp/q+p</span>")
 		f_Lens = q_Lens*p_Lesn/q_Lens+p_Lens
 		
-		Binesh.AddToHTML("f = <span>"..q_Lens.."*"..p_Lens.."/"..q_Lens.."+"..p_Lens.."</span> &#8658; f = "..f_Lens.."m")
+		Binesh.AddToHTML("f = <span>"..q_Lens.."*"..p_Lens.."/"..q_Lens.."+"..p_Lens.."</span> &#8658; f = "..f_Lens.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("q = "..q_Lens.." m","V")
+		Binesh.AddToHTML("p = "..p_Lens.." m","V")
+		Binesh.AddToHTML("f = "..f_Lens.." m","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "⁄œ”Ì ›«’·Â ò«‰Ê‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "f");
@@ -43,8 +47,12 @@ elseif Findq_Lens ~= -1 and ListBox.GetItemData("unknowns", Findq_Lens) == "q" t
 		Binesh.AddToHTML("q = <span>fp/f-p</span> &#8658; ")
 		q_Lens = f_Lens*p_Lens/f_Lens-p_Lens
 		
-		Binesh.AddToHTML("q = <span>"..f_Lens.."*"..p_Lens.."/"..f_Lens.."-"..p_Lens.."</span> &#8658; q = "..q_Lens.."m")
+		Binesh.AddToHTML("q = <span>"..f_Lens.."*"..p_Lens.."/"..f_Lens.."-"..p_Lens.."</span> &#8658; q = "..q_Lens.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("f = "..f_Lens.." m","V")
+		Binesh.AddToHTML("p = "..p_Lens.." m","V")
+		Binesh.AddToHTML("q = "..q_Lens.." m","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â ⁄œ”Ì ”«ÌÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q");
@@ -56,10 +64,15 @@ elseif Findp_Lens ~= -1 and ListBox.GetItemData("unknowns", Findp_Lens) == "p" t
 	if q_Lens ~= nil and f_Lens ~= nil then
 		Binesh.CreateHTMLFile("1/f = 1/p+1/q", "1/p = 1/f-1/q")
 		Binesh.AddToHTML("p = <span>fq/f-q</span> &#8658; ")
+		
 		p_Lens = f_Lens*q_Lens/f_Lens-q_Lens
 		
-		Binesh.AddToHTML("p = <span>"..f_Lens.."*"..q_Lens.."/"..f_Lens.."-"..q_Lens.."</span> &#8658; p = "..p_Lens.."m")
+		Binesh.AddToHTML("p = <span>"..f_Lens.."*"..q_Lens.."/"..f_Lens.."-"..q_Lens.."</span> &#8658; p = "..p_Lens.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("f = "..f_Lens.." m","V")
+		Binesh.AddToHTML("q = "..q_Lens.." m","V")
+		Binesh.AddToHTML("p = "..p_Lens.." m","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â ⁄œ”Ì Ã”„");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "p");

@@ -26,9 +26,14 @@ if FindC ~= -1 and ListBox.GetItemData("unknowns", FindC) == "C" and ListBox.Fin
 	if n_Glass ~= nil then
 		Binesh.CreateHTMLFile("sinC = <span>1/n</span>")
 		sinC = Math.Sin(1/n_Glass)
-		Binesh.AddToHTML("sinC = <span> 1/"..n_Glass.."</span> &#8658; sinC = "..sinC.." &#8658 C = "..Math.Asin(sinC).."<sup>o</sup>")
 		
+		C = Math.Asin(sinC)
+		
+		Binesh.AddToHTML("sinC = <span> 1/"..n_Glass.."</span> &#8658; sinC = "..sinC.." &#8658 C = "..C.." <sup>o</sup>")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("n = "..n_Glass.." m","V")
+		Binesh.AddToHTML("C = "..C.." <sup>o</sup>","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ Õœ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "C");
@@ -41,8 +46,11 @@ elseif Findn_Glass ~= -1 and ListBox.GetItemData("unknowns", Findn_Glass) == "n"
 		Binesh.CreateHTMLFile("sinC = <span>1/n</span>", "n = <span>1/sinC</span>")
 		n_Glass = 1/Math.Sin(Math.Rad(C))
 		
-		Binesh.AddToHTML("n = <span>1/"..sinC.."</span> &#8658; n = "..n_Glass.."m")
+		Binesh.AddToHTML("n = <span>1/"..sinC.."</span> &#8658; n = "..n_Glass.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("C = "..C.." <sup>o</sup>","V")
+		Binesh.AddToHTML("n = "..n_Glass.." m","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» ‘ò” ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "n");
