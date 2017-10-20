@@ -15,14 +15,14 @@ end
 if p_Source == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— Ã”„")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'P_Source' then
-		ListBox.AddItem("unknowns", "›«’·Â „‰»⁄ ‰Ê— Ã”„", "p_Source");
+		ListBox.AddItem("unknowns", "›«’·Â „‰»⁄ ‰Ê— Ã”„", "p");
 	end
 end
 
 if q_Source == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'q_Source' then
-		ListBox.AddItem("unknowns", "›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ", "q_Source");
+		ListBox.AddItem("unknowns", "›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ", "q");
 	end
 end
 
@@ -36,8 +36,13 @@ if FindSp ~= -1 and ListBox.GetItemData("unknowns", FindSp) == "S`" then
 		Binesh.CreateHTMLFile("<span>S`/S</span> = (<span>q/p</span>)<sup>2</sup>", "S` = <span>q<sup>2</sup>S/p<sup>2</sup></span>")
 		Sp = (q_Source^2)*S/(p_Source^2)
 		
-		Binesh.AddToHTML("S` = <span>"..q_Source.."<sup>2</sup>*"..S.."/"..p_Source.."<sup>2</sup></span> &#8658; S` = "..Sp.."m<sup>2<sup>")
+		Binesh.AddToHTML("S` = <span>"..q_Source.."<sup>2</sup>*"..S.."/"..p_Source.."<sup>2</sup></span> &#8658; S` = "..Sp.." m<sup>2<sup>")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("q = "..q_Source.." m" ,"V")
+		Binesh.AddToHTML("S = "..S.." m<sup>2<sup>" ,"V")
+		Binesh.AddToHTML("p = "..p_Source.." m" ,"V")
+		Binesh.AddToHTML("S` = "..Sp.." m<sup>2<sup>" ,"V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ „”«Õ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "S`");
@@ -50,8 +55,13 @@ elseif FindS ~= -1 and ListBox.GetItemData("unknowns", FindS) == "S" then
 		Binesh.CreateHTMLFile("<span>S`/S</span> = (<span>q/p</span>)<sup>2</sup>", "S = <span>p<sup>2</sup>S`/q<sup>2</sup></span>")
 		S = (p_Source^2)*Sp/(q_Source^2)
 		
-		Binesh.AddToHTML("S = <span>"..p_Source.."<sup>2</sup>*"..Sp.."/"..q_Source.."<sup>2</sup></span> &#8658; S = "..S.."m<sup>2<sup>")
+		Binesh.AddToHTML("S = <span>"..p_Source.."<sup>2</sup>*"..Sp.."/"..q_Source.."<sup>2</sup></span> &#8658; S = "..S.." m<sup>2<sup>")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("q = "..q_Source.." m" ,"V")
+		Binesh.AddToHTML("S` = "..Sp.." m<sup>2<sup>" ,"V")
+		Binesh.AddToHTML("p = "..p_Source.." m" ,"V")
+		Binesh.AddToHTML("S = "..S.." m<sup>2<sup>" ,"V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ „”«Õ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "S");
@@ -64,8 +74,13 @@ elseif Findp_Source ~= -1 and ListBox.GetItemData("unknowns", Findp_Source) == "
 		Binesh.CreateHTMLFile("<span>S`/S</span> = (<span>q/p</span>)<sup>2</sup>", "p = <span>sqrt(Sq<sup>2</sup>/S`)</span>")
 		p_Source = Math.Sqrt(S*q_Source^2/Sp)
 		
-		Binesh.AddToHTML("p = <span>sqrt("..S.."*"..q_Source.."<sup>2</sup>/"..Sp..")</span> &#8658; p = "..p_Source.."m")
+		Binesh.AddToHTML("p = <span>sqrt("..S.."*"..q_Source.."<sup>2</sup>/"..Sp..")</span> &#8658; p = "..p_Source.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("S = "..S.." m<sup>2<sup>" ,"V")
+		Binesh.AddToHTML("q = "..q_Source.." m" ,"V")
+		Binesh.AddToHTML("S` = "..Sp.." m<sup>2<sup>" ,"V")
+		Binesh.AddToHTML("p = "..p_Source.." m" ,"V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— Ã”„");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "p_Source");
@@ -78,8 +93,13 @@ elseif Findq_Source ~= -1 and ListBox.GetItemData("unknowns", Findq_Source) == "
 		Binesh.CreateHTMLFile("<span>S`/S</span> = (<span>q/p</span>)<sup>2</sup>", "q = <span>sqrt(S`P<sup>2</sup>/S)</span>")
 		q_Source = Math.Sqrt(Sp*p_Source^2/S)
 		
-		Binesh.AddToHTML("q = <span>sqrt("..Sp.."*"..p_Source.."<sup>2</sup>)/"..S.."</span> &#8658; q = "..q_Source.."m")
+		Binesh.AddToHTML("q = <span>sqrt("..Sp.."*"..p_Source.."<sup>2</sup>)/"..S.."</span> &#8658; q = "..q_Source.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("S` = "..Sp.." m<sup>2<sup>" ,"V")
+		Binesh.AddToHTML("p = "..p_Source.." m" ,"V")
+		Binesh.AddToHTML("S = "..S.." m<sup>2<sup>" ,"V")
+		Binesh.AddToHTML("q = "..q_Source.." m" ,"V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q_Source");
