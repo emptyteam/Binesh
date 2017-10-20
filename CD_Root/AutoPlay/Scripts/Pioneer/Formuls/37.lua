@@ -28,8 +28,12 @@ if FindVBar_Speed ~= -1 and ListBox.GetItemData("unknowns", FindVBar_Speed) == "
 		Binesh.CreateHTMLFile("VBar = <span>V<sub>1</sub>+V<sub>2</sub>/2</span>")
 		VBar_Speed = (V1_Speed+V2_Speed)/2
 	
-		Binesh.AddToHTML("VBar = <span>"..V1_Speed.."+"..V2_Speed.."/2</span> &#8658; VBar = "..VBar_Speed.."m/s")
+		Binesh.AddToHTML("VBar = <span>"..V1_Speed.."+"..V2_Speed.."/2</span> &#8658; VBar = "..VBar_Speed.." m/s")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("V<sub>1</sub> = "..V1_Speed.." m/s","V")
+		Binesh.AddToHTML("V<sub>2</sub> = "..V2_Speed.." m/s","V")
+		Binesh.AddToHTML("VBar = "..VBar_Speed.." m/s","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄  „ Ê”ÿ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "VBar");
@@ -43,8 +47,12 @@ elseif FindV1_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV1_Speed) == "
 		V1_Speed = 2*VBar_Speed + V2_Speed
 
 		
-		Binesh.AddToHTML("V<sub>1</sub> = 2*"..VBar_Speed.."+"..V2_Speed.." &#8658; V<sub>1</sub> = "..V1_Speed.."m/s")
+		Binesh.AddToHTML("V<sub>1</sub> = 2*"..VBar_Speed.."+"..V2_Speed.." &#8658; V<sub>1</sub> = "..V1_Speed.." m/s")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("VBar = "..VBar_Speed.." m/s","V")
+		Binesh.AddToHTML("V<sub>2</sub> = "..V2_Speed.." m/s","V")
+		Binesh.AddToHTML("V<sub>1</sub> = "..V1_Speed.." m/s","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "V1");
@@ -58,8 +66,12 @@ elseif FindV2_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV2_Speed) == "
 		
 		V2_Speed = 2*VBar_Speed + V1_Speed
 		
-		Binesh.AddToHTML("V<sub>2</sub> = 2*"..VBar_Speed.."+"..V1_Speed.." &#8658; V<sub>2</sub> = "..V2_Speed.."m/s")
+		Binesh.AddToHTML("V<sub>2</sub> = 2*"..VBar_Speed.."+"..V1_Speed.." &#8658; V<sub>2</sub> = "..V2_Speed.." m/s")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("VBar = "..VBar_Speed.." m/s","V")
+		Binesh.AddToHTML("V<sub>1</sub> = "..V1_Speed.." m/s","V")
+		Binesh.AddToHTML("V<sub>2</sub> = "..V2_Speed.." m/s","V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "V2");
