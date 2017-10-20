@@ -1,0 +1,14 @@
+*{
+	font-family: 'Gabriola';
+	font-size: 30px;
+}
+span.fraction {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+}
+span.fraction > .fup, span.fraction > .fdn {
+	display: block;
+}
+span.fraction > .fup {border-bottom: 0.08em solid;}
+span.fraction > span {display: none;}
