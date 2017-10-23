@@ -7,19 +7,19 @@ end
 
 if _DeltaV_Speed == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'DeltaV' then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", " €ÌÌ— ”—⁄ ", "DeltaV");
 	end
 end
 if _V1_Speed == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V1' then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", "«Ê·Ì‰ ”—⁄ ", "V1");
 	end
 end
 if _V2_Speed == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V2' then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", "œÊ„Ì‰ ”—⁄ ", "V2");
 	end
 end
@@ -42,7 +42,7 @@ if FindDeltaV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Speed) 
 	if _V1_Speed ~= nil and _V2_Speed ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>")
 		_DeltaV_Speed = _V2_Speed - _V1_Speed
-		Binesh.AddToHTML("DeltaV = ".._V2_Speed.."-".._V1_Speed.." &#8658; DeltaV = ".._DeltaV_Speed.."m/s")
+		Binesh.AddToHTML("DeltaV = ".._V2_Speed.."-".._V1_Speed.." &#8658; DeltaV = ".._DeltaV_Speed.." m/s")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -56,7 +56,7 @@ elseif FindV1_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV1_Speed) == "
 	if _DeltaV_Speed ~= nil and _V2_Speed ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>1</sub> = V<sub>2</sub>-DeltaV")
 		_V1_Speed = _V2_Speed-_DeltaV_Speed
-		Binesh.AddToHTML("V<sub>1</sub> = ".._V2_Speed.."-".._DeltaV_Speed.." &#8658; V<sub>1</sub> = ".._V1_Speed.."m/s")
+		Binesh.AddToHTML("V<sub>1</sub> = ".._V2_Speed.."-".._DeltaV_Speed.." &#8658; V<sub>1</sub> = ".._V1_Speed.." m/s")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -70,7 +70,7 @@ elseif FindV2_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV2_Speed) == "
 	if _DeltaV_Speed ~= nil and _V1_Speed ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>2</sub> = DeltaV+V<sub>1</sub>")
 		_V2_Speed = _V1_Speed+_DeltaV_Speed
-		Binesh.AddToHTML("V<sub>2</sub> = ".._DeltaV_Speed.."+".._V1_Speed.." &#8658; V<sub>2</sub> = ".._V2_Speed.."m/s")
+		Binesh.AddToHTML("V<sub>2</sub> = ".._DeltaV_Speed.."+".._V1_Speed.." &#8658; V<sub>2</sub> = ".._V2_Speed.." m/s")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -83,11 +83,11 @@ elseif FindV2_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV2_Speed) == "
 end
 --------------------------END {DELTA}--------------------------
 
-if FindW_Out ~= -1 and ListBox.GetItemData("unknowns", FindW_Out) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«— Œ«—ÃÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then 
+if FindW_Out ~= -1 and ListBox.GetItemData("unknowns", FindW_Out) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«— Œ«—ÃÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
 	if _DeltaV_Speed ~= nil and q ~= nil then
-		Binesh.CreateHTMLFile("W = q*DeltaV")
+		Binesh.CreateHTMLFile("W = qDeltaV")
 		W_Out = q*_DeltaV_Speed
-		Binesh.AddToHTML("W = "..q.."*".._DeltaV_Speed.." &#8658; W = "..W_Out.."J")
+		Binesh.AddToHTML("W = "..q.."*".._DeltaV_Speed.." &#8658; W = "..W_Out.." J")
 		
 		Web.Refresh("Web1");
 			
@@ -97,25 +97,25 @@ if FindW_Out ~= -1 and ListBox.GetItemData("unknowns", FindW_Out) == "W" and Lis
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindDeltaV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Speed) == "DeltaV" and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V2") ~= -1 then  
+elseif FindDeltaV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Speed) == "DeltaV" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V2") ~= -1) then
 	if q ~= nil and W_Out ~= nil then
-		Binesh.CreateHTMLFile("W = q*DeltaV", "DeltaV = <span>W/q</span>")
+		Binesh.CreateHTMLFile("W = qDeltaV", "DeltaV = <span>W/q</span>")
 		_DeltaV_Speed = _V1_Speed*Beta*_DeltaTeta
-		Binesh.AddToHTML("DeltaV = <span>"..W_out.."/"..q.."</span> &#8658; DeltaV = ".._DeltaV_Speed.."m/s")
+		Binesh.AddToHTML("DeltaV = <span>"..W_out.."/"..q.."</span> &#8658; DeltaV = ".._DeltaV_Speed.." m/s")
 		
 		Web.Refresh("Web1");
 			
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "DeltaV");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "Deltaq" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltaq") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q2") ~= -1 then  
+elseif Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "Deltaq" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltaq") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q2") ~= -1 then
 	if W_Out ~= nil and _DetlaV ~= nil then
-		Binesh.CreateHTMLFile("W = q*DeltaV", "q = <span>W/DeltaV</span>")
+		Binesh.CreateHTMLFile("W = qDeltaV", "q = <span>W/DeltaV</span>")
 		q = W_Out/_DeltaV_Speed
-		Binesh.AddToHTML("q = <span>"..W_out.."/".._DeltaV_Speed.."</span> &#8658; q = "..q.."C")
+		Binesh.AddToHTML("q = <span>"..W_out.."/".._DeltaV_Speed.."</span> &#8658; q = "..q.." C")
 		
 		Web.Refresh("Web1");
 			
