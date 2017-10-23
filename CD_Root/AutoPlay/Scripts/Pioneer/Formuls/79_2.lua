@@ -23,19 +23,19 @@ end
 
 if _DeltaP == nil and _DeltaPa == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ›‘«—")
-	if UnknownNamePersian == -1 and ListBox.FindItem("unknowns", UnknownNamePersian, LB_BYDATA, "DeltaP") == -1 then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", " €ÌÌ— ›‘«—", "DeltaP");
 	end
 end
 if _P1 == nil and _Pa1 == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ›‘«—")
-	if UnknownNamePersian == -1 and ListBox.FindItem("unknowns", UnknownNamePersian, LB_BYDATA, "P1") == -1 then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", "«Ê·Ì‰ ›‘«—", "P1");
 	end
 end
 if _P2 == nil and _Pa2 == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ›‘«—")
-	if UnknownNamePersian == -1 and ListBox.FindItem("unknowns", UnknownNamePersian, LB_BYDATA, "P2") == -1 then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", "œÊ„Ì‰ ›‘«—", "P2");
 	end
 end
@@ -53,19 +53,19 @@ end
 
 if _DeltaPa ~= nil then
 	_DeltaP = _DeltaPa*10^5
-	Binesh.AddToHTML("DeltaP<sub>Pascal</sub> = ".._DeltaPa.."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = ".._DeltaP.."Pa")
+	Binesh.AddToHTML("DeltaP<sub>Pascal</sub> = ".._DeltaPa.."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = ".._DeltaP.." Pa")
 	Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 end
 
 if _Pa1 ~= nil then
 	_P1 = _Pa1*10^5
-	Binesh.AddToHTML("P<sub>Pascal</sub> = ".._Pa1.."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = ".._P1.."Pa")
+	Binesh.AddToHTML("P<sub>Pascal</sub> = ".._Pa1.."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = ".._P1.." Pa")
 	Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 end
 
 if _Pa2 ~= nil then
 	_P2 = _Pa2*10^5
-	Binesh.AddToHTML("P<sub>Pascal</sub> = ".._Pa2.."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = ".._P2.."Pa")
+	Binesh.AddToHTML("P<sub>Pascal</sub> = ".._Pa2.."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = ".._P2.." Pa")
 	Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 end
 
@@ -74,7 +74,7 @@ if FindDeltaP ~= -1 and ListBox.GetItemData("unknowns", FindDeltaP) == "DeltaP" 
 	if _P1 ~= nil and _P2 ~= nil then
 		Binesh.CreateHTMLFile("DeltaP = P<sub>2</sub>-P<sub>1</sub>")
 		_DeltaP = _P2 - _P1
-		Binesh.AddToHTML("DeltaP = ".._P2.."-".._P1.." &#8658; DeltaP = ".._DeltaP.."Pa")
+		Binesh.AddToHTML("DeltaP = ".._P2.."-".._P1.." &#8658; DeltaP = ".._DeltaP.." Pa")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -88,7 +88,7 @@ elseif FindP1 ~= -1 and ListBox.GetItemData("unknowns", FindP1) == "P1" then
 	if _DeltaP ~= nil and _P2 ~= nil then
 		Binesh.CreateHTMLFile("DeltaP = P<sub>2</sub>-P<sub>1</sub>", "P<sub>1</sub> = P<sub>2</sub>-DeltaP")
 		_P1 = _P2-_DeltaP
-		Binesh.AddToHTML("P<sub>1</sub> = ".._P2.."-".._DeltaP.." &#8658; P<sub>1</sub> = ".._P1.."Pa")
+		Binesh.AddToHTML("P<sub>1</sub> = ".._P2.."-".._DeltaP.." &#8658; P<sub>1</sub> = ".._P1.." Pa")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -102,7 +102,7 @@ elseif FindP2 ~= -1 and ListBox.GetItemData("unknowns", FindP2) == "P2" then
 	if _DeltaP ~= nil and _P1 ~= nil then
 		Binesh.CreateHTMLFile("DeltaP = P<sub>2</sub>-P<sub>1</sub>", "P<sub>2</sub> = DeltaP+P<sub>1</sub>")
 		_P2 = _P1+_DeltaP
-		Binesh.AddToHTML("P<sub>2</sub> = ".._DeltaP.."+".._P1.." &#8658; P<sub>2</sub> = ".._P2.."Pa")
+		Binesh.AddToHTML("P<sub>2</sub> = ".._DeltaP.."+".._P1.." &#8658; P<sub>2</sub> = ".._P2.." Pa")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -117,9 +117,9 @@ end
 
 if FindQ ~= -1 and ListBox.GetItemData("unknowns", FindQ) == "Q" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1 then
 	if CV ~= nil and V ~= nil and _DeltaP ~= nil then
-		Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>*V*DeltaP")
+		Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>VDeltaP")
 		Q = (CV/Zarib.R)*V*_DeltaP
-		Binesh.AddToHTML("Q = <span>"..CV.."/"..Zarib.R.."</span>*"..V.."*".._DeltaP.." &#8658; Q = "..Q.."J")
+		Binesh.AddToHTML("Q = <span>"..CV.."/"..Zarib.R.."</span>*"..V.."*".._DeltaP.." &#8658; Q = "..Q.." J")
 		
 		Web.Refresh("Web1");
 
@@ -131,9 +131,9 @@ if FindQ ~= -1 and ListBox.GetItemData("unknowns", FindQ) == "Q" and ListBox.Fin
 	end
 elseif FindCV ~= -1 and ListBox.GetItemData("unknowns", FindCV) == "CV" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "CV") ~= -1 then
 	if Q ~= nil and V ~= nil and _DeltaP ~= nil then
-		Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>*V*DeltaP", "C<sub>V</sub> = <span>Q*R/V*DeltaP</span>")
+		Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>VDeltaP", "C<sub>V</sub> = <span>QR/VDeltaP</span>")
 		CV = Q*Zarib.R/V*_DeltaP
-		Binesh.AddToHTML("C<sub>V</sub> = <span>"..Q.."*"..Zarib.R.."/"..V.."*".._DeltaP.."</span> &#8658; C<sub>V</sub> = "..CV.."J/mol*K")
+		Binesh.AddToHTML("C<sub>V</sub> = <span>"..Q.."*"..Zarib.R.."/"..V.."*".._DeltaP.."</span> &#8658; C<sub>V</sub> = "..CV.." J/mol.K")
 		
 		Web.Refresh("Web1");
 			
@@ -145,9 +145,9 @@ elseif FindCV ~= -1 and ListBox.GetItemData("unknowns", FindCV) == "CV" and List
 	end
 elseif FindV ~= -1 and ListBox.GetItemData("unknowns", FindV) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then  
 	if Q ~= nil and CV ~= nil and _DeltaP ~= nil then
-		Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>*V*DeltaP", "V = <span>Q*R/C<sub>V</sub>*DeltaP</span>")
+		Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>VDeltaP", "V = <span>QR/C<sub>V</sub>DeltaP</span>")
 		V = Q*Zarib.R/CV*_DeltaP
-		Binesh.AddToHTML("V = <span>"..Q.."*"..Zarib.R.."/"..CV.."*".._DeltaP.."</span> &#8658; V = "..V.."m<sup>3</sup>")
+		Binesh.AddToHTML("V = <span>"..Q.."*"..Zarib.R.."/"..CV.."*".._DeltaP.."</span> &#8658; V = "..V.." m<sup>3</sup>")
 		
 		Web.Refresh("Web1");
 			
@@ -157,11 +157,11 @@ elseif FindV ~= -1 and ListBox.GetItemData("unknowns", FindV) == "V" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindDeltaP ~= -1 and ListBox.GetItemData("unknowns", FindDeltaP) == "DeltaP" and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaP") ~= -1  or ListBox.FindItem("Words", -1, LB_BYTEXT, "P1") ~= -1  or ListBox.FindItem("Words", -1, LB_BYTEXT, "P2") ~= -1 then 
+elseif FindDeltaP ~= -1 and ListBox.GetItemData("unknowns", FindDeltaP) == "DeltaP" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ›‘«—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaP") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P2") ~= -1) then
 	if Q ~= nil and V ~= nil and CV ~= nil then
-		Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>*V*DeltaP", "DeltaP = <span>Q*R/C<sub>V</sub>*V</span>")
+		Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>VDeltaP", "DeltaP = <span>QR/C<sub>V</sub>V</span>")
 		_DeltaP = Q*Zarib.R/CV*V
-		Binesh.AddToHTML("DeltaP = <span>"..Q.."*"..Zarib.R.."/"..CV.."*"..V.."</span> &#8658; DeltaP = ".._DeltaP.."Pa")
+		Binesh.AddToHTML("DeltaP = <span>"..Q.."*"..Zarib.R.."/"..CV.."*"..V.."</span> &#8658; DeltaP = ".._DeltaP.." Pa")
 		
 		Web.Refresh("Web1");
 			
