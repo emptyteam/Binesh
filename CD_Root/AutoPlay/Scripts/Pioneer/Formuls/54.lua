@@ -1,18 +1,18 @@
 if _DeltaK == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Ã‰»‘Ì")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'DeltaK' then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", " €ÌÌ— «‰—éÌ Ã‰»‘Ì", "DeltaK");
 	end
 end
 if _K1 == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ Ã‰»‘Ì")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'K1' then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", "«Ê·Ì‰ «‰—éÌ Ã‰»‘Ì", "K1");
 	end
 end
 if _K2 == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ Ã‰»‘Ì")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'K2' then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", "œÊ„Ì‰ «‰—éÌ Ã‰»‘Ì", "K2");
 	end
 end
@@ -20,19 +20,19 @@ end
 _DeltaU, _U1, _U2 = Binesh.Genesis("«‰—éÌ Å «‰”Ì·", "U", "", "", 1, "J", "éÊ·", true);
 if _DeltaU == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'DeltaU' then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", " €ÌÌ— «‰—éÌ Å «‰”Ì·", "DeltaU");
 	end
 end
 if _U1 == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ Å «‰”Ì·")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'U1' then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", "«Ê·Ì‰ «‰—éÌ Å «‰”Ì·", "U1");
 	end
 end
 if _U2 == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ Å «‰”Ì·")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'U2' then
+	if UnknownNamePersian == -1 then
 		ListBox.AddItem("unknowns", "œÊ„Ì‰ «‰—éÌ Å «‰”Ì·", "U2");
 	end
 end
@@ -51,7 +51,7 @@ if FindDeltaK ~= -1 and ListBox.GetItemData("unknowns", FindDeltaK) == "DeltaK" 
 	if _K1 ~= nil and _K2 ~= nil then
 		Binesh.CreateHTMLFile("DeltaK = K<sub>2</sub>-K<sub>1</sub>")
 		_DeltaK = _K2 - _K1
-		Binesh.AddToHTML("DeltaK = ".._K2.."-".._K1.." &#8658; DeltaK = ".._DeltaK.."J")
+		Binesh.AddToHTML("DeltaK = ".._K2.."-".._K1.." &#8658; DeltaK = ".._DeltaK.." J")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -65,7 +65,7 @@ elseif FindK1 ~= -1 and ListBox.GetItemData("unknowns", FindK1) == "K1" then
 	if _DeltaK ~= nil and _K2 ~= nil then
 		Binesh.CreateHTMLFile("DeltaK = K<sub>2</sub>-K<sub>1</sub>", "K<sub>1</sub> = K<sub>2</sub>-DeltaK")
 		_K1 = _K2-_DeltaK
-		Binesh.AddToHTML("K<sub>1</sub> = ".._K2.."-".._DeltaK.." &#8658; K<sub>1</sub> = ".._K1.."J")
+		Binesh.AddToHTML("K<sub>1</sub> = ".._K2.."-".._DeltaK.." &#8658; K<sub>1</sub> = ".._K1.." J")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -79,7 +79,7 @@ elseif FindK2 ~= -1 and ListBox.GetItemData("unknowns", FindK2) == "K2" then
 	if _DeltaK ~= nil and _K1 ~= nil then
 		Binesh.CreateHTMLFile("DeltaK = K<sub>2</sub>-K<sub>1</sub>", "K<sub>2</sub> = DeltaK+K<sub>1</sub>")
 		_K2 = _K1+_DeltaK
-		Binesh.AddToHTML("K<sub>2</sub> = ".._DeltaK.."+".._K1.." &#8658; K<sub>2</sub> = ".._K2.."J")
+		Binesh.AddToHTML("K<sub>2</sub> = ".._DeltaK.."+".._K1.." &#8658; K<sub>2</sub> = ".._K2.." J")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -95,7 +95,7 @@ if FindDeltaU ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU) == "DeltaU" 
 	if _U1 ~= nil and _U2 ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>")
 		_DeltaU = _U2 - _U1
-		Binesh.AddToHTML("DeltaU = ".._U2.."-".._U1.." &#8658; DeltaU = ".._DeltaU.."J")
+		Binesh.AddToHTML("DeltaU = ".._U2.."-".._U1.." &#8658; DeltaU = ".._DeltaU.." J")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -109,7 +109,7 @@ elseif FindU1 ~= -1 and ListBox.GetItemData("unknowns", FindU1) == "U1" then
 	if _DeltaU ~= nil and _U2 ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>", "U<sub>1</sub> = U<sub>2</sub>-DeltaU")
 		_U1 = _U2-_DeltaU
-		Binesh.AddToHTML("U<sub>1</sub> = ".._U2.."-".._DeltaU.." &#8658; U<sub>1</sub> = ".._U1.."J")
+		Binesh.AddToHTML("U<sub>1</sub> = ".._U2.."-".._DeltaU.." &#8658; U<sub>1</sub> = ".._U1.." J")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -123,7 +123,7 @@ elseif FindU2 ~= -1 and ListBox.GetItemData("unknowns", FindU2) == "U2" then
 	if _DeltaU ~= nil and _U1 ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>", "U<sub>2</sub> = DeltaU+U<sub>1</sub>")
 		_U2 = _U1+_DeltaU
-		Binesh.AddToHTML("U<sub>2</sub> = ".._DeltaU.."+".._U1.." &#8658; U<sub>2</sub> = ".._U2.."J")
+		Binesh.AddToHTML("U<sub>2</sub> = ".._DeltaU.."+".._U1.." &#8658; U<sub>2</sub> = ".._U2.." J")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
 			
@@ -136,12 +136,12 @@ elseif FindU2 ~= -1 and ListBox.GetItemData("unknowns", FindU2) == "U2" then
 end
 --------------------------END {DELTA}-------------------------
 
-if FindDeltaK ~= -1 and ListBox.GetItemData("unknowns", FindDeltaK) == "K" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ œ—Ê‰Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaK") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K1") ~= -1 then
+if FindDeltaK ~= -1 and ListBox.GetItemData("unknowns", FindDeltaK) == "K" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Ã‰»‘Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ Ã‰»‘Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ Ã‰»‘Ì") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaK") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K2") ~= -1) then
 	if DeltaU ~= nil then
 		Binesh.CreateHTMLFile("DeltaK = -DeltaU")
 		DeltaK = -DeltaU
 		
-		Binesh.AddToHTML("DeltaK = -"..DeltaU.."J")
+		Binesh.AddToHTML("DeltaK = -"..DeltaU.." J")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Ã‰»‘Ì");
@@ -150,12 +150,12 @@ if FindDeltaK ~= -1 and ListBox.GetItemData("unknowns", FindDeltaK) == "K" and L
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindDeltaU ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU) == "K" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaK") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K1") ~= -1 then
+elseif FindDeltaU ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU) == "U" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ Å «‰”Ì·") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U2") ~= -1) then
 	if DeltaK ~= nil then
 		Binesh.CreateHTMLFile("DeltaK = -DeltaU", "DeltaU = -DeltaK")
 		DeltaU = -DeltaK
 		
-		Binesh.AddToHTML("DeltaU = -"..DeltaU.."J")
+		Binesh.AddToHTML("DeltaU = -"..DeltaU.." J")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·");
