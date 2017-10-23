@@ -1,12 +1,12 @@
 function Binesh.TrimString(sInput)
 	if sInput ~= "" then
-		sInput = tostring(sInput);
+		result = tostring(sInput);
 		
-		result = String.Replace(sInput, " ⁄œ«œ„Ê·", " ⁄œ«œ „Ê·", false);
+		result = String.Replace(result, " ⁄œ«œ„Ê·", " ⁄œ«œ „Ê·", false);
 		
-		result = String.Replace(sInput, "Å—Ê Ê‰Ì", "Å—Ê Ê‰", false);
-		result = String.Replace(sInput, "«·ò —Ê‰Ì", "«·ò —Ê‰", false);
-		result = String.Replace(sInput, "‰Ê —Ê‰Ì", "‰Ê —Ê‰", false);
+		result = String.Replace(result, "Å—Ê Ê‰Ì", "Å—Ê Ê‰", false);
+		result = String.Replace(result, "«·ò —Ê‰Ì", "«·ò —Ê‰", false);
+		result = String.Replace(result, "‰Ê —Ê‰Ì", "‰Ê —Ê‰", false);
 		
 		result = String.Replace(result, "„ —„ò⁄»", "„ — „ò⁄»", false);
 		result = String.Replace(result, "»Â „ — „ò⁄»", "»— „ — „ò⁄»", false);
@@ -29,6 +29,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, " _ ", "_", false);
 		result = String.Replace(result, "_ ", "_", false);
 		result = String.Replace(result, " _", "_", false);
+		result = String.Replace(result, " €Ì—", " €ÌÌ—", false);
 		result = String.Replace(result, " ’ÊÌ—‘", " ’ÊÌ—", false);
 		result = String.Replace(result, "„”«Õ Ì", "„”«Õ ", false);
 		result = String.Replace(result, "Ã”„Ì", "Ã”„", false);
@@ -77,6 +78,23 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "Ã—Ì«‰Ì", "Ã—Ì«‰", false);
 		result = String.Replace(result, "„œ ", "“„«‰", false);
 		result = String.Replace(result, "«‰—éÌ «·ò —ÌòÌ „’—›Ì", "«‰—éÌ „’—›Ì", false);
+		result = String.Replace(result, "‰Ì—ÊÌÌ", "‰Ì—Ê", false);
+		result = String.Replace(result, "»«“œÂ „«‘Ì‰ ò«—‰Ê", "»«“œÂ ò«—‰Ê", false);
+		result = String.Replace(result, "”—⁄ ‘", "”—⁄ ", false);
+		
+		-- For Delta:
+		for indexDelta = 1, Table.Count(tbl.Delta.Words) do
+			result = String.Replace(result, tbl.Delta.Words[indexDelta], " €ÌÌ—", false);
+		end
+		for indexFirst = 1, Table.Count(tbl.Delta.First) do
+			result = String.Replace(result, tbl.Delta.First[indexFirst], "«Ê·Ì‰", false);
+		end
+		for indexSecond = 1, Table.Count(tbl.Delta.Second) do
+			result = String.Replace(result, tbl.Delta.Second[indexSecond], "œÊ„Ì‰", false);
+		end
+		result = String.Replace(result, "«Ê·Ì‰Ì‰", "«Ê·Ì‰", false);
+		result = String.Replace(result, "œÊ„Ì‰Ì‰", "œÊ„Ì‰", false);
+		
 		result = String.Replace(result, "bar", "Bar", false);
 		result = String.Replace(result, "bar", "Bar", false);
 		result = String.Replace(result, "atmosfer", "atm", false);
@@ -84,6 +102,20 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "minute", "min", false);
 		result = String.Replace(result, "minutes", "min", false);
 		
+		result = String.Replace(result, "?", "", false);
+		result = String.Replace(result, "ø", "", false);
+		result = String.Replace(result, "°", "", false);
+		result = String.Replace(result, ",", "", false);
+		result = String.Replace(result, ":", "", false);
+		result = String.Replace(result, "&", "", false);
+		result = String.Replace(result, "$", "", false);
+		result = String.Replace(result, "#", "", false);
+		result = String.Replace(result, "@", "", false);
+		result = String.Replace(result, "~", "", false);
+		
+		result = String.Replace(result, "m", " m", false);
+		result = String.Replace(result, "m/s", " m/s", false);
+		result = String.Replace(result, "m/s^2", " m/s^2", false);
 		result = String.Replace(result, "J", " J", false);
 		result = String.Replace(result, "j", " J", true);
 		result = String.Replace(result, "m^3", " m^3", true);
@@ -108,6 +140,6 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "Sqrt", "Sqrt ", false);
 		
 		result = String.Replace(result, "  ", " ", false);
-		return result
+		return result;
 	end
 end
