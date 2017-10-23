@@ -1,4 +1,6 @@
 Binesh.Join('ַהׁם ּהָװם');
+Binesh.Join('ֿדַ דהָÚ ׁד');
+Binesh.Join('ֿדַ דהָÚ ׃ֿׁ');
 Binesh.Join('דÊׁ ָׁ ַֻהםו');
 Binesh.Join('דÊׁ ָׁ ׃ַÚÊ');
 Binesh.Join('דַםב ָׁ ַֻהםו');
