@@ -31,13 +31,13 @@ if Teta_Radian ~= nil then
 	Binesh.AddToHTML("D<sub>Teta</sub> = <span>"..Teta_Radian.."*180/"..Zarib.Pi.."</span> &#8658; D<sub>Teta</sub> = "..Teta.."<sup>o</sup>")
 end
 
-if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«— ›«⁄") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "h") ~= -1 then
+if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
 	if F ~= nil and d ~= nil and Teta ~= nil then
-		Binesh.CreateHTMLFile("W<sub>F</sub> = F*d*cosTeta")
+		Binesh.CreateHTMLFile("W<sub>F</sub> = FdcosTeta")
 		
 		W = F*d*Math.Cos(Math.Rad(Teta))
 		
-		Binesh.AddToHTML("W<sub>F</sub> = "..F.."*"..d.."*cos"..Teta.." &#8658; W<sub>F</sub> = "..W.."J")
+		Binesh.AddToHTML("W<sub>F</sub> = "..F.."*"..d.."*cos"..Teta.." &#8658; W<sub>F</sub> = "..W.." J")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«—");
@@ -48,11 +48,11 @@ if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.Fin
 	end
 elseif FindF ~= -1 and ListBox.GetItemData("unknowns", FindF) == "F" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1 then
 	if W ~= nil and d ~= nil and Teta ~= nil then
-		Binesh.CreateHTMLFile("W<sub>F</sub> = F*d*cosTeta", "F = <span>W<sub>F</sub>/d*cosTeta</span>")
+		Binesh.CreateHTMLFile("W<sub>F</sub> = FdcosTeta", "F = <span>W<sub>F</sub>/dcosTeta</span>")
 		
 		F = W/d*Math.Cos(Math.Rad(Teta))
 		
-		Binesh.AddToHTML("F = <span>"..W.."/"..d.."*cos"..Teta.."</span> &#8658; F = "..F.."N")
+		Binesh.AddToHTML("F = <span>"..W.."/"..d.."*cos"..Teta.."</span> &#8658; F = "..F.." N")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê");
@@ -64,9 +64,10 @@ elseif FindF ~= -1 and ListBox.GetItemData("unknowns", FindF) == "F" and ListBox
 elseif Findd ~= -1 and ListBox.GetItemData("unknowns", Findd) == "d" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then
 	if W ~= nil and F ~= nil and Teta ~= nil then
 		Binesh.CreateHTMLFile("W<sub>F</sub> = F*d*cosTeta", "d = <span>W<sub>F</sub>/F*cosTeta</span>")
+		
 		d = W/F*Math.Cos(Math.Rad(Teta))
 		
-		Binesh.AddToHTML("d = <span>"..W.."/"..F.."*cos"..Teta.."</span> &#8658; d = "..d.."m")
+		Binesh.AddToHTML("d = <span>"..W.."/"..F.."*cos"..Teta.."</span> &#8658; d = "..d.." m")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ");
@@ -77,11 +78,12 @@ elseif Findd ~= -1 and ListBox.GetItemData("unknowns", Findd) == "d" and ListBox
 	end
 elseif FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
 	if W ~= nil and d ~= nil and F ~= nil then
-		Binesh.CreateHTMLFile("W<sub>F</sub> = F*d*cosTeta", "cosTeta = W<sub>F</sub>/d*F")
+		Binesh.CreateHTMLFile("W<sub>F</sub> = FdcosTeta", "cosTeta = W<sub>F</sub>/dF")
 		
 		CosTeta = Math.Cos(W/d*F)
+		Teta = Math.Acos(CosTeta)
 		
-		Binesh.AddToHTML("cosTeta = "..W.."/"..d.."*"..F.." &#8658; cosTeta = "..CosTeta.." &#8658; Teta = "..Math.Acos(CosTeta).."<sup>o</sup>")
+		Binesh.AddToHTML("cosTeta = "..W.."/"..d.."*"..F.." &#8658; cosTeta = "..CosTeta.." &#8658; Teta = "..Teta.."<sup>o</sup>")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ");
