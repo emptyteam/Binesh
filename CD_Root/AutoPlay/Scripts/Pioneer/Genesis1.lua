@@ -82,11 +82,38 @@ function Binesh.Genesis1(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, U
 				return Number
 			end
 		else -- isDelta
-			Binesh.PreparationDelta(NamePersian)
+			Binesh.Join(' €ÌÌ— '..NamePersian);
+			Binesh.Join('«Ê·Ì‰ '..NamePersian);
+			Binesh.Join('œÊ„Ì‰ '..NamePersian);
+			
+			Binesh.Join(NamePersian..'  €ÌÌ—');
+			Binesh.Join(NamePersian..' «Ê·Ì‰');
+			Binesh.Join(NamePersian..' œÊ„Ì‰');
 			
 			FindDelta = ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— "..NamePersian);
 			FindFirst = ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ "..NamePersian);
 			FindSecond = ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ "..NamePersian);
+			
+			if FindDelta == -1 then
+				FindDelta = ListBox.FindItem("Words", -1, LB_BYTEXT, NamePersian.."  €ÌÌ—");
+				if FindDelta ~= -1 then
+					ListBox.SetItemText("Words", FindDelta, " €ÌÌ— "..NamePersian);
+				end
+			end
+			
+			if FindFirst == -1 then
+				FindFirst = ListBox.FindItem("Words", -1, LB_BYTEXT, NamePersian.."  €ÌÌ—");
+				if FindFirst ~= -1 then
+					ListBox.SetItemText("Words", FindFirst, "«Ê·Ì‰ "..NamePersian);
+				end
+			end
+			
+			if FindSecond == -1 then
+				FindSecond = ListBox.FindItem("Words", -1, LB_BYTEXT, NamePersian.."  €ÌÌ—");
+				if FindSecond ~= -1 then
+					ListBox.SetItemText("Words", FindSecond, "œÊ„Ì‰ "..NamePersian);
+				end
+			end
 			
 			Binesh.Join(UnitPersian);
 			Binesh.Join(UnitPersian);
