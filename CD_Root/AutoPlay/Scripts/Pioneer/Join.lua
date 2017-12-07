@@ -7,14 +7,19 @@
 ]]
 
 function Binesh.Join(sSplit)
+	indexFirstWord = -1
 	WordsToSplit = AMS.DelimitedStringToTable(sSplit, " ");
 	if WordsToSplit ~= nil then
 		CountWordsToSplit = Table.Count(WordsToSplit);
 		if CountWordsToSplit ~= 0 then
-			indexFirstWord = ListBox.FindItem("Words", -1, LB_BYTEXT, WordsToSplit[1]);
+			for i = 1, ListBox.GetCount("Words") do
+				if ListBox.GetItemText("Words", i) == WordsToSplit[1] and ListBox.GetItemText("Words", i+1) == WordsToSplit[2] then
+					indexFirstWord = i
+					break
+				end
+			end
 			if indexFirstWord ~= -1 then
 				if CountWordsToSplit == 2 then
-				
 					if ListBox.GetItemText("Words", indexFirstWord+1) == WordsToSplit[2] then
 						ListBox.DeleteItem("Words", indexFirstWord+1);
 						ListBox.SetItemText("Words", indexFirstWord, WordsToSplit[1].." "..WordsToSplit[2]);

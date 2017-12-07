@@ -70,9 +70,9 @@ function Binesh.CreateHTMLFile(SourceFormule, ConvertFormule, WhatFile)
 	SourceFormule = Binesh.ConvertToHTML(SourceFormule, WhatFile);
 	ConvertFormule = Binesh.ConvertToHTML(ConvertFormule, WhatFile);
 	if ConvertFormule ~= SourceFormule then
-		TextFile.WriteFromString(_SourceFolder.."\\"..WhatFile..".html", SourceFormule.." &#8658; "..ConvertFormule.." &#8658; ", true);
+		TextFile.WriteFromString(_SourceFolder.."\\"..WhatFile..".html", "<br>"..SourceFormule.." &#8658; "..ConvertFormule.." &#8658; ", true);
 	else
-		TextFile.WriteFromString(_SourceFolder.."\\"..WhatFile..".html", SourceFormule.." &#8658; ", true);
+		TextFile.WriteFromString(_SourceFolder.."\\"..WhatFile..".html", "<br>"..SourceFormule.." &#8658; ", true);
 	end
 end
 

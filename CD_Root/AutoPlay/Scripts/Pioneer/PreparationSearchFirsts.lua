@@ -30,11 +30,6 @@ function Binesh.PreparationSearchFirsts(NamePersian, Symbol, SearchFirst1, Searc
 					ListBox.SetItemText("Words", SearchFirst2, SearchFirst1.." "..FindText.." "..SearchFirst2);
 					return SearchFirst1.." "..FindText.." "..SearchFirst2
 				end
-				if FindSearchFirst1 > Find or FindSearchFirst1 > FindSearch2 then
-					FindSearchFirst1 = FindSearchFirst1 - 1
-				end
-			elseif FindSearchFirst2 == -1 and SearchFirst2 ~= "" then
-				Error("”Ê«· „‘ò· œ«—œ.")
 			end
 		end
 	end -- FindNamePersian or Symbol

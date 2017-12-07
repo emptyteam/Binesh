@@ -11,7 +11,6 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ãÊÑã˜ÚÈ", "ãÊÑ ã˜ÚÈ", false);
 		result = String.Replace(result, "Èå ãÊÑ ã˜ÚÈ", "ÈÑ ãÊÑ ã˜ÚÈ", false);
 		result = String.Replace(result, "ÎæÏ ÇáŞÇíí", "ÎæÏÇáŞÇíí", false)
-		result = String.Replace(result, "í", "í", false)
 		
 		result = String.Replace(result, "í˜æ", " í˜æ ", false);
 		result = String.Replace(result, "äÇäæ", " äÇäæ ", false);
@@ -29,6 +28,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, " _ ", "_", false);
 		result = String.Replace(result, "_ ", "_", false);
 		result = String.Replace(result, " _", "_", false);
+		result = String.Replace(result, "ÙÑİíÊ ÑãÇíí", "ÙÑİíÊ ÑãÇ", false);
 		result = String.Replace(result, "ÊÛíÑ", "ÊÛííÑ", false);
 		result = String.Replace(result, "ÊÕæíÑÔ", "ÊÕæíÑ", false);
 		result = String.Replace(result, "ãÓÇÍÊí", "ãÓÇÍÊ", false);
@@ -55,10 +55,12 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÈÑÇíäÏÔ", "ÈÑÇíäÏ", false);
 		result = String.Replace(result, "ÑÇäí", "ÑÇäÔ", false);
 		result = String.Replace(result, "ÚãŞ", "ÇÑÊİÇÚ", false);
+		result = String.Replace(result, "ÚãŞí", "ÇÑÊİÇÚ", false);
+		result = String.Replace(result, "ÇÑÊİÇÚí", "ÇÑÊİÇÚ", false);
 		result = String.Replace(result, "ãÌĞæÑ ãÓÇÍÊ", "ãÊÑ ã˜ÚÈ", false);
 		result = String.Replace(result, "ÈÒÑäãÇíí", "ÈÒÑ äãÇíí", false);
-		result = String.Replace(result, "ÓÇäÊí ÑÇÏ", "ÓáÓíæÓ", false);
 		result = String.Replace(result, "ÓÇäÊíÑÇÏ", "ÓáÓíæÓ", false);
+		result = String.Replace(result, "ÓÇäÊí ÑÇÏ", "ÓáÓíæÓ", false);
 		result = String.Replace(result, "ÏÑÌå ÓáÓíæÓ", "ÓáÓíæÓ", false);
 		result = String.Replace(result, "ÏÑÌå ˜áæíä", "˜áæíä", false);
 		result = String.Replace(result, "ÑãÇ ÇÊáÇİí", "ãäÈÚ ÓÑÏ", false);
@@ -81,16 +83,29 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "äíÑæíí", "äíÑæ", false);
 		result = String.Replace(result, "ÈÇÒÏå ãÇÔíä ˜ÇÑäæ", "ÈÇÒÏå ˜ÇÑäæ", false);
 		result = String.Replace(result, "ÓÑÚÊÔ", "ÓÑÚÊ", false);
+		result = String.Replace(result, "Ñãí", "Ñã", false);
+		result = String.Replace(result, "æáÊí", "æáÊ", false);
+		result = String.Replace(result, "ãí ÇíÓÊÏ", "ÇíÓÊÇÏä", false);
+		result = String.Replace(result, "˜íáæíí", "˜íáæ Ñã", false);
+		result = String.Replace(result, "ãÊÑí", "ãÊÑ", false);
+		
+		result = String.Replace(result, "f s", "fs,max", false);
+		result = String.Replace(result, "fs ,max", "fs,max", false);
+		result = String.Replace(result, "fs , max", "fs,max", false);
+		result = String.Replace(result, "fs, max", "fs,max", false);
+		result = String.Replace(result, "Mu s", "Mus", false);
+		result = String.Replace(result, "f k", "fk", false);
+		result = String.Replace(result, "Mu k", "Muk", false);
 		
 		-- For Delta:
 		for indexDelta = 1, Table.Count(tbl.Delta.Words) do
-			result = String.Replace(result, tbl.Delta.Words[indexDelta], "ÊÛííÑ", false);
+			result = String.Replace(result, tbl.Delta.Words[indexDelta], " ÊÛííÑ ", false);
 		end
 		for indexFirst = 1, Table.Count(tbl.Delta.First) do
-			result = String.Replace(result, tbl.Delta.First[indexFirst], "Çæáíä", false);
+			result = String.Replace(result, tbl.Delta.First[indexFirst], " Çæáíä ", false);
 		end
 		for indexSecond = 1, Table.Count(tbl.Delta.Second) do
-			result = String.Replace(result, tbl.Delta.Second[indexSecond], "Ïæãíä", false);
+			result = String.Replace(result, tbl.Delta.Second[indexSecond], " Ïæãíä ", false);
 		end
 		result = String.Replace(result, "Çæáíäíä", "Çæáíä", false);
 		result = String.Replace(result, "Ïæãíäíä", "Ïæãíä", false);

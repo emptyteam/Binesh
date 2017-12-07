@@ -31,27 +31,31 @@ function Binesh.Genesis1(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, U
 						text = ListBox.GetItemText("Words", index+1);
 						
 						if String.Find(text, Unit, 1, true) ~= -1 or String.Find(text, UnitPersian, 1, false) ~= -1 then
-							Number = Number/PreValue
-
-							ListBox.DeleteItem("Words", index+1); -- Delete Unit
-							ListBox.DeleteItem("Words", index); -- Delete Number
-							ListBox.DeleteItem("Words", Find); -- Delete NamePersian or Symbol
-							
-							return Number
+							if String.Length(text) == String.Length(Unit) or String.Length(text) == String.Length(UnitPersian) then
+								Number = Number/PreValue
+	
+								ListBox.DeleteItem("Words", index+1); -- Delete Unit
+								ListBox.DeleteItem("Words", index); -- Delete Number
+								ListBox.DeleteItem("Words", Find); -- Delete NamePersian or Symbol
+								
+								return Number
+							end
 						end -- Find Unit
 						
 						for indexPre = 1, Table.Count(Pres.Value) do
 							if String.Find(text, Pres.Symbol[indexPre], 1, true) ~= -1 or String.Find(text, Pres.NameFA[indexPre], 1, false) ~= -1 then
 								textUnit = ListBox.GetItemText("Words", index+2);
-								if String.Find(textUnit, Unit, 1, true) ~= -1 or String.Find(textUnit, UnitPersian, 1, false) ~= -1 then
-									Number = (Number*Pres.Value[indexPre])/PreValue
-									
-									ListBox.DeleteItem("Words", index+2); -- Delete Unit
-									ListBox.DeleteItem("Words", index+1); -- Delete Pre
-									ListBox.DeleteItem("Words", index); -- Delete Number
-									ListBox.DeleteItem("Words", Find); -- Delete NamePersian or Symbol
-									
-									return Number
+								if (String.Length(textUnit) == String.Length(Unit) and String.Find(textUnit, Unit, 1, true) ~= -1) or (String.Find(textUnit, UnitPersian, 1, false) ~= -1 and String.Length(textUnit) == String.Length(UnitPersian)) then
+									if String.Length(textUnit) == String.Length(Unit) or String.Length(textUnit) == String.Length(UnitPersian) then
+										Number = (Number*Pres.Value[indexPre])/PreValue
+										
+										ListBox.DeleteItem("Words", index+2); -- Delete Unit
+										ListBox.DeleteItem("Words", index+1); -- Delete Pre
+										ListBox.DeleteItem("Words", index); -- Delete Number
+										ListBox.DeleteItem("Words", Find); -- Delete NamePersian or Symbol
+										
+										return Number
+									end
 								end -- Find Unit
 							end -- Find Pre
 						end -- for Pre
@@ -102,14 +106,14 @@ function Binesh.Genesis1(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, U
 			end
 			
 			if FindFirst == -1 then
-				FindFirst = ListBox.FindItem("Words", -1, LB_BYTEXT, NamePersian.."  €ÌÌ—");
+				FindFirst = ListBox.FindItem("Words", -1, LB_BYTEXT, NamePersian.." «Ê·Ì‰");
 				if FindFirst ~= -1 then
 					ListBox.SetItemText("Words", FindFirst, "«Ê·Ì‰ "..NamePersian);
 				end
 			end
 			
 			if FindSecond == -1 then
-				FindSecond = ListBox.FindItem("Words", -1, LB_BYTEXT, NamePersian.."  €ÌÌ—");
+				FindSecond = ListBox.FindItem("Words", -1, LB_BYTEXT, NamePersian.." œÊ„Ì‰");
 				if FindSecond ~= -1 then
 					ListBox.SetItemText("Words", FindSecond, "œÊ„Ì‰ "..NamePersian);
 				end

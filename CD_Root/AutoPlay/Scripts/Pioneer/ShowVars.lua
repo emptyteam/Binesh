@@ -290,10 +290,6 @@ if q2 ~= nil then
 	Binesh.AddToHTML("q<sub>2</sub>: "..q2.." C", "V")
 end
 
-if E_Electric ~= nil then
-	Binesh.AddToHTML("E: "..E_Electric.." C/m<sup>2</sup>", "V")
-end
-
 if q0 ~= nil then
 	Binesh.AddToHTML("q<sub>0</sub>: "..q0.." C", "V")
 end
@@ -355,23 +351,23 @@ if _Deltax ~= nil then
 end
 
 if _x1 ~= nil then
-	Binesh.AddToHTML("x1: ".._x1.." m", "V")
+	Binesh.AddToHTML("x<sub>1</sub>: ".._x1.." m", "V")
 end
 
 if _x2 ~= nil then
-	Binesh.AddToHTML("x2: ".._x2.." m", "V")
+	Binesh.AddToHTML("x<sub>2</sub>: ".._x2.." m", "V")
 end
 
 if _Deltat ~= nil then
-	Binesh.AddToHTML("_Deltat: ".._Deltat.." m", "V")
+	Binesh.AddToHTML("Deltat: ".._Deltat.." s", "V")
 end
 
 if _t1 ~= nil then
-	Binesh.AddToHTML("t1: ".._t1.." m", "V")
+	Binesh.AddToHTML("t<sub>1</sub>: ".._t1.." s", "V")
 end
 
 if _t2 ~= nil then
-	Binesh.AddToHTML("t2: ".._t2.." m", "V")
+	Binesh.AddToHTML("t<sub>2</sub>: ".._t2.." s", "V")
 end
 
 if F ~= nil then
@@ -411,15 +407,15 @@ if E_53 ~= nil then
 end
 
 if _DeltaK ~= nil then
-	Binesh.AddToHTML("DeltaK: ".._DeltaK.." ", "V")
+	Binesh.AddToHTML("DeltaK: ".._DeltaK, "V")
 end
 
 if _K1 ~= nil then
-	Binesh.AddToHTML("K1: ".._K1.." ", "V")
+	Binesh.AddToHTML("K1: ".._K1, "V")
 end
 
 if _K2 ~= nil then
-	Binesh.AddToHTML("K2: ".._K2.." ", "V")
+	Binesh.AddToHTML("K2: ".._K2, "V")
 end
 
 if R_Output ~= nil then
@@ -592,4 +588,8 @@ end
 
 if L2 ~= nil then
 	Binesh.AddToHTML("L<sub>2</sub>: "..L2.." m", "V")
+end
+
+if E_Electric ~= nil then
+	Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
 end
