@@ -75,12 +75,12 @@ NIL = nil
 tbl = {}
 tbl.Delta = {}
 
-tbl.Delta.Words = {"ÊÛííÑ", "ÊÈÇÏá", "ÊİÇæÊ", "ÇÎÊáÇİ", "ÏáÊÇ"}
-tbl.Delta.First = {"ÔÑæÚ", "ÂÛÇÒíä", "Çæá", "Çæáíå", "ÇÈÊÏÇ", "ÂÛÇÒ", "ÇÒ", "Çæáíä"}
-tbl.Delta.Second = {"ÊÇ", "ËÇäæíå", "ÇíÇä", "Ïæã", "ÓÓ", "ÈÚÏ", "äåÇíÊ", "Ïæãíä"}
+tbl.Delta.Words = {" ÊÛííÑ ", " ÊÈÇÏá ", " ÊİÇæÊ ", " ÇÎÊáÇİ ", " ÏáÊÇ "}
+tbl.Delta.First = {" ÔÑæÚ ", " ÂÛÇÒíä ", " Çæá ", " Çæáíå ", " ÇÈÊÏÇ ", " ÂÛÇÒ ", " Çæáíä "} -- ÇÒ ¡ 
+tbl.Delta.Second = {" Èå ", " ËÇäæíå ", " ÇíÇä ", " Ïæã ", " ÈÚÏ ", " äåÇíÊ ", " Ïæãíä ", " äåÇíí "}
 
-tbl.Start = {"ÔÑæÚ", "ÂÛÇÒíä", "Çæá", "Çæáíå", "ÇÈÊÏÇ", "ÂÛÇÒ"}
-tbl.End = {"ÇíÇä", "ÇäÊåÇ", "ËÇäæíå", "Ïæã", "ÇäÊåÇ", "ÇíÇäí", "ÂÎÑ", "äåÇíÊ", "äåÇíí"}
+tbl.Start = {" ÔÑæÚ ", " ÂÛÇÒíä ", " Çæá ", " Çæáíå ", " ÇÈÊÏÇ ", " ÂÛÇÒ "}
+tbl.End = {" ÇíÇä ", " ÇäÊåÇ ", " ËÇäæíå ", " Ïæã ", " ÇäÊåÇ ", " ÇíÇäí ", " ÂÎÑ ", " äåÇíÊ ", " äåÇíí "}
 
 --------------------------------------------- TABLES ---------------------------------------------
 
@@ -517,11 +517,6 @@ if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\TrimString.lua")
 	Binesh.Include("TrimString", false)
 end
 
--- Include FindDelta
-if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\PreparationDelta.lua") then
-	Binesh.Include("PreparationDelta", false)
-end
-
 -- Include FindSearchFirsts
 if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\PreparationSearchFirsts.lua") then
 	Binesh.Include("PreparationSearchFirsts", false)
@@ -551,18 +546,21 @@ end
 Binesh.Include("Genesis1", false);
 Binesh.Include("Genesis2", false);
 
+
 function Binesh.Genesis(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, UnitPersian, isDelta, SearchFirst1, SearchFirst2, isUnit)
 	if isDelta == false then
-		result1 = Binesh.Genesis1(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, UnitPersian, isDelta, SearchFirst1, SearchFirst2, isUnit)
-		if result1 ~= nil then
-			return result1
-		else
-			result2 = Binesh.Genesis2(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, UnitPersian, isDelta, SearchFirst1, SearchFirst2, isUnit)
-			if result2 ~= nil then
-				return result2
-			end
+		result = nil
+		
+		result = Binesh.Genesis1(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, UnitPersian, isDelta, SearchFirst1, SearchFirst2, isUnit)
+		if result == nil then
+			result = Binesh.Genesis2(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, UnitPersian, isDelta, SearchFirst1, SearchFirst2, isUnit)
 		end
+		return result
 	elseif isDelta == true then
+		return1 = nil
+		return2 = nil
+		return3 = nil
+		
 		result1, _result1, __result1 = Binesh.Genesis1(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, UnitPersian, isDelta, SearchFirst1, SearchFirst2, isUnit);
 		if result1 == nil or _result1 == nil or __result1 == nil then
 			result2, _result2, __result2 = Binesh.Genesis2(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, UnitPersian, isDelta, SearchFirst1, SearchFirst2, isUnit);
@@ -571,21 +569,21 @@ function Binesh.Genesis(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, Un
 		if result1 ~= nil then
 			return1 = result1
 		end
-		if result2 ~= nil then
+		if result2 ~= nil and return1 == nil then
 			return1 = result2
 		end
 		
 		if _result1 ~= nil then
 			return2 = _result1
 		end
-		if _result2 ~= nil then
+		if _result2 ~= nil and return2 == nil then
 			return2 = _result2
 		end
 		
 		if __result1 ~= nil then
 			return3 = __result1
 		end
-		if __result2 ~= nil then
+		if __result2 ~= nil and return3 == nil then
 			return3 = __result2
 		end
 		
@@ -618,8 +616,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>144</DesignCodeLine>
-<DesignCodeCol>43</DesignCodeCol>
+<DesignCodeLine>550</DesignCodeLine>
+<DesignCodeCol>3</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -1383,10 +1381,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -8854,8 +8852,8 @@ Page.StartTimer(1, 1);</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>2</DesignCodeLine>
-<DesignCodeCol>22</DesignCodeCol>
+<DesignCodeLine>1</DesignCodeLine>
+<DesignCodeCol>31</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9092,7 +9090,7 @@ end</Script>
 <BackgroundColor>16777215</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -9228,7 +9226,7 @@ end</Script>
 <BackgroundColor>16777215</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -9880,6 +9878,11 @@ unknownPersianindex
 if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	InputQuiz = Binesh.TrimString(InputQuiz);
 	
+	InputQuiz = String.Replace(InputQuiz, "ÓÇäÊíÑÇÏ", "ÓáÓíæÓ", false);
+	InputQuiz = String.Replace(InputQuiz, "ÓÇäÊí ÑÇÏ", "ÓáÓíæÓ", false);
+	InputQuiz = String.Replace(InputQuiz, "ÏÑÌå ÓáÓíæÓ", "ÓáÓíæÓ", false);
+	InputQuiz = String.Replace(InputQuiz, "ÏÑÌå ˜áæíä", "˜áæíä", false);
+	
 	Binesh.ClearHTMLFile("F")
 	Binesh.ClearHTMLFile("V")
 	
@@ -9895,16 +9898,113 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		Binesh.Include("Joins", false);
 	end
 	
-	
-	
 	Binesh.MathProccess()
+	
+	----------- *** -------
+	-- 5
+	n_e = Binesh.Genesis("ÊÚÏÇÏ Çá˜ÊÑæä", "n", "", "", 1, "", "", false, "", "", false);
+	if n_e == nil then
+		n_p = Binesh.Genesis("ÊÚÏÇÏ ÑæÊæä", "n", "", "", 1, "", "", false, "", "", false);
+	end
+	
+	
+	-- 16
+	i = Binesh.Genesis("ÒÇæíå ÊÇÈÔ", "i", "m", "", 1, "", "ÏÑÌå", false);
+	if i == nil then
+		i_Radian = Binesh.Genesis("ÒÇæíå ÊÇÈÔ", "i", "m", "", 1, "", "ÑÇÏíÇä", false);
+	end
+	r_Glass = Binesh.Genesis("ÒÇæíå Ô˜ÓÊ", "r", "m", "", 1, "", "ÏÑÌå", false);
+	if r_Glass == nil then
+		r_Glass_Radian = Binesh.Genesis("ÒÇæíå Ô˜ÓÊ", "r", "m", "", 1, "", "ÑÇÏíÇä", false);
+	end
+	
+	-- 20
+	C = Binesh.Genesis("ÒÇæíå ÍÏ", "C", "", "", 1, "", "ÏÑÌå", false);	
+	if C == nil then
+		C_Radian = Binesh.Genesis("ÒÇæíå ÍÏ", "C", "", "", 1, "", "ÑÇÏíÇä", false);
+	end
+	
+	-- 22
+	m_Lens = Binesh.Genesis("ÈÒÑ äãÇíí", "m", "", "", 1, "", "", false, "ÚÏÓí", "", false);
+	
+	-- 47
+	Muk = Binesh.Genesis("ÖÑíÈ ÇÕØ˜Ç˜ ÌäÈÔí", "Muk", "", "", 1, "", "", false, "", "", false);
+	Mus = Binesh.Genesis("ÖÑíÈ ÇÕØ˜Ç˜ ÇíÓÊÇíí", "Mus", "", "", 1, "", "", false, "", "", false);
+	
+	-- 49
+	Teta = Binesh.Genesis("ÒÇæíå", "Teta", "", "", 1, "", "ÏÑÌå", false);
+	if Teta == nil then
+		Teta_Radian = Binesh.Genesis("ÒÇæíå", "Teta", "", "", 1, "", "ÑÇÏíÇä", false);
+	end
+	if Teta ~= nil then
+		Alpha = Teta
+	end
+	if Teta_Radian ~= nil then
+		Alpha_Radian = Teta_Radian
+	end
+	
+	-- 83
+	EtaK = Binesh.Genesis("ÈÇÒÏå ˜ÇÑäæ", "Eta_max", "", "", 1, "", "", false, "", "", false);
+	
+	-- 85
+	K_Ice = Binesh.Genesis("ÖÑíÈ Úãá˜ÑÏ", "K", "", "", 1, "", "", false, "", "", false);
+	
+	-- 131
+	N_Ring = Binesh.Genesis("ÍáŞå", "N", "", "", 1, "", "ÏæÑ", false);
+	
+	-- 139
+	L_Self = Binesh.Genesis("ÖÑíÈ ÎæÏÇáŞÇíí", "L", "", "", 1, "", "", false, "", "", false);
+	k_Self = Binesh.Genesis("åÓÊå", "k", "", "", 1, "", "", false, "", "", true);
+	
+	-- 141
+	T_141 = Binesh.Genesis("ÏæÑÇä", "T", "", "", 1, "", "", false);
+	if T_141 == nil then
+		T_141 = Binesh.Genesis("ÏæÑ", "T", "", "", 1, "", "", false);
+	end
+	
+	-- 147
+	N1 = Binesh.Genesis("Çæáíä ÏæÑ", "N1", "", "", 1, "", "ÏæÑ", false);
+	if N1 == nil then
+		N1 = Binesh.Genesis("ÏæÑ Çæáíä", "N1", "", "", 1, "", "ÏæÑ", false);
+	end
+	N2 = Binesh.Genesis("Ïæãíä ÏæÑ", "N2", "", "", 1, "", "ÏæÑ", false);
+	if N2 == nil then
+		N2 = Binesh.Genesis("ÏæÑ Ïæãíä", "N2", "", "", 1, "", "ÏæÑ", false);
+	end
+	
+	-------------------------------
 	
 	-- 81
 	QH = Binesh.Genesis("ãäÈÚ Ñã", "QH", "", "", 1, "J", "æá", false);
 	QC = Binesh.Genesis("ãäÈÚ ÓÑÏ", "QC", "", "", 1, "J", "æá", false);
 	
+	-- 83
+	T_C = Binesh.Genesis("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "K", "˜áæíä", false);
+	if T_C == nil then
+		T_CC = Binesh.Genesis("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "C", "ÓáÓíæÓ", false);
+		if T_CC == nil then
+			T_CF = Binesh.Genesis("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "F", "İÇÑäåÇíÊ", false);
+		end
+	end
+	T_H = Binesh.Genesis("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "K", "˜áæíä", false);
+	if T_H == nil then
+		T_HC = Binesh.Genesis("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "C", "ÓáÓíæÓ", false);
+		if T_HC == nil then
+			T_HF = Binesh.Genesis("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "F", "İÇÑäåÇíÊ", false);
+		end
+	end
+	
+	-- 49
+	W = Binesh.Genesis("˜ÇÑ", "W", "", "", 1, "J", "æá", false);
+	
 	-- 1
-	K = Binesh.Genesis("ÇäÑí ÌäÈÔí", "K", "", "", 1, "J", "æá", false);
+	K = Binesh.Genesis("ÇäÑí", "K", "", "", 1, "J", "æá", false);
+	if K ~= nil then
+		U			= K
+		E_53		= K
+		U_Output	= K
+		U_PipeWire	= K
+	end
 	m = Binesh.Genesis("ÌÑã", "m", "˜íáæ", "K", 10^3, "g", "Ñã", false);
 	if m == nil then
 		m_Ton = Binesh.Genesis("ÌÑã", "m", "", "", 1, "Ton", "Êä", false);
@@ -9913,28 +10013,34 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		end
 	end
 	if ListBox.FindItem('Words', -1, LB_BYTEXT, "ÓÑÚÊ ãÊæÓØ") == -1 and ListBox.FindItem('Words', -1, LB_BYTEXT, "VBar") == -1 then
-		V_Speed = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-		if V_Speed == nil then
-			V_Speed_mh = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ", false);
-			if V_Speed_mh == nil then
-				V_Speed_miles = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå", false);
-				if V_Speed_miles == nil then
-					V_Speed_mileh = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ", false);
+		CheckV_Speed = ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ")
+		if ListBox.GetItemText("Words", CheckV_Speed+1) ~= "ÊÛííÑ" and ListBox.GetItemText("Words", CheckV_Speed+1) ~= "Çæáíä" and ListBox.GetItemText("Words", CheckV_Speed+1) ~= "Ïæãíä" then
+			V_Speed = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
+			if V_Speed == nil then
+				V_Speed_mh = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ", false);
+				if V_Speed_mh == nil then
+					V_Speed_miles = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå", false);
+					if V_Speed_miles == nil then
+						V_Speed_mileh = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ", false);
+					end
 				end
 			end
 		end
+		CheckV_Speed = nil
 	end
 	
 	-- 2
-	U = Binesh.Genesis("ÇäÑí ÊÇäÓíá", "U", "", "", 1, "J", "æá", false);
 	h = Binesh.Genesis("ÇÑÊİÇÚ", "h", "", "", 1, "m", "ãÊÑ", false);
 	
 	-- 4
 	Q = Binesh.Genesis("ÑãÇ", "Q", "", "", 1, "J", "æá", false);
-	c = Binesh.Genesis("ÙÑİíÊ ÑãÇíí", "c", "", "", 1, "J/KgC", "æá ÈÑ ˜íáæ Ñã ÓáÓíæÓ", false);
+	c = Binesh.Genesis("ÙÑİíÊ ÑãÇ", "c", "", "", 1, "J/KgC", "æá ÈÑ ˜íáæ Ñã ÓáÓíæÓ", false);
 	_DeltaT, _T1, _T2 = Binesh.Genesis("ÏãÇ", "T", "", "", 1, "K", "˜áæíä", true);
 	if _DeltaT == nil or _T1 == nil or _T2 == nil then
 		_DeltaTeta, _Teta1, _Teta2 = Binesh.Genesis("ÏãÇ", "Teta", "", "", 1, "C", "ÓáÓíæÓ", true);
+		if _DeltaTeta == nil or _Teta1 == nil or _Teta2 == nil then
+			_DeltaTF, _TF1, _TF2 = Binesh.Genesis("ÏãÇ", "T", "", "", 1, "F", "İÇÑäåÇíÊ", true);
+		end
 	end
 	
 	-- 5
@@ -9942,20 +10048,26 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 6
 	I = Binesh.Genesis("ÌÑíÇä", "I", "", "", 1, "A", "ÂãÑ", false);
-	t = Binesh.Genesis("ÒãÇä", "t", "", "", 1, "s", "ËÇäíå", false);
-	if t == nil then
-		t_Min = Binesh.Genesis("ÒãÇä", "t", "", "", 1, "min", "ÏŞíŞå", false);
-		if t_Min == nil then
-			t_Hour = Binesh.Genesis("ÒãÇä", "t", "", "", 1, "hour", "ÓÇÚÊ", false);
+	Checkt = ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒãÇä")
+	if ListBox.GetItemText("Words", Checkt+1) ~= "ÊÛííÑ" and ListBox.GetItemText("Words", Checkt+1) ~= "Çæáíä" and ListBox.GetItemText("Words", Checkt+1) ~= "Ïæãíä" then
+		t = Binesh.Genesis("ÒãÇä", "t", "", "", 1, "s", "ËÇäíå", false);
+		if t == nil then
+			t_Min = Binesh.Genesis("ÒãÇä", "t", "", "", 1, "min", "ÏŞíŞå", false);
+			if t_Min == nil then
+				t_Hour = Binesh.Genesis("ÒãÇä", "t", "", "", 1, "hour", "ÓÇÚÊ", false);
+			end
 		end
 	end
+	Checkt = nil
 	
 	-- 7
 	R = Binesh.Genesis("ãŞÇæãÊ", "R", "", "", 1, "Ohm", "Çåã", false);
 	V_Electric = Binesh.Genesis("æáÊÇ", "V", "", "", 1, "V", "æáÊ", false);
 	
 	-- 9
-	P_Power = Binesh.Genesis("ÊæÇä", "P", "", "", 1, "W", "æÇÊ", false);
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "ÊæÇä ãÊæÓØ") == -1 and ListBox.FindItem("Words", -1, LB_BYTEXT, "PBar") == -1 then
+		P_Power = Binesh.Genesis("ÊæÇä", "P", "", "", 1, "W", "æÇÊ", false);
+	end
 	
 	-- 10
 	
@@ -9968,7 +10080,7 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	-- 12
 	p_Glass = Binesh.Genesis("Âíäå", " p", "", "", 1, "m", "ãÊÑ ", false, "İÇÕáå", "ÌÓã");
 	q_Glass = Binesh.Genesis("Âíäå", "q", "", "", 1, "m", "ãÊÑ", false, "İÇÕáå", "ÓÇíå");
-	f = Binesh.Genesis("İÇÕáå ˜Çäæäí", "f", "", "", 1, "m", "ãÊÑ", false, "Âíäå");
+	f = Binesh.Genesis("İÇÕáå ˜Çäæäí", "f", "", "", 1, "m", "ãÊÑ", false);
 	
 	-- 13
 	ApBp = Binesh.Genesis("Øæá", "A`B`", "", "", 1, "m", "ãÊÑ", false, "ÓÇíå");
@@ -9983,35 +10095,25 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	end
 	
 	-- 16
-	for indexNamePersiantbl2 = 1, Table.Count(tbl.End) do
-		n2_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ ãÍíØ "..tbl.End[indexNamePersiantbl2], "n2", "", "", 1, "m", "ãÊÑ", false);
-		if n2_Glass ~= nil then
-			break
-		else
-			n2_Glass = Binesh.Genesis(tbl.End[indexNamePersiantbl2].." ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n2", "", "", 1, "m", "ãÊÑ", false);
-			if n2_Glass ~= nil then
-				break
-			end
-		end
+	n2_Glass = Binesh.Genesis("Ïæãíä ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n2", "", "", 1, "m", "ãÊÑ", false);
+	if n2_Glass == nil then
+		n2_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ ãÍíØ Ïæãíä", "n2", "", "", 1, "m", "ãÊÑ", false);
 	end
-	for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-		n1_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ ãÍíØ "..tbl.Start[indexNamePersiantbl1], "n1", "", "", 1, "m", "ãÊÑ", false);
-		if n1_Glass ~= nil then
-			break
-		else
-			n1_Glass = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n1", "", "", 1, "m", "ãÊÑ", false);
-			if n1_Glass ~= nil then
-				break
-			end
-		end
+	n1_Glass = Binesh.Genesis("Çæáíä ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n1", "", "", 1, "m", "ãÊÑ", false);
+	if n1_Glass == nil then
+		n1_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ ãÍíØ Çæáíä", "n1", "", "", 1, "m", "ãÊÑ", false);
 	end
 	
 	-- 17
 	n_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ", "n", "", "", 1, "m", "ãÊÑ", false);
 	
 	-- 18
-	C_Speed_Glass = Binesh.Genesis("ÓÑÚÊ", "C", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false, "ÎáÇÁ");
-	V_Speed_Glass = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false, "ãÍíØ ÔİÇİ");
+	CheckSpeed_Glass = ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ")
+	if ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "ÊÛííÑ" and ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "Çæáíä" and ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "Ïæãíä" then
+		C_Speed_Glass = Binesh.Genesis("ÓÑÚÊ", "C", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false, "ÎáÇÁ");
+		V_Speed_Glass = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false, "ãÍíØ ÔİÇİ");
+	end
+	CheckSpeed_Glass = nil
 	
 	-- 19
 	h_Glass = Binesh.Genesis("ÚãŞ ÙÇåÑí", "h", "", "", 1, "m", "ãÊÑ", false);
@@ -10022,7 +10124,6 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	-- 21
 	p_Lens = Binesh.Genesis("ÚÏÓí", " p", "", "", 1, "m", "ãÊÑ ", false, "İÇÕáå", "ÌÓã");
 	q_Lens = Binesh.Genesis("ÚÏÓí", "q", "", "", 1, "m", "ãÊÑ", false, "İÇÕáå", "ÓÇíå");
-	f_Lens = Binesh.Genesis("İÇÕáå ˜Çäæäí", "f", "", "", 1, "m", "ãÊÑ", false, "ÚÏÓí");
 	
 	-- 22
 	ApBp_Lens = Binesh.Genesis("Øæá", "A`B`", "", "", 1, "m", "ãÊÑ", false, "ÓÇíå");
@@ -10051,103 +10152,69 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		end
 	end
 	_Deltax, _x1, _x2 = Binesh.Genesis("ã˜Çä", "x", "", "", 1, "m", "ãÊÑ", true);
+	if _x1 ~= nil then
+		x0, x1 = _x1, _x1
+	end
+	if _x2 ~= nil then
+		x, x2 = _x2, _x2
+	end
 	_Deltat, _t1, _t2 = Binesh.Genesis("ÒãÇä", "t", "", "", 1, "s", "ËÇäíå", true);
+	if _t1 ~= nil then
+		t0, t1 = _t1, _t1
+	end
+	if _t2 ~= nil then
+		t, t2 = _t2, _t2
+	end
 	
 	-- 33
-	for indexNamePersiantbl2 = 1, Table.Count(tbl.End) do
-		x = Binesh.Genesis("ã˜Çä "..tbl.End[indexNamePersiantbl2], "x", "", "", 1, "m", "ãÊÑ", false);
-		if x ~= nil then
-			break
-		else
-			x = Binesh.Genesis(tbl.End[indexNamePersiantbl2].." ã˜Çä", "x", "", "", 1, "m", "ãÊÑ", false);
-			if x ~= nil then
-				break
-			end
-		end
+	x = Binesh.Genesis("Ïæãíä ã˜Çä", "x", "", "", 1, "m", "ãÊÑ", false);
+	if x == nil then
+		x = Binesh.Genesis("ã˜Çä Ïæãíä", "x", "", "", 1, "m", "ãÊÑ", false);
 	end
-	for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-		x0 = Binesh.Genesis("ã˜Çä "..tbl.Start[indexNamePersiantbl1], "x0", "", "", 1, "m", "ãÊÑ", false);
-		if x0 ~= nil then
-			break
-		else
-			x0 = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." ã˜Çä", "x0", "", "", 1, "m", "ãÊÑ", false);
-			if x0 ~= nil then
-				break
-			end
-		end
+	x0 = Binesh.Genesis("Çæáíä ã˜Çä", "x0", "", "", 1, "m", "ãÊÑ", false);
+	if x0 == nil then
+		x0 = Binesh.Genesis("ã˜Çä Çæáíä", "x0", "", "", 1, "m", "ãÊÑ", false);
 	end
 	
 	-- 35
 	if V_Speed == nil then
-		for indexNamePersiantbl2 = 1, Table.Count(tbl.End) do
-			V_Speed = Binesh.Genesis("ÓÑÚÊ "..tbl.End[indexNamePersiantbl2], "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-			if V_Speed ~= nil then
-				break
-			else
-				V_Speed = Binesh.Genesis(tbl.End[indexNamePersiantbl2].." ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-				if V_Speed ~= nil then
-					break
-				end
-			end
+		V_Speed = Binesh.Genesis("Ïæãíä ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
+		if V_Speed == nil then
+			V_Speed = Binesh.Genesis("ÓÑÚÊ Ïæãíä", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
 		end
 	end
 	a = Binesh.Genesis("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÌĞæÑ ËÇäíå", false);
-	for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-		V0_Speed = Binesh.Genesis("ÓÑÚÊ "..tbl.Start[indexNamePersiantbl1], "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-		if V0_Speed ~= nil then
-			break
-		else
-			V0_Speed = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." ÓÑÚÊ", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-			if V0_Speed ~= nil then
-				break
-			end
-		end
+	V0_Speed = Binesh.Genesis("Çæáíä ÓÑÚÊ", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
+	if V0_Speed == nil then
+		V0_Speed = Binesh.Genesis("ÓÑÚÊ Çæáíä", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
 	end
 	
 	-- 36
-	for indexNamePersian1 = 1, Table.Count(tbl.Start) do
-		t0 = Binesh.Genesis("ÒãÇä "..tbl.Start[indexNamePersian1], "t0", "", "", 1, "s", "ËÇäíå", false); -- äÏ ÍÇáÊ ÏÇÑÏ
-		if t0 ~= nil then
-			break
-		else
-			t0 = Binesh.Genesis(tbl.Start[indexNamePersian1].." ÒãÇä", "t0", "", "", 1, "s", "ËÇäíå", false); -- äÏ ÍÇáÊ ÏÇÑÏ
-			if t0 ~= nil then
-				break
-			end
-		end
+	t0 = Binesh.Genesis("Çæáíä ÒãÇä", "t0", "", "", 1, "s", "ËÇäíå", false); -- äÏ ÍÇáÊ ÏÇÑÏ
+	if t0 == nil then
+		t0 = Binesh.Genesis("ÒãÇä Çæáíä", "t0", "", "", 1, "s", "ËÇäíå", false); -- äÏ ÍÇáÊ ÏÇÑÏ
 	end
 	if V1_Speed == nil then
-		for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-			V0_Speed = Binesh.Genesis("ÓÑÚÊ "..tbl.Start[indexNamePersiantbl1], "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-			if V0_Speed ~= nil then
-				break
-			else
-				V0_Speed = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." ÓÑÚÊ", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-			end
+		V0_Speed = Binesh.Genesis("Çæáíä ÓÑÚÊ", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
+		if V0_Speed == nil then
+			V0_Speed = Binesh.Genesis("ÓÑÚÊ Çæáíä", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
 		end
 	else
 		V0_Speed = V1_Speed
 	end
-	
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇíÓÊÇÏä") ~= -1 then
+		V0_Speed = 0
+	end
 	
 	-- 37
-	if V_Speed == nil then
-		for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-			V2_Speed = Binesh.Genesis("ÓÑÚÊ "..tbl.Start[indexNamePersiantbl1], "V2", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-			if V2_Speed ~= nil then
-				break
-			else
-				V2_Speed = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." ÓÑÚÊ", "V2", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-				if V2_Speed ~= nil then
-					break
-				end
-			end
-		end
-	else
-		V2_Speed = V_Speed
+	V2_Speed = Binesh.Genesis("Çæáíä ÓÑÚÊ", "V2", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
+	if V2_Speed == nil then
+		V2_Speed = Binesh.Genesis("ÓÑÚÊ Çæáíä", "V2", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
 	end
 	
 	-- 38
+	
+	-- 39
 	
 	-- 41
 	
@@ -10166,7 +10233,6 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	-- 48
 	
 	-- 49
-	W = Binesh.Genesis("˜ÇÑ", "W", "", "", 1, "J", "æá", false);
 	d = Binesh.Genesis("ÌÇÈÌÇíí", "d", "", "", 1, "m", "ãÊÑ", false);
 	if d == nil then
 		if ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÌÇÈÌÇíí") == -1 then
@@ -10178,19 +10244,23 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 51
 	L_Avang = Binesh.Genesis("Øæá", "L", "", "", 1, "m", "ãÊÑ", false);
-	
-	-- 53
-	E_53 = Binesh.Genesis("ÇäÑí ã˜Çäí˜í", "E", "", "", 1, "J", "æá", false);
-	
-	 -- 54
-	 _DeltaK, _K1, _K2 = Binesh.Genesis("ÇäÑí ÌäÈÔí", "K", "", "", 1, "J", "æá", true);
-	 _DeltaU, _U1, _U2 = Binesh.Genesis("ÇäÑí ÊÇäÓíá", "U", "", "", 1, "J", "æá", true);
+	 
+	 -- 55
+	 if P_Power == nil then
+	 	P_Power_Bar = Binesh.Genesis("ÊæÇä ãÊæÓØ", "PBar", "", "", 1, "W", "æÇÊ", false);
+	 else
+	 	p_Power_Bar = P_Power
+	 end
 	 
 	 -- 56
 	 R_Output = Binesh.Genesis("ÈÇÒÏå", "R", "", "", 1, "%", "ÏÑÕÏ", false);
-	 WP = Binesh.Genesis("ÇäÑí ÊæáíÏí", "W`", "", "", 1, "J", "æá", false);
+	 if WP == nil then
+	 	WP = Binesh.Genesis("ÇäÑí ÊæáíÏí", "W`", "", "", 1, "J", "æá", false);
+	 end
 	 if W == nil then
-	 	W_Use = Binesh.Genesis("ÇäÑí ãÕÑİí", "W", "", "", 1, "J", "æá", false);
+	 	if W_Use == nil then
+	 		W_Use = Binesh.Genesis("ÇäÑí ãÕÑİí", "W", "", "", 1, "J", "æá", false);
+	 	end
 	 else
 	 	W_Use = W
 	 end
@@ -10201,56 +10271,30 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		Pa = Binesh.Genesis("İÔÇÑ", "P", "", "", 1, "atm", "ÇÊãÓİÑ", false);
 	end
 	A = Binesh.Genesis("ÓØÍ", "A", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
-	
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "ÔÑÇíØ ãÊÚÇÑİ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "STP") ~= -1 then
+		P = 10^5
+	end
 	-- 59
 	
 	-- 60
 	P0 = Binesh.Genesis("ãÇíÚ", "P0", "", "", 1, "atm", "ÇÊãÓİÑ", false, "ÇØÑÇİ", "İÔÇÑ");
 	
 	-- 61
-	for indexNamePersian1 = 1, Table.Count(tbl.Start) do
-		F1 = Binesh.Genesis("äíÑæ "..tbl.Start[indexNamePersian1], "F1", "", "", 1, "N", "äíæÊæä", false);
-		if F1 ~= nil then
-			break
-		else
-			F1 = Binesh.Genesis(tbl.Start[indexNamePersian1].." äíÑæ", "F1", "", "", 1, "N", "äíæÊæä", false);
-			if F1 ~= nil then
-				break
-			end
-		end
+	F1 = Binesh.Genesis("Çæáíä äíÑæ", "F1", "", "", 1, "N", "äíæÊæä", false);
+	if F1 == nil then
+		F1 = Binesh.Genesis("äíÑæ Çæáíä", "F1", "", "", 1, "N", "äíæÊæä", false);
 	end
-	for indexNamePersian2 = 1, Table.Count(tbl.End) do
-		F2 = Binesh.Genesis("äíÑæ "..tbl.End[indexNamePersian2], "F2", "", "", 1, "N", "äíæÊæä", false);
-		if F2 ~= nil then
-			break
-		else
-			F2 = Binesh.Genesis(tbl.End[indexNamePersian2].." äíÑæ", "F2", "", "", 1, "N", "äíæÊæä", false);
-			if F2 ~= nil then
-				break
-			end
-		end
+	F2 = Binesh.Genesis("Ïæãíä äíÑæ", "F2", "", "", 1, "N", "äíæÊæä", false);
+	if F2 == nil then
+		F2 = Binesh.Genesis("äíÑæ Ïæãíä", "F2", "", "", 1, "N", "äíæÊæä", false);
 	end
-	for indexNamePersian1 = 1, Table.Count(tbl.Start) do
-		A1 = Binesh.Genesis("ÓØÍ "..tbl.Start[indexNamePersian1], "A1", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
-		if A1 ~= nil then
-			break
-		else
-			A1 = Binesh.Genesis(tbl.Start[indexNamePersian1].." ÓØÍ", "A1", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
-			if A1 ~= nil then
-				break
-			end
-		end
+	A1 = Binesh.Genesis("Çæáíä ÓØÍ", "A1", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
+	if A1 == nil then
+		A1 = Binesh.Genesis("ÓØÍ Çæáíä", "A1", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
 	end
-	for indexNamePersian2 = 1, Table.Count(tbl.End) do
-		A2 = Binesh.Genesis("ÓØÍ "..tbl.End[indexNamePersian2], "A2", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
-		if A2 ~= nil then
-			break
-		else
-			A2 = Binesh.Genesis(tbl.End[indexNamePersian2].." ÓØÍ", "A2", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
-			if A2 ~= nil then
-				break
-			end
-		end
+	A2 = Binesh.Genesis("Ïæãíä ÓØÍ", "A2", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
+	if A2 == nil then
+		A2 = Binesh.Genesis("ÓØÍ Ïæãíä", "A2", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
 	end
 	
 	-- 64
@@ -10265,11 +10309,29 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		Beta_Length = Alpha_Length
 	end
 	_DeltaL, _L1, _L2 = Binesh.Genesis("Øæá", "L", "", "", 1, "m", "ãÊÑ", true);
+	if _L1 ~= nil then
+		L0, L1 = _L1, _L1
+	end
+	if _L2 ~= nil then
+		L, L2 = _L2, _L2
+	end
 	
 	-- 69
 	_DeltaV, _V1, _V2 = Binesh.Genesis("ÍÌã", "V", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ", true);
 	if _DeltaV == nil or _V1 == nil or _V2 == nil then
-		_DeltaVL, _V1L, _V2L = Binesh.Genesis("ÍÌã", "V", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ", true);
+		_DeltaVL, _V1L, _V2L = Binesh.Genesis("ÍÌã", "V", "", "", 1, "L", "áíÊÑ", true);
+		if _DeltaVL == nil or _V1L == nil or _V2L == nil then
+			_DeltaVL, _V1L, _V2L = Binesh.Genesis("ÍÌã", "V", "", "", 1, "Lit", "áíÊÑ", true);
+			if _DeltaVL == nil or _V1L == nil or _V2L == nil then
+				_DeltaVL, _V1L, _V2L = Binesh.Genesis("ÍÌã", "V", "", "", 1, "Liter", "áíÊÑ", true);
+			end
+		end
+	end
+	if _V1 ~= nil then
+		V0, V1 = _V1, _V1
+	end
+	if _V2 ~= nil then
+		V, V2 = _V2, _V2
 	end
 	
 	-- 73
@@ -10287,8 +10349,14 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	T = Binesh.Genesis("ÏãÇ", "T", "", "", 1, "K", "˜áæíä", false);
 	if T == nil then
 		TC = Binesh.Genesis("ÏãÇ", "Teta", "", "", 1, "C", "ÓáÓíæÓ", false);
+		if TC == nil then
+			TF = Binesh.Genesis("ÏãÇ", "Teta", "", "", 1, "F", "İÇÑäåÇíÊ", false);
+		end
 	end
 	M = Binesh.Genesis("ÌÑã ãæáí", "M", "", "", 1, "g/mol", "Ñã ÈÑ ãæá", false);
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "ÔÑÇíØ ãÊÚÇÑİ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "STP") ~= -1 then
+		T = 25+273
+	end
 	
 	-- 74
 	
@@ -10296,31 +10364,27 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	_DeltaU_In, _U1_In, _U2_In =  Binesh.Genesis("ÇäÑí ÏÑæäí", "U", "", "", 1, "J", "æá", true);
 	
 	-- 76
-	C_V = Binesh.Genesis("ÙÑİíÊ ÑãÇíí", "CV", "", "", 1, "J/mol*K", "æá ÈÑ ˜íáæÑã ˜áæíä", false);
+	if c == nil then
+		C_V = Binesh.Genesis("ÙÑİíÊ ÑãÇ", "CV", "", "", 1, "J/mol*K", "æá ÈÑ ˜íáæÑã ˜áæíä", false);
+	else
+		C_V = c
+	end
 	
 	-- 77
 	
 	-- 78
 	Binesh.Join("åã İÔÇÑ")
 	if ListBox.FindItem("Words", -1, LB_BYTEXT, "åã İÔÇÑ") ~= -1 then
-		if c == nil then
-			CP = Binesh.Genesis("ÙÑİíÊ ÑãÇíí", "CP", "", "", 1, "J/mol*K", "æá ÈÑ ˜íáæÑã ˜áæíä", false);
-		else
+		if c == nil and C_V == nil then
+			CP = Binesh.Genesis("ÙÑİíÊ ÑãÇ", "CP", "", "", 1, "J/mol*K", "æá ÈÑ ˜íáæÑã ˜áæíä", false);
+		elseif c ~= nil then
 			CP = c
+		elseif C_V ~= nil then
+			CP = C_V
 		end
 	end
 	
 	-- 79
-	
-	-- 83
-	T_C = Binesh.Genesis("ÓÑÏ", "TC", "", "", 1, "K", "˜áæíä", false);
-	if T_C == nil then
-		T_CC = Binesh.Genesis("ÓÑÏ", "TC", "", "", 1, "C", "ÓáÓíæÓ", false);
-	end
-	T_H = Binesh.Genesis("Ñã", "TH", "", "", 1, "K", "˜áæíä", false);
-	if T_H == nil then
-		T_HC = Binesh.Genesis("Ñã", "TH", "", "", 1, "C", "ÓáÓíæÓ", false);
-	end
 	
 	-- 84
 	
@@ -10328,30 +10392,16 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 86
 	if q == nil then
-		for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-			q1 = Binesh.Genesis("ĞÑå "..tbl.Start[indexNamePersiantbl1], "q1", "", "", 1, "C", "˜æáä", false);
-			if q1 ~= nil then
-				break
-			else
-				q1 = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." ĞÑå", "q1", "", "", 1, "C", "˜æáä", false);
-				if q1 ~= nil then
-					break
-				end
-			end
+		q1 = Binesh.Genesis("Çæáíä ĞÑå", "q1", "", "", 1, "C", "˜æáä", false);
+		if q1 == nil then
+			q1 = Binesh.Genesis("ĞÑå Çæáíä", "q1", "", "", 1, "C", "˜æáä", false);
 		end
 	else
 		q1 = q
 	end
-	for indexNamePersiantbl2 = 1, Table.Count(tbl.End) do
-		q2 = Binesh.Genesis("ĞÑå "..tbl.End[indexNamePersiantbl2], "q2", "", "", 1, "C", "˜æáä", false);
-		if q2 ~= nil then
-			break
-		else
-			q2 = Binesh.Genesis(tbl.End[indexNamePersiantbl2].." ĞÑå", "q2", "", "", 1, "C", "˜æáä", false);
-			if q2 ~= nil then
-				break
-			end
-		end
+	q2 = Binesh.Genesis("Ïæãíä ĞÑå", "q2", "", "", 1, "C", "˜æáä", false);
+	if q2 == nil then
+		q2 = Binesh.Genesis("ĞÑå Ïæãíä", "q2", "", "", 1, "C", "˜æáä", false);
 	end
 	r = Binesh.Genesis("İÇÕáå", "r", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
 	
@@ -10361,7 +10411,7 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		E_Electric = Binesh.Genesis("ãíÏÇä", "E", "", "", 1, "C/m^2", "˜æáä ÈÑ ãÊÑ ãÑÈÚ", false);
 	end
 	if q1 == nil then
-		q_0_87 = Binesh.Genesis("ĞÑå", "q0", "", "", 1, "C", "˜æáä", false);
+		q_0_87 = Binesh.Genesis("ĞÑå ÂÒãæä", "q0", "", "", 1, "C", "˜æáä", false);
 		if q_0_87 ~= nil then
 			q1 = q_0_87
 		end
@@ -10376,6 +10426,12 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 93
 	_DeltaV_Electric, _V1_Electric, _V2_Electric =  Binesh.Genesis("æáÊÇ", "V", "", "", 1, "V", "æáÊ", true);
+	if _V1_Electric ~= nil then
+		V0_Electric, V1_Electric = _V1_Electric, _V1_Electric
+	end
+	if _V2_Electric ~= nil then
+		V_Electric, V2_Electric = _V2_Electric, _V2_Electric
+	end
 	d_Distance = Binesh.Genesis("İÇÕáå", "d", "", "", 1, "m", "ãÊÑ", false);
 	if d_Distance ~= nil then
 		r_3 = d_Distance
@@ -10393,6 +10449,12 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	end
 	if ListBox.FindItem('Words', -1, LB_BYTEXT, "ÓÑÚÊ ãÊæÓØ") == -1 and ListBox.FindItem('Words', -1, LB_BYTEXT, "VBar") == -1 then
 		_DeltaV_Speed, _V1_Speed, _V2_Speed =  Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", true);
+		if _V1_Speed ~= nil then
+			V0_Speed, V1_Speed = _V1_Speed, _V1_Speed
+		end
+		if _V2_Speed ~= nil then
+			V_Speed, V2_Speed = _V2_Speed, _V2_Speed
+		end
 	end
 	
 	-- 95
@@ -10401,49 +10463,21 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	-- 97
 	
 	-- 102
-	for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-		V1_Electric = Binesh.Genesis("æáÊÇ "..tbl.Start[indexNamePersiantbl1], "V1", "", "", 1, "V", "æáÊ", false);
-		if V1_Electric ~= nil then
-			break
-		else
-			V1_Electric = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." æáÊÇ", "V1", "", "", 1, "V", "æáÊ", false);
-			if V1_Electric ~= nil then
-				break
-			end
-		end
+	V1_Electric = Binesh.Genesis("Çæáíä æáÊÇ", "V1", "", "", 1, "V", "æáÊ", false);
+	if V1_Electric == nil then
+		V1_Electric = Binesh.Genesis("æáÊÇ Çæáíä", "V1", "", "", 1, "V", "æáÊ", false);
 	end
-	for indexNamePersiantbl2 = 1, Table.Count(tbl.End) do
-		V2_Electric = Binesh.Genesis("æáÊÇ "..tbl.End[indexNamePersiantbl2], "V2", "", "", 1, "V", "æáÊ", false);
-		if V2_Electric ~= nil then
-			break
-		else
-			V2_Electric = Binesh.Genesis(tbl.End[indexNamePersiantbl2].." æáÊÇ", "V2", "", "", 1, "V", "æáÊ", false);
-			if V2_Electric ~= nil then
-				break
-			end
-		end
+	V2_Electric = Binesh.Genesis("Ïæãíä æáÊÇ", "V2", "", "", 1, "V", "æáÊ", false);
+	if V2_Electric == nil then
+		V2_Electric = Binesh.Genesis("æáÊÇ Ïæãíä", "V2", "", "", 1, "V", "æáÊ", false);
 	end
-	for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-		C1 = Binesh.Genesis("ÙÑİíÊ "..tbl.Start[indexNamePersiantbl1], "C1", "", "", 1, "F", "İÇÑÇÏ", false);
-		if C1 ~= nil then
-			break
-		else
-			C1 = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." ÙÑİíÊ", "C1", "", "", 1, "F", "İÇÑÇÏ", false);
-			if C1 ~= nil then
-				break
-			end
-		end
+	C1 = Binesh.Genesis("Çæáíä ÙÑİíÊ", "C1", "", "", 1, "F", "İÇÑÇÏ", false);
+	if C1 == nil then
+		C1 = Binesh.Genesis("ÙÑİíÊ Çæáíä", "C1", "", "", 1, "F", "İÇÑÇÏ", false);
 	end
-	for indexNamePersiantbl2 = 1, Table.Count(tbl.End) do
-		C2 = Binesh.Genesis("ÎÇÒä "..tbl.End[indexNamePersiantbl2], "C2", "", "", 1, "F", "İÇÑÇÏ", false);
-		if C2 ~= nil then
-			break
-		else
-			C2 = Binesh.Genesis(tbl.End[indexNamePersiantbl2].." ÎÇÒä", "C2", "", "", 1, "F", "İÇÑÇÏ", false);
-			if C2 ~= nil then
-				break
-			end
-		end
+	C2 = Binesh.Genesis("Ïæãíä ÎÇÒä", "C2", "", "", 1, "F", "İÇÑÇÏ", false);
+	if C2 == nil then
+		C2 = Binesh.Genesis("ÎÇÒä Ïæãíä", "C2", "", "", 1, "F", "İÇÑÇÏ", false);
 	end
 	
 	-- 111
@@ -10457,20 +10491,16 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 112
 	if Ru_Resistor == nil then
-		for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-			Ru1 = Binesh.Genesis("ãŞÇæãÊ æíå "..tbl.Start[indexNamePersiantbl1], "Ru1", "", "", 1, "Ohm * m", "Çåã ÏÑ ãÊÑ", false)
-			if Ru1 == nil then
-				Ru1 = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." ãŞÇæãÊ æíå", "Ru1", "", "", 1, "Ohm * m", "Çåã ÏÑ ãÊÑ", false)
-			end
+		Ru1 = Binesh.Genesis("Çæáíä ãŞÇæãÊ æíå", "Ru1", "", "", 1, "Ohm * m", "Çåã ÏÑ ãÊÑ", false)
+		if Ru1 == nil then
+			Ru1 = Binesh.Genesis("ãŞÇæãÊ æíå Çæáíä", "Ru1", "", "", 1, "Ohm * m", "Çåã ÏÑ ãÊÑ", false)
 		end
 	else
 		Ru1 = Ru_Resistor
 	end
-	for indexNamePersiantbl2 = 1, Table.Count(tbl.End) do
-		Ru2 = Binesh.Genesis("ãŞÇæãÊ æíå "..tbl.End[indexNamePersiantbl2], "Ru2", "", "", 1, "Ohm * m", "Çåã ÏÑ ãÊÑ", false)
-		if Ru2 == nil then
-			Ru2 = Binesh.Genesis(tbl.End[indexNamePersiantbl2].." ãŞÇæãÊ æíå", "Ru2", "", "", 1, "Ohm * m", "Çåã ÏÑ ãÊÑ", false)
-		end
+	Ru2 = Binesh.Genesis("Ïæãíä ãŞÇæãÊ æíå", "Ru2", "", "", 1, "Ohm * m", "Çåã ÏÑ ãÊÑ", false)
+	if Ru2 == nil then
+		Ru2 = Binesh.Genesis("ãŞÇæãÊ æíå Ïæãíä", "Ru2", "", "", 1, "Ohm * m", "Çåã ÏÑ ãÊÑ", false)
 	end
 	Alpha_112 = Binesh.Genesis("ÖÑíÈ ÏãÇíí", "Alpha", "", "", 1, "1/C", "í˜ ÈÑ ÓáÓíæÓ", false);
 	if Alpha_112 == nil then
@@ -10481,25 +10511,9 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	end
 	
 	-- 114
-	U_Output = Binesh.Genesis("ÇäÑí ãÕÑİí", "U", "", "", 1, "J", "æá", false);
 	
 	-- 118
 	RT = Binesh.Genesis("ãŞÇæãÊ ãÚÇÏá", "RT", "", "", 1, "Ohm", "Çåã", false);
-	if V_Electric == nil then
-		for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-			V1_Electric = Binesh.Genesis("æáÊÇ "..tbl.Start[indexNamePersiantbl1], "V1", "", "", 1, "V", "æáÊ", false);
-			if V1_Electric ~= nil then
-				break
-			else
-				V1_Electric = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." æáÊÇ", "V1", "", "", 1, "V", "æáÊ", false);
-				if V1_Electric ~= nil then
-					break
-				end
-			end
-		end
-	else
-		V1_Electric = V_Electric
-	end
 	VT_Electric = Binesh.Genesis("æáÊÇ", "VT", "", "", 1, "V", "æáÊ", false);
 	if VT_Electric == nil then
 		UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "æáÊÇ ãÚÇÏá")
@@ -10509,11 +10523,9 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	end
 	
 	-- 123
-	for indexNamePersiantbl2 = 1, Table.Count(tbl.End) do
-		I2 = Binesh.Genesis("ÌÑíÇä "..tbl.End[indexNamePersiantbl2], "I2", "", "", 1, "A", "ÂãÑ", false);
-		if I2 == nil then
-			I2 = Binesh.Genesis(tbl.End[indexNamePersiantbl2].." ÌÑíÇä", "I2", "", "", 1, "A", "ÂãÑ", false);
-		end
+	I2 = Binesh.Genesis("Ïæãíä ÌÑíÇä", "I2", "", "", 1, "A", "ÂãÑ", false);
+	if I2 == nil then
+		I2 = Binesh.Genesis("ÌÑíÇä Ïæãíä", "I2", "", "", 1, "A", "ÂãÑ", false);
 	end
 	
 	-- 126
@@ -10553,125 +10565,28 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	-- 139
 	
 	-- 140
-	if U == nil then
-		U_PipeWire = Binesh.Genesis("ÇäÑí", "U", "", "", 1, "J", "æá", false);
-	else
-		U_PipeWire = U
-	end
 	
 	-- 141
 	M_Injection = Binesh.Genesis("ÖÑíÈ ÇáŞÇí ãÊŞÇÈá", "M", "", "", 1, "s", "ËÇäíå", false);
-	for indexNamePersiantbl1 = 1, Table.Count(tbl.Start) do
-		L1 = Binesh.Genesis("Øæá "..tbl.Start[indexNamePersiantbl1], "L1", "", "", 1, "m", "ãÊÑ", false);
-		if L1 == nil then
-			L1 = Binesh.Genesis(tbl.Start[indexNamePersiantbl1].." Øæá", "L1", "", "", 1, "m", "ãÊÑ", false);
-		end
+	L1 = Binesh.Genesis("Çæáíä Øæá", "L1", "", "", 1, "m", "ãÊÑ", false);
+	if L1 == nil then
+		L1 = Binesh.Genesis("Øæá Çæáíä", "L1", "", "", 1, "m", "ãÊÑ", false);
 	end
-	for indexNamePersiantbl2 = 1, Table.Count(tbl.End) do
-		L2 = Binesh.Genesis("Øæá "..tbl.End[indexNamePersiantbl2], "L2", "", "", 1, "m", "ãÊÑ", false);
-		if L2 == nil then
-			L2 = Binesh.Genesis(tbl.End[indexNamePersiantbl2].." Øæá", "L2", "", "", 1, "m", "ãÊÑ", false);
-		end
-	end
-	
-	-- 147
-	
-	
-	
-	----------- *** -------
-	-- 5
-	n_e = Binesh.Genesis("ÊÚÏÇÏ Çá˜ÊÑæä", "n", "", "", 1, "", "", false, "", "", false);
-	if n_e == nil then
-		n_p = Binesh.Genesis("ÊÚÏÇÏ ÑæÊæä", "n", "", "", 1, "", "", false, "", "", false);
+	L2 = Binesh.Genesis("Ïæãíä Øæá", "L2", "", "", 1, "m", "ãÊÑ", false);
+	if L2 == nil then
+		L2 = Binesh.Genesis("Øæá Ïæãíä", "L2", "", "", 1, "m", "ãÊÑ", false);
 	end
 	
 	-- 13
-	m_Glass = Binesh.Genesis("ÈÒÑ äãÇíí", "m", "", "", 1, "", "", false, "Âíäå");
+	m_Glass = Binesh.Genesis("ÈÒÑ äãÇíí", "m", "", "", 1, "", "", false, "Âíäå", "", false);
 	
-	-- 16
-	i = Binesh.Genesis("ÒÇæíå ÊÇÈÔ", "i", "m", "", 1, "", "ÏÑÌå", false);
-	if i == nil then
-		i_Radian = Binesh.Genesis("ÒÇæíå ÊÇÈÔ", "i", "m", "", 1, "", "ÑÇÏíÇä", false);
-	end
-	r_Glass = Binesh.Genesis("ÒÇæíå Ô˜ÓÊ", "r", "m", "", 1, "", "ÏÑÌå", false);
-	if r_Glass == nil then
-		r_Glass_Radian = Binesh.Genesis("ÒÇæíå Ô˜ÓÊ", "r", "m", "", 1, "", "ÑÇÏíÇä", false);
-	end
-	
-	-- 20
-	C = Binesh.Genesis("ÒÇæíå ÍÏ", "C", "", "", 1, "", "ÏÑÌå", false);	
-	if C == nil then
-		C_Radian = Binesh.Genesis("ÒÇæíå ÍÏ", "C", "", "", 1, "", "ÑÇÏíÇä", false);
-	end
-	
-	-- 22
-	m_Lens = Binesh.Genesis("ÈÒÑ äãÇíí", "m", "", "", 1, "", "", false, "ÚÏÓí", "", false);
-	
-	-- 47
-	Muk = Binesh.Genesis("ÖÑíÈ ÇÕØ˜Ç˜ ÌäÈÔí", "Muk", "", "", 1, "", "", false);
-	Mus = Binesh.Genesis("ÖÑíÈ ÇÕØ˜Ç˜ ÇíÓÊÇíí", "Mus", "", "", 1, "", "", false);
-	
-	-- 49
-	Teta = Binesh.Genesis("ÒÇæíå", "Teta", "", "", 1, "", "ÏÑÌå", false);
-	if Teta == nil then
-		Teta_Radian = Binesh.Genesis("ÒÇæíå", "Teta", "", "", 1, "", "ÑÇÏíÇä", false);
-	end
-	if Teta ~= nil then
-		Alpha = Teta
-	end
-	if Teta_Radian ~= nil then
-		Alpha_Radian = Teta_Radian
-	end
-	
-	-- 83
-	EtaK = Binesh.Genesis("ÈÇÒÏå ˜ÇÑäæ", "Eta_max", "", "", 1, "", "", false, "", "", false);
-	
-	-- 85
-	K_Ice = Binesh.Genesis("ÖÑíÈ Úãá˜ÑÏ", "K", "", "", 1, "", "", false, "", "", false);
-	
-	-- 131
-	N_Ring = Binesh.Genesis("ÍáŞå", "N", "", "", 1, "", "ÏæÑ", false);
-	
-	-- 139
-	L_Self = Binesh.Genesis("ÖÑíÈ ÎæÏÇáŞÇíí", "L", "", "", 1, "", "", false, "", "", false);
-	k_Self = Binesh.Genesis("åÓÊå", "k", "", "", 1, "", "", false, "", "", true);
-	
-	-- 141
-	T_141 = Binesh.Genesis("ÏæÑÇä", "T", "", "", 1, "", "", false);
-	if T_141 == nil then
-		T_141 = Binesh.Genesis("ÏæÑ", "T", "", "", 1, "", "", false);
-	end
-	
-	-- 147
-	for indexNamePersian1 = 1, Table.Count(tbl.Start) do
-		N1 = Binesh.Genesis("ÏæÑ "..tbl.Start[indexNamePersian1], "N1", "", "", 1, "", "ÏæÑ", false);
-		if N1 ~= nil then
-			break
-		else
-			N1 = Binesh.Genesis(tbl.Start[indexNamePersian1].." ÏæÑ", "N1", "", "", 1, "", "ÏæÑ", false);
-			if N1 ~= nil then
-				break
-			end
-		end
-	end
-	for indexNamePersian2 = 1, Table.Count(tbl.End) do
-		N2 = Binesh.Genesis("ÏæÑ "..tbl.End[indexNamePersian2], "N2", "", "", 1, "", "ÏæÑ", false);
-		if N2 ~= nil then
-			break
-		else
-			N2 = Binesh.Genesis(tbl.End[indexNamePersian2].." ÏæÑ", "N2", "", "", 1, "", "ÏæÑ", false);
-			if N2 ~= nil then
-				break
-			end
-		end
-	end
-	
-	
-	------------------------------------------
-	
+	-- 4
+	c = Binesh.Genesis("ÙÑİíÊ ÑãÇ", "c", "", "", 1, "", "", false, "", "", false);
+	----------- *** -------
 	
 	Binesh.Include("Formuls.1", false);
 	Binesh.Include("Formuls.2", false);
+	Binesh.Include("Formuls.1-2 EX", false);
 	Binesh.Include("Formuls.4", false);
 	Binesh.Include("Formuls.6", false);
 	Binesh.Include("Formuls.7", false);
@@ -10692,13 +10607,12 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	Binesh.Include("Formuls.36", false);
 	Binesh.Include("Formuls.37", false);
 	Binesh.Include("Formuls.38", false);
+	Binesh.Include("Formuls.39", false);
 	Binesh.Include("Formuls.41", false);
 	Binesh.Include("Formuls.44", false);
 	Binesh.Include("Formuls.48", false);
 	Binesh.Include("Formuls.50", false);
 	Binesh.Include("Formuls.51", false);
-	Binesh.Include("Formuls.53", false);
-	Binesh.Include("Formuls.54", false);
 	Binesh.Include("Formuls.56", false);
 	Binesh.Include("Formuls.58", false);
 	Binesh.Include("Formuls.59", false);
@@ -10762,7 +10676,8 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	Binesh.Include("Formuls.20", false);
 	Binesh.Include("Formuls.22_1", false);
 	Binesh.Include("Formuls.22_2", false);
-	Binesh.Include("Formuls.47", false);
+	Binesh.Include("Formuls.47_1", false);
+	Binesh.Include("Formuls.47_2", false);
 	Binesh.Include("Formuls.49", false);
 	
 	Binesh.Include("ShowVars", false)
@@ -10777,8 +10692,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>70</DesignCodeLine>
-<DesignCodeCol>9</DesignCodeCol>
+<DesignCodeLine>4</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -12398,7 +12313,7 @@ Paragraph.SetVisible("Name Category 1", false);</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -13304,7 +13219,7 @@ Paragraph.SetVisible("Name Category 2", false);</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -14210,7 +14125,7 @@ Paragraph.SetVisible("Name Category 3", false);</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -15116,7 +15031,7 @@ Paragraph.SetVisible("Name Category 4", false);</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -16358,7 +16273,7 @@ end</Script>
 <BackgroundColor>16777215</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -16554,7 +16469,7 @@ end</Script>
 <BackgroundColor>16777215</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -16750,7 +16665,7 @@ end</Script>
 <BackgroundColor>16777215</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -16946,7 +16861,7 @@ end</Script>
 <BackgroundColor>16777215</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -17276,7 +17191,7 @@ end</Script>
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>322</Top>
-<Bottom>345</Bottom>
+<Bottom>342</Bottom>
 <Left>523</Left>
 <Right>723</Right>
 </Coordinates>
@@ -17338,7 +17253,7 @@ end</Script>
 <Font>
 <FontData>
 <FontName>IRANSans Light</FontName>
-<CharacterSet>178</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-9</Height>
 <Weight>300</Weight>
 <Italic>0</Italic>
@@ -17365,7 +17280,7 @@ end</Script>
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>239</Top>
-<Bottom>262</Bottom>
+<Bottom>259</Bottom>
 <Left>523</Left>
 <Right>723</Right>
 </Coordinates>
@@ -17434,7 +17349,7 @@ ComboBox.SetSelected("Search - Category", 1);</Script>
 <Font>
 <FontData>
 <FontName>IRANSans Light</FontName>
-<CharacterSet>178</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-9</Height>
 <Weight>300</Weight>
 <Italic>0</Italic>
@@ -17586,7 +17501,7 @@ ComboBox.SetSelected("Search - Category", 1);</Script>
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>239</Top>
-<Bottom>262</Bottom>
+<Bottom>259</Bottom>
 <Left>168</Left>
 <Right>368</Right>
 </Coordinates>
@@ -17648,7 +17563,7 @@ ComboBox.SetSelected("Search - Category", 1);</Script>
 <Font>
 <FontData>
 <FontName>IRANSans Light</FontName>
-<CharacterSet>178</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-9</Height>
 <Weight>300</Weight>
 <Italic>0</Italic>
@@ -17981,7 +17896,7 @@ ComboBox.SetSelected("Search - Category", 1);</Script>
 <Font>
 <FontData>
 <FontName>IRANSans Light</FontName>
-<CharacterSet>178</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>300</Weight>
 <Italic>0</Italic>
@@ -20554,7 +20469,7 @@ end]]</Script>
 </Options>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -20663,7 +20578,7 @@ end]]</Script>
 <BackgroundColor>16777215</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -20801,7 +20716,7 @@ Dialog.Message("Notice", result, MB_OK, MB_ICONINFORMATION, MB_DEFBUTTON1);</Scr
 <BackgroundColor>16777215</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -20922,7 +20837,7 @@ end</Script>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -21197,7 +21112,7 @@ end</Script>
 <BackgroundColor>16777215</BackgroundColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -21608,10 +21523,10 @@ Set = nil</Script>
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-21</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -21798,10 +21713,10 @@ DialogEx.ClickObject("xButton1");</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -21916,7 +21831,7 @@ Set = "From"</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>IRANSans</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -22028,7 +21943,7 @@ Set = "To"</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>IRANSans</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -22164,7 +22079,7 @@ end</Script>
 </Options>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -22356,7 +22271,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -22562,7 +22477,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -22768,7 +22683,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -23059,7 +22974,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -23265,7 +23180,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -23471,7 +23386,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -23677,7 +23592,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -23883,7 +23798,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -24089,7 +24004,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -24295,7 +24210,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -24501,7 +24416,7 @@ Binesh.ShowPres(false);</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -25013,7 +24928,7 @@ Binesh.ClearInput()</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -25167,7 +25082,7 @@ end</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -25297,7 +25212,7 @@ Binesh.ClearInput()</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -25433,7 +25348,7 @@ end</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -25542,7 +25457,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -25711,10 +25626,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -25826,7 +25741,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -25995,10 +25910,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -26110,7 +26025,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -26279,10 +26194,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -26394,7 +26309,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -26506,7 +26421,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-9</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -26604,10 +26519,10 @@ end</Script>
 </Options>
 <Font>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-9</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -26707,7 +26622,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -26876,10 +26791,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -26918,7 +26833,7 @@ end</Script>
 <Top>24</Top>
 <Bottom>52</Bottom>
 <Left>383</Left>
-<Right>459</Right>
+<Right>448</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -26991,7 +26906,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -27008,7 +26923,7 @@ end</Script>
 <Top>24</Top>
 <Bottom>52</Bottom>
 <Left>383</Left>
-<Right>459</Right>
+<Right>448</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -27160,10 +27075,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -27202,7 +27117,7 @@ end</Script>
 <Top>66</Top>
 <Bottom>94</Bottom>
 <Left>396</Left>
-<Right>460</Right>
+<Right>451</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -27275,7 +27190,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -27292,7 +27207,7 @@ end</Script>
 <Top>66</Top>
 <Bottom>94</Bottom>
 <Left>396</Left>
-<Right>460</Right>
+<Right>451</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -27444,10 +27359,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -27486,7 +27401,7 @@ end</Script>
 <Top>106</Top>
 <Bottom>134</Bottom>
 <Left>359</Left>
-<Right>459</Right>
+<Right>447</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -27559,7 +27474,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -27576,7 +27491,7 @@ end</Script>
 <Top>106</Top>
 <Bottom>134</Bottom>
 <Left>359</Left>
-<Right>459</Right>
+<Right>447</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -27596,7 +27511,7 @@ end</Script>
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>108</Top>
-<Bottom>128</Bottom>
+<Bottom>131</Bottom>
 <Left>32</Left>
 <Right>337</Right>
 </Coordinates>
@@ -27657,10 +27572,10 @@ end</Script>
 </Options>
 <Font>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-9</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -27687,7 +27602,7 @@ end</Script>
 <Top>146</Top>
 <Bottom>174</Bottom>
 <Left>415</Left>
-<Right>459</Right>
+<Right>454</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -27760,7 +27675,7 @@ end</Script>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>700</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -27777,7 +27692,7 @@ end</Script>
 <Top>146</Top>
 <Bottom>174</Bottom>
 <Left>415</Left>
-<Right>459</Right>
+<Right>454</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -27929,10 +27844,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -28748,7 +28663,7 @@ end</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -28861,7 +28776,7 @@ DialogEx.Show("Add &amp; Edit Quiz");</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -28972,7 +28887,7 @@ DialogEx.Show("Add &amp; Edit Quiz");</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -29398,7 +29313,7 @@ end</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -29529,7 +29444,7 @@ end</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -29660,10 +29575,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -29797,10 +29712,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -30173,7 +30088,7 @@ end</Script>
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>201</Top>
-<Bottom>224</Bottom>
+<Bottom>228</Bottom>
 <Left>400</Left>
 <Right>790</Right>
 </Coordinates>
@@ -30241,10 +30156,10 @@ ComboBox.SetSelected("Category", 1);</Script>
 </Options>
 <Font>
 <FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
 <Height>-12</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -30394,7 +30309,7 @@ ComboBox.SetSelected("Category", 1);</Script>
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>201</Top>
-<Bottom>224</Bottom>
+<Bottom>228</Bottom>
 <Left>11</Left>
 <Right>401</Right>
 </Coordinates>
@@ -30462,10 +30377,10 @@ ComboBox.SetSelected("Category", 1);</Script>
 </Options>
 <Font>
 <FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
 <Height>-12</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -35301,10 +35216,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-12</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -35424,10 +35339,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-12</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -35547,10 +35462,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-12</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -35670,10 +35585,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>IRANSans</FontName>
+<FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-12</Height>
-<Weight>400</Weight>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -35863,7 +35778,7 @@ end</Script>
 <DisabledColor>16777215</DisabledColor>
 <FontData>
 <FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-19</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
@@ -36077,7 +35992,7 @@ end</Script>
 <Top>522</Top>
 <Bottom>549</Bottom>
 <Left>203</Left>
-<Right>427</Right>
+<Right>384</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -36148,7 +36063,7 @@ end</Script>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
@@ -36167,7 +36082,7 @@ end</Script>
 <Top>522</Top>
 <Bottom>549</Bottom>
 <Left>203</Left>
-<Right>427</Right>
+<Right>384</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -36946,10 +36861,10 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-12</Height>
-<Weight>400</Weight>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
+<Height>-13</Height>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -37363,7 +37278,7 @@ SaveZarib()</Script>
 <FontData>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
-<Height>-12</Height>
+<Height>-13</Height>
 <Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -37444,10 +37359,10 @@ SaveZarib()</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-12</Height>
-<Weight>400</Weight>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
+<Height>-13</Height>
+<Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -39368,9 +39283,9 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>86</Top>
-<Bottom>111</Bottom>
+<Bottom>114</Bottom>
 <Left>468</Left>
-<Right>528</Right>
+<Right>532</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -39442,7 +39357,7 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <FontData>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
-<Height>-12</Height>
+<Height>-13</Height>
 <Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -39458,9 +39373,9 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <MouseClickSound/>
 <OriginalRect>
 <Top>86</Top>
-<Bottom>111</Bottom>
+<Bottom>114</Bottom>
 <Left>468</Left>
-<Right>528</Right>
+<Right>532</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -39480,9 +39395,9 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>86</Top>
-<Bottom>111</Bottom>
+<Bottom>114</Bottom>
 <Left>329</Left>
-<Right>387</Right>
+<Right>392</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -39554,7 +39469,7 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <FontData>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
-<Height>-12</Height>
+<Height>-13</Height>
 <Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -39570,9 +39485,9 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <MouseClickSound/>
 <OriginalRect>
 <Top>86</Top>
-<Bottom>111</Bottom>
+<Bottom>114</Bottom>
 <Left>329</Left>
-<Right>387</Right>
+<Right>392</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -39592,9 +39507,9 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>86</Top>
-<Bottom>111</Bottom>
+<Bottom>114</Bottom>
 <Left>178</Left>
-<Right>259</Right>
+<Right>264</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -39666,7 +39581,7 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <FontData>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
-<Height>-12</Height>
+<Height>-13</Height>
 <Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -39682,9 +39597,9 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <MouseClickSound/>
 <OriginalRect>
 <Top>86</Top>
-<Bottom>111</Bottom>
+<Bottom>114</Bottom>
 <Left>178</Left>
-<Right>259</Right>
+<Right>264</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -39704,9 +39619,9 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>86</Top>
-<Bottom>111</Bottom>
+<Bottom>114</Bottom>
 <Left>39</Left>
-<Right>118</Right>
+<Right>124</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -39778,7 +39693,7 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <FontData>
 <FontName>IRANSans Light</FontName>
 <CharacterSet>178</CharacterSet>
-<Height>-12</Height>
+<Height>-13</Height>
 <Weight>300</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -39794,9 +39709,9 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <MouseClickSound/>
 <OriginalRect>
 <Top>86</Top>
-<Bottom>111</Bottom>
+<Bottom>114</Bottom>
 <Left>39</Left>
-<Right>118</Right>
+<Right>124</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -40059,7 +39974,7 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <DisabledColor>12632256</DisabledColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>0</CharacterSet>
+<CharacterSet>204</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
