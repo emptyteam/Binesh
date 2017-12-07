@@ -26,17 +26,13 @@ if A2 == nil then
 	end
 end
 
-FindF1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ‰Ì—Ê")
-FindF2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ‰Ì—Ê");
-FindA1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”ÿÕ")
-FindA2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ”ÿÕ")
-
+FindF1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ‰Ì—Ê");
 if FindF1 ~= -1 and ListBox.GetItemData("unknowns", FindF1) == "F1" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F1") ~= -1 then
 	if F2 ~= nil and A1 ~= nil and A2 ~= nil then
-		Binesh.CreateHTMLFile("<span>F<sub>1</sub>/A<sub>1</sub></span> = <span>F<sub>2</sub>/A<sub>1</sub></span>", "F<sub>1</sub> = <span>A<sub>1</sub>*F<sub>2</sub>/A<sub>2</sub></span>")
+		Binesh.CreateHTMLFile("<span>F<sub>1</sub>/A<sub>1</sub></span> = <span>F<sub>2</sub>/A<sub>1</sub></span>", "F<sub>1</sub> = <span>A<sub>1</sub>F<sub>2</sub>/A<sub>2</sub></span>")
 		F1 = (A1*F2)/(A2)
 		
-		Binesh.AddToHTML("F<sub>1</sub> = <span>"..A1.."*"..F2.."/"..A2.."</span> &#8658; F<sub>1</sub> = "..F1.."N")
+		Binesh.AddToHTML("F<sub>1</sub> = <span>"..A1.."*"..F2.."/"..A2.."</span> &#8658; F<sub>1</sub> = "..F1.." N")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ‰Ì—Ê");
@@ -45,12 +41,15 @@ if FindF1 ~= -1 and ListBox.GetItemData("unknowns", FindF1) == "F1" and ListBox.
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindF2 ~= -1 and ListBox.GetItemData("unknowns", FindF2) == "F2" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F2") ~= -1 then
+end
+
+FindF2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ‰Ì—Ê");
+if FindF2 ~= -1 and ListBox.GetItemData("unknowns", FindF2) == "F2" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F2") ~= -1 then
 	if F1 ~= nil and A1 ~= nil and A2 ~= nil then
-		Binesh.CreateHTMLFile("<span>F<sub>1</sub>/A<sub>1</sub></span> = <span>F<sub>2</sub>/A<sub>1</sub></span>", "F<sub>2</sub> = <span>A<sub>2</sub>*F<sub>1</sub>/A<sub>1</sub></span>")
+		Binesh.CreateHTMLFile("<span>F<sub>1</sub>/A<sub>1</sub></span> = <span>F<sub>2</sub>/A<sub>1</sub></span>", "F<sub>2</sub> = <span>A<sub>2</sub>F<sub>1</sub>/A<sub>1</sub></span>")
 		F2 = (A2*F1)/(A1)
 		
-		Binesh.AddToHTML("F<sub>2</sub> = <span>"..A2.."*"..F1.."/"..A1.."</span> &#8658; F<sub>2</sub> = "..F2.."N")
+		Binesh.AddToHTML("F<sub>2</sub> = <span>"..A2.."*"..F1.."/"..A1.."</span> &#8658; F<sub>2</sub> = "..F2.." N")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ‰Ì—Ê");
@@ -59,12 +58,15 @@ elseif FindF2 ~= -1 and ListBox.GetItemData("unknowns", FindF2) == "F2" and List
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindA1 ~= -1 and ListBox.GetItemData("unknowns", FindA1) == "A1" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A1") ~= -1 then
+end
+
+FindA1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”ÿÕ");
+if FindA1 ~= -1 and ListBox.GetItemData("unknowns", FindA1) == "A1" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A1") ~= -1 then
 	if F1 ~= nil and F2 ~= nil and A2 ~= nil then
-		Binesh.CreateHTMLFile("<span>F<sub>1</sub>/A<sub>1</sub></span> = <span>F<sub>2</sub>/A<sub>1</sub></span>", "A<sub>1</sub> = <span>F<sub>1</sub>*A<sub>2</sub>/F<sub>2</sub></span>")
+		Binesh.CreateHTMLFile("<span>F<sub>1</sub>/A<sub>1</sub></span> = <span>F<sub>2</sub>/A<sub>1</sub></span>", "A<sub>1</sub> = <span>F<sub>1</sub>A<sub>2</sub>/F<sub>2</sub></span>")
 		A1 = (F1*A2)/(F2)
 		
-		Binesh.AddToHTML("A<sub>1</sub> = <span>"..F1.."*"..A2.."/"..F2.."</span> &#8658; A<sub>1</sub> = "..A1.."m<sup>2</sup>")
+		Binesh.AddToHTML("A<sub>1</sub> = <span>"..F1.."*"..A2.."/"..F2.."</span> &#8658; A<sub>1</sub> = "..A1.." m<sup>2</sup>")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”ÿÕ");
@@ -73,12 +75,15 @@ elseif FindA1 ~= -1 and ListBox.GetItemData("unknowns", FindA1) == "A1" and List
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindA2 ~= -1 and ListBox.GetItemData("unknowns", FindA2) == "A2" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A2") ~= -1 then
+end
+
+FindA2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ”ÿÕ");
+if FindA2 ~= -1 and ListBox.GetItemData("unknowns", FindA2) == "A2" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A2") ~= -1 then
 	if F1 ~= nil and F2 ~= nil and A2 ~= nil then
-		Binesh.CreateHTMLFile("<span>F<sub>1</sub>/A<sub>1</sub></span> = <span>F<sub>2</sub>/A<sub>1</sub></span>", "A<sub>2</sub> = <span>F<sub>2</sub>*A<sub>1</sub>/F<sub>1</sub></span>")
+		Binesh.CreateHTMLFile("<span>F<sub>1</sub>/A<sub>1</sub></span> = <span>F<sub>2</sub>/A<sub>1</sub></span>", "A<sub>2</sub> = <span>F<sub>2</sub>A<sub>1</sub>/F<sub>1</sub></span>")
 		A2 = (F2*A1)/(F1)
 		
-		Binesh.AddToHTML("A<sub>2</sub> = <span>"..F2.."*"..A1.."/"..F1.."<span> &#8658; A<sub>2</sub> = "..A2.."m<sup>2</sup>")
+		Binesh.AddToHTML("A<sub>2</sub> = <span>"..F2.."*"..A1.."/"..F1.."<span> &#8658; A<sub>2</sub> = "..A2.." m<sup>2</sup>")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ”ÿÕ");

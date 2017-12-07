@@ -26,14 +26,10 @@ if M == nil then
 	end
 end
 
-FindRu = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "çê«·Ì")
-FindP = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›‘«—");
-FindT = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œ„«")
-FindM = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„ „Ê·Ì")
-
+FindRu = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "çê«·Ì");
 if FindRu ~= -1 and ListBox.GetItemData("unknowns", FindRu) == "Ru" and ListBox.FindItem("Words", -1, LB_BYTEXT, "çê«·Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ru") ~= -1 then
-	if (P ~= nil or Pa ~= nil) and (T ~= nil or TC ~= nil) and M ~= nil then
-		Binesh.CreateHTMLFile("Ru = <span>P*M/R*T</span>")
+	if Pa ~= nil and T ~= nil and M ~= nil then
+		Binesh.CreateHTMLFile("Ru = <span>PM/RT</span>")
 		Ru = P*M/Zarib.R*T
 				
 		Binesh.AddToHTML("Ru = <span>"..P.."*"..M.."/"..Zarib.R.."*"..T.."</span> &#8658; Ru = "..Ru.."g/m<sup>3</sup>")
@@ -45,9 +41,12 @@ if FindRu ~= -1 and ListBox.GetItemData("unknowns", FindRu) == "Ru" and ListBox.
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindP ~= -1 and ListBox.GetItemData("unknowns", FindP) == "P" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1 then
+end
+
+FindP = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›‘«—");
+if FindP ~= -1 and ListBox.GetItemData("unknowns", FindP) == "P" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1 then
 	if Ru ~= nil and T ~= nil and M ~= nil then
-		Binesh.CreateHTMLFile("Ru = <span>P*M/R*T</span>", "P = <span>Ru*R*T/M</span>")
+		Binesh.CreateHTMLFile("Ru = <span>PM/RT</span>", "P = <span>RuRT/M</span>")
 		
 		P = Ru*Zarib.R*T/M
 		
@@ -60,10 +59,13 @@ elseif FindP ~= -1 and ListBox.GetItemData("unknowns", FindP) == "P" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindT ~= -1 and ListBox.GetItemData("unknowns", FindT) == "T" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T") ~= -1 then
+end
+
+FindT = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œ„«");
+if FindT ~= -1 and ListBox.GetItemData("unknowns", FindT) == "T" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T") ~= -1 then
 	if Ru ~= nil and P ~= nil and M ~= nil then
-		Binesh.CreateHTMLFile("Ru = <span>P*M/R*T</span>", "T = <span>P*M/R*Ru</span>")
-		T = P*M/Zarib.R*Ru
+		Binesh.CreateHTMLFile("Ru = <span>PM/RT</span>", "T = <span>PM/RRu</span>")
+		T = P*M/(Zarib.R*Ru)
 		
 		Binesh.AddToHTML("T = <span>"..P.."*"..M.."/"..Zarib.R.."*"..Ru.."</span> &#8658; T = "..T.."K")
 		Web.Refresh("Web1");
@@ -74,9 +76,12 @@ elseif FindT ~= -1 and ListBox.GetItemData("unknowns", FindT) == "T" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindM ~= -1 and ListBox.GetItemData("unknowns", FindM) == "M" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„ „Ê·Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "M") ~= -1 then
+end
+
+FindM = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„ „Ê·Ì");
+if FindM ~= -1 and ListBox.GetItemData("unknowns", FindM) == "M" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„ „Ê·Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "M") ~= -1 then
 	if Ru ~= nil and T ~= nil and P ~= nil then
-		Binesh.CreateHTMLFile("Ru = <span>P*M/R*T</span>", "M = <span>Ru*R*T/P</span>")
+		Binesh.CreateHTMLFile("Ru = <span>PM/RT</span>", "M = <span>RuRT/P</span>")
 		M = Zarib.R*Ru*T/P
 		
 		Binesh.AddToHTML("M = <span>"..Ru.."*"..Zarib.R.."*"..T.."/"..P.."</span> &#8658; M = "..M.."<span>g/mol</span>")

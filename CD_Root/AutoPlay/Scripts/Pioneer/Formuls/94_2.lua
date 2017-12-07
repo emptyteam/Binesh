@@ -31,13 +31,8 @@ if q == nil then
 	end
 end
 
-FindW_Out = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«— Œ«—ÃÌ")
-Findq = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â")
-FindDeltaV_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ")
-FindV1_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ")
-FindV2_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ")
-
 --------------------------{DELTA}--------------------------
+FindDeltaV_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ");
 if FindDeltaV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Speed) == "DeltaV" then
 	if _V1_Speed ~= nil and _V2_Speed ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>")
@@ -52,7 +47,10 @@ if FindDeltaV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Speed) 
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindV1_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV1_Speed) == "V1" then
+end
+
+FindV1_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ");
+if FindV1_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV1_Speed) == "V1" then
 	if _DeltaV_Speed ~= nil and _V2_Speed ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>1</sub> = V<sub>2</sub>-DeltaV")
 		_V1_Speed = _V2_Speed-_DeltaV_Speed
@@ -66,7 +64,10 @@ elseif FindV1_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV1_Speed) == "
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindV2_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV2_Speed) == "V2" then
+end
+
+FindV2_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ");
+if FindV2_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV2_Speed) == "V2" then
 	if _DeltaV_Speed ~= nil and _V1_Speed ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>2</sub> = DeltaV+V<sub>1</sub>")
 		_V2_Speed = _V1_Speed+_DeltaV_Speed
@@ -82,7 +83,7 @@ elseif FindV2_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV2_Speed) == "
 	end
 end
 --------------------------END {DELTA}--------------------------
-
+FindW_Out = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«— Œ«—ÃÌ");
 if FindW_Out ~= -1 and ListBox.GetItemData("unknowns", FindW_Out) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«— Œ«—ÃÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
 	if _DeltaV_Speed ~= nil and q ~= nil then
 		Binesh.CreateHTMLFile("W = qDeltaV")
@@ -97,7 +98,10 @@ if FindW_Out ~= -1 and ListBox.GetItemData("unknowns", FindW_Out) == "W" and Lis
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindDeltaV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Speed) == "DeltaV" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V2") ~= -1) then
+end
+
+FindDeltaV_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ");
+if FindDeltaV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Speed) == "DeltaV" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V2") ~= -1) then
 	if q ~= nil and W_Out ~= nil then
 		Binesh.CreateHTMLFile("W = qDeltaV", "DeltaV = <span>W/q</span>")
 		_DeltaV_Speed = _V1_Speed*Beta*_DeltaTeta
@@ -111,7 +115,10 @@ elseif FindDeltaV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Spe
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "Deltaq" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltaq") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q2") ~= -1 then
+end
+
+Findq = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â");
+if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "Deltaq" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltaq") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q2") ~= -1 then
 	if W_Out ~= nil and _DetlaV ~= nil then
 		Binesh.CreateHTMLFile("W = qDeltaV", "q = <span>W/DeltaV</span>")
 		q = W_Out/_DeltaV_Speed

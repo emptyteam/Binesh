@@ -31,14 +31,9 @@ if d_Distance == nil then
 	end
 end
 
-FindDeltaV_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ê· «é")
-FindV1_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ Ê· «é")
-FindV2_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ Ê· «é")
-FindE = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰")
-Findd_Distance = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â")
-
 --------------------------{DELTA}--------------------------
-if FindDeltaV_Electric_Electric ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Electric_Electric) == "DeltaV" then
+FindDeltaV_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ê· «é");
+if FindDeltaV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Electric) == "DeltaV" then
 	if _V1_Electric ~= nil and _V2_Electric ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>")
 		_DeltaV_Electric = _V2_Electric - _V1_Electric
@@ -52,7 +47,10 @@ if FindDeltaV_Electric_Electric ~= -1 and ListBox.GetItemData("unknowns", FindDe
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindV1_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV1_Electric) == "V1" or ListBox.GetItemData("unknowns", FindV1_Electric) == "V1" then
+end
+
+FindV1_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ Ê· «é");
+if FindV1_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV1_Electric) == "V1" or ListBox.GetItemData("unknowns", FindV1_Electric) == "V1" then
 	if _DeltaV_Electric ~= nil and _V2_Electric ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>1</sub> = V<sub>2</sub>-DeltaV")
 		_V1_Electric = _V2_Electric-_DeltaV_Electric
@@ -66,7 +64,10 @@ elseif FindV1_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV1_Electric
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindV2_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV2_Electric) == "V2" or ListBox.GetItemData("unknowns", FindV2_Electric) == "V2" then
+end
+
+FindV2_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ Ê· «é");
+if FindV2_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV2_Electric) == "V2" or ListBox.GetItemData("unknowns", FindV2_Electric) == "V2" then
 	if _DeltaV_Electric ~= nil and _V1_Electric ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>2</sub> = DeltaV+V<sub>1</sub>")
 		_V2_Electric = _V1_Electric+_DeltaV_Electric
@@ -97,8 +98,10 @@ if FindDeltaV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Elec
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-	
-elseif FindE ~= -1 and ListBox.GetItemData("unknowns", FindE) == "J" and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1 then
+end
+
+FindE = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
+if FindE ~= -1 and ListBox.GetItemData("unknowns", FindE) == "J" and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1 then
 	if _DeltaV_Electric ~= nil and d_Distance ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = Ed", "E = <span>DeltaV/d</span>")
 		E = _DeltaV_Electric / d_Distance
@@ -112,7 +115,10 @@ elseif FindE ~= -1 and ListBox.GetItemData("unknowns", FindE) == "J" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif Findd_Distance ~= -1 and ListBox.GetItemData("unknowns", Findd_Distance) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
+end
+
+Findd_Distance = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
+if Findd_Distance ~= -1 and ListBox.GetItemData("unknowns", Findd_Distance) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
 	if _DeltaV_Electric ~= nil and E ~= nil then
 		Binesh.CreateHTMLFile("DeltaV = Ed", "d = <span>DeltaV/E</span>")
 		d_Distance = _DeltaV_Electric / E

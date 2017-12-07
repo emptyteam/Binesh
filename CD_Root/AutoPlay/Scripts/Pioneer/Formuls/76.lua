@@ -7,9 +7,9 @@ if n == nil then
 end
 
 if C_V == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ")
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'CV' then
-		ListBox.AddItem("unknowns", "Ÿ—›Ì  ê—„«ÌÌ", "CV");
+		ListBox.AddItem("unknowns", "Ÿ—›Ì  ê—„«", "CV");
 	end
 end
 
@@ -32,15 +32,6 @@ if _T2 == nil and _Teta2 == nil then
 	end
 end
 
-Findn = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ê·")
-FindC_V = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ");
-FindDeltaU_In = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ œ—Ê‰Ì")
-FindU1_In = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ œ—Ê‰Ì")
-FindU2_In = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ œ—Ê‰Ì")
-FindDeltaT = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— œ„«")
-FindT1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ œ„«")
-FindT2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ œ„«")
-
 if _DeltaTeta ~= nil or _Teta1 ~= nil or _Teta2 ~= nil then
 	Binesh.CreateHTMLFile("T = Teta+273")
 end
@@ -62,6 +53,7 @@ if _Teta2 ~= nil then
 end
 
 --------------------------{DELTA}--------------------------
+FindDeltaU_In = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ œ—Ê‰Ì");
 if FindDeltaU_In ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU_In) == "DeltaU" then
 	if _U1_In ~= nil and _U2_In ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>")
@@ -76,7 +68,10 @@ if FindDeltaU_In ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU_In) == "De
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindU1_In ~= -1 and ListBox.GetItemData("unknowns", FindU1_In) == "U1" then
+end
+
+FindU1_In = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ œ—Ê‰Ì");
+if FindU1_In ~= -1 and ListBox.GetItemData("unknowns", FindU1_In) == "U1" then
 	if _DeltaU_In ~= nil and _U2_In ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>", "U<sub>1</sub> = U<sub>2</sub>-DeltaU")
 		_U1_In = _U2_In-_DeltaU_In
@@ -90,7 +85,10 @@ elseif FindU1_In ~= -1 and ListBox.GetItemData("unknowns", FindU1_In) == "U1" th
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindU2_In ~= -1 and ListBox.GetItemData("unknowns", FindU2_In) == "U2" then
+end
+
+FindU2_In = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ œ—Ê‰Ì");
+if FindU2_In ~= -1 and ListBox.GetItemData("unknowns", FindU2_In) == "U2" then
 	if _DeltaU_In ~= nil and _U1_In ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>", "U<sub>2</sub> = DeltaU+U<sub>1</sub>")
 		_U2_In = _U1_In+_DeltaU_In
@@ -106,6 +104,7 @@ elseif FindU2_In ~= -1 and ListBox.GetItemData("unknowns", FindU2_In) == "U2" th
 	end
 end
 
+FindDeltaT = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— œ„«");
 if FindDeltaT ~= -1 and ListBox.GetItemData("unknowns", FindDeltaT) == "DeltaT" then
 	if _T1 ~= nil and _T2 ~= nil then
 		Binesh.CreateHTMLFile("DeltaT = T<sub>2</sub>-T<sub>1</sub>")
@@ -120,7 +119,10 @@ if FindDeltaT ~= -1 and ListBox.GetItemData("unknowns", FindDeltaT) == "DeltaT" 
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindT1 ~= -1 and ListBox.GetItemData("unknowns", FindT1) == "T1" then
+end
+
+FindT1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ œ„«");
+if FindT1 ~= -1 and ListBox.GetItemData("unknowns", FindT1) == "T1" then
 	if _DeltaT ~= nil and _T2 ~= nil then
 		Binesh.CreateHTMLFile("DeltaT = T<sub>2</sub>-T<sub>1</sub>", "T<sub>1</sub> = T<sub>2</sub>-DeltaT")
 		_T1 = _T2-_DeltaT
@@ -134,7 +136,10 @@ elseif FindT1 ~= -1 and ListBox.GetItemData("unknowns", FindT1) == "T1" then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindT2 ~= -1 and ListBox.GetItemData("unknowns", FindT2) == "T2" then
+end
+
+FindT2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ œ„«");
+if FindT2 ~= -1 and ListBox.GetItemData("unknowns", FindT2) == "T2" then
 	if _DeltaT ~= nil and _T1 ~= nil then
 		Binesh.CreateHTMLFile("DeltaT = T<sub>2</sub>-T<sub>1</sub>", "T<sub>2</sub> = DeltaT+T<sub>1</sub>")
 		_T2 = _T1+_DeltaT
@@ -150,7 +155,7 @@ elseif FindT2 ~= -1 and ListBox.GetItemData("unknowns", FindT2) == "T2" then
 	end
 end
 --------------------------END {DELTA}--------------------------
-
+Findn = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ê·");
 if Findn ~= -1 and ListBox.GetItemData("unknowns", Findn) == "n" and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ê·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1 then
 	if C_V ~= nil and _DeltaT ~= nil and _DeltaU_In ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = nC<sub>V</sub>DeltaT", "<span>n = DeltaU/C<sub>V</sub>DeltaT</span>")
@@ -165,7 +170,10 @@ if Findn ~= -1 and ListBox.GetItemData("unknowns", Findn) == "n" and ListBox.Fin
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindC_V ~= -1 and ListBox.GetItemData("unknowns", FindC_V) == "CV" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "CV") ~= -1 then 
+end
+
+FindC_V = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«");
+if FindC_V ~= -1 and ListBox.GetItemData("unknowns", FindC_V) == "CV" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "CV") ~= -1 then 
 	if n ~= nil and _DeltaT ~= nil and _DeltaU_In ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = nC<sub>V</sub>DeltaT", "C<sub>V</sub> = <span>DeltaU/nDeltaT</span>")
 		C_V = _DeltaU_In/n*_DeltaT
@@ -173,13 +181,16 @@ elseif FindC_V ~= -1 and ListBox.GetItemData("unknowns", FindC_V) == "CV" and Li
 		
 		Web.Refresh("Web1");
 			
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "CV");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindDeltaT ~= -1 and ListBox.GetItemData("unknowns", FindDeltaT) == "DeltaT" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ œ„«") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaTeta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta2") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaT") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T2") ~= -1) then
+end
+
+FindDeltaT = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— œ„«");
+if FindDeltaT ~= -1 and ListBox.GetItemData("unknowns", FindDeltaT) == "DeltaT" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ œ„«") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaTeta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta2") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaT") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T2") ~= -1) then
 	if _DeltaU_In ~= nil and n ~= nil and C_V ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = nC<sub>V</sub>DeltaT", " DeltaT = <span>DeltaU/nC<sub>V</sub></span>")
 		_DeltaT = _DeltaU_In/n*C_V
@@ -193,7 +204,10 @@ elseif FindDeltaT ~= -1 and ListBox.GetItemData("unknowns", FindDeltaT) == "Delt
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindDeltaU_In ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU_In) == "DeltaU" and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ œ—Ê‰Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U2") ~= -1 then 
+end
+
+FindDeltaU_In = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ œ—Ê‰Ì");
+if FindDeltaU_In ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU_In) == "DeltaU" and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ œ—Ê‰Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U2") ~= -1 then 
 	if _DeltaT ~= nil and n ~= nil and C_V ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = nC<sub>V</sub>DeltaT")
 		_DeltaU_In = n*C_V*_DeltaT

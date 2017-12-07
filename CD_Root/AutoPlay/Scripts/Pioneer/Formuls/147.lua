@@ -26,17 +26,13 @@ if N2 == nil then
 	end
 end
 
-FindV1_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ Ê· «é")
-FindV2_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ Ê· «é");
-FindN1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ œÊ—")
-FindN2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ œÊ—")
-
+FindV1_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ Ê· «é");
 if FindV1_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV1_Electric) == "V1" then
 	if V2_Electric ~= nil and N1 ~= nil and N2 ~= nil then
-		Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "V<sub>1</sub> = <span>V<sub>2</sub>*N<sub>1</sub>/N<sub>2</sub></span>")
+		Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "V<sub>1</sub> = <span>V<sub>2</sub>N<sub>1</sub>/N<sub>2</sub></span>")
 		V1_Electric = (V2_Electric*N1)/(N2)
 		
-		Binesh.AddToHTML("V<sub>1</sub> = <span>"..V2_Electric.."*"..N1.."/"..N2.."</span> &#8658; V<sub>1</sub> = "..V1_Electric.."V")
+		Binesh.AddToHTML("V<sub>1</sub> = <span>"..V2_Electric.."*"..N1.."/"..N2.."</span> &#8658; V<sub>1</sub> = "..V1_Electric.." V")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ Ê· «é");
@@ -45,12 +41,15 @@ if FindV1_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV1_Electric) ==
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindV2_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV2_Electric) == "V2" then
+end
+
+FindV2_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ Ê· «é");
+if FindV2_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV2_Electric) == "V2" then
 	if V1_Electric ~= nil and N1 ~= nil and N2 ~= nil then
-		Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "V<sub>2</sub> = <span>N<sub>2</sub>*V<sub>1</sub>/N<sub>1</sub></span>")
+		Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "V<sub>2</sub> = <span>N<sub>2</sub>V<sub>1</sub>/N<sub>1</sub></span>")
 		V2_Electric = (N2*V1_Electric)/(N1)
 		
-		Binesh.AddToHTML("V<sub>2</sub> = <span>"..N2.."*"..V1_Electric.."/"..N1.."</span> &#8658; V<sub>2</sub> = "..V2_Electric.."V")
+		Binesh.AddToHTML("V<sub>2</sub> = <span>"..N2.."*"..V1_Electric.."/"..N1.."</span> &#8658; V<sub>2</sub> = "..V2_Electric.." V")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ Ê· «é");
@@ -59,9 +58,12 @@ elseif FindV2_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV2_Electric
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindN1 ~= -1 and ListBox.GetItemData("unknowns", FindN1) == "N1" then
+end
+
+FindN1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ œÊ—");
+if FindN1 ~= -1 and ListBox.GetItemData("unknowns", FindN1) == "N1" then
 	if V1_Electric ~= nil and V2_Electric ~= nil and N2 ~= nil then
-		Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "N<sub>1</sub> = <span>N<sub>2</sub>*V<sub>1</sub>/V<sub>2</sub></span>")
+		Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "N<sub>1</sub> = <span>N<sub>2</sub>V<sub>1</sub>/V<sub>2</sub></span>")
 		N1 = (N2*V1_Electric)/(V2_Electric)
 		
 		Binesh.AddToHTML("N<sub>1</sub> = <span>"..N2.."*"..V1_Electric.."/"..V2_Electric.."</span> &#8658; N<sub>1</sub> = "..N1)
@@ -73,9 +75,12 @@ elseif FindN1 ~= -1 and ListBox.GetItemData("unknowns", FindN1) == "N1" then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindN2 ~= -1 and ListBox.GetItemData("unknowns", FindN2) == "N2" then
+end
+
+FindN2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ œÊ—");
+if FindN2 ~= -1 and ListBox.GetItemData("unknowns", FindN2) == "N2" then
 	if V1_Electric ~= nil and V2_Electric ~= nil and N2 ~= nil then
-		Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "N<sub>2</sub> = <span>V<sub>2</sub>*N<sub>1</sub>/V<sub>1</sub></span>")
+		Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "N<sub>2</sub> = <span>V<sub>2</sub>N<sub>1</sub>/V<sub>1</sub></span>")
 		N2 = (V2_Electric*N1)/(V1_Electric)
 		
 		Binesh.AddToHTML("N<sub>2</sub> = <span>"..V2_Electric.."*"..N1.."/"..V1_Electric.."</span> &#8658; N<sub>2</sub> = "..N2)

@@ -19,16 +19,13 @@ if L2 == nil then
 	end
 end
 
-FindM_Injection = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» «·ﬁ«Ì „ ﬁ«»·")
-FindL1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ÿÊ·");
-FindL2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ÿÊ·")
-
+FindM_Injection = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» «·ﬁ«Ì „ ﬁ«»·");
 if FindM_Injection ~= -1 and ListBox.GetItemData("unknowns", FindM_Injection) == "M" and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» «·ﬁ«Ì „ ﬁ«»·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "M") ~= -1 then
 	if L1 ~= nil and L2 ~= nil then
-		Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>*L<sub>2</sub>)")
+		Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>L<sub>2</sub>)")
 		M_Injection = sqrt(L1*L2)
 		
-		Binesh.AddToHTML("M = Sqrt("..L1.."*"..L2..") &#8658; M = "..M_Injection.."s")
+		Binesh.AddToHTML("M = Sqrt("..L1.."*"..L2..") &#8658; M = "..M_Injection.." s")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» «·ﬁ«Ì „ ﬁ«»·");
@@ -37,12 +34,15 @@ if FindM_Injection ~= -1 and ListBox.GetItemData("unknowns", FindM_Injection) ==
 			ListBox.DeleteItem("unknowns", unknownindex);
 		end
 	end
-elseif FindL1 ~= -1 and ListBox.GetItemData("unknowns", FindL1) == "L" then
+end
+
+FindL1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ÿÊ·");
+if FindL1 ~= -1 and ListBox.GetItemData("unknowns", FindL1) == "L" then
 	if L2 ~= nil and M_Injection ~= nil then
-		Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>*L<sub>2</sub>)", "L1 = <span>M<sup>2</sup>/L<sub>2</sub></span>")
+		Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>*L<sub>2</sub>)", "L<sub>1</sub> = <span>M<sup>2</sup>/L<sub>2</sub></span>")
 		L1 = M^2/L2
 		
-		Binesh.AddToHTML("L1 = <span>"..M.."<sup>2</sup>/"..L2.."</span> &#8658; L<sub>1</sub> = "..L1.."m")
+		Binesh.AddToHTML("L1 = <span>"..M.."<sup>2</sup>/"..L2.."</span> &#8658; L<sub>1</sub> = "..L1.." m")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ÿÊ·");
@@ -51,12 +51,15 @@ elseif FindL1 ~= -1 and ListBox.GetItemData("unknowns", FindL1) == "L" then
 			ListBox.DeleteItem("unknowns", unknownindex);
 		end
 	end
-elseif FindL2 ~= -1 and ListBox.GetItemData("unknowns", FindL2) == "L2" then
+end
+
+FindL2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ÿÊ·");
+if FindL2 ~= -1 and ListBox.GetItemData("unknowns", FindL2) == "L2" then
 	if M_Injection ~= nil and L2 ~= nil then
-		Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>*L<sub>2</sub>)", " L = <span>M<sup>2</sup>/L<sub>1</sub></span>")
+		Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>*L<sub>2</sub>)", "L<sub>2</sub> = <span>M<sup>2</sup>/L<sub>1</sub></span>")
 		L2 = M^2/L1
 		
-		Binesh.AddToHTML("L2 = <span>"..M.."<sup>2</sup>/"..L1.."</span> &#8658; L<sub>2</sub> = "..L2.."m")
+		Binesh.AddToHTML("L2 = <span>"..M.."<sup>2</sup>/"..L1.."</span> &#8658; L<sub>2</sub> = "..L2.." m")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ÿÊ·");

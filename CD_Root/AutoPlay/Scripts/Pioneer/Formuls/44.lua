@@ -19,10 +19,7 @@ if a == nil then
 	end
 end
 
-FindF = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê")
-Findm = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„");
-Finda = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘ «»")
-
+FindF = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê");
 if FindF ~= -1 and ListBox.GetItemData("unknowns", FindF) == "F" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1 then
 	if m ~= nil and a ~= nil then
 		Binesh.CreateHTMLFile("F = ma")
@@ -37,7 +34,10 @@ if FindF ~= -1 and ListBox.GetItemData("unknowns", FindF) == "F" and ListBox.Fin
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
+end
+
+Findm = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„");
+if Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
 	if F ~= nil and a ~= nil then
 		Binesh.CreateHTMLFile("F = m*a", "m = <span>F/a</span>")
 		m = (F)/(a)
@@ -51,7 +51,10 @@ elseif Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif Finda ~= -1 and ListBox.GetItemData("unknowns", Finda) == "a" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then
+end
+
+Finda = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘ «»");
+if Finda ~= -1 and ListBox.GetItemData("unknowns", Finda) == "a" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then
 	if F ~= nil and m ~= nil then
 		Binesh.CreateHTMLFile("F = m*a", "a = <span>F/m</span>")
 		a = (F)/(m)

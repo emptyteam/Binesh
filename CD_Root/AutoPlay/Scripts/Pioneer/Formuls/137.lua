@@ -1,4 +1,3 @@
--- Epsilon = Binesh.Genesis("‰Ì—Ê „Õ—òÂ", "Epsilon", "", "", 1, "V", "Ê· ", false);
 if Epsilon == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Epsilon' then
@@ -6,7 +5,6 @@ if Epsilon == nil then
 	end
 end
 
--- B_137 = Binesh.Genesis("„Ìœ«‰", "B", "", "", 1, "T", " ”·«", false);
 if B == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'B' then
@@ -14,7 +12,6 @@ if B == nil then
 	end
 end
 
--- I_137 = Binesh.Genesis("Ã—Ì«‰", "I", "", "", 1, "A", "¬„Å—", false);
 if I == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—Ì«‰")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'I' then
@@ -22,7 +19,6 @@ if I == nil then
 	end
 end
 
--- V_Speed_137 = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", false);
 if V_Speed == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V' then
@@ -30,17 +26,13 @@ if V_Speed == nil then
 	end
 end
 
-FindEpsilon = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ")
-FindB = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
-FindI = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—Ì«‰")
-FindV_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ")
-
+FindEpsilon = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ");
 if FindEpsilon ~= -1 and ListBox.GetItemData("unknowns", FindEpsilon) == "Epsilon" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Epsilon") ~= -1 then
 	if V_Speed ~= nil and B ~= nil and I ~= nil then
-		Binesh.CreateHTMLFile("Epsilon = B*I*V")
+		Binesh.CreateHTMLFile("Epsilon = BIV")
 		Epsilon = B*I*V_Speed
 		
-		Binesh.AddToHTML("Epsilon = "..B.."*"..I.."*"..V_Speed.." &#8658; Epsilon = "..Epsilon.."V")
+		Binesh.AddToHTML("Epsilon = "..B.."*"..I.."*"..V_Speed.." &#8658; Epsilon = "..Epsilon.." V")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ");
@@ -49,10 +41,13 @@ if FindEpsilon ~= -1 and ListBox.GetItemData("unknowns", FindEpsilon) == "Epsilo
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindB ~= -1 and ListBox.GetItemData("unknowns", FindB) == "B" and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "B") ~= -1 then
+end
+
+FindB = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
+if FindB ~= -1 and ListBox.GetItemData("unknowns", FindB) == "B" and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "B") ~= -1 then
 	if V_Speed ~= nil and Epsilon ~= nil and I ~= nil then
-		Binesh.CreateHTMLFile("Epsilon = B*I*V","B = <span>Epsilon/I*V</span>")
-		B = Epsilon/I*V_Speed
+		Binesh.CreateHTMLFile("Epsilon = BIV","B = <span>Epsilon/IV</span>")
+		B = Epsilon/(I*V_Speed)
 		
 		Binesh.AddToHTML("B = <span>"..Epsilon.."/"..I.."*"..V_Speed.."</span> &#8658; B = "..B.."T")
 		Web.Refresh("Web1");
@@ -63,12 +58,15 @@ elseif FindB ~= -1 and ListBox.GetItemData("unknowns", FindB) == "B" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindI ~= -1 and ListBox.GetItemData("unknowns", FindI) == "I" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1 then
+end
+
+FindI = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—Ì«‰");
+if FindI ~= -1 and ListBox.GetItemData("unknowns", FindI) == "I" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1 then
 	if V_Speed ~= nil and Epsilon ~= nil and B ~= nil then
-		Binesh.CreateHTMLFile("Epsilon = B*I*V","I = <span>Epsilon/B*V</span>")
-		I = Epsilon/B*V_Speed
+		Binesh.CreateHTMLFile("Epsilon = BIV","I = <span>Epsilon/BV</span>")
+		I = Epsilon/(B*V_Speed)
 		
-		Binesh.AddToHTML("I = <span>"..Epsilon.."/"..B.."*"..V_Speed.."</span> &#8658; I = "..I.."A")
+		Binesh.AddToHTML("I = <span>"..Epsilon.."/"..B.."*"..V_Speed.."</span> &#8658; I = "..I.." A")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—Ì«‰");
@@ -77,12 +75,15 @@ elseif FindI ~= -1 and ListBox.GetItemData("unknowns", FindI) == "I" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV_Speed) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+end
+
+FindV_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ");
+if FindV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV_Speed) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
 	if V_Speed ~= nil and B ~= nil and I ~= nil then
-		Binesh.CreateHTMLFile("Epsilon = B*I*V","V = <span>Epsilon/I*B</span>")
+		Binesh.CreateHTMLFile("Epsilon = BIV","V = <span>Epsilon/IB</span>")
 		V_Speed = Epsilon/B*I
 		
-		Binesh.AddToHTML("V = <span>"..Epsilon.."/"..B.."*"..I.."</span> &#8658; V = "..V_Speed.."m/s")
+		Binesh.AddToHTML("V = <span>"..Epsilon.."/"..B.."*"..I.."</span> &#8658; V = "..V_Speed.." m/s")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ");

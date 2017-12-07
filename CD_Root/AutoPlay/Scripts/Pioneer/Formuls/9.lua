@@ -19,10 +19,7 @@ if t == nil then
 	end
 end
 
-FindP_Power = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " Ê«‰")
-FindW = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ «·ò —ÌòÌ");
-Findt = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“„«‰")
-
+FindP_Power = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " Ê«‰");
 if FindP_Power ~= -1 and ListBox.GetItemData("unknowns", FindP_Power) == "P" and ListBox.FindItem("Words", -1, LB_BYTEXT, " Ê«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1 then
 	if W ~= nil and t ~= nil then
 		Binesh.CreateHTMLFile("P = <span>W/t</span>")
@@ -37,9 +34,12 @@ if FindP_Power ~= -1 and ListBox.GetItemData("unknowns", FindP_Power) == "P" and
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
+end
+
+FindW = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ «·ò —ÌòÌ");
+if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
 	if P_Power ~= nil and t ~= nil then
-		Binesh.CreateHTMLFile("P = W/t", "W = Pt")
+		Binesh.CreateHTMLFile("P = <span>W/t</span>", "W = Pt")
 		W = P_Power*t
 		
 		Binesh.AddToHTML("W = "..P_Power.."*"..t.." &#8658; W = "..W.." J")
@@ -51,7 +51,10 @@ elseif FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif Findt ~= -1 and ListBox.GetItemData("unknowns", Findt) == "t" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1 then
+end
+
+Findt = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“„«‰");
+if Findt ~= -1 and ListBox.GetItemData("unknowns", Findt) == "t" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1 then
 	if P_Power ~= nil and W ~= nil then
 		Binesh.CreateHTMLFile("P = <span>W/t</span>", "t = <span>W/P</span>")
 		t = W/P_Power

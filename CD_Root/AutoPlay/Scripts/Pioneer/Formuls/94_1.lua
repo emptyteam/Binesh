@@ -12,10 +12,7 @@ if WE == nil then
 	end
 end
 
-
-FindW_Out = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "˜ÇÑ ÎÇÑÌí")
-FindWE = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "˜ÇÑ");
-
+FindW_Out = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "˜ÇÑ ÎÇÑÌí");
 if FindW_Out ~= -1 and ListBox.GetItemData("unknowns", FindW_Out) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "˜ÇÑ ÎÇÑÌí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
 	if WE ~= nil then
 		Binesh.CreateHTMLFile("W = -W<sub>E</sub>")
@@ -30,7 +27,10 @@ if FindW_Out ~= -1 and ListBox.GetItemData("unknowns", FindW_Out) == "W" and Lis
 			ListBox.DeleteItem("unknowns", unknownindex);
 		end
 	end
-elseif FindWE ~= -1 and ListBox.GetItemData("unknowns", FindWE) == "WE" and ListBox.FindItem("Words", -1, LB_BYTEXT, "˜ÇÑ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "WE") ~= -1 then
+end
+
+FindWE = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "˜ÇÑ");
+if FindWE ~= -1 and ListBox.GetItemData("unknowns", FindWE) == "WE" and ListBox.FindItem("Words", -1, LB_BYTEXT, "˜ÇÑ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "WE") ~= -1 then
 	if W_Out ~= nil then
 		Binesh.CreateHTMLFile("W = -W<sub>E</sub>", "W<sub>E</sub> = -W")
 		WE = -W_Out

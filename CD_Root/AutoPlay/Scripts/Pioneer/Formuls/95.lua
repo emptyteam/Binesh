@@ -22,15 +22,12 @@ if V_Electric == nil then
 end
 
 FindC_Condenser = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì ")
-Findq = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â");
-FindV_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ê· «é");
-
 if FindC_Condenser ~= -1 and ListBox.GetItemData("unknowns", FindC_Condenser) == "C" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1 then
 	if q ~= nil and V_Electric ~= nil then
 		C_Condenser = q/V_Electric
 		
 		Binesh.CreateHTMLFile("C = <span>q/V</span>")
-		Binesh.AddToHTML("C = <span>"..q.."/"..V_Electric.."</span> &#8658; C = "..C_Condenser.."F")
+		Binesh.AddToHTML("C = <span>"..q.."/"..V_Electric.."</span> &#8658; C = "..C_Condenser.." F")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì ");
@@ -39,12 +36,15 @@ if FindC_Condenser ~= -1 and ListBox.GetItemData("unknowns", FindC_Condenser) ==
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+end
+
+Findq = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â");
+if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
 	if C_Condenser ~= nil and V_Electric ~= nil then
 		q = C_Condenser*V_Electric
 		
-		Binesh.CreateHTMLFile("C = <span>q/V</span>", "q =  C*V")
-		Binesh.AddToHTML("q = "..C_Condenser.."*"..V_Electric.."&#8658; q = "..q.."C")
+		Binesh.CreateHTMLFile("C = <span>q/V</span>", "q =  CV")
+		Binesh.AddToHTML("q = "..C_Condenser.."*"..V_Electric.."&#8658; q = "..q.." C")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â");
@@ -53,12 +53,15 @@ elseif Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV_Electric) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+end
+
+FindV_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ê· «é");
+if FindV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV_Electric) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
 	if q ~= nil and C_Condenser ~= nil then
 		V_Electric = q/C_Condenser
 		
-		Binesh.CreateHTMLFile("C = <span>q/V</span>", "V = <span>q/c</span>")
-		Binesh.AddToHTML("V = <span>"..q.."/"..C_Condenser.."</span> &#8658; V = "..V_Electric.."V")
+		Binesh.CreateHTMLFile("C = <span>q/V</span>", "V = <span>q/C</span>")
+		Binesh.AddToHTML("V = <span>"..q.."/"..C_Condenser.."</span> &#8658; V = "..V_Electric.." V")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ê· «é");

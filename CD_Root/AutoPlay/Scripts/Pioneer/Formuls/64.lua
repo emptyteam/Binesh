@@ -22,16 +22,13 @@ if L_F == nil then
 end
 
 
-FindQ = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ê—„«")
-Findm = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„");
-FindL_F = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–Ê»");
-
+FindQ = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ê—„«");
 if Q ~= -1 and ListBox.GetItemData("unknowns", FindQ) == "Q" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1 then
 	if m ~= nil and L_F ~= nil then
 		Q =  m*L_F
 		
-		Binesh.CreateHTMLFile("Q =  m*L<sub>F</sub>")
-		Binesh.AddToHTML("Q = "..m.."*"..L_F.." &#8658; Q = "..Q.."J")
+		Binesh.CreateHTMLFile("Q =  mL<sub>F</sub>")
+		Binesh.AddToHTML("Q = "..m.."*"..L_F.." &#8658; Q = "..Q.." J")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ê—„«");
@@ -40,12 +37,15 @@ if Q ~= -1 and ListBox.GetItemData("unknowns", FindQ) == "Q" and ListBox.FindIte
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
+end
+
+Findm = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„");
+if Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
 	if Q ~= nil and L_F ~= nil then
 		m = Q/L_F
 		
-		Binesh.CreateHTMLFile("Q =  m*L<sub>F</sub>", "m = <span>Q/L<sub>F</sub></span>")
-		Binesh.AddToHTML("m = <span>"..Q.."/"..L_F.."</span> &#8658; m = "..m.."Kg")
+		Binesh.CreateHTMLFile("Q =  mL<sub>F</sub>", "m = <span>Q/L<sub>F</sub></span>")
+		Binesh.AddToHTML("m = <span>"..Q.."/"..L_F.."</span> &#8658; m = "..m.." Kg")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„");
@@ -54,12 +54,15 @@ elseif Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindL_F ~= -1 and ListBox.GetItemData("unknowns", FindL_F) == "LF" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–Ê»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "LF") ~= -1 then
+end
+
+FindL_F = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–Ê»");
+if FindL_F ~= -1 and ListBox.GetItemData("unknowns", FindL_F) == "LF" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–Ê»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "LF") ~= -1 then
 	if Q ~= nil and m ~= nil then
 		L_F = Q/m
 		
-		Binesh.CreateHTMLFile("Q =  m*L<sub>F</sub>", "L<sub>F</sub> = <span>Q/m</span>")
-		Binesh.AddToHTML("L<sub>F</sub> = <span>"..Q.."/"..m.."</span> &#8658; L<sub>F</sub>= "..L_F.."J/Kg")
+		Binesh.CreateHTMLFile("Q =  mL<sub>F</sub>", "L<sub>F</sub> = <span>Q/m</span>")
+		Binesh.AddToHTML("L<sub>F</sub> = <span>"..Q.."/"..m.."</span> &#8658; L<sub>F</sub>= "..L_F.." J/Kg")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–Ê»");

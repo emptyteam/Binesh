@@ -19,10 +19,7 @@ if W_Use == nil then
 	end
 end
 
-FindR_Output = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ")
-FindWP = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ  Ê·ÌœÌ");
-FindW_Use = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì")
-
+FindR_Output = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ");
 if R_Output ~= -1 and ListBox.GetItemData("unknowns", R_Output) == "R" and ListBox.FindItem("Words", -1, LB_BYTEXT, "»«“œÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1 then
 	if WP ~= nil and W_Use ~= nil then
 		Binesh.CreateHTMLFile("R = <span>W`/W</span>*100")
@@ -37,12 +34,15 @@ if R_Output ~= -1 and ListBox.GetItemData("unknowns", R_Output) == "R" and ListB
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindWP ~= -1 and ListBox.GetItemData("unknowns", FindWP) == "W`" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ  Ê·ÌœÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W`") ~= -1 then
+end
+
+FindWP = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ  Ê·ÌœÌ");
+if FindWP ~= -1 and ListBox.GetItemData("unknowns", FindWP) == "W`" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ  Ê·ÌœÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W`") ~= -1 then
 	if R_Output ~= nil and W_Use ~= nil then
-		Binesh.CreateHTMLFile("R = <span>W`/W</span>*100", "W` = <span>R*W/100</span>")
+		Binesh.CreateHTMLFile("R = <span>W`/W</span>*100", "W` = <span>RW/100</span>")
 		WP = R_Output*W_Use/100
 		
-		Binesh.AddToHTML("W` = <span>"..R_Output.."*"..W_Use.."/100</span> &#8658; W` = "..WP.."J")
+		Binesh.AddToHTML("W` = <span>"..R_Output.."*"..W_Use.."/100</span> &#8658; W` = "..WP.." J")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ  Ê·ÌœÌ");
@@ -51,12 +51,15 @@ elseif FindWP ~= -1 and ListBox.GetItemData("unknowns", FindWP) == "W`" and List
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindW_Use ~= -1 and ListBox.GetItemData("unknowns", FindW_Use) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
+end
+
+FindW_Use = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì");
+if FindW_Use ~= -1 and ListBox.GetItemData("unknowns", FindW_Use) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
 	if R_Output ~= nil and WP ~= nil then
 		Binesh.CreateHTMLFile("R = <span>W`/W</span>*100", "W = 100*<span>W`/R</span>")
 		W_Use = 100*WP/R_Output
 		
-		Binesh.AddToHTML("W = 100*<span>"..WP.."/"..R_Output.."</span> &#8658; W = "..W_Use.."J")
+		Binesh.AddToHTML("W = 100*<span>"..WP.."/"..R_Output.."</span> &#8658; W = "..W_Use.." J")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì");

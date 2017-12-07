@@ -1,7 +1,7 @@
 if K == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ Ã‰»‘Ì")
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= "K" then
-		ListBox.AddItem("unknowns", "«‰—éÌ Ã‰»‘Ì", "K");
+		ListBox.AddItem("unknowns", "«‰—éÌ", "K");
 	end
 end
 
@@ -18,10 +18,6 @@ if V_Speed == nil and V_Speed_mh == nil and V_Speed_miles == nil and V_Speed_mil
 		ListBox.AddItem("unknowns", "”—⁄ ", "V");
 	end
 end
-
-FindK = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ Ã‰»‘Ì");
-Findm = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„");
-FindV_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ");
 
 if m_Ton ~= nil then
 	m = m_Ton * 1000
@@ -51,7 +47,8 @@ if V_Speed_mileh ~= nil then
 	Binesh.AddToHTML("<br>");
 end
 
-if FindK ~= -1 and ListBox.GetItemData("unknowns", FindK) == "K" and String.Find(InputQuiz, "«‰—éÌ Ã‰»‘Ì", 1, false) and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Ã‰»‘Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K") ~= -1 then
+FindK = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ");
+if FindK ~= -1 and ListBox.GetItemData("unknowns", FindK) == "K" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K") ~= -1 then
 	if V_Speed ~= nil and m ~= nil then
 		Binesh.CreateHTMLFile("K = <span>1/2</span>mV<sup>2</sup>")
 		K = 0.5*(m*(V_Speed^2))
@@ -59,13 +56,16 @@ if FindK ~= -1 and ListBox.GetItemData("unknowns", FindK) == "K" and String.Find
 		Binesh.AddToHTML("K = <span>1/2</span>*"..m.."*"..V_Speed.."<sup>2</sup> &#8658; K = "..K.." J")
 		Web.Refresh("Web1");
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ Ã‰»‘Ì");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "K");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and String.Find(InputQuiz, "Ã—„", 1, false) and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
+end
+
+Findm = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„");
+if Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
 	if K ~= nil and V_Speed ~= nil then
 		Binesh.CreateHTMLFile("K = <span>1/2</span>mV<sup>2</sup>", "m = <span>2K/V<sup>2</sup></span>")
 		m = (2*K)/(V_Speed^2)
@@ -79,7 +79,10 @@ elseif Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and String.
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-elseif FindV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV_Speed) == "V" and String.Find(InputQuiz, "”—⁄ ", 1, false) and ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+end
+
+FindV_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ");
+if FindV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV_Speed) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
 	if K ~= nil and m ~= nil then
 		Binesh.CreateHTMLFile("K = <span>1/2</span>mV<sup>2</sup>", "V = Sqrt(<span>2K/m</span>)")
 		V_Speed = Math.Sqrt(2*K/m)
