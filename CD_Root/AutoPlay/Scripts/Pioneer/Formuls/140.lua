@@ -37,7 +37,7 @@ if FindU_PipeWire ~= -1 and ListBox.GetItemData("unknowns", FindU_PipeWire) == "
 end
 
 FindL = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Øæá");
-if FindL ~= -1 and ListBox.GetItemData("unknowns", FindL) == "L" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
+if FindL ~= -1 and ListBox.GetItemData("unknowns", FindL) == "L" or ListBox.GetItemData("unknowns", FindL) == "l" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
 	if U_PipeWire ~= nil and I ~= nil then
 		Binesh.CreateHTMLFile("U = <span>1/2</span>LI<sup>2</sup>", "L = 2U/I<sup>2</sup>")
 		L = 2*U_PipeWire/(I^2)

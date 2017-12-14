@@ -27,7 +27,7 @@ if Teta_Radian ~= nil then
 end
 
 FindTeta = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÒÇæíå");
-if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
+if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta" or ListBox.GetItemData("unknowns", FindTeta) == "Alpha" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
 	if T_141 ~= nil and t ~= nil then
 		Binesh.CreateHTMLFile("Teta = <span>2Pi/T</span>t")
 		
