@@ -593,3 +593,15 @@ end
 if E_Electric ~= nil then
 	Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
 end
+
+if q_0_87 ~= nil then
+	Binesh.AddToHTML("q<sub>0</sub>: "..q_0_87.." C", "V")
+end
+
+if R_Radius ~= nil then
+	Binesh.AddToHTML("R: "..R_Radius.." m", "V")
+end
+
+if Eta ~= nil then
+	Binesh.AddToHTML("Eta: "..Eta, "V")
+end
