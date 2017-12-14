@@ -1,4 +1,3 @@
--- n_76 = Binesh.Genesis("ãæá", "n", "", "", 1, "mol", "ãæá", false);
 if n == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ãæá")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'n' then

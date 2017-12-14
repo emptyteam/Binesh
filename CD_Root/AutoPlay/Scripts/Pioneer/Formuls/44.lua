@@ -39,7 +39,7 @@ end
 Findm = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„");
 if Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
 	if F ~= nil and a ~= nil then
-		Binesh.CreateHTMLFile("F = m*a", "m = <span>F/a</span>")
+		Binesh.CreateHTMLFile("F = ma", "m = <span>F/a</span>")
 		m = (F)/(a)
 		
 		Binesh.AddToHTML("m = <span>"..F.."/"..a.."</span> &#8658; m = "..m.." Kg")
@@ -56,7 +56,7 @@ end
 Finda = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘ «»");
 if Finda ~= -1 and ListBox.GetItemData("unknowns", Finda) == "a" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then
 	if F ~= nil and m ~= nil then
-		Binesh.CreateHTMLFile("F = m*a", "a = <span>F/m</span>")
+		Binesh.CreateHTMLFile("F = ma", "a = <span>F/m</span>")
 		a = (F)/(m)
 		
 		Binesh.AddToHTML("a = <span>"..F.."/"..m.."</span> &#8658; a = "..a.." m/s<sup>2</sup>")

@@ -1,7 +1,7 @@
 if I == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘œ  Ã—Ì«‰")
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—Ì«‰")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'I' then
-		ListBox.AddItem("unknowns", "‘œ  Ã—Ì«‰", "I");
+		ListBox.AddItem("unknowns", "Ã—Ì«‰", "I");
 	end
 end
 
@@ -19,8 +19,8 @@ if t == nil then
 	end
 end
 
-FindI = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘œ  Ã—Ì«‰");
-if FindI ~= -1 and ListBox.GetItemData("unknowns", FindI) == "I" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘œ  Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1 then
+FindI = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—Ì«‰");
+if FindI ~= -1 and ListBox.GetItemData("unknowns", FindI) == "I" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1 then
 	if q ~= nil and t ~= nil then
 		Binesh.CreateHTMLFile("I = <span>q/t</span>")
 		I = (q)/(t)
@@ -28,7 +28,7 @@ if FindI ~= -1 and ListBox.GetItemData("unknowns", FindI) == "I" and ListBox.Fin
 		Binesh.AddToHTML("I = <span>"..q.."/"..t.."</span> &#8658; I = "..I.." A")
 		Web.Refresh("Web1");
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘œ  Ã—Ì«‰");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—Ì«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "I");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);

@@ -5,7 +5,6 @@ if E_Electric == nil then
 	end
 end
 
--- N_87 = Binesh.Genesis("‰Ì—Ê", "N", "", "", 1, "N", "‰ÌÊ Ê‰", false);
 if F == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'F' then
@@ -42,7 +41,7 @@ if FindF ~= -1 and ListBox.GetItemData("unknowns", FindF) == "F" and ListBox.Fin
 	if E_Electric ~= nil and q_0_87 ~= nil then
 		F = E_Electric*q_0_87
 		
-		Binesh.CreateHTMLFile("E = <span>F/q<sub>0</sub></span>", "F = E*q<sub>0</sub>")
+		Binesh.CreateHTMLFile("E = <span>F/q<sub>0</sub></span>", "F = Eq<sub>0</sub>")
 		Binesh.AddToHTML("F = "..E_Electric.."*"..q_0_87.." &#8658; F = "..F.." N")
 		Web.Refresh("Web1");
 		

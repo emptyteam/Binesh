@@ -84,7 +84,7 @@ if Findr_3 ~= -1 and ListBox.GetItemData("unknowns", Findr_3) == "r" and ListBox
 		r_3 = Math.Sqrt(9*10^9*Math.Abs(q1)*Math.Abs(q2)/F)
 		
 		Binesh.CreateHTMLFile("F = k*<span>|q<sub>1</sub>||q<sub>2</sub>|/r<sup>2</sup></span>", "r = Sqrt(<span>k|q<sub>1<sub>||q<sub>2</sub>|/F</span>)")
-		Binesh.AddToHTML("r = Sqrt(<span>9*10^9*"..Math.Abs(q1).."*"..Math.Abs(q2).."/"..F.."</span>) &#8658; r = "..r_3.." m<sup>2</sup>")
+		Binesh.AddToHTML("r = Sqrt(<span>9*10^9*"..Math.Abs(q1).."*"..Math.Abs(q2).."/"..F.."</span>) &#8658; r = "..r_3.." m")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");

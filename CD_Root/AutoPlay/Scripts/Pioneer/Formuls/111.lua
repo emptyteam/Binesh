@@ -60,7 +60,7 @@ if FindRu_Resistor ~= -1 and ListBox.GetItemData("unknowns", FindRu_Resistor) ==
 	end
 end
 
-FindL = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Øæá");
+FindA = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÓØÍ");
 if FindA ~= -1 and ListBox.GetItemData("unknowns", FindA) == "A" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓØÍ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
 	if R ~= nil and L ~= nil and Ru_Resistor ~= nil then
 		A = Ru_Resistor*L/R
@@ -77,8 +77,8 @@ if FindA ~= -1 and ListBox.GetItemData("unknowns", FindA) == "A" and ListBox.Fin
 	end
 end
 
-FindA = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÓØÍ");
-if FindL ~= -1 and ListBox.GetItemData("unknowns", FindL) == "L" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
+FindL = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Øæá");
+if FindL ~= -1 and ListBox.GetItemData("unknowns", FindL) == "L" or ListBox.GetItemData("unknowns", FindL) == "l" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
 	if Ru_Resistor ~= nil and A ~= nil and R ~= nil then
 		L = R*A/Ru_Resistor
 		

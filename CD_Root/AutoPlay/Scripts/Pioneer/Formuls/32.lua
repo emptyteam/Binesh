@@ -201,7 +201,6 @@ end
 
 FindDeltat = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— “„«‰");
 if FindDeltat ~= -1 and ListBox.GetItemData("unknowns", FindDeltat) == "Deltat" and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltat") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t2") ~= -1 then
-	Dialog.Message("Notice", "Your message here.", MB_OK, MB_ICONINFORMATION, MB_DEFBUTTON1);
 	if _Deltax ~= nil and VBar_Speed ~= nil then
 		Binesh.CreateHTMLFile("VBar = <span>Deltax/Deltat</span>", "Deltat = <span>Deltax/VBar</span>")
 		_Deltat = _Deltax/VBar_Speed

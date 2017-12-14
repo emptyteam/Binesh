@@ -12,6 +12,27 @@ if P == nil and Pa == nil then
 	end
 end
 
+if _DeltaV == nil then
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„")
+	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'DeltaV' then
+		ListBox.AddItem("unknowns", " €ÌÌ— ÕÃ„", "DeltaV");
+	end
+end
+
+if _V1 == nil then
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ÕÃ„")
+	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V1' then
+		ListBox.AddItem("unknowns", "«Ê·Ì‰ ÕÃ„", "V1");
+	end
+end
+
+if _V2 == nil then
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ÕÃ„")
+	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V2' then
+		ListBox.AddItem("unknowns", "œÊ„Ì‰ ÕÃ„", "V2");
+	end
+end
+
 --------------------------{DELTA}--------------------------
 FindDeltaV = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„");
 if FindDeltaV ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV) == "DeltaV" then

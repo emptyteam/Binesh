@@ -32,9 +32,9 @@ if FindV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV_Speed) == "V" and
 		Binesh.CreateHTMLFile("V = Sqrt(2gL(1-cosAlpha))")
 		
 		
-		V_Speed = Math.Sqrt(2*Zarib.g*L*(1-Math.Cos(Math.Rad(Alpha))))
+		V_Speed = Math.Sqrt(2*9.8*L*(1-Math.Cos(Math.Rad(Alpha))))
 	
-		Binesh.AddToHTML("V = Sqrt(2*"..Zarib.g.."*"..L.."*(1-cos"..Alpha..")) &#8658; V = "..V_Speed.." m/s")
+		Binesh.AddToHTML("V = Sqrt(2*9.8*"..L.."*(1-cos"..Alpha..")) &#8658; V = "..V_Speed.." m/s")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÓÑÚÊ");
@@ -46,14 +46,13 @@ if FindV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV_Speed) == "V" and
 end
 
 FindL_Avang = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Øæá");
-
-if FindL_Avang ~= -1 and ListBox.GetItemData("unknowns", FindL_Avang) == "L" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
+if FindL_Avang ~= -1 and ListBox.GetItemData("unknowns", FindL_Avang) == "L" or ListBox.GetItemData("unknowns", FindL_Avang) == "l" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
 	if V_Speed ~= nil and Alpha ~= nil then
 		Binesh.CreateHTMLFile("V = Sqrt(2gL(1-cosAlpha))", "L = -<span>V<sup>2</sup>/2g(cosAlpha-1)</span>")
 		
-		L_Avang = -1*(v^2/(2*Zarib.g*(Math.Cos(Math.Rad(Alpha))-1)))
+		L_Avang = -1*(V_Speed^2/(2*9.8*(Math.Cos(Math.Rad(Alpha))-1)))
 		
-		Binesh.AddToHTML("L = -<span>"..(V^2).."/2*"..Zarib.g.."*(cos"..Alpha.."-1</span> &#8658; L = "..L_Avang.." m")
+		Binesh.AddToHTML("L = -<span>"..V_Speed.."<sup>2</sup>/2*9.8*cos"..Alpha.."-1</span> &#8658; L = "..L_Avang.." m")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Øæá");
@@ -65,13 +64,13 @@ if FindL_Avang ~= -1 and ListBox.GetItemData("unknowns", FindL_Avang) == "L" and
 end
 
 FindAlpha = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÒÇæíå");
-if FindAlpha ~= -1 and ListBox.GetItemData("unknowns", FindAlpha) == "Alpha" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
+if FindAlpha ~= -1 and ListBox.GetItemData("unknowns", FindAlpha) == "Alpha" or ListBox.GetItemData("unknowns", FindAlpha) == "Teta" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
 	if V_Speed ~= nil and L ~= nil then
 		Binesh.CreateHTMLFile("V = Sqrt(2gL(1-cosAlpha))", "cosAlpha = <span>2gL-V<sup>2</sup>/2gL</span>")
 		
-		CosAlpha = Math.Cos(1-((V^2)/(2*Zarib.g*L)))
+		CosAlpha = Math.Cos(1-((V_Speed^2)/(2*9.8*L)))
 		
-		Binesh.AddToHTML("cosAlpha = <span>2*9.8-"..V_Speed.."<sup>2</sup>/2*"..Zarib.g.."*"..L_Avang.."</span> &#8658; cosAlpha = "..CosAlpha.." &#8658; Alpha = "..Math.Acos(CosAlpha).."<sup>o</sup>")
+		Binesh.AddToHTML("cosAlpha = <span>2*9.8-"..V_Speed.."<sup>2</sup>/2*9.8*"..L_Avang.."</span> &#8658; cosAlpha = "..CosAlpha.." &#8658; Alpha = "..Math.Acos(CosAlpha).."<sup>o</sup>")
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÒÇæíå");

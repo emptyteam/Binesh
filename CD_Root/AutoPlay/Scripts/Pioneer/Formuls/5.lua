@@ -17,11 +17,11 @@ if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "c" and ListBox.Fin
 	if n_e ~= nil or n_p ~= nil then
 		Binesh.CreateHTMLFile("q = n*e")
 		if n_e ~= nil then
-			q = n_e*Zarib.e
-			Binesh.AddToHTML("q = "..n_e.."*"..Zarib.e.." &#8658; q = "..q.." c")
+			q = n_e*(1.6*10^-19)
+			Binesh.AddToHTML("q = "..n_e.."*"..(1.6*10^-19).." &#8658; q = "..q.." C")
 		elseif n_p ~= nil then
-			q = n_p*Zarib.e
-			Binesh.AddToHTML("q = "..n_p.."*"..Zarib.e.." &#8658; q = "..q.." c")
+			q = n_p*(1.6*10^-19)
+			Binesh.AddToHTML("q = "..n_p.."*"..(1.6*10^-19).." &#8658; q = "..q.." C")
 		end
 		Web.Refresh("Web1");
 		
@@ -37,8 +37,8 @@ Findn_e = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÊÚÏÇÏ Çá˜ÊÑæä");
 if Findn_e ~= -1 and ListBox.GetItemData("unknowns", Findn_e) == "n" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÊÚÏÇÏ Çá˜ÊÑæä") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1 then
 	if q ~= nil then
 		Binesh.CreateHTMLFile("q = n*e", "n = <span>q/e</span>")
-		n_e = q / Zarib.e
-		Binesh.AddToHTML("n = <span>"..q.."/"..Zarib.e.."</span> &#8658; n = "..n_e)
+		n_e = q / (1.6*10^-19)
+		Binesh.AddToHTML("n = <span>"..q.."/"..(1.6*10^-19).."</span> &#8658; n = "..n_e)
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÊÚÏÇÏ Çá˜ÊÑæä");

@@ -5,15 +5,13 @@ if SSigma == nil then
 	end
 end
 
--- q_90 = Binesh.Genesis("»«—", "q", "", "", 1, "C", "òÊ·‰", false);
 if q == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«—")
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'q' then
-		ListBox.AddItem("unknowns", "»«—", "q");
+		ListBox.AddItem("unknowns", "–—Â", "q");
 	end
 end
 
--- A_90 = Binesh.Genesis("”ÿÕ", "A", "", "", 1, "m^2", "„ — „—»⁄", false);
 if A == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”ÿÕ")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'A' then
@@ -38,8 +36,8 @@ if FindSSigma ~= -1 and ListBox.GetItemData("unknowns", FindSSigma) == "SSigma" 
 	end
 end
 
-Findq = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«—");
-if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.FindItem("Words", -1, LB_BYTEXT, "»«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+Findq = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â");
+if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
 	if SSigma ~= nil and A ~= nil then
 		Binesh.CreateHTMLFile("SSigma = <span>q/A</span>", "q = SSigmaA")
 		q = SSigma*A
@@ -48,7 +46,7 @@ if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.Fin
 		Binesh.AddToHTML("q = "..SSigma.."*"..A.." &#8658; q = "..q.." C")
 		Web.Refresh("Web1");
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«—");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);

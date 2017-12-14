@@ -1,4 +1,3 @@
--- W_77 = Binesh.Genesis("ò«—", "W", "", "", 1, "J", "éÊ·", false);
 if W == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«—")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'W' then
@@ -6,11 +5,31 @@ if W == nil then
 	end
 end
 
---n = Binesh.Genesis("„Ê·", "n", "", "", 1, "mol", "„Ê·", false);
 if n == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ê·")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'n' then
 		ListBox.AddItem("unknowns", "„Ê·", "n");
+	end
+end
+
+if _DeltaV == nil then
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„")
+	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'DeltaV' then
+		ListBox.AddItem("unknowns", " €ÌÌ— ÕÃ„", "DeltaV");
+	end
+end
+
+if _V1 == nil then
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ÕÃ„")
+	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V1' then
+		ListBox.AddItem("unknowns", "«Ê·Ì‰ ÕÃ„", "V1");
+	end
+end
+
+if _V2 == nil then
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ÕÃ„")
+	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V2' then
+		ListBox.AddItem("unknowns", "œÊ„Ì‰ ÕÃ„", "V2");
 	end
 end
 

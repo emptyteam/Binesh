@@ -37,7 +37,7 @@ if FindP_Power ~= -1 and ListBox.GetItemData("unknowns", FindP_Power) == "P" and
 end
 
 FindW = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÇäÑŽí Çá˜ÊÑí˜í");
-if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "˜ÇÑ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
+if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí Çá˜ÊÑí˜í") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
 	if P_Power ~= nil and t ~= nil then
 		Binesh.CreateHTMLFile("P = <span>W/t</span>", "W = Pt")
 		W = P_Power*t

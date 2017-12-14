@@ -80,7 +80,7 @@ if Findd ~= -1 and ListBox.GetItemData("unknowns", Findd) == "d" and ListBox.Fin
 end
 
 FindTeta = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÒÇæíå");
-if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
+if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta" or ListBox.GetItemData("unknowns", FindTeta) == "Alpha" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
 	if W ~= nil and d ~= nil and F ~= nil then
 		Binesh.CreateHTMLFile("W<sub>F</sub> = FdcosTeta", "cosTeta = W<sub>F</sub>/dF")
 		
