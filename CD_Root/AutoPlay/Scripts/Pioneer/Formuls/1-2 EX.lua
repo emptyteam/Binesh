@@ -1,3 +1,23 @@
+if U == nil then
+	Binesh.AddUnknown("ÇäÑŽí", "U")
+end
+
+if m == nil and m_Ton == nil then
+	Binesh.AddUnknown("ÌÑã", "m")
+end
+
+if V_Speed == nil and V_Speed_mh == nil and V_Speed_miles == nil and V_Speed_mileh == nil then
+	Binesh.AddUnknown("ÓÑÚÊ", "V")
+end
+
+if K == nil then
+	Binesh.AddUnknown("ÇäÑŽí", "K")
+end
+
+if h == nil then
+	Binesh.AddUnknown("ÇÑÊÝÇÚ", "h")
+end
+
 --[[
 
 - Name: Section 1

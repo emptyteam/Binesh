@@ -1,22 +1,13 @@
 if K == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÇäÑŽí")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= "K" then
-		ListBox.AddItem("unknowns", "ÇäÑŽí", "K");
-	end
+	Binesh.AddUnknown("ÇäÑŽí", "K")
 end
 
 if m == nil and m_Ton == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÌÑã")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= "m" then
-		ListBox.AddItem("unknowns", "ÌÑã", "m");
-	end
+	Binesh.AddUnknown("ÌÑã", "m")
 end
 
 if V_Speed == nil and V_Speed_mh == nil and V_Speed_miles == nil and V_Speed_mileh == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÓÑÚÊ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= "V" then
-		ListBox.AddItem("unknowns", "ÓÑÚÊ", "V");
-	end
+	Binesh.AddUnknown("ÓÑÚÊ", "V")
 end
 
 if m_Ton ~= nil then

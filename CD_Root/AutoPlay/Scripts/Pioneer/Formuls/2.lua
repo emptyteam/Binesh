@@ -5,7 +5,6 @@ if U == nil then
 	end
 end
 
--- m = Binesh.Genesis("Ã—„", "m", "Kg", "òÌ·Ê", 10^3, "g", "ê—„", false);
 if m == nil then
 	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'm' then

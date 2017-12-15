@@ -94,9 +94,9 @@ end
 FindDeltaV_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ê· «é");
 if FindDeltaV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Electric) == "DeltaV" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ Ê· «é") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V2") ~= -1) then
 	if E_Electric ~= nil and d_Distance ~= nil and Teta ~= nil then
-		Binesh.CreateHTMLFile("DeltaV = EdcosTeta")
-		_DeltaV_Electric = E_Electric*d_Distance*Math.Cos(Teta)
-		Binesh.AddToHTML("DeltaV = "..E_Electric.."*"..d_Distance.."*cos"..Teta.." &#8658; DeltaV = ".._DeltaV_Electric.." V")
+		Binesh.CreateHTMLFile("DeltaV = -EdcosTeta")
+		_DeltaV_Electric = -E_Electric*d_Distance*Math.Cos(Teta)
+		Binesh.AddToHTML("DeltaV = -"..E_Electric.."*"..d_Distance.."*cos"..Teta.." &#8658; DeltaV = ".._DeltaV_Electric.." V")
 		
 		Web.Refresh("Web1");
 			
@@ -111,9 +111,9 @@ end
 FindE_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
 if FindE_Electric ~= -1 and ListBox.GetItemData("unknowns", FindE_Electric) == "E" and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1 then
 	if _DeltaV_Electric ~= nil and d_Distance ~= nil and Teta ~= nil then
-		Binesh.CreateHTMLFile("DeltaV = EdcosTeta", "E = <span>DeltaV/dcosTeta</span>")
-		E_Electric = _DeltaV_Electric / (d_Distance*Math.Cos(Teta))
-		Binesh.AddToHTML("E = <span>".._DeltaV_Electric.."/"..d_Distance.."*cos"..Teta.."</span> &#8658; E = "..E_Electric.." N/C")
+		Binesh.CreateHTMLFile("DeltaV = -EdcosTeta", "E = - <span>DeltaV/dcosTeta</span>")
+		E_Electric = -_DeltaV_Electric / (d_Distance*Math.Cos(Teta))
+		Binesh.AddToHTML("E = - <span>".._DeltaV_Electric.."/"..d_Distance.."*cos"..Teta.."</span> &#8658; E = "..E_Electric.." N/C")
 		
 		Web.Refresh("Web1");
 			
@@ -128,9 +128,9 @@ end
 Findd_Distance = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
 if Findd_Distance ~= -1 and ListBox.GetItemData("unknowns", Findd_Distance) == "d" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
 	if _DeltaV_Electric ~= nil and E_Electric ~= nil and Teta ~= nil then
-		Binesh.CreateHTMLFile("DeltaV = EdcosTeta", "d = <span>DeltaV/EcosTeta</span>")
-		d_Distance = _DeltaV_Electric / (E_Electric*Math.Cos(Teta))
-		Binesh.AddToHTML("d = <span>".._DeltaV_Electric.."/"..E_Electric.."</span> &#8658; d = "..d_Distance.." m")
+		Binesh.CreateHTMLFile("DeltaV = -EdcosTeta", "d = - <span>DeltaV/EcosTeta</span>")
+		d_Distance = -_DeltaV_Electric / (E_Electric*Math.Cos(Teta))
+		Binesh.AddToHTML("d = - <span>".._DeltaV_Electric.."/"..E_Electric.."</span> &#8658; d = "..d_Distance.." m")
 		
 		Web.Refresh("Web1");
 			
@@ -145,9 +145,9 @@ end
 FindTeta = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ");
 if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta"or ListBox.GetItemData("unknowns", FindTeta) == "Alpha" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
 	if _DeltaV_Electric ~= nil and E_Electric ~= nil and d_Distance ~= nil then
-		Binesh.CreateHTMLFile("DeltaV = EdcosTeta", "cosTeta = <span>DeltaV/Ed</span>")
-		cosTeta = _DeltaV_Electric / (E_Electric*d_Distance)
-		Binesh.AddToHTML("cosTeta = <span>".._DeltaV_Electric.."/"..E_Electric.."*"..d_Distance.."</span> &#8658; cosTeta = "..cosTeta)
+		Binesh.CreateHTMLFile("DeltaV = -EdcosTeta", "cosTeta = - <span>DeltaV/Ed</span>")
+		cosTeta = -_DeltaV_Electric / (E_Electric*d_Distance)
+		Binesh.AddToHTML("cosTeta = - <span>".._DeltaV_Electric.."/"..E_Electric.."*"..d_Distance.."</span> &#8658; cosTeta = "..cosTeta)
 		
 		Web.Refresh("Web1");
 			
