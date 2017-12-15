@@ -17,6 +17,10 @@ if A == nil then
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'A' then
 		ListBox.AddItem("unknowns", "”ÿÕ", "A");
 	end
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„”«Õ ")
+	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'A' then
+		ListBox.AddItem("unknowns", "„”«Õ ", "A");
+	end
 end
 
 if Pa ~= nil then
@@ -61,7 +65,8 @@ if FindF ~= -1 and ListBox.GetItemData("unknowns", FindF) == "F" and ListBox.Fin
 end
 
 FindA = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”ÿÕ");
-if FindA ~= -1 and ListBox.GetItemData("unknowns", FindA) == "A" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+FindA_2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”ÿÕ");
+if FindA ~= -1 or FindA_2 ~= -1 and ListBox.GetItemData("unknowns", FindA) == "A" or ListBox.GetItemData("unknowns", FindA_2) == "A" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "„”«Õ ") or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
 	if P ~= nil and F ~= nil then
 		Binesh.CreateHTMLFile("P = <span>F/A</span>", "A = <span>F/P</span>")
 		A = F/P
@@ -71,7 +76,7 @@ if FindA ~= -1 and ListBox.GetItemData("unknowns", FindA) == "A" and ListBox.Fin
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”ÿÕ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "A");
-		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
+		if unknownPersianindex == unknownSymbolindex or ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„”«Õ ") == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end

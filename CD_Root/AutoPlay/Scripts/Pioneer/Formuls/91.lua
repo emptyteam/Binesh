@@ -109,6 +109,7 @@ if FindDeltaU ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU) == "DeltaU" 
 	if E_Electric ~= nil and q ~= nil and Teta ~= nil and d_Distance ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta")
 		_DeltaU = -E_Electric*Math.Abs(q)*d_Distance*Math.Cos(Teta)
+		
 		Binesh.AddToHTML("DeltaU = -"..E_Electric.."*|"..q.."|*"..d_Distance.."*cos"..Teta.." &#8658; DeltaU = ".._DeltaU.." J")
 		
 		Web.Refresh("Web1");
@@ -160,9 +161,9 @@ end
 Findd_Distance = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
 if Findd_Distance ~= -1 and ListBox.GetItemData("unknowns", Findd_Distance) == "d" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
 	if E_Electric ~= nil and _DeltaU ~= nil and Teta ~= nil and q ~= nil then
-		Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "d = <span>DeltaU/E|q|cosTeta</span>")
-		d_Distance = _DeltaU / (E_Electric*Math.Abs(q)*Math.Cos(Teta))
-		Binesh.AddToHTML("d = <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*cos"..Teta.."</span> &#8658; d = "..d_Distance.." m")
+		Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "d = - <span>DeltaU/E|q|cosTeta</span>")
+		d_Distance = -_DeltaU / (E_Electric*Math.Abs(q)*Math.Cos(Teta))
+		Binesh.AddToHTML("d = - <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*cos"..Teta.."</span> &#8658; d = "..d_Distance.." m")
 		
 		Web.Refresh("Web1");
 			
@@ -177,9 +178,9 @@ end
 FindTeta = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ");
 if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta"or ListBox.GetItemData("unknowns", FindTeta) == "Alpha" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
 	if E_Electric ~= nil and _DeltaU ~= nil and d_Distance ~= nil and q ~= nil then
-		Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "cosTeta = <span>DeltaU/E|q|d</span>")
-		Teta = _DeltaU/(E_Electric*Math.Abs(q)*d_Distance)
-		Binesh.AddToHTML("cosTeta = <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*"..d_Distance.." </span> &#8658; Teta = "..Teta)
+		Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "cosTeta = - <span>DeltaU/E|q|d</span>")
+		Teta = -_DeltaU/(E_Electric*Math.Abs(q)*d_Distance)
+		Binesh.AddToHTML("cosTeta = - <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*"..d_Distance.." </span> &#8658; Teta = "..Teta)
 			
 		Web.Refresh("Web1");
 		

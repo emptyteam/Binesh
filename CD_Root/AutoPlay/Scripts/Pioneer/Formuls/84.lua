@@ -1,7 +1,7 @@
 if W == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÇäÑŽí Çá˜ÊÑí˜í")
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "˜ÇÑ")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'W' then
-		ListBox.AddItem("unknowns", "ÇäÑŽí Çá˜ÊÑí˜í", "W");
+		ListBox.AddItem("unknowns", "˜ÇÑ", "W");
 	end
 end
 
@@ -36,8 +36,8 @@ if FindQH ~= -1 and ListBox.GetItemData("unknowns", FindQH) == "QH" and ListBox.
 	end
 end
 
-FindW = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÇäÑŽí Çá˜ÊÑí˜í");
-if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí Çá˜ÊÑí˜í") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then 
+FindW = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "˜ÇÑ");
+if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "˜ÇÑ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then 
 	if QC ~= nil and QH ~= nil then
 		Binesh.CreateHTMLFile("|Q<sub>H</sub>| = W+Q<sub>C</sub>", "W = |Q<sub>H</sub>|-Q<sub>C</sub>")
 		W = Math.Abs(QH)-QC
@@ -45,7 +45,7 @@ if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.Fin
 		Binesh.AddToHTML("W = |"..QH.."|-"..QC.." &#8658; W = "..W.." J")
 		Web.Refresh("Web1");
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÇäÑŽí Çá˜ÊÑí˜í");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "˜ÇÑ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "W");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);

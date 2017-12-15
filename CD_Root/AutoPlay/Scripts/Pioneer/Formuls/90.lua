@@ -1,7 +1,7 @@
 if SSigma == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "çê«·Ì ”ÿÕÌ")
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "çê«·Ì ”ÿÕ")
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'SSigma' then
-		ListBox.AddItem("unknowns", "çê«·Ì ”ÿÕÌ", "SSigma");
+		ListBox.AddItem("unknowns", "çê«·Ì ”ÿÕ", "SSigma");
 	end
 end
 
@@ -19,7 +19,7 @@ if A == nil then
 	end
 end
 
-FindSSigma = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "çê«·Ì ”ÿÕÌ");
+FindSSigma = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "çê«·Ì ”ÿÕ");
 if FindSSigma ~= -1 and ListBox.GetItemData("unknowns", FindSSigma) == "SSigma" and ListBox.FindItem("Words", -1, LB_BYTEXT, "çê«·Ì ”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "SSigma") ~= -1 then
 	if q ~= nil and A ~= nil then
 		Binesh.CreateHTMLFile("SSigma = <span>q/A</span>")
@@ -28,7 +28,7 @@ if FindSSigma ~= -1 and ListBox.GetItemData("unknowns", FindSSigma) == "SSigma" 
 		Binesh.AddToHTML("SSigma = <span>"..q.."/"..A.."</span> &#8658; SSigma = "..SSigma.." C/m<sup>2</sup>")
 		Web.Refresh("Web1");
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "çê«·Ì ”ÿÕÌ");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "çê«·Ì ”ÿÕ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "SSigma");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
