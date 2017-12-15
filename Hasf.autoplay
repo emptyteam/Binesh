@@ -498,6 +498,20 @@ function Error(ErrorText, Exit)
 	end
 end
 
+function Binesh.AddUnknown(NamePersian, Symbol)
+	NamePersian = tostring(NamePersian)
+	Symbol = tostring(Symbol)
+	
+	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, NamePersian)
+	if UnknownNamePersian == -1 then
+		ListBox.AddItem("unknowns", NamePersian, Symbol);
+	else
+		if ListBox.GetItemData("unknowns", UnknownNamePersian) ~= Symbol then
+			ListBox.AddItem("unknowns", NamePersian, Symbol);
+		end
+	end
+end
+
 -- Include Pres Table
 Binesh.Include("Pres", false);
 
@@ -616,8 +630,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>12</DesignCodeLine>
-<DesignCodeCol>81</DesignCodeCol>
+<DesignCodeLine>444</DesignCodeLine>
+<DesignCodeCol>42</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -10999,8 +11013,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>726</DesignCodeLine>
-<DesignCodeCol>40</DesignCodeCol>
+<DesignCodeLine>1110</DesignCodeLine>
+<DesignCodeCol>37</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
