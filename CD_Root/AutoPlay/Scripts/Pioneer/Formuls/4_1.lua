@@ -1,8 +1,5 @@
 if Q == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ê—„«")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Q' then
-		ListBox.AddItem("unknowns", "ê—„«", "Q");
-	end
+	Binesh.AddUnknown("ê—„«", "Q")
 end
 
 if m == nil then
@@ -177,7 +174,12 @@ if Findc ~= -1 and ListBox.GetItemData("unknowns", Findc) == "m" and ListBox.Fin
 		Binesh.AddToHTML("c = <span>"..Q.."/"..m.."*".._DeltaTeta.."</span> &#8658; c = "..c.." J/Kg.C")
 		
 		Web.Refresh("Web1");
-			
+		
+		Binesh.AddToHTML("Q: "..Q.." J", "V")
+		Binesh.AddToHTML("m: "..m.." Kg", "V")
+		Binesh.AddToHTML("DeltaTeta: ".._DeltaTeta.."<sup>o</sup>C", "V")
+		Binesh.AddToHTML("c: "..c.." J/Kg.C", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "c");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
