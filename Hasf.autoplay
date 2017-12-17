@@ -10652,6 +10652,21 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		end
 	end
 	
+	-- 142
+	if Omega == nil then
+		if V_Speed == nil then
+			Omega = Binesh.Genesis("ÈÓÇãÏ", "Omega", "", "", 1, "rad/s", "ÑÇÏíÇä Èå ËÇäíå", false);
+			if Omega ~= nil then
+				V_Speed = Omega
+			end
+		else
+			Omega = V_Speed
+		end
+	end
+	if f_Hz == nil then
+		f_Hz = Binesh.Genesis("İÑ˜ÇäÓ", "f", "", "", 1, "Hz", "İÑ˜ÇäÓ", false);
+	end
+	
 	-- Deltas:
 	-- 4
 	if (_DeltaT == nil or _T1 == nil or _T2 == nil) and (_DeltaTeta == nil or _Teta1 == nil or _Teta2 == nil) and (_DeltaTF == nil or _TF1 == nil or _TF2 == nil) then
@@ -10868,6 +10883,9 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		T_141 = Binesh.Genesis("ÏæÑÇä", "T", "", "", 1, "", "", false);
 		if T_141 == nil then
 			T_141 = Binesh.Genesis("ÏæÑ", "T", "", "", 1, "", "", false);
+			if T_141 == nil then
+				T_141 = Binesh.Genesis("ÏæÑå", "T", "", "", 1, "", "", false);
+			end
 		end
 	end
 	
@@ -11013,8 +11031,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>1110</DesignCodeLine>
-<DesignCodeCol>37</DesignCodeCol>
+<DesignCodeLine>776</DesignCodeLine>
+<DesignCodeCol>4</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
