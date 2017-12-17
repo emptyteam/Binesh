@@ -1,22 +1,16 @@
 if E_Electric == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'E' then
-		ListBox.AddItem("unknowns", "„Ìœ«‰", "E");
-	end
+
+	Binesh.AddUnknown("„Ìœ«‰", "E")
 end
 
 if q == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'q' then
-		ListBox.AddItem("unknowns", "–—Â", "q");
-	end
+
+	Binesh.AddUnknown("–—Â", "q")
 end
 
 if r_3 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'r' then
-		ListBox.AddItem("unknowns", "›«’·Â", "r");
-	end
+
+	Binesh.AddUnknown("›«’·Â", "r")
 end
 
 FindE_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
@@ -27,6 +21,10 @@ if FindE_Electric ~= -1 and ListBox.GetItemData("unknowns", FindE_Electric) == "
 		
 		Binesh.AddToHTML("E = "..(4*10^-4).."*<span>"..q.."/"..r_3.."<sup>2</sup></span> &#8658; E = "..E_Electric.." N/C")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("r: "..r_3.." m", "V")
+		Binesh.AddToHTML("E: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "E");
@@ -45,6 +43,10 @@ if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.Fin
 		Binesh.AddToHTML("q = <span>"..E_Electric.."*"..r_3.."<sup>2</sup>/"..(4*10^-4).."</span> &#8658; q = "..q.." C")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("r: "..r_3.." m", "V")
+		Binesh.AddToHTML("q: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -61,6 +63,10 @@ if Findr_3 ~= -1 and ListBox.GetItemData("unknowns", Findr_3) == "r" and ListBox
 		
 		Binesh.AddToHTML("r = sqrt(<span>"..(4*10^-4).."*"..q.."/"..E_Electric.."</span>) &#8658; r = "..r_3.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("r: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "r");

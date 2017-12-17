@@ -1,22 +1,16 @@
 if E_Electric == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'E' then
-		ListBox.AddItem("unknowns", "„Ìœ«‰", "E");
-	end
+
+	Binesh.AddUnknown("„Ìœ«‰", "E")
 end
 
 if F == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'F' then
-		ListBox.AddItem("unknowns", "‰Ì—Ê", "F");
-	end
+	
+	Binesh.AddUnknown("‰Ì—Ê", "F")
 end
 
 if q_0_87 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â ¬“„Ê‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'q0' then
-		ListBox.AddItem("unknowns", "–—Â ¬“„Ê‰", "q0");
-	end
+	
+	Binesh.AddUnknown("–—Â ¬“„Ê‰", "q0")
 end
 
 FindE_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
@@ -27,6 +21,10 @@ if FindE_Electric ~= -1 and ListBox.GetItemData("unknowns", FindE_Electric) == "
 		Binesh.CreateHTMLFile("E = <span>F/q<sub>0</sub></span>")
 		Binesh.AddToHTML("E = <span>"..F.."/"..q_0_87.."</span> &#8658; E = "..E_Electric.." N/C")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("F: "..F.." N", "V")
+		Binesh.AddToHTML("q0: "..q_0_87.." C", "V")
+		Binesh.AddToHTML("E: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "E");
@@ -45,6 +43,10 @@ if FindF ~= -1 and ListBox.GetItemData("unknowns", FindF) == "F" and ListBox.Fin
 		Binesh.AddToHTML("F = "..E_Electric.."*"..q_0_87.." &#8658; F = "..F.." N")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("q0: "..q_0_87.." C", "V")
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("F: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "F");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -61,6 +63,10 @@ if Findq_0_87 ~= -1 and ListBox.GetItemData("unknowns", Findq_0_87) == "q0" and 
 		Binesh.CreateHTMLFile("E = <span>F/q<sub>0</sub></span>", "q<sub>0</sub> = <span>F/E</span>")
 		Binesh.AddToHTML("q<sub>0</sub> = <span>"..F.."/"..E_Electric.."</span> &#8658; q<sub>0</sub> = "..q_0_87.." C")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("F: "..F.." N", "V")
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("q0: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â ¬“„Ê‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q0");

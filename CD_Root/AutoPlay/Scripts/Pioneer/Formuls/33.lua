@@ -3,6 +3,7 @@ if x == nil then
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'x' then
 		ListBox.AddItem("unknowns", "œÊ„Ì‰ „ò«‰", "x");
 	end
+	Binesh.AddUnknown("œÊ„Ì‰ „ò«‰", "x")
 end
 
 if V_Speed == nil then
@@ -10,6 +11,7 @@ if V_Speed == nil then
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V' then
 		ListBox.AddItem("unknowns", "”—⁄ ", "V");
 	end
+	Binesh.AddUnknown("”—⁄ ", "V")
 end
 
 if t == nil then
@@ -17,6 +19,7 @@ if t == nil then
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 't' then
 		ListBox.AddItem("unknowns", "“„«‰", "t");
 	end
+	Binesh.AddUnknown("“„«‰", "t")
 end
 
 if x0 == nil then
@@ -24,6 +27,7 @@ if x0 == nil then
 	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'x0' then
 		ListBox.AddItem("unknowns", "«Ê·Ì‰ „ò«‰", "x0");
 	end
+	Binesh.AddUnknown("«Ê·Ì‰ „ò«‰", "x0")
 end
 
 Findx = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ „ò«‰");
@@ -34,6 +38,11 @@ if Findx ~= -1 and ListBox.GetItemData("unknowns", Findx) == "x" and ListBox.Fin
 		
 		Binesh.AddToHTML("x = "..V_Speed.."*"..t.."+"..x0.." &#8658; x = "..x.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("t: "..t.." s", "V")
+		Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+		Binesh.AddToHTML("x<sub>0</sub>: "..x0.." m", "V")
+		Binesh.AddToHTML("x: "..x.." m" , "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ „ò«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "x");
@@ -52,6 +61,11 @@ if FindV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV_Speed) == "V" and
 		Binesh.AddToHTML("V = <span>"..x.."-"..x0.."/"..t.."</span> &#8658; V = "..V_Speed.." m/s")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("x: "..x.." m" , "V")
+		Binesh.AddToHTML("t: "..t.." s", "V")
+		Binesh.AddToHTML("x<sub>0</sub>: "..x0.." m", "V")
+		Binesh.AddToHTML("V: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "V");
 		if unknownPersianindex == unknownSymbolindex then
@@ -69,6 +83,11 @@ if Findt ~= -1 and ListBox.GetItemData("unknowns", Findt) == "t" and ListBox.Fin
 		Binesh.AddToHTML("t = <span>("..x.."-"..x0..")/"..V_Speed.."</span> &#8658; t = "..t.." s")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("x: "..x.." m" , "V")
+		Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+		Binesh.AddToHTML("x<sub>0</sub>: "..x0.." m", "V")
+		Binesh.AddToHTML("t: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“„«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "t");
 		if unknownPersianindex == unknownSymbolindex then
@@ -85,6 +104,11 @@ if Findx0 ~= -1 and ListBox.GetItemData("unknowns", Findx0) == "x0" and ListBox.
 		
 		Binesh.AddToHTML("x<sub>0</sub> = "..x.."-"..V_Speed.."*"..t.." &#8658; x<sub>0</sub. = "..x0.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("x: "..x.." m" , "V")
+		Binesh.AddToHTML("t: "..t.." s", "V")
+		Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+		Binesh.AddToHTML("x<sub>0</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ „ò«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "x0");

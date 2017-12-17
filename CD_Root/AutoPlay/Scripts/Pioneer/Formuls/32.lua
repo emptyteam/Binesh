@@ -1,46 +1,25 @@
 if VBar_Speed == nil and VBar_Speed_mh == nil and VBar_Speed_miles == nil and VBar_Speed_mileh == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄  „ Ê”ÿ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'VBar' then
-		ListBox.AddItem("unknowns", "”—⁄  „ Ê”ÿ", "VBar");
-	end
+	Binesh.AddUnknown("”—⁄  „ Ê”ÿ", "VBar")
 end
 
 if _Deltax == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— „ò«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Deltax' then
-		ListBox.AddItem("unknowns", " €ÌÌ— „ò«‰", "Deltax");
-	end
+	Binesh.AddUnknown(" €ÌÌ— „ò«‰", "Deltax")
 end
 if _x1 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ „ò«‰");
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'x1' then
-		ListBox.AddItem("unknowns", "«Ê·Ì‰ „ò«‰", "x1");
-	end
+	Binesh.AddUnknown("«Ê·Ì‰ „ò«‰", "x1")
 end
 if _x2 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ „ò«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'x2' then
-		ListBox.AddItem("unknowns", "œÊ„Ì‰ „ò«‰", "x2");
-	end
+	Binesh.AddUnknown("œÊ„Ì‰ „ò«‰", "x2")
 end
 
 if _Deltat == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— “„«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Deltat' then
-		ListBox.AddItem("unknowns", " €ÌÌ— “„«‰", "Deltat");
-	end
+	Binesh.AddUnknown(" €ÌÌ— “„«‰", "Deltat")
 end
 if _t1 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ “„«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 't1' then
-		ListBox.AddItem("unknowns", "«Ê·Ì‰ “„«‰", "t1");
-	end
+	Binesh.AddUnknown("«Ê·Ì‰ “„«‰", "t1")
 end
 if _t2 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ “„«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 't2' then
-		ListBox.AddItem("unknowns", "œÊ„Ì‰ “„«‰", "t2");
-	end
+	Binesh.AddUnknown("œÊ„Ì‰ “„«‰", "t2")
 end
 
 if VBar_Speed_mh ~= nil  then
@@ -174,6 +153,10 @@ if FindVBar_Speed ~= -1 and ListBox.GetItemData("unknowns", FindVBar_Speed) == "
 		Binesh.AddToHTML("VBar = <span>".._Deltax.."/".._Deltat.."</span> &#8658; VBar = "..VBar_Speed.." m/s")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("Deltat: ".._Deltat.." s", "V")
+		Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
+		Binesh.AddToHTML("VBar: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄  „ Ê”ÿ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "VBar");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -191,6 +174,10 @@ if FindDeltax ~= -1 and ListBox.GetItemData("unknowns", FindDeltax) == "Deltax" 
 		Binesh.AddToHTML("Deltax = "..VBar_Speed.."*".._Deltat.." &#8658; Deltax = ".._Deltax.." m")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("Deltat: ".._Deltat.." s", "V")
+		Binesh.AddToHTML("VBar: "..VBar_Speed.." m/s", "V")
+		Binesh.AddToHTML("Deltax: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— „ò«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Deltax");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -207,6 +194,10 @@ if FindDeltat ~= -1 and ListBox.GetItemData("unknowns", FindDeltat) == "Deltat" 
 		
 		Binesh.AddToHTML("Deltat = <span>".._Deltax.."/"..VBar_Speed.."</span> &#8658; Deltat = ".._Deltat.." s")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("VBar: "..VBar_Speed.." m/s", "V")
+		Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
+		Binesh.AddToHTML("Deltat: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— “„«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Deltat");

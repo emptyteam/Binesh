@@ -1,37 +1,26 @@
 if Teta == nil and Teta_Radian == nil then
-
 	Binesh.AddUnknown("“«ÊÌÂ", "Teta")
 end
 
-if T_141 == nil then
-
-	Binesh.AddUnknown("œÊ—«‰", "T")
+if Omega == nil then
+	Binesh.AddUnknown("»”«„œ", "Omega")
 end
 
 if t == nil then
-
 	Binesh.AddUnknown("“„«‰", "t")
-end
-
-if Teta_Radian ~= nil then
-	Binesh.CreateHTMLFile("<span>R/Pi</span> = <span>D/180</span>", "D = <span>R*180/Pi</span>")
-	Teta = Math.RadToDeg(Teta_Radian)
-	Binesh.AddToHTML("D<sub>Teta</sub> = <span>"..Teta_Radian.."*180/"..Zarib.Pi.."</span> &#8658; D<sub>Teta</sub> = "..Teta.."<sup>o</sup>")
-	Binesh.AddToHTML("<br>")
 end
 
 FindTeta = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ");
 if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta" or ListBox.GetItemData("unknowns", FindTeta) == "Alpha" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
-	if T_141 ~= nil and t ~= nil then
-		Binesh.CreateHTMLFile("Teta = <span>2Pi/T</span>t")
+	if Omega ~= nil and t ~= nil then
+		Binesh.CreateHTMLFile("Teta = Omegat")
 		
-		Teta = 2*Zarib.Pi*t/T_141
+		Teta = Omega*t
 		
-		Binesh.AddToHTML("Teta = <span>2*"..Zarib.Pi.."/"..T_141.."</span>*"..t.." &#8658; Teta = "..Teta)
-		Web.Refresh("Web1");
+		Binesh.AddToHTML("Teta = "..Omega.."*"..t.." &#8658; Teta = "..Teta)
 		
+		Binesh.AddToHTML("Omega: "..Omega.." rad/s", "V")
 		Binesh.AddToHTML("t: "..t.." s", "V")
-		Binesh.AddToHTML("T: "..T_141, "V")
 		Binesh.AddToHTML("Teta: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ");
@@ -42,22 +31,21 @@ if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta" or Lis
 	end
 end
 
-FindT_141 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ—«‰");
-if FindT_141 ~= -1 and ListBox.GetItemData("unknowns", FindT_141) == "T" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ—«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T") ~= -1 then
+FindOmega = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»”«„œ");
+if FindOmega ~= -1 and ListBox.GetItemData("unknowns", FindOmega) == "Omega" and ListBox.FindItem("Words", -1, LB_BYTEXT, "»”«„œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Omega") ~= -1 then
 	if Teta ~= nil and t ~= nil then
-		Binesh.CreateHTMLFile("Teta = <span>2Pi/T<span>t", "T = <span>2Pi/Teta</span>t")
+		Binesh.CreateHTMLFile("Teta = Omegat", "Omega = <span>Teta/t</span>")
 		
-		T_141 = 2*Zarib.Pi*t/Math.Rad(Teta)
+		Omega = Teta/t
 		
-		Binesh.AddToHTML("T = <span>2*"..Zarib.Pi.."/"..Teta.."</span>*"..t.." &#8658; T = "..T_141)
-		Web.Refresh("Web1");
+		Binesh.AddToHTML("Omega = <span>"..Omega.."/"..t.."</span> &#8658; Omega = "..Omega.." rad/s")
 		
-		Binesh.AddToHTML("t: "..t.." s", "V")
 		Binesh.AddToHTML("Teta: "..Teta, "V")
-		Binesh.AddToHTML("T: ?", "V")
+		Binesh.AddToHTML("t: "..t.." s", "V")
+		Binesh.AddToHTML("Omega: ?", "V")
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ—«‰");
-		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "T");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»”«„œ");
+		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Omega");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
@@ -66,16 +54,16 @@ end
 
 Findt = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“„«‰");
 if Findt ~= -1 and ListBox.GetItemData("unknowns", Findt) == "t" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1 then
-	if Teta ~= nil and T_141 ~= nil then
-		Binesh.CreateHTMLFile("Teta = <span>2Pi/T<span>*t", "t = <span>Teta/2Pi</span>T")
+	if Omega ~= nil and Teta ~= nil then
+		Binesh.CreateHTMLFile("Teta = Omegat", "t = <span>Teta/Omega</span>")
 		
-		t = Math.Rad(Teta)*T_141/(2*Zarib.Pi)
+		t = Teta/Omega
 		
-		Binesh.AddToHTML("t = <span>"..Teta.."/2*"..Zarib.Pi.."</span>*"..T_141.." &#8658; t = "..t.." s")
+		Binesh.AddToHTML("t = "..Teta.."/"..Omega.." &#8658; t = "..t.." s")
 		Web.Refresh("Web1");
 		
 		Binesh.AddToHTML("Teta: "..Teta, "V")
-		Binesh.AddToHTML("T: "..T_141, "V")
+		Binesh.AddToHTML("Omega: "..Omega.." rad/s", "V")
 		Binesh.AddToHTML("t: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“„«‰");
