@@ -12,7 +12,7 @@ if B == nil then
 end
 
 if Omega == nil then
-	Binesh.AddUnknown("ÈÓÇãÏ", "Omega")
+	Binesh.AddUnknown("ÓÑÚÊ ÒÇæíå", "Omega")
 end
 
 if t == nil then

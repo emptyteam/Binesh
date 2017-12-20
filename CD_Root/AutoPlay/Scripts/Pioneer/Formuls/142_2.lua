@@ -1,13 +1,13 @@
 if Omega == nil then
-	Binesh.AddUnknown("»”«„œ", "Omega")
+	Binesh.AddUnknown("”—⁄  “«ÊÌÂ", "Omega")
 end
 
 if f_Hz == nil then
 	Binesh.AddUnknown("›—ò«‰”", "f")
 end
 
-FindOmega = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»”«„œ");
-if FindOmega ~= -1 and ListBox.GetItemData("unknowns", FindOmega) == "t" and ListBox.FindItem("Words", -1, LB_BYTEXT, "»”«„œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Omega") ~= -1 then
+FindOmega = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄  “«ÊÌÂ");
+if FindOmega ~= -1 and ListBox.GetItemData("unknowns", FindOmega) == "t" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄  “«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Omega") ~= -1 then
 	if f_Hz ~= nil then
 		Binesh.CreateHTMLFile("Omega = 2Pif")
 		
@@ -18,7 +18,7 @@ if FindOmega ~= -1 and ListBox.GetItemData("unknowns", FindOmega) == "t" and Lis
 		Binesh.AddToHTML("f: "..f_Hz.." Hz", "V")
 		Binesh.AddToHTML("Omega: ?", "V")
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»”«„œ");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄  “«ÊÌÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Omega");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);

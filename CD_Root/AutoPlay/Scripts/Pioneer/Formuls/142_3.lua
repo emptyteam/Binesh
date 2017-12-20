@@ -3,7 +3,7 @@ if Teta == nil and Teta_Radian == nil then
 end
 
 if Omega == nil then
-	Binesh.AddUnknown("»”«„œ", "Omega")
+	Binesh.AddUnknown("”—⁄  “«ÊÌÂ", "Omega")
 end
 
 if t == nil then
@@ -31,8 +31,8 @@ if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta" or Lis
 	end
 end
 
-FindOmega = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»”«„œ");
-if FindOmega ~= -1 and ListBox.GetItemData("unknowns", FindOmega) == "Omega" and ListBox.FindItem("Words", -1, LB_BYTEXT, "»”«„œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Omega") ~= -1 then
+FindOmega = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄  “«ÊÌÂ");
+if FindOmega ~= -1 and ListBox.GetItemData("unknowns", FindOmega) == "Omega" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄  “«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Omega") ~= -1 then
 	if Teta ~= nil and t ~= nil then
 		Binesh.CreateHTMLFile("Teta = Omegat", "Omega = <span>Teta/t</span>")
 		
@@ -44,7 +44,7 @@ if FindOmega ~= -1 and ListBox.GetItemData("unknowns", FindOmega) == "Omega" and
 		Binesh.AddToHTML("t: "..t.." s", "V")
 		Binesh.AddToHTML("Omega: ?", "V")
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»”«„œ");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄  “«ÊÌÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Omega");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
