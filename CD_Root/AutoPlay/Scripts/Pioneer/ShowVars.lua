@@ -1,4 +1,4 @@
-if K ~= nil then
+--[[if K ~= nil then
 	Binesh.AddToHTML("K: "..K.." J", "V")
 end
 
@@ -604,4 +604,4 @@ end
 
 if Eta ~= nil then
 	Binesh.AddToHTML("Eta: "..Eta, "V")
-end
+end]]

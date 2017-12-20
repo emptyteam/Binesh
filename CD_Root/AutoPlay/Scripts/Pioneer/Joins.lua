@@ -61,3 +61,5 @@ Binesh.Join('ๅใ Ýิวั');
 Binesh.Join('ๅใ ฯใว');
 Binesh.Join('วๅใ ใสั');
 Binesh.Join('ใสั ใฺศ');
+Binesh.Join('ัวฯํวไ ศๅ หวไํๅ');
+Binesh.Join('ำัฺส าวๆํๅ');

@@ -91,6 +91,8 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "À«»  ›‰—", "÷—Ì» ›‰—", false);
 		result = String.Replace(result, "«Â„ œ— „ —", "«Â„ „ —", false);
 		result = String.Replace(result, "çê«·Ì ”ÿÕÌ", "çê«·Ì ”ÿÕ", false);
+		result = String.Replace(result, "»”«„œ", "›—ò«‰”", false);
+		result = String.Replace(result, "»”«„œ “«ÊÌÂ", "”—⁄  “«ÊÌÂ", false);
 		
 		result = String.Replace(result, "f s", "fs,max", false);
 		result = String.Replace(result, "fs ,max", "fs,max", false);
@@ -101,6 +103,9 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "Mu k", "Muk", false);
 		result = String.Replace(result, "Ohm * m", "Ohm.m", false);
 		result = String.Replace(result, "Ohm . m", "Ohm.m", false);
+		result = String.Replace(result, "Rad", "rad", true);
+		result = String.Replace(result, "hz", "Hz", true);
+		result = String.Replace(result, "omega", "Omega", true);
 		
 		-- For Delta:
 		for indexDelta = 1, Table.Count(tbl.Delta.Words) do
