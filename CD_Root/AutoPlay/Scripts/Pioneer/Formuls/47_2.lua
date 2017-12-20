@@ -20,8 +20,8 @@ if Findfk ~= -1 and ListBox.GetItemData("unknowns", Findfk) == "fk" and ListBox.
 		Web.Refresh("Web1");
 		
 		Binesh.AddToHTML("N: "..N.." N", "V")
-		Binesh.AddToHTML("Muk: "..Muk, "V")
-		Binesh.AddToHTML("fk: ?", "V")
+		Binesh.AddToHTML("Mu<sub>k</sub>: "..Muk, "V")
+		Binesh.AddToHTML("f<sub>k</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«’ÿò«ò Ã‰»‘Ì");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "fk");
@@ -40,8 +40,8 @@ if FindN ~= -1 and ListBox.GetItemData("unknowns", FindN) == "N" and ListBox.Fin
 		Binesh.AddToHTML("N = <span>"..fs_max.."/"..Muk.."</span> &#8658; N = "..N.."N")
 		Web.Refresh("Web1");
 		
-		Binesh.AddToHTML("fk: "..fk.." N", "V")
-		Binesh.AddToHTML("Muk: "..Muk, "V")
+		Binesh.AddToHTML("f<sub>k</sub>: "..fk.." N", "V")
+		Binesh.AddToHTML("Mu<sub>k</sub>: "..Muk, "V")
 		Binesh.AddToHTML("N: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê");
@@ -61,9 +61,9 @@ if FindMuk ~= -1 and ListBox.GetItemData("unknowns", FindMuk) == "Muk" and ListB
 		Binesh.AddToHTML("Mu<sub>k</sub> = <span>"..fk.."/"..N.."</span> &#8658; Mu<sub>k</sub> = "..Muk)
 		Web.Refresh("Web1");
 		
-		Binesh.AddToHTML("fk: "..fk.." N", "V")
+		Binesh.AddToHTML("f<sub>k</sub>: "..fk.." N", "V")
 		Binesh.AddToHTML("N: "..N.." N", "V")
-		Binesh.AddToHTML("Muk: ?", "V")
+		Binesh.AddToHTML("Mu<sub>k</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» «’ÿò«ò Ã‰»‘Ì");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Muk");

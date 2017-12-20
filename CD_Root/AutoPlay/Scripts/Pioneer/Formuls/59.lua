@@ -1,22 +1,13 @@
 if P == nil and Pa == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›‘«—")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'P' then
-		ListBox.AddItem("unknowns", "›‘«—", "P");
-	end
+	Binesh.AddUnknown("›‘«—", "P")
 end
 
 if Ru == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "çê«·Ì")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Ru' then
-		ListBox.AddItem("unknowns", "çê«·Ì", "Ru");
-	end
+	Binesh.AddUnknown("çê«·Ì", "Ru")
 end
 
 if h == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«— ›«⁄")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'h' then
-		ListBox.AddItem("unknowns", "«— ›«⁄", "h");
-	end
+	Binesh.AddUnknown("«— ›«⁄", "h")
 end
 
 FindP = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›‘«—");
@@ -24,6 +15,10 @@ if FindP ~= -1 and ListBox.GetItemData("unknowns", FindP) == "P" and ListBox.Fin
 	if Ru ~= nil and h ~= nil then
 		Binesh.CreateHTMLFile("P = Rugh")
 		P = Ru*Zarib.g*h
+		
+		Binesh.AddToHTML("Ru: "..Ru.." g/m<sup>3</sup>", "V")
+		Binesh.AddToHTML("h: "..h.." m", "V")
+		Binesh.AddToHTML("P: ?", "V")
 		
 		Binesh.AddToHTML("P = "..Ru.."*"..Zarib.g.."*"..h.." &#8658; P = "..P.." Pa")
 		Web.Refresh("Web1");
@@ -42,6 +37,10 @@ if FindRu ~= -1 and ListBox.GetItemData("unknowns", FindRu) == "Ru" and ListBox.
 		Binesh.CreateHTMLFile("P = Ru*g*h", "Ru = <span>P/gh</span>")
 		Ru = P/Zarib.g*h
 		
+		Binesh.AddToHTML("P: "..P.." Pa", "V")
+		Binesh.AddToHTML("h: "..h.." m", "V")
+		Binesh.AddToHTML("Ru: ?", "V")
+		
 		Binesh.AddToHTML("Ru = <span>"..P.."/"..Zarib.g.."*"..h.."</span> &#8658; Ru = "..Ru.." g/m<sup>3</sup>")
 		Web.Refresh("Web1");
 		
@@ -58,6 +57,10 @@ if Findh ~= -1 and ListBox.GetItemData("unknowns", Findh) == "h" and ListBox.Fin
 	if Ru ~= nil and P ~= nil then
 		Binesh.CreateHTMLFile("P = Ru*g*h", "h = <span>P/gRu</span>")
 		h = P/Zarib.g*Ru
+		
+		Binesh.AddToHTML("P: "..P.." Pa", "V")
+		Binesh.AddToHTML("Ru: "..Ru.." g/m<sup>3</sup>", "V")
+		Binesh.AddToHTML("h: ?", "V")
 		
 		Binesh.AddToHTML("h = <span>"..P.."/"..Zarib.g.."*"..Ru.."</span> &#8658; h = "..h.." m")
 		Web.Refresh("Web1");

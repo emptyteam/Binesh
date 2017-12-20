@@ -1,25 +1,13 @@
--- N_48 = Binesh.Genesis("‰Ì—Ê", "N", "", "", 1, "N", "‰ÌÊ ‰", false);
 if N == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'N' then
-		ListBox.AddItem("unknowns", "‰Ì—Ê", "N");
-	end
+	Binesh.AddUnknown("‰Ì—Ê", "N")
 end
 
---m = Binesh.Genesis("Ã—„", "m", "K", "òÌ·Ê", 10^3, "g", "ê—„", false);
 if m == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'm' then
-		ListBox.AddItem("unknowns", "Ã—„", "m");
-	end
+	Binesh.AddUnknown("Ã—„", "m")
 end
 
--- a_48 = Binesh.Genesis("‘ «»", "a", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", false);
 if a == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘ «»")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'a' then
-		ListBox.AddItem("unknowns", "‘ «»", "a");
-	end
+	Binesh.AddUnknown("‘ «»", "a")
 end
 
 UP = ListBox.FindItem("Words", -1, LB_BYTEXT, "»«·«")
@@ -29,14 +17,22 @@ FindN = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê");
 if FindN ~= -1 and ListBox.GetItemData("unknowns", FindN) == "N" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1 then
 	if a ~= nil and m ~= nil then
 		if UP ~= -1 then
-			Binesh.CreateHTMLFile("N = m*(g+a)")
+			Binesh.CreateHTMLFile("N = m(g+a)")
 			N = m*(Zarib.g+a)
+			
+			Binesh.AddToHTML("m: "..m.." m", "V")
+			Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("N: ?", "V")
 			
 			Binesh.AddToHTML("N = "..m.."*("..Zarib.g.."+"..a..") &#8658; N = "..N.." N")
 			Web.Refresh("Web1");
 		elseif DOWN ~= -1 then
-			Binesh.CreateHTMLFile("N = m*(g-a)")
+			Binesh.CreateHTMLFile("N = m(g-a)")
 			N = m*(Zarib.g-a)
+			
+			Binesh.AddToHTML("m: "..m.." m", "V")
+			Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("N: ?", "V")
 			
 			Binesh.AddToHTML("N = "..m.."*("..Zarib.g.."+"..a..") &#8658; N = "..N.." N")
 			Web.Refresh("Web1");
@@ -53,14 +49,22 @@ Findm = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—„");
 if Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
 	if N ~= nil and a ~= nil then
 		if UP ~= -1 then
-			Binesh.CreateHTMLFile("N = m*(g+a)", "m = <span>N/(g+a)</span>")
+			Binesh.CreateHTMLFile("N = m(g+a)", "m = <span>N/(g+a)</span>")
 			m = N/(Zarib.g+a)
 			
-			Binesh.AddToHTML("m = <span>N/("..Zarib.g.."+a)</span> &#8658; m = "..m.."Kg")
+			Binesh.AddToHTML("N: "..N.." N", "V")
+			Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("m: ?", "V")
+			
+			Binesh.AddToHTML("m = <span>N/("..Zarib.g.."+a)</span> &#8658; m = "..m.." Kg")
 			Web.Refresh("Web1");
 		elseif DOWN ~= -1 then
-			Binesh.CreateHTMLFile("N = m*(g+a)", "m = -<span>N/(-g+a)</span>")
+			Binesh.CreateHTMLFile("N = m(g+a)", "m = -<span>N/(-g+a)</span>")
 			m = -N/(-Zarib.g+a)
+			
+			Binesh.AddToHTML("N: "..N.." N", "V")
+			Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("m: ?", "V")
 			
 			Binesh.AddToHTML("m = -<span>"..N.."/(-"..Zarib.g.."+"..a..")</span> &#8658; m = "..m.." Kg")
 			Web.Refresh("Web1");
@@ -77,14 +81,22 @@ Finda = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘ «»");
 if Finda ~= -1 and ListBox.GetItemData("unknowns", Finda) == "a" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then
 	if m ~= nil and N ~= nil then
 		if UP ~= -1 then
-			Binesh.CreateHTMLFile("N = m*(g+a)", "a = -<span>(g*m-N)/m</span>")
+			Binesh.CreateHTMLFile("N = m(g+a)", "a = -<span>(gm-N)/m</span>")
 			a = -1*(Zarib.g*m-N)/m
+			
+			Binesh.AddToHTML("N: "..N.." N", "V")
+			Binesh.AddToHTML("m: "..m.." m", "V")
+			Binesh.AddToHTML("a: ?", "V")
 			
 			Binesh.AddToHTML("a = -<span>("..Zarib.g.."*"..m.."-"..N..")/"..m.."</span> &#8658; a = "..a.." m/s")
 			Web.Refresh("Web1");
 		elseif DOWN ~= -1 then
-			Binesh.CreateHTMLFile("N = m*(g+a)", "a = <span>(g*m-N)/m</span>")
+			Binesh.CreateHTMLFile("N = m(g+a)", "a = <span>(gm-N)/m</span>")
 			a = (Zarib.g*m-N)/m
+			
+			Binesh.AddToHTML("N: "..N.." N", "V")
+			Binesh.AddToHTML("m: "..m.." m", "V")
+			Binesh.AddToHTML("a: ?", "V")
 			
 			Binesh.AddToHTML("a = <span>("..Zarib.g.."*"..m.."-"..N.."/"..m..")</span> &#8658; a = "..a.." m/s")
 			Web.Refresh("Web1");

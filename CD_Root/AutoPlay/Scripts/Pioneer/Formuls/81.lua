@@ -1,23 +1,13 @@
-
 if QH == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ê—„")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'QH' then
-		ListBox.AddItem("unknowns", "„‰»⁄ ê—„", "QH");
-	end
+	Binesh.AddUnknown("„‰»⁄ ê—„", "QH")
 end
 
 if W == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«—")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'W' then
-		ListBox.AddItem("unknowns", "ò«—", "W");
-	end
+	Binesh.AddUnknown("ò«—", "W")
 end
 
 if QC == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ”—œ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'QC' then
-		ListBox.AddItem("unknowns", "„‰»⁄ ”—œ", "QC");
-	end
+	Binesh.AddUnknown("„‰»⁄ ”—œ", "QC")
 end
 
 FindQH = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ê—„")
@@ -29,6 +19,10 @@ if FindQH ~= -1 and ListBox.GetItemData("unknowns", FindQH) == "QH" and ListBox.
 				
 		Binesh.AddToHTML("Q<sub>H</sub> = |"..W.."|+|"..QC.."| &#8658; Q<sub>H</sub> = "..QH.." J")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("W: "..W.." J", "V")
+		Binesh.AddToHTML("Q<sub>C</sub>: "..QC.." J", "V")
+		Binesh.AddToHTML("Q<sub>H</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ê—„");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "QH");
@@ -48,6 +42,10 @@ if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.Fin
 		Binesh.AddToHTML("|W| = "..QH.."-|"..QC.."| &#8658; |W| = "..W.." J")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
+		Binesh.AddToHTML("Q<sub>C</sub>: "..QC.." J", "V")
+		Binesh.AddToHTML("W: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«—");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "W");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -65,6 +63,10 @@ if FindQC ~= -1 and ListBox.GetItemData("unknowns", FindQC) == "QC" and ListBox.
 		
 		Binesh.AddToHTML("|Q<sub>C</sub>| = "..QH.."-|"..W.."| &#8658; Q<sub>C</sub> = "..QC.." J")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
+		Binesh.AddToHTML("W: "..W.." J", "V")
+		Binesh.AddToHTML("Q<sub>C</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ”—œ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "QC");

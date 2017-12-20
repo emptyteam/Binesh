@@ -1,22 +1,13 @@
 if fs_max == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«’ÿò«ò œ— ¬” «‰Â Õ—ò ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'fs,max' then
-		ListBox.AddItem("unknowns", "«’ÿò«ò œ— ¬” «‰Â Õ—ò ", "fs,max");
-	end
+	Binesh.AddUnknown("«’ÿò«ò œ— ¬” «‰Â Õ—ò ", "fs,max")
 end
 
 if N == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'N' then
-		ListBox.AddItem("unknowns", "‰Ì—Ê", "N");
-	end
+	Binesh.AddUnknown("‰Ì—Ê", "N")
 end
 
 if Mus == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» «’ÿò«ò «Ì” «ÌÌ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Mus' then
-		ListBox.AddItem("unknowns", "÷—Ì» «’ÿò«ò «Ì” «ÌÌ", "Mus");
-	end
+	Binesh.AddUnknown("÷—Ì» «’ÿò«ò «Ì” «ÌÌ", "Mus")
 end
 
 Findfs_max = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«’ÿò«ò œ— ¬” «‰Â Õ—ò ");
@@ -27,6 +18,10 @@ if Findfs_max ~= -1 and ListBox.GetItemData("unknowns", Findfs_max) == "fs,max" 
 		
 		Binesh.AddToHTML("f<sub>s,max</sub> = "..Mus.."*"..N.." &#8658; f<sub>s,max</sub> = "..fs_max.." N")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("N: "..N.." N", "V")
+		Binesh.AddToHTML("Mu<sub>s</sub>: "..Mus, "V")
+		Binesh.AddToHTML("f<sub>s,max</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«’ÿò«ò œ— ¬” «‰Â Õ—ò ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "fs,max");
@@ -45,6 +40,10 @@ if FindN ~= -1 and ListBox.GetItemData("unknowns", FindN) == "N" and ListBox.Fin
 		Binesh.AddToHTML("N = <span>"..fs_max.."/"..Mus.."</span> &#8658; N = "..N.." N")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("f<sub>s,max</sub>: "..fs,max.." N", "V")
+		Binesh.AddToHTML("Mu<sub>s</sub>: "..Mus, "V")
+		Binesh.AddToHTML("N: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "N");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -61,6 +60,10 @@ if FindMus ~= -1 and ListBox.GetItemData("unknowns", FindMus) == "Mus" and ListB
 		
 		Binesh.AddToHTML("Mu<sub>s</sub> = <span>"..fs,max.."/"..N.."</span> &#8658; Mu<sub>s</sub> = "..Mus)
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("f<sub>s,max</sub>: "..fs,max.." N", "V")
+		Binesh.AddToHTML("N: "..N.." N", "V")
+		Binesh.AddToHTML("Mu<sub>s</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» «’ÿò«ò «Ì” «ÌÌ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Mus");

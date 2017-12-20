@@ -1,22 +1,25 @@
 if Q == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ê—„«")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Q' then
-		ListBox.AddItem("unknowns", "ê—„«", "Q");
-	end
+	Binesh.AddUnknown("ê—„«", "Q")
 end
 
 if P == nil and Pa ~= nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›‘«—")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'P' then
-		ListBox.AddItem("unknowns", "›‘«—", "P");
-	end
+	Binesh.AddUnknown("›‘«—", "P")
 end
 
 if CP == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'CP' then
-		ListBox.AddItem("unknowns", "Ÿ—›Ì  ê—„«ÌÌ", "CP");
-	end
+	Binesh.AddUnknown("Ÿ—›Ì  ê—„«ÌÌ", "CP")
+end
+
+if _DeltaV == nil then
+	Binesh.AddUnknown(" €ÌÌ— ÕÃ„", "DeltaV")
+end
+
+if _V1 == nil then
+	Binesh.AddUnknown("«Ê·Ì‰ ÕÃ„", "V1")
+end
+
+if _V2 == nil then
+	Binesh.AddUnknown("œÊ„Ì‰ ÕÃ„", "V2")
 end
 
 --------------------------{DELTA}--------------------------
@@ -29,7 +32,7 @@ if FindDeltaV ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV) == "DeltaV" 
 		Binesh.AddToHTML("DeltaV = ".._V2.."-".._V1.." &#8658; DeltaV = ".._DeltaV.." m<sup>3</sup>")
 		Binesh.AddToHTML("<br>") -- Create ENTER in HTML
 		Web.Refresh("Web1");
-			
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "DeltaV");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -81,6 +84,11 @@ if FindQ ~= -1 and ListBox.GetItemData("unknowns", FindQ) == "Q" and ListBox.Fin
 		Binesh.AddToHTML("Q = <span>"..CP.."/"..Zarib.R.."</span>*"..P.."*".._DeltaV.." &#8658; Q = "..Q.." J")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("P: "..P.." Pa", "V")
+		Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
+		Binesh.AddToHTML("DeltaV: ".._DeltaV.." m<sup>3</sup>", "V")
+		Binesh.AddToHTML("Q: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ê—„«");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Q");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -97,6 +105,11 @@ if FindP ~= -1 and ListBox.GetItemData("unknowns", FindP) == "P" and ListBox.Fin
 		
 		Binesh.AddToHTML("P = <span>"..Q.."*"..Zarib.R.."/"..CP.."*".._DeltaV.."</span> &#8658; P = "..P.." Pa")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("Q: "..Q.." J", "V")
+		Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
+		Binesh.AddToHTML("DeltaV: ".._DeltaV.." m<sup>3</sup>", "V")
+		Binesh.AddToHTML("P: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›‘«—");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "P");
@@ -115,6 +128,11 @@ if FindCP ~= -1 and ListBox.GetItemData("unknowns", FindCP) == "CP" and ListBox.
 		Binesh.AddToHTML("C<sub>p</sub> = <span>"..Q.."*"..Zarib.R.."/"..P.."*".._DeltaV.."</span> &#8658; C<sub>p</sub> = "..CP.." J/mol.K")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("Q: "..Q.." J", "V")
+		Binesh.AddToHTML("P: "..P.." Pa", "V")
+		Binesh.AddToHTML("DeltaV: ".._DeltaV.." m<sup>3</sup>", "V")
+		Binesh.AddToHTML("C<sub>P</sub>: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "CP");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -131,6 +149,11 @@ if FindDeltaV ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV) == "DeltaV" 
 		
 		Binesh.AddToHTML("DeltaT = <span>("..Q.."*"..R..")/("..CP.."*"..P..")</span> &#8658; DeltaV = ".._DeltaV.." m<sup>3</sup>")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("Q: "..Q.." J", "V")
+		Binesh.AddToHTML("P: "..P.." Pa", "V")
+		Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
+		Binesh.AddToHTML("DeltaV: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "DeltaV");

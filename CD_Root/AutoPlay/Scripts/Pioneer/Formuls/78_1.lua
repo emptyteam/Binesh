@@ -1,24 +1,25 @@
--- Q_78 = Binesh.Genesis("ê—„«", "Q", "", "", 1, "J", "éÊ·", false);
 if Q == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ê—„«")
-		if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Q' then
-		ListBox.AddItem("unknowns", "ê—„«", "Q");
-	end
+	Binesh.AddUnknown("ê—„«", "Q")
 end
 
--- n_78 = Binesh.Genesis("„Ê·", "n", "", "", 1, "mol", "„Ê·", false);
 if n == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ê·")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'n' then
-		ListBox.AddItem("unknowns", "„Ê·", "n");
-	end
+	Binesh.AddUnknown("„Ê·", "n")
 end
 
 if CP == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'CP' then
-		ListBox.AddItem("unknowns", "Ÿ—›Ì  ê—„«ÌÌ", "CP");
-	end
+	Binesh.AddUnknown("Ÿ—›Ì  ê—„«ÌÌ", "CP")
+end
+
+if _DeltaTeta == nil and _DeltaT == nil and _DeltaTF == nil then
+	Binesh.AddUnknown(" €ÌÌ— œ„«", "DeltaT")
+end
+
+if _Teta1 == nil and _T1 == nil and _TF1 == nil then
+	Binesh.AddUnknown("«Ê·Ì‰ œ„«", "T1")
+end
+
+if _Teta2 == nil and _T2 == nil and _TF2 == nil then
+	Binesh.AddUnknown("œÊ„Ì‰ œ„«", "T2")
 end
 
 --------------------------{DELTA}--------------------------
@@ -79,6 +80,11 @@ if FindQ ~= -1 and ListBox.GetItemData("unknowns", FindQ) == "Q" and ListBox.Fin
 		Binesh.CreateHTMLFile("Q = nC<sub>p</sub>DeltaT")
 		Q = n*CP*_DeltaT
 		
+		Binesh.AddToHTML("n: "..n.." mol", "V")
+		Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
+		Binesh.AddToHTML("DeltaT: ".._DeltaT.."<sup>o</sup>K", "V")
+		Binesh.AddToHTML("Q: ?", "V")
+		
 		Binesh.AddToHTML("Q = "..n.."*"..CP.."*".._DeltaT.." &#8658; Q = "..Q.." J")
 		Web.Refresh("Web1");
 		
@@ -95,6 +101,11 @@ if Findn ~= -1 and ListBox.GetItemData("unknowns", Findn) == "n" and ListBox.Fin
 	if Q ~= nil and CP ~= nil and EDeltaT ~= nil then
 		Binesh.CreateHTMLFile("Q = nC<sub>p</sub>DeltaT", "n = <span>Q/C<sub>p</sub></span>DeltaT")
 		n = Q/CP*_DeltaT
+		
+		Binesh.AddToHTML("Q: "..Q.." J", "V")
+		Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
+		Binesh.AddToHTML("DeltaT: ".._DeltaT.."<sup>o</sup>K", "V")
+		Binesh.AddToHTML("n: ?", "V")
 		
 		Binesh.AddToHTML("n = <span>"..Q.."/"..CP.."*".._DeltaT.."</span> &#8658; n = "..n.." mol")
 		Web.Refresh("Web1");
@@ -113,6 +124,11 @@ if FindCP ~= -1 and ListBox.GetItemData("unknowns", FindCP) == "CP" and ListBox.
 		Binesh.CreateHTMLFile("Q = nC<sub>p</sub>DeltaT", "C<sub>P</sub> = <span>Q/nDeltaT</span>")
 		CP = Q/n*_DeltaT
 		
+		Binesh.AddToHTML("Q: "..Q.." J", "V")
+		Binesh.AddToHTML("n: "..n.." mol", "V")
+		Binesh.AddToHTML("DeltaT: ".._DeltaT.."<sup>o</sup>K", "V")
+		Binesh.AddToHTML("C<sub>P</sub>: ?", "V")
+		
 		Binesh.AddToHTML("C<sub>p</sub> = <span>"..Q.."/"..n.."*".._DeltaT.."</span> &#8658; C<sub>p</sub> = "..CP.." J/mol.K")
 		Web.Refresh("Web1");
 		
@@ -129,6 +145,11 @@ if FindDeltaT ~= -1 and ListBox.GetItemData("unknowns", FindDeltaT) == "DeltaT" 
 	if Q ~= nil and CP ~= nil and n ~= nil then
 		Binesh.CreateHTMLFile("Q = nC<sub>p</sub>DeltaT", "DeltaT = <span>Q/nC<sub>p</sub></span>")
 		_DeltaT = Q/n*CP
+		
+		Binesh.AddToHTML("Q: "..Q.." J", "V")
+		Binesh.AddToHTML("n: "..n.." mol", "V")
+		Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
+		Binesh.AddToHTML("DeltaT: ?", "V")
 		
 		Binesh.AddToHTML("DeltaTets = <span>"..Q.."/"..n.."*"..CP.."</span> &#8658; DeltaT = ".._DeltaT.."<sup>o</sup>K")
 		Web.Refresh("Web1");

@@ -1,15 +1,9 @@
 if q == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÐÑå")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'q' then
-		ListBox.AddItem("unknowns", "ÐÑå", "q");
-	end
+	Binesh.AddUnknown("ÐÑå", "q")
 end
 
 if n_e == nil and n_p == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÊÚÏÇÏ Çá˜ÊÑæä")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'n' then
-		ListBox.AddItem("unknowns", "ÊÚÏÇÏ Çá˜ÊÑæä", "n");
-	end
+	Binesh.AddUnknown("ÊÚÏÇÏ Çá˜ÊÑæä", "n")
 end
 
 Findq = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÐÑå")
@@ -24,6 +18,9 @@ if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "c" and ListBox.Fin
 			Binesh.AddToHTML("q = "..n_p.."*"..(1.6*10^-19).." &#8658; q = "..q.." C")
 		end
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("n: "..n_e, "V")
+		Binesh.AddToHTML("q: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÐÑå");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q");
@@ -40,6 +37,9 @@ if Findn_e ~= -1 and ListBox.GetItemData("unknowns", Findn_e) == "n" and ListBox
 		n_e = q / (1.6*10^-19)
 		Binesh.AddToHTML("n = <span>"..q.."/"..(1.6*10^-19).."</span> &#8658; n = "..n_e)
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("n: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÊÚÏÇÏ Çá˜ÊÑæä");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "n");

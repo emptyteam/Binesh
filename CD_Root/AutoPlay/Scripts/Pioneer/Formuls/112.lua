@@ -1,22 +1,25 @@
 if Ru1 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Ru1' then
-		ListBox.AddItem("unknowns", "«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru1");
-	end
+	Binesh.AddUnknown("«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru1")
 end
 
 if Ru2 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Ru2' then
-		ListBox.AddItem("unknowns", "œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru2");
-	end
+	Binesh.AddUnknown("œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru2")
 end
 
 if Alpha_112 == nil and Alpha_112_K == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» œ„«ÌÌ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Alpha' then
-		ListBox.AddItem("unknowns", "÷—Ì» œ„«ÌÌ", "Alpha");
-	end
+	Binesh.AddUnknown("÷—Ì» œ„«ÌÌ", "Alpha")
+end
+
+if _DeltaTeta == nil and _DeltaT == nil and _DeltaTF == nil then
+	Binesh.AddUnknown(" €ÌÌ— œ„«", "DeltaTeta")
+end
+
+if _Teta1 == nil and _T1 == nil and _TF1 == nil then
+	Binesh.AddUnknown("«Ê·Ì‰ œ„«", "Teta1")
+end
+
+if _Teta2 == nil and _T2 == nil and _TF2 == nil then
+	Binesh.AddUnknown("œÊ„Ì‰ œ„«", "Teta2")
 end
 
 --------------------------{DELTA}--------------------------
@@ -77,8 +80,13 @@ if FindRu1 ~= -1 and ListBox.GetItemData("unknowns", FindRu1) == "Ru1" then
 		Binesh.CreateHTMLFile("Ru<sub>1</sub> = Ru<sub>2</sub>(1+AlphaDeltaTeta)")
 		Ru1 = Ru2*(1+Alpha_112*_DeltaTeta)
 		
-		Binesh.AddToHTML("Ru<sub>1</sub> = "..Ru2.."*(1+"..Alpha_112.."*".._DeltaTeta..") &#8658; Ru1 = "..Ru1.." Ohm")
+		Binesh.AddToHTML("Ru<sub>1</sub> = "..Ru2.."*(1+"..Alpha_112.."*".._DeltaTeta..") &#8658; Ru1 = "..Ru1.." Ohm.m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("Ru<sub>2</sub>: "..Ru2.." Ohm.m", "V")
+		Binesh.AddToHTML("DeltaTeta: ".._DeltaTeta.." <sup>o</sup>C", "V")
+		Binesh.AddToHTML("A: "..Alpha_112.." m<sup>2</sup>", "V")
+		Binesh.AddToHTML("Ru<sub>1</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Ru1");
@@ -97,6 +105,11 @@ if FindRu2 ~= -1 and ListBox.GetItemData("unknowns", FindRu2) == "Ru2" then
 		Binesh.AddToHTML("Ru<sub>2</sub> = <span>"..Ru1.."/(1+"..Alpha_112.."*".._DeltaTeta..")</span> &#8658; Ru<sub>2</sub> = "..Ru2.." Ohm")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("Ru<sub>1</sub>: "..Ru1.." Ohm.m", "V")
+		Binesh.AddToHTML("DeltaTeta: ".._DeltaTeta.." <sup>o</sup>C", "V")
+		Binesh.AddToHTML("A: "..Alpha_112.." m<sup>2</sup>", "V")
+		Binesh.AddToHTML("Ru<sub>2</sub>: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Ru2");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -114,6 +127,11 @@ if FindAlpha_112 ~= -1 and ListBox.GetItemData("unknowns", FindAlpha_112) == "Al
 		Binesh.AddToHTML("Alpha = <span>("..Ru1.."-"..Ru2..")/"..Ru2.."*".._DeltaTeta..")</span> &#8658; Alpha = "..Alpha_112.." 1/K")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("Ru<sub>1</sub>: "..Ru1.." Ohm.m", "V")
+		Binesh.AddToHTML("Ru<sub>2</sub>: "..Ru2.." Ohm.m", "V")
+		Binesh.AddToHTML("DeltaTeta: ".._DeltaTeta.." <sup>o</sup>C", "V")
+		Binesh.AddToHTML("A: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» œ„«ÌÌ „ﬁ«Ê„  ÊÌéÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Alpha");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -130,6 +148,11 @@ if FindDeltaTeta ~= -1 and ListBox.GetItemData("unknowns", FindDeltaTeta) == "De
 		
 		Binesh.AddToHTML("DeltaTeta = <span>("..Ru1.."-"..Ru2..")/"..Ru2.."*"..Alpha_112..")</span> &#8658; DeltaTeta = ".._DeltaTeta.."<sup>o</sup>C")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("Ru<sub>1</sub>: "..Ru1.." Ohm.m", "V")
+		Binesh.AddToHTML("Ru<sub>2</sub>: "..Ru2.." Ohm.m", "V")
+		Binesh.AddToHTML("A: "..Alpha_112.." m<sup>2</sup>", "V")
+		Binesh.AddToHTML("DeltaTeta: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— œ„«");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "DeltaTeta");

@@ -1,29 +1,17 @@
 if S == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ „”«Õ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'S' then
-		ListBox.AddItem("unknowns", "Ã”„ „”«Õ ", "S");
-	end
+	Binesh.AddUnknown("Ã”„ „”«Õ ", "S")
 end
 
 if Sp == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ „”«Õ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'S`' then
-		ListBox.AddItem("unknowns", "”«ÌÂ „”«Õ ", "S`");
-	end
+	Binesh.AddUnknown("”«ÌÂ „”«Õ ", "S`")
 end
 
 if p_Source == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— Ã”„")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'P_Source' then
-		ListBox.AddItem("unknowns", "›«’·Â „‰»⁄ ‰Ê— Ã”„", "p_Source");
-	end
+	Binesh.AddUnknown("›«’·Â „‰»⁄ ‰Ê— Ã”„", "p")
 end
 
 if q_Source == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'q_Source' then
-		ListBox.AddItem("unknowns", "›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ", "q_Source");
-	end
+	Binesh.AddUnknown("›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ", "q")
 end
 
 FindS = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ „”«Õ ");
@@ -34,6 +22,11 @@ if FindSp ~= -1 and ListBox.GetItemData("unknowns", FindSp) == "S`" then
 		
 		Binesh.AddToHTML("S` = <span>"..q_Source.."<sup>2</sup>*"..S.."/"..p_Source.."<sup>2</sup></span> &#8658; S` = "..Sp.." m<sup>2<sup>")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("p: "..p_Source.."m", "V")
+		Binesh.AddToHTML("q: "..q_Source.."m", "V")
+		Binesh.AddToHTML("S`: "..Sp.."m<sup>2<sup>", "V")
+		Binesh.AddToHTML("S: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ „”«Õ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "S`");
@@ -52,6 +45,11 @@ if FindS ~= -1 and ListBox.GetItemData("unknowns", FindS) == "S" then
 		Binesh.AddToHTML("S = <span>"..p_Source.."<sup>2</sup>*"..Sp.."/"..q_Source.."<sup>2</sup></span> &#8658; S = "..S.." m<sup>2<sup>")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("p: "..p_Source.."m", "V")
+		Binesh.AddToHTML("q: "..q_Source.."m", "V")
+		Binesh.AddToHTML("S: "..S.."m<sup>2<sup>", "V")
+		Binesh.AddToHTML("S`: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ „”«Õ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "S");
 		if unknownPersianindex == unknownSymbolindex then
@@ -69,8 +67,13 @@ if Findp_Source ~= -1 and ListBox.GetItemData("unknowns", Findp_Source) == "p" t
 		Binesh.AddToHTML("p = <span>sqrt("..S.."*"..q_Source.."<sup>2</sup>/"..Sp..")</span> &#8658; p = "..p_Source.." m")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("q: "..q_Source.."m", "V")
+		Binesh.AddToHTML("S: "..S.."m<sup>2<sup>", "V")
+		Binesh.AddToHTML("S`: "..Sp.."m<sup>2<sup>", "V")
+		Binesh.AddToHTML("p: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— Ã”„");
-		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "p_Source");
+		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "p");
 		if unknownPersianindex == unknownSymbolindex then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
@@ -86,8 +89,13 @@ if Findq_Source ~= -1 and ListBox.GetItemData("unknowns", Findq_Source) == "q" t
 		Binesh.AddToHTML("q = <span>sqrt("..Sp.."*"..p_Source.."<sup>2</sup>)/"..S.."</span> &#8658; q = "..q_Source.." m")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("p: "..p_Source.."m", "V")
+		Binesh.AddToHTML("S: "..S.."m<sup>2<sup>", "V")
+		Binesh.AddToHTML("S`: "..Sp.."m<sup>2<sup>", "V")
+		Binesh.AddToHTML("q: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ");
-		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q_Source");
+		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q");
 		if unknownPersianindex == unknownSymbolindex then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end

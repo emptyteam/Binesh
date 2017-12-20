@@ -1,36 +1,21 @@
 if W == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«—")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'W' then
-		ListBox.AddItem("unknowns", "ò«—", "W");
-	end
+	Binesh.AddUnknown("ò«—", "W")
 end
 
 if n == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ê·")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'n' then
-		ListBox.AddItem("unknowns", "„Ê·", "n");
-	end
+	Binesh.AddUnknown("„Ê·", "n")
 end
 
-if _DeltaV == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'DeltaV' then
-		ListBox.AddItem("unknowns", " €ÌÌ— ÕÃ„", "DeltaV");
-	end
+if _DeltaTeta == nil and _DeltaT == nil and _DeltaTF == nil then
+	Binesh.AddUnknown(" €ÌÌ— œ„«", "DeltaT")
 end
 
-if _V1 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ÕÃ„")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V1' then
-		ListBox.AddItem("unknowns", "«Ê·Ì‰ ÕÃ„", "V1");
-	end
+if _Teta1 == nil and _T1 == nil and _TF1 == nil then
+	Binesh.AddUnknown("«Ê·Ì‰ œ„«", "T1")
 end
 
-if _V2 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ÕÃ„")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V2' then
-		ListBox.AddItem("unknowns", "œÊ„Ì‰ ÕÃ„", "V2");
-	end
+if _Teta2 == nil and _T2 == nil and _TF2 == nil then
+	Binesh.AddUnknown("œÊ„Ì‰ œ„«", "T2")
 end
 
 --------------------------{DELTA}--------------------------
@@ -87,12 +72,16 @@ end
 --------------------------END {DELTA}--------------------------
 FindW = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«—");
 if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
-	if n ~= nil and _DeltaTeta ~= nil then
+	if n ~= nil and _DeltaT ~= nil then
 		Binesh.CreateHTMLFile("W = nRDeltaT")
 		W = n*Zarib.R*_DeltaT
 		Binesh.AddToHTML("W = "..n.."*"..Zarib.R.."*".._DeltaT.." &#8658; W = "..W.." J")
 		
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("n: "..n.." mol", "V")
+		Binesh.AddToHTML("DeltaT: ".._DeltaT.."<sup>o</sup>K", "V")
+		Binesh.AddToHTML("W: ?", "V")
 			
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«—");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "W");
@@ -110,7 +99,12 @@ if Findn ~= -1 and ListBox.GetItemData("unknowns", Findn) == "n" and ListBox.Fin
 		Binesh.AddToHTML("n = <span>"..W.."/".._DeltaT.."*"..Zarib.R.."</span> &#8658; n = "..n.." mol")
 		
 		Web.Refresh("Web1");
-			
+		
+		Binesh.AddToHTML("W: "..W.." J", "V")
+		Binesh.AddToHTML("DeltaT: ".._DeltaT.."<sup>o</sup>K", "V")
+		Binesh.AddToHTML("n: ?", "V")
+		
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ê·");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "n");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -127,6 +121,10 @@ if FindDeltaTeta ~= -1 and ListBox.GetItemData("unknowns", FindDeltaTeta) == "De
 		Binesh.AddToHTML("DeltaT = <span>"..W.."/"..n.."*"..Zarib.R.."</span> &#8658; DeltaT = ".._DeltaT.."<sup>o</sup>K")
 		
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("W: "..W.." J", "V")
+		Binesh.AddToHTML("n: "..n.." mol", "V")
+		Binesh.AddToHTML("DeltaT: ?", "V")
 			
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œ„«");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "DeltaT");

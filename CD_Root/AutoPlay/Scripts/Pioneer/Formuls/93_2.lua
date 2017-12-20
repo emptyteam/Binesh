@@ -1,41 +1,29 @@
 if _DeltaV_Electric == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ê· «é")
-	if UnknownNamePersian == -1 then
-		ListBox.AddItem("unknowns", " €ÌÌ— Ê· «é", "DeltaV");
-	end
+	
+	Binesh.AddUnknown(" €ÌÌ— Ê· «é", "DeltaV")
 end
 if _V1_Electric == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ Ê· «é")
-	if UnknownNamePersian == -1 then
-		ListBox.AddItem("unknowns", "«Ê·Ì‰ Ê· «é", "V1");
-	end
+	
+	Binesh.AddUnknown("«Ê·Ì‰ Ê· «é", "V1")
 end
 if _V2_Electric == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ Ê· «é")
-	if UnknownNamePersian == -1 then
-		ListBox.AddItem("unknowns", "œÊ„Ì‰ Ê· «é", "V2");
-	end
+	
+	Binesh.AddUnknown("œÊ„Ì‰ Ê· «é", "V2")
 end
 
 if E == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'E' then
-		ListBox.AddItem("unknowns", "„Ìœ«‰", "E");
-	end
+
+	Binesh.AddUnknown("„Ìœ«‰", "E")
 end
 
 if d_Distance == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'd' then
-		ListBox.AddItem("unknowns", "›«’·Â", "d");
-	end
+	
+	Binesh.AddUnknown("›«’·Â", "d")
 end
 
 if Teta == nil and Teta_Radian == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Teta' then
-		ListBox.AddItem("unknowns", "“«ÊÌÂ", "Teta");
-	end
+	
+	Binesh.AddUnknown("“«ÊÌÂ", "Teta")
 end
 
 --------------------------{DELTA}--------------------------
@@ -99,6 +87,11 @@ if FindDeltaV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Elec
 		Binesh.AddToHTML("DeltaV = -"..E_Electric.."*"..d_Distance.."*cos"..Teta.." &#8658; DeltaV = ".._DeltaV_Electric.." V")
 		
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("E: "..E.." N/C", "V")
+		Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+		Binesh.AddToHTML("Teta: "..Teta.." <sup>o</sup>", "V")
+		Binesh.AddToHTML("DeltaV: ?", "V")
 			
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ê· «é");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "DeltaV");
@@ -116,6 +109,11 @@ if FindE_Electric ~= -1 and ListBox.GetItemData("unknowns", FindE_Electric) == "
 		Binesh.AddToHTML("E = - <span>".._DeltaV_Electric.."/"..d_Distance.."*cos"..Teta.."</span> &#8658; E = "..E_Electric.." N/C")
 		
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("DeltaV: ".._DeltaV_Electric.." V", "V")
+		Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+		Binesh.AddToHTML("Teta: "..Teta.." <sup>o</sup>", "V")
+		Binesh.AddToHTML("E: ?", "V")
 			
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "E");
@@ -133,6 +131,11 @@ if Findd_Distance ~= -1 and ListBox.GetItemData("unknowns", Findd_Distance) == "
 		Binesh.AddToHTML("d = - <span>".._DeltaV_Electric.."/"..E_Electric.."</span> &#8658; d = "..d_Distance.." m")
 		
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("DeltaV: ".._DeltaV_Electric.." V", "V")
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("Teta: "..Teta.." <sup>o</sup>", "V")
+		Binesh.AddToHTML("d: ?", "V")
 			
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "d");
@@ -150,6 +153,11 @@ if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta"or List
 		Binesh.AddToHTML("cosTeta = - <span>".._DeltaV_Electric.."/"..E_Electric.."*"..d_Distance.."</span> &#8658; cosTeta = "..cosTeta)
 		
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("DeltaV: ".._DeltaV_Electric.." V", "V")
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+		Binesh.AddToHTML("Teta: ?", "V")
 			
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "d");

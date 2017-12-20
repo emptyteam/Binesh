@@ -1,22 +1,13 @@
 if EtaK == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ ò«—‰Ê")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Eta_max' then
-		ListBox.AddItem("unknowns", "»«“œÂ ò«—‰Ê", "Eta_max");
-	end
+	Binesh.AddUnknown("»«“œÂ ò«—‰Ê", "Eta_max")
 end
 
 if T_C == nil and T_CC == nil and T_CF == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œ„« „‰»⁄ ”—œ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'TC' then
-		ListBox.AddItem("unknowns", "œ„« „‰»⁄ ”—œ", "TC");
-	end
+	Binesh.AddUnknown("œ„« „‰»⁄ ”—œ", "TC")
 end
 
 if T_H == nil and T_HC == nil and T_HF == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œ„« „‰»⁄ ê—„")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'TH' then
-		ListBox.AddItem("unknowns", "œ„« „‰»⁄ ê—„", "TH");
-	end
+	Binesh.AddUnknown("œ„« „‰»⁄ ê—„", "TH")
 end
 
 if T_CF ~= nil or T_HF then
@@ -57,6 +48,10 @@ if FindEtaK ~= -1 and ListBox.GetItemData("unknowns", FindEtaK) == "Eta_max" and
 		
 		EtaK = 1-(T_C/T_H)
 		
+		Binesh.AddToHTML("T<sub>C</sub>: "..T_C.."<sup>o</sup>K", "V")
+		Binesh.AddToHTML("T<sub>H</sub>: "..T_H.."<sup>o</sup>K", "V")
+		Binesh.AddToHTML("Eta<sub>max</sub>: ?", "V")
+		
 		Binesh.AddToHTML("Eta<sub>max</sub> = 1-<span>"..T_C.."/"..T_H.."</span> &#8658; Eta<sub>max</sub> = "..EtaK)
 		Web.Refresh("Web1");
 		
@@ -75,6 +70,10 @@ if FindT_C ~= -1 and ListBox.GetItemData("unknowns", FindT_C) == "TC" and ListBo
 		
 		TC = -(-1+EtaK)*TH
 		
+		Binesh.AddToHTML("Eta<sub>max</sub>: "..EtaK, "V")
+		Binesh.AddToHTML("T<sub>H</sub>: "..T_H.."<sup>o</sup>K", "V")
+		Binesh.AddToHTML("T<sub>C</sub>: ?", "V")
+		
 		Binesh.AddToHTML("T<sub>C</sub> = -(-1+"..EtaK..")*"..TH.." &#8658; T<sub>C</sub> = "..TC.."<sup>o</sup>K")
 		Web.Refresh("Web1");
 		
@@ -91,6 +90,10 @@ if FindT_H ~= -1 and ListBox.GetItemData("unknowns", FindT_H) == "TH" and ListBo
 	if EtaK ~= nil and T_C ~= nil then
 		Binesh.CreateHTMLFile("Eta<sub>max</sub> = 1- <span>T<sub>C</sub>/T<sub>H</sub></span>", "T<sub>H</sub> = - <span>T<sub>C</sub>/(-1+Eta<sub>max</sub>)</span>")
 		T_H = -T_C/(-1+EtaK)
+		
+		Binesh.AddToHTML("T<sub>C</sub>: "..T_C.."<sup>o</sup>K", "V")
+		Binesh.AddToHTML("Eta<sub>max</sub>: "..EtaK, "V")
+		Binesh.AddToHTML("T<subH</sub>: ?", "V")
 		
 		Binesh.AddToHTML("T<sub>H</sub> = - <span>"..T_C.."/(-1+"..EtaK.."</span> &#8658; T<sub>H</sub> = "..T_H.."<sup>o</sup>K")
 		Web.Refresh("Web1");

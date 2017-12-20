@@ -1,22 +1,13 @@
 if Eta == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Eta' then
-		ListBox.AddItem("unknowns", "»«“œÂ", "Eta");
-	end
+	Binesh.AddUnknown("»«“œÂ", "Eta")
 end
 
 if QH == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ê—„")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'QH' then
-		ListBox.AddItem("unknowns", "„‰»⁄ ê—„", "QH");
-	end
+	Binesh.AddUnknown("„‰»⁄ ê—„", "QH")
 end
 
 if W == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«—")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'W' then
-		ListBox.AddItem("unknowns", "ò«—", "W");
-	end
+	Binesh.AddUnknown("ò«—", "W")
 end
 
 FindEta = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ")
@@ -28,6 +19,10 @@ if FindEta ~= -1 and ListBox.GetItemData("unknowns", FindEta) == "Eta" or ListBo
 		
 		Binesh.AddToHTML("Eta = <span>|"..W.."|/"..QH.."</span> &#8658; Eta = "..Eta)
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
+		Binesh.AddToHTML("W: "..W.." J", "V")
+		Binesh.AddToHTML("Eta: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Eta");
@@ -46,6 +41,10 @@ if FindQH ~= -1 and ListBox.GetItemData("unknowns", FindQH) == "QH" and ListBox.
 		Binesh.AddToHTML("Q<sub>H</sub> = <span>|"..W.."|/"..Eta.."</span> &#8658; Q<sub>H</sub> = "..QH.." J")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("Eta: "..Eta, "V")
+		Binesh.AddToHTML("W: "..W.." J", "V")
+		Binesh.AddToHTML("Q<sub>H</sub>: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ê—„");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "QH");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -62,6 +61,10 @@ if FindW ~= -1 and ListBox.GetItemData("unknowns", FindW) == "W" and ListBox.Fin
 		
 		Binesh.AddToHTML("W = |"..Eta.."*"..QH.."| &#8658; |W| = "..W.." J")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("Eta: "..Eta, "V")
+		Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
+		Binesh.AddToHTML("W: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ò«—");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "W");

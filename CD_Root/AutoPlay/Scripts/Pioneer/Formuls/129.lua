@@ -1,36 +1,21 @@
 if F == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'F' then
-		ListBox.AddItem("unknowns", "‰Ì—Ê", "F");
-	end
+	Binesh.AddUnknown("‰Ì—Ê", "F")
 end
 
 if q == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'q' then
-		ListBox.AddItem("unknowns", "–—Â", "q");
-	end
+	Binesh.AddUnknown("–—Â", "q")
 end
 
 if V_Speed == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V' then
-		ListBox.AddItem("unknowns", "”—⁄ ", "V");
-	end
+	Binesh.AddUnknown("”—⁄ ", "V")
 end
 
 if B == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰ „€‰«ÿÌ”Ì")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'B' then
-		ListBox.AddItem("unknowns", "„Ìœ«‰ „€‰«ÿÌ”Ì", "B");
-	end
+	Binesh.AddUnknown("„Ìœ«‰ „€‰«ÿÌ”Ì", "B")
 end
 
 if Teta == nil and Teta_Radian ~= nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Teta' then
-		ListBox.AddItem("unknowns", "“«ÊÌÂ", "Teta");
-	end
+	Binesh.AddUnknown("“«ÊÌÂ", "Teta")
 end
 
 FindPoroton = ListBox.FindItem("Words", -1, LB_BYTEXT, "Å—Ê Ê‰");
@@ -39,17 +24,17 @@ if FindElectron ~= -1 and q ~= nil then
 	q = -q
 end
 
-if Teta_Radian ~= nil then
-	Binesh.CreateHTMLFile("<span>R/Pi</span> = <span>D/180</span>", "D = <span>R*180/Pi</span>")
-	Teta = Math.RadToDeg(Teta_Radian)
-	Binesh.AddToHTML("D<sub>Teta</sub> = <span>"..Teta_Radian.."*180/"..Zarib.Pi.."</span> &#8658; D<sub>Teta</sub> = "..Teta.."<sup>o</sup>")
-end
-
 FindF = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê");
 if FindF ~= -1 and ListBox.GetItemData("unknowns", FindF) == "F" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1 then
 	if q ~= nil and V_Speed ~= nil and B ~= nil and Teta ~= nil then
 		Binesh.CreateHTMLFile("F = qVBsinTeta")
 		F = q*V_Speed*B*Math.Sin(Math.Rad(Teta))
+		
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+		Binesh.AddToHTML("B: "..B.." T", "V")
+		Binesh.AddToHTML("Teta: "..Teta, "V")
+		Binesh.AddToHTML("F: ?", "V")
 		
 		Binesh.AddToHTML("F = "..q.."*"..V_Speed.."*"..B.."*sin"..Teta.." &#8658; F = "..F.." N")
 		Web.Refresh("Web1");
@@ -68,6 +53,12 @@ if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.Fin
 		Binesh.CreateHTMLFile("F = qVBsinTeta", "q = <span>F/VBsinTeta</span>")
 		q = F/(V_Speed*B*Math.Sin(Math.Rad(Teta)))
 		
+		Binesh.AddToHTML("F: "..F.." N", "V")
+		Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+		Binesh.AddToHTML("B: "..B.." T", "V")
+		Binesh.AddToHTML("Teta: "..Teta, "V")
+		Binesh.AddToHTML("q: ?", "V")
+		
 		Binesh.AddToHTML("q = <span>"..F.."/"..V_Speed.."*"..B.."*sin"..Teta.."</span> &#8658; q = "..q.." C")
 		Web.Refresh("Web1");
 		
@@ -82,8 +73,14 @@ end
 FindV_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ");
 if FindV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV_Speed) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
 	if F ~= nil and q ~= nil and B ~= nil and Teta ~= nil then
-		Binesh.CreateHTMLFile("F = qVBsinTeta", "V = <span>F/qB*sinTeta</span>")
+		Binesh.CreateHTMLFile("F = qVBsinTeta", "V = <span>F/qBsinTeta</span>")
 		V_Speed = F/(q*B*Math.Sin(Math.Rad(Teta)))
+		
+		Binesh.AddToHTML("F: "..F.." N", "V")
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("B: "..B.." T", "V")
+		Binesh.AddToHTML("Teta: "..Teta, "V")
+		Binesh.AddToHTML("V: ?", "V")
 		
 		Binesh.AddToHTML("V = <span>"..F.."/"..q.."*"..B.."*sin"..Teta.."</span> &#8658; V = "..V_Speed.." m/s")
 		Web.Refresh("Web1");
@@ -103,6 +100,12 @@ if FindB ~= -1 and ListBox.GetItemData("unknowns", FindB) == "B" and ListBox.Fin
 		
 		B = F/(q*V_Speed*Math.Sin(Math.Rad(Teta)))
 		
+		Binesh.AddToHTML("F: "..F.." N", "V")
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+		Binesh.AddToHTML("Teta: "..Teta, "V")
+		Binesh.AddToHTML("B: ?", "V")
+		
 		Binesh.AddToHTML("B = <span>"..F.."/"..q.."*"..V_Speed.."*sin"..Teta.."</span> &#8658; B = "..B.." T")
 		Web.Refresh("Web1");
 		
@@ -120,6 +123,12 @@ if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta" or Lis
 		Binesh.CreateHTMLFile("F = qVBsinTeta", "sinTeta = <span>F/qVB</span>")
 		
 		Teta = F/(q*V_Speed*B)
+		
+		Binesh.AddToHTML("F: "..F.." N", "V")
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+		Binesh.AddToHTML("B: "..B.." T", "V")
+		Binesh.AddToHTML("Teta: ?", "V")
 		
 		Binesh.AddToHTML("sinTeta = <span>"..F.."/"..q.."*"..V_Speed.."*"..B.."</span> &#8658; sinTeta = "..Teta)
 		Web.Refresh("Web1");

@@ -1,48 +1,27 @@
 if _DeltaU == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·")
-	if UnknownNamePersian == -1 then
-		ListBox.AddItem("unknowns", " €ÌÌ— «‰—éÌ Å «‰”Ì·", "DeltaU");
-	end
+	Binesh.AddUnknown(" €ÌÌ— «‰—éÌ Å «‰”Ì·", "DeltaU")
 end
 if _U1 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ Å «‰”Ì·")
-	if UnknownNamePersian == -1 then
-		ListBox.AddItem("unknowns", "«Ê·Ì‰ «‰—éÌ Å «‰”Ì·", "U1");
-	end
+	Binesh.AddUnknown("«Ê·Ì‰ «‰—éÌ Å «‰”Ì·", "U1")
 end
 if _U2 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ Å «‰”Ì·")
-	if UnknownNamePersian == -1 then
-		ListBox.AddItem("unknowns", "œÊ„Ì‰ «‰—éÌ Å «‰”Ì·", "U2");
-	end
+	Binesh.AddUnknown("œÊ„Ì‰ «‰—éÌ Å «‰”Ì·", "U2")
 end
 
 if E_Electric == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'E' then
-		ListBox.AddItem("unknowns", "„Ìœ«‰", "E");
-	end
+	Binesh.AddUnknown("„Ìœ«‰", "E")
 end
 
 if q == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'q' then
-		ListBox.AddItem("unknowns", "–—Â", "q");
-	end
+	Binesh.AddUnknown("–—Â", "q")
 end
 
 if d_Distance == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'd' then
-		ListBox.AddItem("unknowns", "›«’·Â", "d");
-	end
+	Binesh.AddUnknown("›«’·Â", "d")
 end
 
 if Teta == nil and Teta_Radian == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Teta' then
-		ListBox.AddItem("unknowns", "“«ÊÌÂ", "Teta");
-	end
+	Binesh.AddUnknown("“«ÊÌÂ", "Teta")
 end
 
 if Teta_Radian ~= nil then
@@ -103,12 +82,17 @@ if FindU2 ~= -1 and ListBox.GetItemData("unknowns", FindU2) == "U2" or ListBox.G
 	end
 end
 --------------------------END {DELTA}--------------------------
-
 FindDeltaU = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·");
 if FindDeltaU ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU) == "DeltaU" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ Å «‰”Ì·") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U2") ~= -1) then
 	if E_Electric ~= nil and q ~= nil and Teta ~= nil and d_Distance ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta")
 		_DeltaU = -E_Electric*Math.Abs(q)*d_Distance*Math.Cos(Teta)
+		
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+		Binesh.AddToHTML("Teta: "..Teta, "V")
+		Binesh.AddToHTML("DeltaU: ?", "V")
 		
 		Binesh.AddToHTML("DeltaU = -"..E_Electric.."*|"..q.."|*"..d_Distance.."*cos"..Teta.." &#8658; DeltaU = ".._DeltaU.." J")
 		
@@ -128,6 +112,12 @@ if FindE_Electric ~= -1 and ListBox.GetItemData("unknowns", FindE_Electric) == "
 		Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "E = - <span>DeltaU/|q|dcosTeta</span>")
 		E_Electric = -_DeltaU/(Math.Abs(q)*d_Distance*Math.Cos(Teta))
 		
+		Binesh.AddToHTML("DeltaU: ".._DeltaU.." J", "V")
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+		Binesh.AddToHTML("Teta: "..Teta, "V")
+		Binesh.AddToHTML("E: ?", "V")
+		
 		Binesh.AddToHTML("E = - <span>".._DeltaU.."/|"..q.."|*"..d_Distance.."*cos"..Teta.."</span> &#8658; E = "..E_Electric.." N/C")
 		Web.Refresh("Web1");
 		
@@ -146,6 +136,12 @@ if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.Fin
 		
 		q = Math.Abs(_DeltaU/(E_Electric*d_Distance*Math.Cos(Teta)))
 		
+		Binesh.AddToHTML("DeltaU: ".._DeltaU.." J", "V")
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+		Binesh.AddToHTML("Teta: "..Teta, "V")
+		Binesh.AddToHTML("q: ?", "V")
+		
 		Binesh.AddToHTML("q = |<span>".._DeltaU.."/"..E_Electric.."*"..d_Distance.."*cos"..Teta.."</span>| &#8658; q = "..q.." C")
 		
 		Web.Refresh("Web1");
@@ -163,8 +159,14 @@ if Findd_Distance ~= -1 and ListBox.GetItemData("unknowns", Findd_Distance) == "
 	if E_Electric ~= nil and _DeltaU ~= nil and Teta ~= nil and q ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "d = - <span>DeltaU/E|q|cosTeta</span>")
 		d_Distance = -_DeltaU / (E_Electric*Math.Abs(q)*Math.Cos(Teta))
-		Binesh.AddToHTML("d = - <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*cos"..Teta.."</span> &#8658; d = "..d_Distance.." m")
 		
+		Binesh.AddToHTML("DeltaU: ".._DeltaU.." J", "V")
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("Teta: "..Teta, "V")
+		Binesh.AddToHTML("d: ?", "V")
+		
+		Binesh.AddToHTML("d = - <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*cos"..Teta.."</span> &#8658; d = "..d_Distance.." m")
 		Web.Refresh("Web1");
 			
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
@@ -180,8 +182,14 @@ if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta"or List
 	if E_Electric ~= nil and _DeltaU ~= nil and d_Distance ~= nil and q ~= nil then
 		Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "cosTeta = - <span>DeltaU/E|q|d</span>")
 		Teta = -_DeltaU/(E_Electric*Math.Abs(q)*d_Distance)
+		
+		Binesh.AddToHTML("DeltaU: ".._DeltaU.." J", "V")
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+		Binesh.AddToHTML("Teta: ?", "V")
+		
 		Binesh.AddToHTML("cosTeta = - <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*"..d_Distance.." </span> &#8658; Teta = "..Teta)
-			
 		Web.Refresh("Web1");
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ");

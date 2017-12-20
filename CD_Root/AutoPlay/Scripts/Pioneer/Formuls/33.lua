@@ -1,32 +1,16 @@
 if x == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ „ò«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'x' then
-		ListBox.AddItem("unknowns", "œÊ„Ì‰ „ò«‰", "x");
-	end
 	Binesh.AddUnknown("œÊ„Ì‰ „ò«‰", "x")
 end
 
 if V_Speed == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”—⁄ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V' then
-		ListBox.AddItem("unknowns", "”—⁄ ", "V");
-	end
 	Binesh.AddUnknown("”—⁄ ", "V")
 end
 
 if t == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“„«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 't' then
-		ListBox.AddItem("unknowns", "“„«‰", "t");
-	end
 	Binesh.AddUnknown("“„«‰", "t")
 end
 
 if x0 == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ „ò«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'x0' then
-		ListBox.AddItem("unknowns", "«Ê·Ì‰ „ò«‰", "x0");
-	end
 	Binesh.AddUnknown("«Ê·Ì‰ „ò«‰", "x0")
 end
 

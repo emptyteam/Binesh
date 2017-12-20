@@ -1,15 +1,9 @@
 if C == nil and C_Radian == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ Õœ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'C' then
-		ListBox.AddItem("unknowns", "“«ÊÌÂ Õœ", "C");
-	end
+	Binesh.AddUnknown("“«ÊÌÂ Õœ", "C")
 end
 
 if n_Glass == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» ‘ò” ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'n' then
-		ListBox.AddItem("unknowns", "÷—Ì» ‘ò” ", "n");
-	end
+	Binesh.AddUnknown("÷—Ì» ‘ò” ", "n")
 end
 
 if C_Radian ~= nil then
@@ -28,6 +22,9 @@ if FindC ~= -1 and ListBox.GetItemData("unknowns", FindC) == "C" and ListBox.Fin
 		
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("n: "..n_Glass, "V")
+		Binesh.AddToHTML("C: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ Õœ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "C");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -44,6 +41,9 @@ if Findn_Glass ~= -1 and ListBox.GetItemData("unknowns", Findn_Glass) == "n" and
 		
 		Binesh.AddToHTML("n = <span>1/"..sinC.."</span> &#8658; n = "..n_Glass.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("C: "..C.." <sup>o</sup>", "V")
+		Binesh.AddToHTML("n: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» ‘ò” ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "n");

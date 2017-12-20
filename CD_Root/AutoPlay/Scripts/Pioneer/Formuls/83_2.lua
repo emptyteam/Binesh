@@ -1,22 +1,13 @@
 if EtaK == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ ò«—‰Ê")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Eta_max' then
-		ListBox.AddItem("unknowns", "»«“œÂ ò«—‰Ê", "Eta_max");
-	end
+	Binesh.AddUnknown("»«“œÂ ò«—‰Ê", "Eta_max")
 end
 
 if QC == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ”—œ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'QC' then
-		ListBox.AddItem("unknowns", "„‰»⁄ ”—œ", "QC");
-	end
+	Binesh.AddUnknown("„‰»⁄ ”—œ", "QC")
 end
 
 if QH == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ê—„")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'QH' then
-		ListBox.AddItem("unknowns", "„‰»⁄ ê—„", "QH");
-	end
+	Binesh.AddUnknown("„‰»⁄ ê—„", "QH")
 end
 
 FindEtaK = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ ò«—‰Ê");
@@ -27,6 +18,10 @@ if FindEtaK ~= -1 and ListBox.GetItemData("unknowns", FindEtaK) == "Eta_max" and
 		
 		Binesh.AddToHTML("Eta<sub>max</sub> = 1-<span>"..Math.Abs(QC).."/"..QH.."</span> &#8658; Eta<sub>max</sub> = "..EtaK)
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("|Q<sub>C</sub>|: "..QC.." J", "V")
+		Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
+		Binesh.AddToHTML("Eta<sub>max</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ ò«—‰Ê");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Eta_max");
@@ -44,7 +39,11 @@ if FindQC ~= -1 and ListBox.GetItemData("unknowns", FindQH) == "QH" and ListBox.
 		
 		Binesh.AddToHTML("Q<sub>C</sub> = -(-1+"..EtaK..")*"..QH.." &#8658; Q<sub>C</sub> = "..QC.." J")
 		Web.Refresh("Web1");
-
+		
+		Binesh.AddToHTML("Eta<sub>max</sub>: "..EtaK, "V")
+		Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
+		Binesh.AddToHTML("|Q<sub>C</sub>|: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ”—œ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "QC");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -61,6 +60,10 @@ if FindQH ~= -1 and ListBox.GetItemData("unknowns", FindQH) == "QH" and ListBox.
 		
 		Binesh.AddToHTML("Q<sub>H</sub> = -<span>"..Math.Abs(QC).."/("..EtaK.."-1)</span> &#8658; Q<sub>H</sub> = "..QH.." J")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("Eta<sub>max</sub>: "..EtaK, "V")
+		Binesh.AddToHTML("|Q<sub>C</sub>|: "..QC.." J", "V")
+		Binesh.AddToHTML("Q<sub>H</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„‰»⁄ ê—„");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "QH");

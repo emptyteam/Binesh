@@ -1,31 +1,23 @@
 -- V_Electric_126 = Binesh.Genesis("Ê· «é", "V", "", "", 1, "V", "Ê· ", false);
 if V_Electric == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ê· «é")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V' then
-		ListBox.AddItem("unknowns", "Ê· «é", "V");
-	end
+	
+	Binesh.AddUnknown("Ê· «é", "V")
 end
 
 if Epsilon == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'Epsilon' then
-		ListBox.AddItem("unknowns", "‰Ì—Ê „Õ—òÂ", "Epsilon");
-	end
+	
+	Binesh.AddUnknown("‰Ì—Ê „Õ—òÂ", "Epsilon")
 end
 
 -- I_126 = Binesh.Genesis("Ã—Ì«‰", "I", "", "", 1, "A", "¬„Å—", false);
 if I == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—Ì«‰")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'I' then
-		ListBox.AddItem("unknowns", "Ã—Ì«‰", "I");
-	end
+	
+	Binesh.AddUnknown("Ã—Ì«‰", "I")
 end
 
 if r_Resistor == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„ﬁ«Ê„ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'r' then
-		ListBox.AddItem("unknowns", "„ﬁ«Ê„ ", "r");
-	end
+
+	Binesh.AddUnknown("„ﬁ«Ê„ ", "r")
 end
 
 
@@ -37,6 +29,11 @@ if FindV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV_Electric) == "
 		
 		Binesh.AddToHTML("V = "..Epsilon.."-"..I.."*"..r_Resistor.." &#8658; V = "..V_Electric.." V")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("I: "..I.." A", "V")
+		Binesh.AddToHTML("r: "..r_Resistor.." Ohm", "V")
+		Binesh.AddToHTML("Epsilon: "..Epsilon.." V", "V")
+		Binesh.AddToHTML("V: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ê· «é");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "V");
@@ -55,6 +52,11 @@ if FindEpsilon ~= -1 and ListBox.GetItemData("unknowns", FindEpsilon) == "Epsilo
 		Binesh.AddToHTML("Epsilon = "..V_Electric.."+"..I.."*"..r_Resistor.." &#8658; Epsilon = "..Epsilon.." V")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("I: "..I.." A", "V")
+		Binesh.AddToHTML("r: "..r_Resistor.." Ohm", "V")
+		Binesh.AddToHTML("V: "..V_Electric.." V", "V")
+		Binesh.AddToHTML("Epsilon: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Epsilon");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -72,6 +74,11 @@ if FindI ~= -1 and ListBox.GetItemData("unknowns", FindI) == "I" and ListBox.Fin
 		Binesh.AddToHTML("I =<span>"..Epsilon.."-"..V_Electric.."/"..r_Resistor.."</span> &#8658; I = "..I.." A")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("I: "..I.." A", "V")
+		Binesh.AddToHTML("Epsilon: "..Epsilon.." Ohm", "V")
+		Binesh.AddToHTML("V: "..V_Electric.." V", "V")
+		Binesh.AddToHTML("r: ?", "V")
+		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã—Ì«‰");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "I");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
@@ -88,6 +95,11 @@ if Findr_Resistor ~= -1 and ListBox.GetItemData("unknowns", Findr_Resistor) == "
 		
 		Binesh.AddToHTML("r = <span>"..Epsilon.."/"..V_Electric.."/"..I.."</span>&#8658; r = "..r_Resistor.." Ohm")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("r: "..r_Resistor.." m", "V")
+		Binesh.AddToHTML("Epsilon: "..Epsilon.." Ohm", "V")
+		Binesh.AddToHTML("V: "..V_Electric.." V", "V")
+		Binesh.AddToHTML("I: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„ﬁ«Ê„ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "r");

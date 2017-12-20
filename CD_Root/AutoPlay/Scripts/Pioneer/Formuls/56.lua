@@ -20,7 +20,7 @@ if R_Output ~= -1 and ListBox.GetItemData("unknowns", R_Output) == "R" and ListB
 		Web.Refresh("Web1");
 		
 		Binesh.AddToHTML("W`: "..WP.." J", "V")
-		Binesh.AddToHTML("W: "..W_Use.." J", "V")
+		Binesh.AddToHTML("W<sub>Use</sub>: "..W_Use.." J", "V")
 		Binesh.AddToHTML("R: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»«“œÂ");
@@ -41,7 +41,7 @@ if FindWP ~= -1 and ListBox.GetItemData("unknowns", FindWP) == "W`" and ListBox.
 		Web.Refresh("Web1");
 		
 		Binesh.AddToHTML("R: "..R_Output.." %", "V")
-		Binesh.AddToHTML("W: "..W_Use.." J", "V")
+		Binesh.AddToHTML("W<sub>Use</sub>: "..W_Use.." J", "V")
 		Binesh.AddToHTML("W`: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ  Ê·ÌœÌ");
@@ -63,7 +63,7 @@ if FindW_Use ~= -1 and ListBox.GetItemData("unknowns", FindW_Use) == "W" and Lis
 		
 		Binesh.AddToHTML("R: "..R_Output.." %", "V")
 		Binesh.AddToHTML("W`: "..WP.." J", "V")
-		Binesh.AddToHTML("W: ?", "V")
+		Binesh.AddToHTML("W<sub>Use</sub>: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "W");

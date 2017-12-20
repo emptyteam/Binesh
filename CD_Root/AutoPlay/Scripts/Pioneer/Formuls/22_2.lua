@@ -1,22 +1,13 @@
 if m_Lens == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "⁄œ”Ì »“—ê ‰„«ÌÌ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'm' then
-		ListBox.AddItem("unknowns", "⁄œ”Ì »“—ê ‰„«ÌÌ", "m");
-	end
+	Binesh.AddUnknown("⁄œ”Ì »“—ê ‰„«ÌÌ", "m")
 end
 
 if ApBp_Lens == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ ÿÊ·")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'A`B`' then
-		ListBox.AddItem("unknowns", "”«ÌÂ ÿÊ·", "A`B`");
-	end
+	Binesh.AddUnknown("”«ÌÂ ÿÊ·", "A`B`")
 end
 
 if AB_Lens == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ ÿÊ·")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'AB' then
-		ListBox.AddItem("unknowns", "Ã”„ ÿÊ·", "AB");
-	end
+	Binesh.AddUnknown("Ã”„ ÿÊ·", "AB")
 end
 
 Findm_Lens = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "⁄œ”Ì »“—ê ‰„«ÌÌ0");
@@ -27,7 +18,11 @@ if Findm_Lens ~= -1 and ListBox.GetItemData("unknowns", Findm_Lens) == "m" then
 		
 		Binesh.AddToHTML("m = <span>"..ApBp_Lens.."/"..AB_Lens.."<span> &#8658; m = "..m_Lens)
 		Web.Refresh("Web1");
-		
+	
+		Binesh.AddToHTML("A`B`: "..ApBp_Lens.." m", "V")
+		Binesh.AddToHTML("AB: "..AB_Lens.." m", "V")
+		Binesh.AddToHTML("m: ?", "V")
+				
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "⁄œ”Ì »“—ê ‰„«ÌÌ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "m");
 		if unknownPersianindex == unknownSymbolindex then
@@ -45,6 +40,10 @@ if FindApBp_Lens ~= -1 and ListBox.GetItemData("unknowns", FindApBp_Lens) == "A`
 		Binesh.AddToHTML("A`B` = "..m_Lens.."*"..AB_Lens.." &#8658; A`B` = "..ApBp_Lens.." m")
 		Web.Refresh("Web1");
 		
+		Binesh.AddToHTML("m: "..m_Lens, "V")
+		Binesh.AddToHTML("AB: "..AB_Lens.." m", "V")
+		Binesh.AddToHTML("A`B`: ?", "V")
+				
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ ÿÊ·");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "A`B`");
 		if unknownPersianindex == unknownSymbolindex then
@@ -61,6 +60,10 @@ if FindAB_Lens ~= -1 and ListBox.GetItemData("unknowns", FindAB_Lens) == "AB" th
 		
 		Binesh.AddToHTML("AB = <span>"..ApBp_Lens.."/"..m_Lens.."<span> &#8658; AB = "..AB_Lens.." m")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("m: "..m_Lens, "V")
+		Binesh.AddToHTML("A`B`: "..ApBp_Lens.." m", "V")
+		Binesh.AddToHTML("AB: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ ÿÊ·");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "AB");

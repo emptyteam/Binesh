@@ -1,22 +1,13 @@
 if U == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'U' then
-		ListBox.AddItem("unknowns", "«‰—éÌ", "U");
-	end
+	Binesh.AddUnknown("«‰—éÌ", "U")
 end
 
 if q == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'q' then
-		ListBox.AddItem("unknowns", "–—Â", "q");
-	end
+	Binesh.AddUnknown("–—Â", "q")
 end
 
 if V_Electric == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ê· «é")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V' then
-		ListBox.AddItem("unknowns", "Ê· «é", "V");
-	end
+	Binesh.AddUnknown("Ê· «é", "V")
 end
 
 FindU = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ");
@@ -24,6 +15,10 @@ if FindU ~= -1 and ListBox.GetItemData("unknowns", FindU) == "U" and ListBox.Fin
 	if V_Electric ~= nil and q ~= nil then
 		Binesh.CreateHTMLFile("U = <span>1/2</span>qV")
 		U = 0.5*q*V_Electric
+		
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("V: "..V_Electric.." V", "V")
+		Binesh.AddToHTML("U: ?", "V")
 		
 		Binesh.AddToHTML("U = <span>1/2</span>*"..q.."*"..V_Electric.." &#8658; U = "..U.." J")
 		Web.Refresh("Web1");
@@ -42,6 +37,10 @@ if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.Fin
 		Binesh.CreateHTMLFile("U = <span>1/2</span>qV", "q = <span>2U/V</span>")
 		q = (2*U)/V_Electric
 		
+		Binesh.AddToHTML("U: "..U.." J", "V")
+		Binesh.AddToHTML("V: "..V_Electric.." V", "V")
+		Binesh.AddToHTML("q: ?", "V")
+		
 		Binesh.AddToHTML("q = <span>2*"..U.."/"..V_Electric.."</span> &#8658; q = "..q.." C")
 		Web.Refresh("Web1");
 		
@@ -56,8 +55,13 @@ end
 FindV_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ê· «é");
 if FindV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV_Electric) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
 	if U ~= nil and q ~= nil then
-		Binesh.CreateHTMLFile("U = <span>1/2</span>qV", "V = <span>2*U/q</span>")
-		V_Electric = Math.Sqrt(2*U/C)
+		Binesh.CreateHTMLFile("U = <span>1/2</span>qV", "V = <span>2U/q</span>")
+		V_Electric = Math.Sqrt(2*U/q)
+		
+		Binesh.AddToHTML("U: "..U.." J", "V")
+		Binesh.AddToHTML("q: "..q.." C", "V")
+		Binesh.AddToHTML("V: ?", "V")
+		
 		
 		Binesh.AddToHTML("V = Sqrt(2*"..U.."/"..q..") &#8658; V = "..V_Speed.." m/s")
 		Web.Refresh("Web1");

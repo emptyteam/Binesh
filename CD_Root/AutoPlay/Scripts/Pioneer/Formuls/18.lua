@@ -1,22 +1,13 @@
 if n_Glass == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» ‘ò” ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'n' then
-		ListBox.AddItem("unknowns", "÷—Ì» ‘ò” ", "n");
-	end
+	Binesh.AddUnknown("÷—Ì» ‘ò” ", "n")
 end
 
 if C_Speed_Glass == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Œ·«¡ ”—⁄ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'C' then
-		ListBox.AddItem("unknowns", "Œ·«¡ ”—⁄ ", "C");
-	end
+	Binesh.AddUnknown("Œ·«¡ ”—⁄ ", "C")
 end
 
 if V_Speed_Glass == nil then
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„ÕÌÿ ‘›«› ”—⁄ ")
-	if UnknownNamePersian == -1 and ListBox.GetItemData("unknowns", UnknownNamePersian) ~= 'V' then
-		ListBox.AddItem("unknowns", "„ÕÌÿ ‘›«› ”—⁄ ", "V");
-	end
+	Binesh.AddUnknown("„ÕÌÿ ‘›«› ”—⁄ ", "V")
 end
 
 Findn_Glass = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» ‘ò” ");
@@ -25,8 +16,12 @@ if Findn_Glass ~= -1 and ListBox.GetItemData("unknowns", Findn_Glass) == "n" and
 		Binesh.CreateHTMLFile("n = <span>C/V</span>")
 		n_Glass =  C_Speed_Glass/ V_Speed_Glass
 		
-		Binesh.AddToHTML("n = <span>".. C_Speed_Glass.."/"..V_Speed_Glass.."</span> &#8658; n = "..n_Glass.." m")
+		Binesh.AddToHTML("n = <span>".. C_Speed_Glass.."/"..V_Speed_Glass.."</span> &#8658; n = "..n_Glass)
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("C: "..C_Speed_Glass.." m/s", "V")
+		Binesh.AddToHTML("V: "..V_Speed_Glass.." m/s", "V")
+		Binesh.AddToHTML("n: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» ‘ò” ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "n");
@@ -42,8 +37,12 @@ if FindC_Speed_Glass ~= -1 and ListBox.GetItemData("unknowns", FindC_Speed_Glass
 		Binesh.CreateHTMLFile("n = <span>C/V</span>", "C = n*V")
 		C_Speed_Glass = n_Glass*V_Speed_Glass
 		
-		Binesh.AddToHTML("C = "..n_Glass.."*"..V_Speed_Glass.." &#8658; C = "..C_Speed_Glass.." m/s")
+		Binesh.AddToHTML("C = "..n_Glass.."*"..V_Speed_Glass.." &#8658; C = "..C_Speed_Glass.."m/s")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("n: "..n_Glass, "V")
+		Binesh.AddToHTML("V: "..V_Speed_Glass.." m/s", "V")
+		Binesh.AddToHTML("C: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Œ·«¡ ”—⁄ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "m/s");
@@ -59,8 +58,12 @@ if FindV_Speed_Glass ~= -1 and ListBox.GetItemData("unknowns", FindV) == "V" the
 		Binesh.CreateHTMLFile("n = <span>C/V</span>", "V = <span>C/n</span>")
 		V_Speed_Glass = C_Speed_Glass/n_Glass
 		
-		Binesh.AddToHTML("V = "..C_Speed_Glass.."/"..n_Glass.." &#8658; V = "..V_Speed_Glass.." m/s")
+		Binesh.AddToHTML("V = "..C_Speed_Glass.."/"..n_Glass.." &#8658; V = "..V_Speed_Glass.."m/s")
 		Web.Refresh("Web1");
+		
+		Binesh.AddToHTML("n: "..n_Glass, "V")
+		Binesh.AddToHTML("C: "..C_Speed_Glass.." m/s", "V")
+		Binesh.AddToHTML("V: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„ÕÌÿ ‘›«› ”—⁄ ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "V");
