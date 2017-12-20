@@ -10079,25 +10079,6 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		AB = Binesh.Genesis("ÿÊ·", "AB", "", "", 1, "m", "„ —", false, "Ã”„");
 	end
 	
-	-- 16
-	if n2_Glass == nil then
-		n2_Glass = Binesh.Genesis("œÊ„Ì‰ ÷—Ì» ‘ò”  „ÕÌÿ", "n2", "", "", 1, "m", "„ —", false);
-		if n2_Glass == nil then
-			n2_Glass = Binesh.Genesis("÷—Ì» ‘ò”  „ÕÌÿ œÊ„Ì‰", "n2", "", "", 1, "m", "„ —", false);
-		end
-	end
-	if n1_Glass == nil then
-		n1_Glass = Binesh.Genesis("«Ê·Ì‰ ÷—Ì» ‘ò”  „ÕÌÿ", "n1", "", "", 1, "m", "„ —", false);
-		if n1_Glass == nil then
-			n1_Glass = Binesh.Genesis("÷—Ì» ‘ò”  „ÕÌÿ «Ê·Ì‰", "n1", "", "", 1, "m", "„ —", false);
-		end
-	end
-		
-	-- 17
-	if n_Glass == nil then
-		n_Glass = Binesh.Genesis("÷—Ì» ‘ò” ", "n", "", "", 1, "m", "„ —", false);
-	end
-	
 	-- 18
 	CheckSpeed_Glass = ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ")
 	if ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "œÊ„Ì‰" then
@@ -10636,6 +10617,28 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	-- 140
 	
 	-- 141
+	if T_141 == nil then
+		T_141 = Binesh.Genesis("œÊ—«‰", "T", "", "", 1, "s", "À«‰ÌÂ", false);
+		if T_141 == nil then
+			T_141 = Binesh.Genesis("œÊ—", "T", "", "", 1, "s", "À«‰ÌÂ", false);
+			if T_141 == nil then
+				T_141 = Binesh.Genesis("œÊ—Â", "T", "", "", 1, "s", "À«‰ÌÂ", false);
+			end
+		end
+	end
+	
+	-- 142
+	if Omega == nil then
+		Omega = Binesh.Genesis("”—⁄  “«ÊÌÂ", "Omega", "", "", 1, "rad/s", "—«œÌ«‰ »Â À«‰ÌÂ", false);
+	end
+	if f_Hz == nil then
+		f_Hz = Binesh.Genesis("›—ò«‰”", "f", "", "", 1, "Hz", "›—ò«‰”", false);
+		if f_Hz == nil then
+			f_Hz = Binesh.Genesis("»”«„œ", "f", "", "", 1, "Hz", "›—ò«‰”", false);
+		end
+	end
+	
+	-- 146
 	if M_Injection == nil then
 		M_Injection = Binesh.Genesis("÷—Ì» «·ﬁ«Ì „ ﬁ«»·", "M", "", "", 1, "s", "À«‰ÌÂ", false);
 	end
@@ -10652,20 +10655,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		end
 	end
 	
-	-- 142
-	if Omega == nil then
-		if V_Speed == nil then
-			Omega = Binesh.Genesis("»”«„œ", "Omega", "", "", 1, "rad/s", "—«œÌ«‰ »Â À«‰ÌÂ", false);
-			if Omega ~= nil then
-				V_Speed = Omega
-			end
-		else
-			Omega = V_Speed
-		end
-	end
-	if f_Hz == nil then
-		f_Hz = Binesh.Genesis("›—ò«‰”", "f", "", "", 1, "Hz", "›—ò«‰”", false);
-	end
+	-- 147
 	
 	-- Deltas:
 	-- 4
@@ -10799,6 +10789,23 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 			r_Glass_Radian = Binesh.Genesis("“«ÊÌÂ ‘ò” ", "r", "m", "", 1, "", "—«œÌ«‰", false);
 		end
 	end
+	if n2_Glass == nil then
+		n2_Glass = Binesh.Genesis("œÊ„Ì‰ ÷—Ì» ‘ò”  „ÕÌÿ", "n2", "", "", 1, "", "", false);
+		if n2_Glass == nil then
+			n2_Glass = Binesh.Genesis("÷—Ì» ‘ò”  „ÕÌÿ œÊ„Ì‰", "n2", "", "", 1, "", "", false);
+		end
+	end
+	if n1_Glass == nil then
+		n1_Glass = Binesh.Genesis("«Ê·Ì‰ ÷—Ì» ‘ò”  „ÕÌÿ", "n1", "", "", 1, "", "", false);
+		if n1_Glass == nil then
+			n1_Glass = Binesh.Genesis("÷—Ì» ‘ò”  „ÕÌÿ «Ê·Ì‰", "n1", "", "", 1, "", "", false);
+		end
+	end
+		
+	-- 17
+	if n_Glass == nil then
+		n_Glass = Binesh.Genesis("÷—Ì» ‘ò” ", "n", "", "", 1, "", "", false);
+	end
 	
 	-- 20
 	if C == nil and C_Radian == nil then
@@ -10876,17 +10883,6 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	end
 	if k_Self == nil then
 		k_Self = Binesh.Genesis("Â” Â", "k", "", "", 1, "", "", false, "", "", true);
-	end
-	
-	-- 141
-	if T_141 == nil then
-		T_141 = Binesh.Genesis("œÊ—«‰", "T", "", "", 1, "", "", false);
-		if T_141 == nil then
-			T_141 = Binesh.Genesis("œÊ—", "T", "", "", 1, "", "", false);
-			if T_141 == nil then
-				T_141 = Binesh.Genesis("œÊ—Â", "T", "", "", 1, "", "", false);
-			end
-		end
 	end
 	
 	-- 147
@@ -11005,6 +11001,12 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	Binesh.Include("Formuls.139", false);
 	Binesh.Include("Formuls.140", false);
 	Binesh.Include("Formuls.141", false);
+	Binesh.Include("Formuls.142_1", false);
+	Binesh.Include("Formuls.142_2", false);
+	Binesh.Include("Formuls.142_3", false);
+	Binesh.Include("Formuls.143", false);
+	Binesh.Include("Formuls.144", false);
+	Binesh.Include("Formuls.145", false);
 	Binesh.Include("Formuls.146", false);
 	Binesh.Include("Formuls.147", false);
 	
@@ -11031,8 +11033,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>776</DesignCodeLine>
-<DesignCodeCol>4</DesignCodeCol>
+<DesignCodeLine>1117</DesignCodeLine>
+<DesignCodeCol>28</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -39663,14 +39665,14 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 Skin.Info = ThumbList.GetItemInfo("Tab1 - Skin Picker", Select[1]);
 Image.Load("Tab1 - Skin Preview", Skin.Info.filepath);
 -- First: Remove 'bsp-' then remove '.png'
-Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.Info.filename, "bsp-", "", false), ".png", "", false));</Script>
+Paragraph.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.Info.filename, "bsp-", "", false), ".png", "", false));</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
 <DesignCodeLine>4</DesignCodeLine>
-<DesignCodeCol>133</DesignCodeCol>
+<DesignCodeCol>19</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -40457,7 +40459,7 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <MouseClickSound/>
 </Object>
 <Object>
-<Type>1</Type>
+<Type>2</Type>
 <Name>Tab1 - Skin Preview-Title</Name>
 <VisibleAtDesignTime>1</VisibleAtDesignTime>
 <VisibleAtRunTime>1</VisibleAtRunTime>
@@ -40466,15 +40468,15 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <ToolTip/>
 <Cursor>0</Cursor>
 <Group>0</Group>
-<MaintainAspectRatio>1</MaintainAspectRatio>
+<MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>302</Top>
+<Top>299</Top>
 <Bottom>329</Bottom>
-<Left>280</Left>
-<Right>320</Right>
+<Left>110</Left>
+<Right>491</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -40489,8 +40491,8 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>992551458</DesignCodeLine>
+<DesignCodeCol>15104</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -40504,7 +40506,7 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <TreeState>0</TreeState>
 </TreeStates>
 <DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeCol>1081395200</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -40517,8 +40519,8 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>3877154</DesignCodeLine>
+<DesignCodeCol>59</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -40531,41 +40533,41 @@ Label.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.In
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>3866683</DesignCodeLine>
+<DesignCodeCol>15145</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
 <Actions/>
 <Text>
 <Body>Rose</Body>
-<NormalColor>2147483647</NormalColor>
-<HighlightColor>2147483647</HighlightColor>
-<MouseDownColor>2147483647</MouseDownColor>
+<NormalColor>0</NormalColor>
+<HighlightColor>0</HighlightColor>
+<MouseDownColor>0</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
+<BorderColor>0</BorderColor>
+<BackColor>16777215</BackColor>
 <FontData>
 <FontName>Segoe UI</FontName>
-<CharacterSet>204</CharacterSet>
-<Height>-16</Height>
-<Weight>400</Weight>
+<CharacterSet>0</CharacterSet>
+<Height>-15</Height>
+<Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
 <AntiAlias>1</AntiAlias>
 </FontData>
-<Alignment>0</Alignment>
-<Orientation>0</Orientation>
-<AutoSize>1</AutoSize>
+<Alignment>1</Alignment>
+<TransBG>1</TransBG>
+<VSMode>2</VSMode>
+<HSMode>2</HSMode>
+<SBStyle>1</SBStyle>
+<SBSkin>Windows7</SBSkin>
+<Border>0</Border>
 <MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>0</MouseClickSndMode>
 <MouseClickSound/>
-<OriginalRect>
-<Top>302</Top>
-<Bottom>329</Bottom>
-<Left>280</Left>
-<Right>320</Right>
-</OriginalRect>
 </Text>
 </Object>
 <HGuidelines>
