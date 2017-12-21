@@ -499,6 +499,7 @@ function Error(ErrorText, Exit)
 end
 
 function Binesh.AddUnknown(NamePersian, Symbol)
+	ListBox.SetUpdate("unknowns", false);
 	NamePersian = tostring(NamePersian)
 	Symbol = tostring(Symbol)
 	
@@ -510,6 +511,7 @@ function Binesh.AddUnknown(NamePersian, Symbol)
 			ListBox.AddItem("unknowns", NamePersian, Symbol);
 		end
 	end
+	ListBox.SetUpdate("unknowns", true);
 end
 
 -- Include Pres Table
@@ -630,8 +632,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>444</DesignCodeLine>
-<DesignCodeCol>42</DesignCodeCol>
+<DesignCodeLine>448</DesignCodeLine>
+<DesignCodeCol>35</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -9918,6 +9920,9 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		if ListBox.GetItemText("Words", index) == "" then
 			ListBox.DeleteItem("Words", index);
 		end
+		if ListBox.GetItemText("Words", index) == "Oh m" then
+			ListBox.SetItemText("Words", index, "Ohm");
+		end
 	end
 	
 	-- 81
@@ -10048,24 +10053,30 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 11
 	if S == nil then
-		S = Binesh.Genesis("ãÓÇÍÊ", "S", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false, "ÌÓã");
+		Binesh.PreparationSearchFirsts("ãÓÇÍÊ", "ÌÓã");
+		S = Binesh.Genesis("ÌÓã ãÓÇÍÊ", "S", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
 	end
 	if Sp == nil then
-		Sp = Binesh.Genesis("ãÓÇÍÊ", "S`", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false, "ÓÇíå");
+		Binesh.PreparationSearchFirsts("ãÓÇÍÊ", "ÓÇíå");
+		Sp = Binesh.Genesis("ÓÇíå ãÓÇÍÊ", "S`", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ", false);
 	end
 	if p_Source == nil then
-		p_Source = Binesh.Genesis("ãäÈÚ äæÑ", "p", "", "", 1, "m", "ãÊÑ", false, "İÇÕáå", "ÌÓã");
+		Binesh.PreparationSearchFirsts("ãäÈÚ äæÑ", "İÇÕáå", "ÌÓã");
+		p_Source = Binesh.Genesis("İÇÕáå ãäÈÚ äæÑ ÌÓã", "p", "", "", 1, "m", "ãÊÑ", false);
 	end
 	if q_Source == nil then
-		q_Source = Binesh.Genesis("ãäÈÚ äæÑ", "q", "", "", 1, "m", "ãÊÑ", false, "İÇÕáå", "ÓÇíå");
+		Binesh.PreparationSearchFirsts("ãäÈÚ äæÑ", "İÇÕáå", "ÓÇíå");
+		q_Source = Binesh.Genesis("İÇÕáå ãäÈÚ äæÑ ÓÇíå", "q", "", "", 1, "m", "ãÊÑ", false);
 	end
 	
 	-- 12
 	if p_Glass == nil then
-		p_Glass = Binesh.Genesis("Âíäå", " p", "", "", 1, "m", "ãÊÑ ", false, "İÇÕáå", "ÌÓã");
+		Binesh.PreparationSearchFirsts("Âíäå", "İÇÕáå", "ÌÓã");
+		p_Glass = Binesh.Genesis("İÇÕáå Âíäå ÌÓã", " p", "", "", 1, "m", "ãÊÑ ", false);
 	end
 	if q_Glass == nil then
-		q_Glass = Binesh.Genesis("Âíäå", "q", "", "", 1, "m", "ãÊÑ", false, "İÇÕáå", "ÓÇíå");
+		Binesh.PreparationSearchFirsts("Âíäå", "İÇÕáå", "ÓÇíå");
+		q_Glass = Binesh.Genesis("İÇÕáå Âíäå ÓÇíå", "q", "", "", 1, "m", "ãÊÑ", false);
 	end
 	if f == nil then
 		f = Binesh.Genesis("İÇÕáå ˜Çäæäí", "f", "", "", 1, "m", "ãÊÑ", false);
@@ -10073,20 +10084,24 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 13
 	if ApBp == nil then
-		ApBp = Binesh.Genesis("Øæá", "A`B`", "", "", 1, "m", "ãÊÑ", false, "ÓÇíå");
+		Binesh.PreparationSearchFirsts("Øæá", "ÓÇíå");
+		ApBp = Binesh.Genesis("ÓÇíå Øæá", "A`B`", "", "", 1, "m", "ãÊÑ", false);
 	end
 	if AB == nil then
-		AB = Binesh.Genesis("Øæá", "AB", "", "", 1, "m", "ãÊÑ", false, "ÌÓã");
+		Binesh.PreparationSearchFirsts("Øæá", "ÌÓã");
+		AB = Binesh.Genesis("ÌÓã Øæá", "AB", "", "", 1, "m", "ãÊÑ", false);
 	end
 	
 	-- 18
 	CheckSpeed_Glass = ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ")
 	if ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "ÊÛííÑ" and ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "Çæáíä" and ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "Ïæãíä" then
 		if C_Speed_Glass == nil then
-			C_Speed_Glass = Binesh.Genesis("ÓÑÚÊ", "C", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false, "ÎáÇÁ");
+			Binesh.PreparationSearchFirsts("ÓÑÚÊ", "ÎáÇÁ");
+			C_Speed_Glass = Binesh.Genesis("ÎáÇÁ ÓÑÚÊ", "C", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
 		end
 		if V_Speed_Glass == nil then
-			V_Speed_Glass = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false, "ãÍíØ ÔİÇİ");
+			Binesh.PreparationSearchFirsts("ÓÑÚÊ", "ãÍíØ ÔİÇİ");
+			V_Speed_Glass = Binesh.Genesis("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
 		end
 	end
 	CheckSpeed_Glass = nil
@@ -10103,19 +10118,15 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 21
 	if p_Lens == nil then
-		p_Lens = Binesh.Genesis("ÚÏÓí", " p", "", "", 1, "m", "ãÊÑ ", false, "İÇÕáå", "ÌÓã");
+		Binesh.PreparationSearchFirsts("ÚÏÓí", "İÇÕáå", "ÌÓã");
+		p_Lens = Binesh.Genesis("İÇÕáå ÚÏÓí ÌÓã", " p", "", "", 1, "m", "ãÊÑ ", false);
 	end
 	if q_Lens == nil then
-		q_Lens = Binesh.Genesis("ÚÏÓí", "q", "", "", 1, "m", "ãÊÑ", false, "İÇÕáå", "ÓÇíå");
+		Binesh.PreparationSearchFirsts("ÚÏÓí", "İÇÕáå", "ÓÇíå");
+		q_Lens = Binesh.Genesis("İÇÕáå ÚÏÓí ÓÇíå", "q", "", "", 1, "m", "ãÊÑ", false, "İÇÕáå", "ÓÇíå");
 	end
 	
 	-- 22
-	if ApBp_Lens == nil then
-		ApBp_Lens = Binesh.Genesis("Øæá", "A`B`", "", "", 1, "m", "ãÊÑ", false, "ÓÇíå");
-	end
-	if AB_Lens == nil then
-		AB_Lens = Binesh.Genesis("Øæá", "AB", "", "", 1, "m", "ãÊÑ", false, "ÌÓã");
-	end
 	
 	-- 24
 	if D == nil then
@@ -10280,7 +10291,8 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 60
 	if P0 == nil then
-		P0 = Binesh.Genesis("ãÇíÚ", "P0", "", "", 1, "atm", "ÇÊãÓİÑ", false, "ÇØÑÇİ", "İÔÇÑ");
+		Binesh.PreparationSearchFirsts("ãÇíÚ", "ÇØÑÇİ", "İÔÇÑ");
+		P0 = Binesh.Genesis("ÇØÑÇİ ãÇíÚ İÔÇÑ", "P0", "", "", 1, "atm", "ÇÊãÓİÑ", false);
 	end
 	
 	-- 61
@@ -10769,9 +10781,9 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	----------- *** -------
 	-- 5
 	if n_e == nil and n_p == nil then
-		n_e = Binesh.Genesis("ÊÚÏÇÏ Çá˜ÊÑæä", "n", "", "", 1, "", "", false, "", "", false);
+		n_e = Binesh.Genesis("ÊÚÏÇÏ Çá˜ÊÑæä", "n", "", "", 1, "", "", false, false);
 		if n_e == nil then
-			n_p = Binesh.Genesis("ÊÚÏÇÏ ÑæÊæä", "n", "", "", 1, "", "", false, "", "", false);
+			n_p = Binesh.Genesis("ÊÚÏÇÏ ÑæÊæä", "n", "", "", 1, "", "", false, false);
 		end
 	end
 	
@@ -10790,21 +10802,21 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		end
 	end
 	if n2_Glass == nil then
-		n2_Glass = Binesh.Genesis("Ïæãíä ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n2", "", "", 1, "", "", false);
+		n2_Glass = Binesh.Genesis("Ïæãíä ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n2", "", "", 1, false);
 		if n2_Glass == nil then
-			n2_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ ãÍíØ Ïæãíä", "n2", "", "", 1, "", "", false);
+			n2_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ ãÍíØ Ïæãíä", "n2", "", "", 1, false);
 		end
 	end
 	if n1_Glass == nil then
-		n1_Glass = Binesh.Genesis("Çæáíä ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n1", "", "", 1, "", "", false);
+		n1_Glass = Binesh.Genesis("Çæáíä ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n1", "", "", 1, false);
 		if n1_Glass == nil then
-			n1_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ ãÍíØ Çæáíä", "n1", "", "", 1, "", "", false);
+			n1_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ ãÍíØ Çæáíä", "n1", "", "", 1, false);
 		end
 	end
 		
 	-- 17
 	if n_Glass == nil then
-		n_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ", "n", "", "", 1, "", "", false);
+		n_Glass = Binesh.Genesis("ÖÑíÈ Ô˜ÓÊ", "n", "", "", 1, false);
 	end
 	
 	-- 20
@@ -10816,21 +10828,21 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	end
 	
 	-- 22
-	if m_Lens == nil then
-		m_Lens = Binesh.Genesis("ÈÒÑ äãÇíí", "m", "", "", 1, "", "", false, "ÚÏÓí", "", false);
+	if m_Zoom == nil then
+		m_Zoom = Binesh.Genesis("ÈÒÑ äãÇíí", "m", "", "", 1, "", "", false, false);
 	end
 	
 	-- 43
 	if k_Coil == nil then
-		k_Coil = Binesh.Genesis("ÖÑíÈ İäÑ", "k", "", "", 1, "", "", false, "", "", false);
+		k_Coil = Binesh.Genesis("ÖÑíÈ İäÑ", "k", "", "", 1, "", "", false, false);
 	end
 	
 	-- 47
 	if Muk == nil then
-		Muk = Binesh.Genesis("ÖÑíÈ ÇÕØ˜Ç˜ ÌäÈÔí", "Muk", "", "", 1, "", "", false, "", "", false);
+		Muk = Binesh.Genesis("ÖÑíÈ ÇÕØ˜Ç˜ ÌäÈÔí", "Muk", "", "", 1, "", "", false, false);
 	end
 	if Mus == nil then
-		Mus = Binesh.Genesis("ÖÑíÈ ÇÕØ˜Ç˜ ÇíÓÊÇíí", "Mus", "", "", 1, "", "", false, "", "", false);
+		Mus = Binesh.Genesis("ÖÑíÈ ÇÕØ˜Ç˜ ÇíÓÊÇíí", "Mus", "", "", 1, "", "", false, false);
 	end
 	
 	-- 49
@@ -10850,7 +10862,7 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	-- 82
 	if Eta == nil then
 		if R_Output == nil then
-			Eta = Binesh.Genesis("ÈÇÒÏå", "Eta", "", "", 1, "", "", false, "", "", false);
+			Eta = Binesh.Genesis("ÈÇÒÏå", "Eta", "", "", 1, "", "", false, false);
 		else
 			Eta = R_Output
 		end
@@ -10858,12 +10870,12 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 83
 	if EtaK == nil then
-		EtaK = Binesh.Genesis("ÈÇÒÏå ˜ÇÑäæ", "Eta_max", "", "", 1, "", "", false, "", "", false);
+		EtaK = Binesh.Genesis("ÈÇÒÏå ˜ÇÑäæ", "Eta_max", "", "", 1, "", "", false, false);
 	end
 	
 	-- 85
 	if K_Ice == nil then
-		K_Ice = Binesh.Genesis("ÖÑíÈ Úãá˜ÑÏ", "K", "", "", 1, "", "", false, "", "", false);
+		K_Ice = Binesh.Genesis("ÖÑíÈ Úãá˜ÑÏ", "K", "", "", 1, "", "", false, false);
 	end
 	
 	-- 131
@@ -10879,10 +10891,10 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 139
 	if L_Self == nil then
-		L_Self = Binesh.Genesis("ÖÑíÈ ÎæÏÇáŞÇíí", "L", "", "", 1, "", "", false, "", "", false);
+		L_Self = Binesh.Genesis("ÖÑíÈ ÎæÏÇáŞÇíí", "L", "", "", 1, "", "", false, false);
 	end
 	if k_Self == nil then
-		k_Self = Binesh.Genesis("åÓÊå", "k", "", "", 1, "", "", false, "", "", true);
+		k_Self = Binesh.Genesis("åÓÊå", "k", "", "", 1, "", "", false, false);
 	end
 	
 	-- 147
@@ -10899,14 +10911,9 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		end
 	end
 	
-	-- 13
-	if m_Glass == nil then
-		m_Glass = Binesh.Genesis("ÈÒÑ äãÇíí", "m", "", "", 1, "", "", false, "Âíäå", "", false);
-	end
-	
 	-- 4
 	if c == nil then
-		c = Binesh.Genesis("ÙÑİíÊ ÑãÇ", "c", "", "", 1, "", "", false, "", "", false);
+		c = Binesh.Genesis("ÙÑİíÊ ÑãÇ", "c", "", "", 1, "", "", false, false);
 	end
 	----------- *** -------
 	
@@ -11033,8 +11040,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>1117</DesignCodeLine>
-<DesignCodeCol>28</DesignCodeCol>
+<DesignCodeLine>401</DesignCodeLine>
+<DesignCodeCol>38</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
