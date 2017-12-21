@@ -1,13 +1,15 @@
-function Binesh.PreparationSearchFirsts(NamePersian, Symbol, SearchFirst1, SearchFirst2)
+function Binesh.PreparationSearchFirsts(NamePersian, SearchFirst1, SearchFirst2)
+	if SearchFirst1 == nil then
+		SearchFirst1 = ""
+	end
+	if SearchFirst2 == nil then
+		SearchFirst2 = ""
+	end
 	FindNamePersian = ListBox.FindItem("Words", -1, LB_BYTEXT, NamePersian);
-	FindSymbol = ListBox.FindItem("Words", -1, LB_BYTEXT, Symbol);
-	if FindNamePersian ~= -1 or FindSymbol ~= -1 then
+	if FindNamePersian ~= -1 then
 		if FindNamePersian ~= -1 then
 			Find = FindNamePersian
 			FindText = NamePersian
-		else
-			Find = FindSymbol
-			FindText = Symbol
 		end
 		FindSearchFirst1 = ListBox.FindItem("Words", -1, LB_BYTEXT, SearchFirst1);
 		if SearchFirst2 ~= "" then
@@ -16,21 +18,24 @@ function Binesh.PreparationSearchFirsts(NamePersian, Symbol, SearchFirst1, Searc
 		
 		if FindSearchFirst1 ~= -1 then
 			if SearchFirst2 == "" then
-				ListBox.SetItemText("Words", Find, SearchFirst1.." "..FindText);
-				return SearchFirst1.." "..FindText
+				if FindSearchFirst1 > Find then
+					ListBox.SetItemText("Words", Find, tostring(SearchFirst1).." "..tostring(FindText));
+					ListBox.DeleteItem("Words", FindSearchFirst1);
+				elseif FindSearchFirst1 < Find then
+					ListBox.SetItemText("Words", FindSearchFirst1, tostring(SearchFirst1).." "..tostring(FindText));
+					ListBox.DeleteItem("Words", Find);
+				end
 			end
 			
 			if FindSearchFirst2 ~= -1 and SearchFirst2 ~= "" then
 				if FindSearchFirst2 > Find then
+					ListBox.SetItemText("Words", Find, tostring(SearchFirst1).." "..tostring(FindText).." "..tostring(SearchFirst2));
 					ListBox.DeleteItem("Words", FindSearchFirst2);
-					ListBox.SetItemText("Words", Find, SearchFirst1.." "..FindText.." "..SearchFirst2);
-					return SearchFirst1.." "..FindText.." "..SearchFirst2
 				elseif FindSearchFirst2 < Find then
+					ListBox.SetItemText("Words", FindSearchFirst2, tostring(SearchFirst1).." "..tostring(FindText).." "..tostring(SearchFirst2));
 					ListBox.DeleteItem("Words", Find);
-					ListBox.SetItemText("Words", SearchFirst2, SearchFirst1.." "..FindText.." "..SearchFirst2);
-					return SearchFirst1.." "..FindText.." "..SearchFirst2
 				end
 			end
 		end
-	end -- FindNamePersian or Symbol
+	end -- FindNamePersian
 end
