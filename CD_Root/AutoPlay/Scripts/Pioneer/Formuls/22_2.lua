@@ -1,29 +1,29 @@
-if m_Lens == nil then
-	Binesh.AddUnknown("⁄œ”Ì »“—ê ‰„«ÌÌ", "m")
+if m_Zoom == nil then
+	Binesh.AddUnknown("»“—ê ‰„«ÌÌ", "m")
 end
 
-if ApBp_Lens == nil then
+if ApBp == nil then
 	Binesh.AddUnknown("”«ÌÂ ÿÊ·", "A`B`")
 end
 
-if AB_Lens == nil then
+if AB == nil then
 	Binesh.AddUnknown("Ã”„ ÿÊ·", "AB")
 end
 
-Findm_Lens = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "⁄œ”Ì »“—ê ‰„«ÌÌ0");
-if Findm_Lens ~= -1 and ListBox.GetItemData("unknowns", Findm_Lens) == "m" then
-	if ApBp_Lens ~= nil and AB_Lens ~= nil then
+Findm_Zoom = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»“—ê ‰„«ÌÌ0");
+if Findm_Zoom ~= -1 and ListBox.GetItemData("unknowns", Findm_Zoom) == "m" then
+	if ApBp ~= nil and AB ~= nil then
 		Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>")
-		m_Lens = ApBp_Lens/AB_Lens
+		m_Zoom = ApBp/AB
 		
-		Binesh.AddToHTML("m = <span>"..ApBp_Lens.."/"..AB_Lens.."<span> &#8658; m = "..m_Lens)
+		Binesh.AddToHTML("m = <span>"..ApBp.."/"..AB.."<span> &#8658; m = "..m_Zoom)
 		Web.Refresh("Web1");
 	
-		Binesh.AddToHTML("A`B`: "..ApBp_Lens.." m", "V")
-		Binesh.AddToHTML("AB: "..AB_Lens.." m", "V")
+		Binesh.AddToHTML("A`B`: "..ApBp.." m", "V")
+		Binesh.AddToHTML("AB: "..AB.." m", "V")
 		Binesh.AddToHTML("m: ?", "V")
 				
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "⁄œ”Ì »“—ê ‰„«ÌÌ");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»“—ê ‰„«ÌÌ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "m");
 		if unknownPersianindex == unknownSymbolindex then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
@@ -31,17 +31,17 @@ if Findm_Lens ~= -1 and ListBox.GetItemData("unknowns", Findm_Lens) == "m" then
 	end
 end
 
-FindApBp_Lens = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ ÿÊ·");
-if FindApBp_Lens ~= -1 and ListBox.GetItemData("unknowns", FindApBp_Lens) == "A`B`" then
-	if m_Lens ~= nil and AB_Lens ~= nil then
+FindApBp = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ ÿÊ·");
+if FindApBp ~= -1 and ListBox.GetItemData("unknowns", FindApBp) == "A`B`" then
+	if m_Zoom ~= nil and AB ~= nil then
 		Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>", "A`B` = m*AB")
-		ApBp_Lens = m_Lens*AB_Lens
+		ApBp = m_Zoom*AB
 		
-		Binesh.AddToHTML("A`B` = "..m_Lens.."*"..AB_Lens.." &#8658; A`B` = "..ApBp_Lens.." m")
+		Binesh.AddToHTML("A`B` = "..m_Zoom.."*"..AB.." &#8658; A`B` = "..ApBp.." m")
 		Web.Refresh("Web1");
 		
-		Binesh.AddToHTML("m: "..m_Lens, "V")
-		Binesh.AddToHTML("AB: "..AB_Lens.." m", "V")
+		Binesh.AddToHTML("m: "..m_Zoom, "V")
+		Binesh.AddToHTML("AB: "..AB.." m", "V")
 		Binesh.AddToHTML("A`B`: ?", "V")
 				
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ ÿÊ·");
@@ -52,17 +52,17 @@ if FindApBp_Lens ~= -1 and ListBox.GetItemData("unknowns", FindApBp_Lens) == "A`
 	end
 end
 
-FindAB_Lens = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ ÿÊ·");
-if FindAB_Lens ~= -1 and ListBox.GetItemData("unknowns", FindAB_Lens) == "AB" then
-	if ApBp_Lens ~= nil and m_Lens ~= nil then
+FindAB = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ ÿÊ·");
+if FindAB ~= -1 and ListBox.GetItemData("unknowns", FindAB) == "AB" then
+	if ApBp ~= nil and m_Zoom ~= nil then
 		Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>", "AB = <span>A`B`/m</span>")
-		AB_Lens = ApBp_Lens/m_Lens
+		AB = ApBp/m_Zoom
 		
-		Binesh.AddToHTML("AB = <span>"..ApBp_Lens.."/"..m_Lens.."<span> &#8658; AB = "..AB_Lens.." m")
+		Binesh.AddToHTML("AB = <span>"..ApBp.."/"..m_Zoom.."<span> &#8658; AB = "..AB.." m")
 		Web.Refresh("Web1");
 		
-		Binesh.AddToHTML("m: "..m_Lens, "V")
-		Binesh.AddToHTML("A`B`: "..ApBp_Lens.." m", "V")
+		Binesh.AddToHTML("m: "..m_Zoom, "V")
+		Binesh.AddToHTML("A`B`: "..ApBp.." m", "V")
 		Binesh.AddToHTML("AB: ?", "V")
 		
 		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ ÿÊ·");
