@@ -88,7 +88,7 @@ if FindDeltaV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindDeltaV_Elec
 		
 		Web.Refresh("Web1");
 		
-		Binesh.AddToHTML("E: "..E.." N/C", "V")
+		Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
 		Binesh.AddToHTML("d: "..d_Distance.." m", "V")
 		Binesh.AddToHTML("Teta: "..Teta.." <sup>o</sup>", "V")
 		Binesh.AddToHTML("DeltaV: ?", "V")

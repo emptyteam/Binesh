@@ -1,4 +1,4 @@
-if t0 == nil then
+--[[if t0 == nil then
 	Binesh.AddUnknown("“„«‰", "t0")
 end
 
@@ -72,4 +72,4 @@ if Finda ~= -1 and ListBox.GetItemData("unknowns", Finda) == "a" and ListBox.Fin
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
 		end
 	end
-end
+end]]

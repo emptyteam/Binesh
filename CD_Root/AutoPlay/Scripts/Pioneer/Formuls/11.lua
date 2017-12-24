@@ -14,8 +14,8 @@ if q_Source == nil then
 	Binesh.AddUnknown("›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ", "q")
 end
 
-FindS = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ „”«Õ ");
-if FindSp ~= -1 and ListBox.GetItemData("unknowns", FindSp) == "S`" then
+FindSp = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ „”«Õ ");
+if FindSp ~= -1 and ListBox.GetItemData("unknowns", FindSp) == "S`" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”«ÌÂ „”«Õ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "S`") ~= -1 then
 	if S ~= nil and p_Source ~= nil and q_Source ~= nil then
 		Binesh.CreateHTMLFile("<span>S`/S</span> = (<span>q/p</span>)<sup>2</sup>", "S` = <span>q<sup>2</sup>*S/p<sup>2</sup></span>")
 		Sp = (q_Source^2)*S/(p_Source^2)
@@ -36,8 +36,8 @@ if FindSp ~= -1 and ListBox.GetItemData("unknowns", FindSp) == "S`" then
 	end
 end
 
-FindSp = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ „”«Õ ");
-if FindS ~= -1 and ListBox.GetItemData("unknowns", FindS) == "S" then
+FindS = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ „”«Õ ");
+if FindS ~= -1 and ListBox.GetItemData("unknowns", FindS) == "S" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ „”«Õ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "S") ~= -1 then
 	if Sp ~= nil and p_Source ~= nil and q_Source ~= nil then
 		Binesh.CreateHTMLFile("<span>S`/S</span> = (<span>q/p</span>)<sup>2</sup>", "S = <span>p<sup>2</sup>*S`/q<sup>2</sup></span>")
 		S = (p_Source^2)*Sp/(q_Source^2)
@@ -59,7 +59,7 @@ if FindS ~= -1 and ListBox.GetItemData("unknowns", FindS) == "S" then
 end
 
 Findp_Source = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— Ã”„");
-if Findp_Source ~= -1 and ListBox.GetItemData("unknowns", Findp_Source) == "p" then
+if Findp_Source ~= -1 and ListBox.GetItemData("unknowns", Findp_Source) == "p" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— Ã”„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "p") ~= -1 then
 	if Sp ~= nil and S ~= nil and q ~= nil then
 		Binesh.CreateHTMLFile("<span>S`/S</span> = (<span>q/p</span>)<sup>2</sup>", "p = <span>sqrt(S*q<sup>2</sup>/S`)</span>")
 		p_Source = Math.Sqrt(S*q_Source^2/Sp)
@@ -81,7 +81,7 @@ if Findp_Source ~= -1 and ListBox.GetItemData("unknowns", Findp_Source) == "p" t
 end
 
 Findq_Source = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ");
-if Findq_Source ~= -1 and ListBox.GetItemData("unknowns", Findq_Source) == "q" then
+if Findq_Source ~= -1 and ListBox.GetItemData("unknowns", Findq_Source) == "q" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â „‰»⁄ ‰Ê— ”«ÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
 	if Sp ~= nil and S ~= nil and p_Source ~= nil then
 		Binesh.CreateHTMLFile("<span>S`/S</span> = (<span>q/p</span>)<sup>2</sup>", "q = <span>sqrt(S`*P<sup>2</sup>/S)</span>")
 		q_Source = Math.Sqrt(Sp*p_Source^2/S)

@@ -32,7 +32,7 @@ if Findn_Glass ~= -1 and ListBox.GetItemData("unknowns", Findn_Glass) == "n" and
 end
 
 FindC_Speed_Glass = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Œ·«¡ ”—⁄ ");
-if FindC_Speed_Glass ~= -1 and ListBox.GetItemData("unknowns", FindC_Speed_Glass) == "C" then
+if FindC_Speed_Glass ~= -1 and ListBox.GetItemData("unknowns", FindC_Speed_Glass) == "C" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Œ·«¡ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1 then
 	if  V_Speed_Glass ~= nil and n_Glass ~= nil then
 		Binesh.CreateHTMLFile("n = <span>C/V</span>", "C = n*V")
 		C_Speed_Glass = n_Glass*V_Speed_Glass
@@ -53,7 +53,7 @@ if FindC_Speed_Glass ~= -1 and ListBox.GetItemData("unknowns", FindC_Speed_Glass
 end
 
 FindV_Speed_Glass = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„ÕÌÿ ‘›«› ”—⁄ ");
-if FindV_Speed_Glass ~= -1 and ListBox.GetItemData("unknowns", FindV) == "V" then
+if FindV_Speed_Glass ~= -1 and ListBox.GetItemData("unknowns", FindV) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "„ÕÌÿ ‘›«› ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
 	if C_Speed_Glass ~= nil and n_Glass ~= nil then
 		Binesh.CreateHTMLFile("n = <span>C/V</span>", "V = <span>C/n</span>")
 		V_Speed_Glass = C_Speed_Glass/n_Glass

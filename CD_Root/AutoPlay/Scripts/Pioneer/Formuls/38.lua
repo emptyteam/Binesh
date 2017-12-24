@@ -136,7 +136,7 @@ if FindDeltat ~= -1 and ListBox.GetItemData("unknowns", FindDeltat) == "Deltat" 
 		Binesh.CreateHTMLFile("Deltax = <span>V<sub>1</sub>+V<sub>2</sub>/2</span>Deltat", "Deltat = <span>2Deltax/V<sub>1</sub>+V<sub>2</sub></span>")
 		_Deltat = 2*_Deltax/(V1_Speed+V2_Speed)
 		
-		Binesh.AddToHTML("Deltat = <span>2*".._Deltax.."/"..V1_Speed.."*"..V2_Speed.."</span> &#8658; Deltat = ".._Deltat.." s")
+		Binesh.AddToHTML("Deltat = <span>2*".._Deltax.."/"..V1_Speed.."+"..V2_Speed.."</span> &#8658; Deltat = ".._Deltat.." s")
 		Web.Refresh("Web1");
 		
 		Binesh.AddToHTML("V<sun>2</sub>: "..V2_Speed.." m/s", "V")
@@ -153,7 +153,7 @@ if FindDeltat ~= -1 and ListBox.GetItemData("unknowns", FindDeltat) == "Deltat" 
 end
 
 FindV1_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ");
-if FindV1_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV1_Speed) == "V1" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 then
+if FindV1_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV1_Speed) == "V1" or ListBox.GetItemData("unknowns", FindV1_Speed) == "V0" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 then
 	if V2_Speed ~= nil and _Deltat ~= nil and _Deltax ~= nil then
 		Binesh.CreateHTMLFile("Deltax = <span>V<sub>1</sub>+V<sub>2</sub>/2</span>Deltat", "V<sub>1</sub> = <span>2Deltax-V<sub>2</sub>Deltat/Deltat</span>")
 		V1_Speed = _Deltax*2-V2_Speed*_Deltat/_Deltat

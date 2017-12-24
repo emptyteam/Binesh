@@ -11,7 +11,7 @@ if AB == nil then
 end
 
 Findm_Zoom = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»“—ê ‰„«ÌÌ0");
-if Findm_Zoom ~= -1 and ListBox.GetItemData("unknowns", Findm_Zoom) == "m" then
+if Findm_Zoom ~= -1 and ListBox.GetItemData("unknowns", Findm_Zoom) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "»“—ê ‰„«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
 	if ApBp ~= nil and AB ~= nil then
 		Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>")
 		m_Zoom = ApBp/AB
@@ -32,7 +32,7 @@ if Findm_Zoom ~= -1 and ListBox.GetItemData("unknowns", Findm_Zoom) == "m" then
 end
 
 FindApBp = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "”«ÌÂ ÿÊ·");
-if FindApBp ~= -1 and ListBox.GetItemData("unknowns", FindApBp) == "A`B`" then
+if FindApBp ~= -1 and ListBox.GetItemData("unknowns", FindApBp) == "A`B`" and ListBox.FindItem("Words", -1, LB_BYTEXT, "”«ÌÂ ÿÊ·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A`B`") ~= -1 then
 	if m_Zoom ~= nil and AB ~= nil then
 		Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>", "A`B` = m*AB")
 		ApBp = m_Zoom*AB
@@ -53,7 +53,7 @@ if FindApBp ~= -1 and ListBox.GetItemData("unknowns", FindApBp) == "A`B`" then
 end
 
 FindAB = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã”„ ÿÊ·");
-if FindAB ~= -1 and ListBox.GetItemData("unknowns", FindAB) == "AB" then
+if FindAB ~= -1 and ListBox.GetItemData("unknowns", FindAB) == "AB" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ ÿÊ·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "AB") ~= -1 then
 	if ApBp ~= nil and m_Zoom ~= nil then
 		Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>", "AB = <span>A`B`/m</span>")
 		AB = ApBp/m_Zoom

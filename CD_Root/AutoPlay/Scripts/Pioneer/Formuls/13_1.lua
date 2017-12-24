@@ -3,15 +3,15 @@ if m_Zoom == nil then
 end
 
 if p_Glass == nil then
-	Binesh.AddUnknown("›«’·Â ¬Ì‰Â Ã”„", "p")
+	Binesh.AddUnknown("›«’·Â Ã”„", "p")
 end
 
 if q_Glass == nil then
-	Binesh.AddUnknown("›«’·Â ¬Ì‰Â ”«ÌÂ", "q")
+	Binesh.AddUnknown("›«’·Â ”«ÌÂ", "q")
 end
 
 Findm_Zoom = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "»“—ê ‰„«ÌÌ");
-if Findm_Zoom ~= -1 and ListBox.GetItemData("unknowns", Findm_Zoom) == "m" then
+if Findm_Zoom ~= -1 and ListBox.GetItemData("unknowns", Findm_Zoom) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "»“—ê ‰„«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
 	if p_Glass ~= nil and q_Glass ~= nil then
 		Binesh.CreateHTMLFile("m = <span>q/p</span>")
 		m_Zoom = q_Glass/p_Glass
@@ -31,8 +31,8 @@ if Findm_Zoom ~= -1 and ListBox.GetItemData("unknowns", Findm_Zoom) == "m" then
 	end
 end
 
-Findq_Glass = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â ¬Ì‰Â ”«ÌÂ");
-if Findq_Glass ~= -1 and ListBox.GetItemData("unknowns", Findq_Glass) == "q" then
+Findq_Glass = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â ”«ÌÂ");
+if Findq_Glass ~= -1 and ListBox.GetItemData("unknowns", Findq_Glass) == "q" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â ”«ÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
 	if m_Zoom ~= nil and p_Glass ~= nil then
 		Binesh.CreateHTMLFile("m = <span>q/p</span>", "q = m*p")
 		q_Glass = m_Zoom*p_Glass
@@ -44,7 +44,7 @@ if Findq_Glass ~= -1 and ListBox.GetItemData("unknowns", Findq_Glass) == "q" the
 		Binesh.AddToHTML("p: "..p_Glass.."m", "V")
 		Binesh.AddToHTML("q: ?", "V")
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â ¬Ì‰Â Ã”„");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â Ã”„");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);
@@ -52,8 +52,8 @@ if Findq_Glass ~= -1 and ListBox.GetItemData("unknowns", Findq_Glass) == "q" the
 	end
 end
 
-Findp_Glass = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â ¬Ì‰Â Ã”„");
-if Findp_Glass ~= -1 and ListBox.GetItemData("unknowns", Findp_Glass) == "p" then
+Findp_Glass = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â Ã”„");
+if Findp_Glass ~= -1 and ListBox.GetItemData("unknowns", Findp_Glass) == "p" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â ”«ÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "p") ~= -1 then
 	if q_Glass ~= nil and m_Zoom ~= nil then
 		Binesh.CreateHTMLFile("m = <span>q/p</span>", "p = <span>q/m</span>")
 		p_Glass = q_Glass/m_Zoom
@@ -65,7 +65,7 @@ if Findp_Glass ~= -1 and ListBox.GetItemData("unknowns", Findp_Glass) == "p" the
 		Binesh.AddToHTML("q: "..q_Glass.."m", "V")
 		Binesh.AddToHTML("p: ?", "V")
 		
-		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â ¬Ì‰Â ”«ÌÂ");
+		unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â ”«ÌÂ");
 		unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "p");
 		if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 			ListBox.DeleteItem("unknowns", unknownPersianindex);

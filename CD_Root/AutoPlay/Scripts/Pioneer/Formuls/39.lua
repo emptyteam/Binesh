@@ -44,10 +44,10 @@ end
 Finda = ListBox.FindItem("unknowns", -1, LBBYTEXT, "‘ «»");
 if Finda ~= -1 and ListBox.GetItemData("unknowns", Finda) == "a" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then
 	if x ~= nil and t ~= nil and V0_Speed ~= nil and x0 ~= nil then
-		Binesh.CreateHTMLFile("x = <span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>", "a = <span>t<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>/2x</span>")
-		a = t^2+V0_Speed*t+x0/(2*x)
+		Binesh.CreateHTMLFile("x = <span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>", "a = <span>2*(x-x<sub>0</sub>-v<sub>0</sub>t)/t<sup>2</sup></span>")
+		a = 2*(x-x0-(V0_Speed*t))/t^2
 		
-		Binesh.AddToHTML("a = <span>"..t.."<sup>2</sup>+"..V0_Speed.."*"..t.."+"..x0.."/2*"..x.."</span> &#8658; a = "..a.." m/s<sup>2</sup>")
+		Binesh.AddToHTML("a = <span>2*("..x.."-"..x0.."-"..V0_Speed.."*"..t..")/"..t.."<sup>2</sup></span> &#8658; a = "..a.." m/s<sup>2</sup>")
 		Web.Refresh("Web1");
 		
 		Binesh.AddToHTML("x: "..x.." m", "V")
@@ -67,12 +67,10 @@ end
 Findt = ListBox.FindItem("unknowns", -1, LBBYTEXT, "“„«‰");
 if Findt ~= -1 and ListBox.GetItemData("unknowns", Findt) == "t" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1 then
 	if x ~= nil and a ~= nil and V0_Speed ~= nil and x0 ~= nil then
-		Binesh.CreateHTMLFile("x = <span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>", "<span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>-x = 0")
-		Binesh.CreateHTMLFile("Delta = V<sub>0</sub><sup>2</sup>-4(<span>1/2</span>a)(x<sub>0</sub>-x)", "t = <span>-V<sub>0</sub>+sqrt(Delta)/2(<span>1/2</span>a)</span>")
-		t = -V0_Speed + Math.Sqrt(V0_Speed^2-2*a*(x0-x))/a
+		Binesh.CreateHTMLFile("x = <span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>", "t = - <span>V<sub>0</sub>sqrt(V<sub>0</sub><sup>2</sup>+2ax-2ax<sub>0</sub>)/a</span>")
+		t = (-1*V0_Speed+(V0_Speed^2+2*a*x-2*a*x0)^(1/2))/a
 		
-		Binesh.AddToHTML("Delta = "..V0_Speed.."<sup>2</sup>-2*"..a.."*("..x0.."-"..x..") &#8658; Delta = "..Math.Sqrt(V0_Speed^2-2*a*(x0-x)).."<br>" )
-		Binesh.AddToHTML("t = <span>-"..V0_Speed.."+sqrt("..Math.Sqrt(V0_Speed^2-2*a*(x0-x))..")/"..a.."</span> &#8658; t = "..Math.Abs(t).." s")
+		Binesh.AddToHTML("t = - <span>"..V0_Speed.."*sqrt("..V0_Speed.."<sup>2</sup>+2*"..a.."*"..x.."-2*"..a.."*"..x0..")/"..a.."</span> &#8658; t = "..Math.Abs(t).." s")
 		Web.Refresh("Web1");
 		
 		Binesh.AddToHTML("x: "..x.." m", "V")
