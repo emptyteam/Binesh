@@ -76,8 +76,8 @@ tbl = {}
 tbl.Delta = {}
 
 tbl.Delta.Words = {" ÊÛííÑ ", " ÊÈÇÏá ", " ÊİÇæÊ ", " ÇÎÊáÇİ ", " ÏáÊÇ ", " äåÇíí "}
-tbl.Delta.First = {" ÔÑæÚ ", " ÂÛÇÒíä ", " Çæá ", " Çæáíå ", " ÇÈÊÏÇ ", " ÂÛÇÒ ", " Çæáíä "} -- ÇÒ ¡ 
-tbl.Delta.Second = {" Èå ", " ËÇäæíå ", " ÇíÇä ", " Ïæã ", " ÈÚÏ ", " äåÇíÊ ", " Ïæãíä ", " äåÇíí "}
+tbl.Delta.First = {" ÔÑæÚ ", " ÂÛÇÒíä ", " Çæá ", " Çæáíå ", " ÇÈÊÏÇ ", " ÂÛÇÒ ", " Çæáíä ", " ÇÒ "}
+tbl.Delta.Second = {" ËÇäæíå ", " ÇíÇä ", " Ïæã ", " ÈÚÏ ", " äåÇíÊ ", " Ïæãíä ", " äåÇíí "}
 
 tbl.Start = {" ÔÑæÚ ", " ÂÛÇÒíä ", " Çæá ", " Çæáíå ", " ÇÈÊÏÇ ", " ÂÛÇÒ "}
 tbl.End = {" ÇíÇä ", " ÇäÊåÇ ", " ËÇäæíå ", " Ïæã ", " ÇäÊåÇ ", " ÇíÇäí ", " ÂÎÑ ", " äåÇíÊ ", " äåÇíí "}
@@ -632,8 +632,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>448</DesignCodeLine>
-<DesignCodeCol>35</DesignCodeCol>
+<DesignCodeLine>13</DesignCodeLine>
+<DesignCodeCol>100</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -10071,12 +10071,12 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 12
 	if p_Glass == nil then
-		Binesh.PreparationSearchFirsts("Âíäå", "İÇÕáå", "ÌÓã");
-		p_Glass = Binesh.Genesis("İÇÕáå Âíäå ÌÓã", " p", "", "", 1, "m", "ãÊÑ ", false);
+		Binesh.PreparationSearchFirsts("ÌÓã", "İÇÕáå");
+		p_Glass = Binesh.Genesis("İÇÕáå ÌÓã", " p", "", "", 1, "m", "ãÊÑ ", false);
 	end
 	if q_Glass == nil then
-		Binesh.PreparationSearchFirsts("Âíäå", "İÇÕáå", "ÓÇíå");
-		q_Glass = Binesh.Genesis("İÇÕáå Âíäå ÓÇíå", "q", "", "", 1, "m", "ãÊÑ", false);
+		Binesh.PreparationSearchFirsts("ÓÇíå", "İÇÕáå");
+		q_Glass = Binesh.Genesis("İÇÕáå ÓÇíå", "q", "", "", 1, "m", "ãÊÑ", false);
 	end
 	if f == nil then
 		f = Binesh.Genesis("İÇÕáå ˜Çäæäí", "f", "", "", 1, "m", "ãÊÑ", false);
@@ -10118,12 +10118,14 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 21
 	if p_Lens == nil then
-		Binesh.PreparationSearchFirsts("ÚÏÓí", "İÇÕáå", "ÌÓã");
-		p_Lens = Binesh.Genesis("İÇÕáå ÚÏÓí ÌÓã", " p", "", "", 1, "m", "ãÊÑ ", false);
+		if p_Glass ~= nil then
+			p_Lens = p_Lens
+		end
 	end
 	if q_Lens == nil then
-		Binesh.PreparationSearchFirsts("ÚÏÓí", "İÇÕáå", "ÓÇíå");
-		q_Lens = Binesh.Genesis("İÇÕáå ÚÏÓí ÓÇíå", "q", "", "", 1, "m", "ãÊÑ", false, "İÇÕáå", "ÓÇíå");
+		if q_Glass ~= nil then
+			q_Lens = q_Lens
+		end
 	end
 	
 	-- 22
@@ -10149,15 +10151,15 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		
 	-- 33
 	if x == nil then
-		x = Binesh.Genesis("Ïæãíä ã˜Çä", "x", "", "", 1, "m", "ãÊÑ", false);
+		x = Binesh.Genesis("Ïæãíä ÌÇÈÌÇíí", "x", "", "", 1, "m", "ãÊÑ", false);
 		if x == nil then
-			x = Binesh.Genesis("ã˜Çä Ïæãíä", "x", "", "", 1, "m", "ãÊÑ", false);
+			x = Binesh.Genesis("ÌÇÈÌÇíí Ïæãíä", "x", "", "", 1, "m", "ãÊÑ", false);
 		end
 	end
 	if x0 == nil then
-		x0 = Binesh.Genesis("Çæáíä ã˜Çä", "x0", "", "", 1, "m", "ãÊÑ", false);
+		x0 = Binesh.Genesis("Çæáíä ÌÇÈÌÇíí", "x0", "", "", 1, "m", "ãÊÑ", false);
 		if x0 == nil then
-			x0 = Binesh.Genesis("ã˜Çä Çæáíä", "x0", "", "", 1, "m", "ãÊÑ", false);
+			x0 = Binesh.Genesis("ÌÇÈÌÇíí Çæáíä", "x0", "", "", 1, "m", "ãÊÑ", false);
 		end
 	end
 		
@@ -10176,30 +10178,8 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		if V0_Speed == nil then
 			V0_Speed = Binesh.Genesis("ÓÑÚÊ Çæáíä", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
 		end
-	end
-		
-	-- 36
-	if t0 == nil then
-		if t == nil then
-			t0 = Binesh.Genesis("ÒãÇä", "t0", "", "", 1, "s", "ËÇäíå", false); -- äÏ ÍÇáÊ ÏÇÑÏ
-		else
-			t0 = t
-		end
-		if t0 ~= nil then
-			t = t0
-		end
-	end
-	if V0_Speed == nil then
-		if V_Speed == nil then
-			V0_Speed = Binesh.Genesis("ÓÑÚÊ", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå", false);
-		else
-			V0_Speed = V_Speed
-		end
-		if ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇíÓÊÇÏä") ~= -1 then
-			V0_Speed = 0
-		end
 		if V0_Speed ~= nil then
-			V_Speed = V0_Speed
+			V1_Speed = V0_Speed
 		end
 	end
 	
@@ -10669,6 +10649,18 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 147
 	
+	-- 36
+	if t0 == nil then
+		if t == nil then
+			t0 = Binesh.Genesis("ÒãÇä", "t0", "", "", 1, "s", "ËÇäíå", false); -- äÏ ÍÇáÊ ÏÇÑÏ
+		else
+			t0 = t
+		end
+		if t0 ~= nil then
+			t = t0
+		end
+	end
+	
 	-- Deltas:
 	-- 4
 	if (_DeltaT == nil or _T1 == nil or _T2 == nil) and (_DeltaTeta == nil or _Teta1 == nil or _Teta2 == nil) and (_DeltaTF == nil or _TF1 == nil or _TF2 == nil) then
@@ -10683,7 +10675,7 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	
 	-- 32
 	if _Deltax == nil or _x1 == nil or _x2 == nil then
-		_Deltax, _x1, _x2 = Binesh.Genesis("ã˜Çä", "x", "", "", 1, "m", "ãÊÑ", true);
+		_Deltax, _x1, _x2 = Binesh.Genesis("ÌÇÈÌÇíí", "x", "", "", 1, "m", "ãÊÑ", true);
 		if _x1 ~= nil then
 			x0, x1 = _x1, _x1
 		end
@@ -10940,7 +10932,6 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	Binesh.Include("Formuls.32", false);
 	Binesh.Include("Formuls.33", false);
 	Binesh.Include("Formuls.35", false);
-	Binesh.Include("Formuls.36", false);
 	Binesh.Include("Formuls.37", false);
 	Binesh.Include("Formuls.38", false);
 	Binesh.Include("Formuls.39", false);
@@ -11024,6 +11015,7 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	Binesh.Include("Formuls.20", false);
 	Binesh.Include("Formuls.22_1", false);
 	Binesh.Include("Formuls.22_2", false);
+	Binesh.Include("Formuls.36", false);
 	Binesh.Include("Formuls.47_1", false);
 	Binesh.Include("Formuls.47_2", false);
 	Binesh.Include("Formuls.49", false);
@@ -11040,8 +11032,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>401</DesignCodeLine>
-<DesignCodeCol>38</DesignCodeCol>
+<DesignCodeLine>260</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
