@@ -95,6 +95,8 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "»”«„œ “«ÊÌÂ", "”—⁄  “«ÊÌÂ", false);
 		result = String.Replace(result, "Œ·«", "Œ·«¡", false);
 		result = String.Replace(result, "Œ·«¡¡", "Œ·«¡", false);
+		result = String.Replace(result, " ’ÊÌ—", "”«ÌÂ", false);
+		result = String.Replace(result, "„ò«‰", "Ã«»Ã«ÌÌ", false);
 		
 		result = String.Replace(result, "f s", "fs,max", false);
 		result = String.Replace(result, "fs ,max", "fs,max", false);
@@ -140,12 +142,15 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "@", "", false);
 		result = String.Replace(result, "~", "", false);
 		
-		result = String.Replace(result, "m", " m", false);
+		result = String.Replace(result, "m", " m ", false);
+		result = String.Replace(result, "m /s", " m/s", false);
 		result = String.Replace(result, "m/s", " m/s", false);
 		result = String.Replace(result, "m/s^2", " m/s^2", false);
 		result = String.Replace(result, "J", " J", false);
 		result = String.Replace(result, "j", " J", true);
+		result = String.Replace(result, "m ^3", " m^3", true);
 		result = String.Replace(result, "m^3", " m^3", true);
+		result = String.Replace(result, "m ol", " mol", false);
 		result = String.Replace(result, "mol", " mol", false);
 		result = String.Replace(result, "K", " K", true);
 		result = String.Replace(result, "C", " C", true);
