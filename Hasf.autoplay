@@ -549,6 +549,11 @@ end
 		Binesh.Include("Power", false)
 	end
 	
+	-- Include Radians To Degrees Function
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\RadToDeg.lua") then
+		Binesh.Include("RadToDeg", false)
+	end
+	
 if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\MathProccess.lua") then
 	Binesh.Include("MathProccess", false)
 end
@@ -632,8 +637,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>13</DesignCodeLine>
-<DesignCodeCol>100</DesignCodeCol>
+<DesignCodeLine>488</DesignCodeLine>
+<DesignCodeCol>26</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -8863,14 +8868,130 @@ TextInput1 = "”Ê«· —« Ê«—œ ò‰Ìœ...";</Script>
 <Args/>
 <Script>ForSend = ""
 Pre_Input("Input1", TextInput1)
-Page.StartTimer(1, 1);</Script>
+Page.StartTimer(1, 1);
+
+Binesh.Include("Formuls.1", false);
+	Binesh.Include("Formuls.2", false);
+	Binesh.Include("Formuls.1-2 EX", false);
+	Binesh.Include("Formuls.4_1", false);
+	Binesh.Include("Formuls.6", false);
+	Binesh.Include("Formuls.7", false);
+	Binesh.Include("Formuls.8_1", false);
+	Binesh.Include("Formuls.8_2", false);
+	Binesh.Include("Formuls.8_3", false);
+	Binesh.Include("Formuls.9", false);
+	Binesh.Include("Formuls.10_1", false);
+	Binesh.Include("Formuls.10_2", false);
+	Binesh.Include("Formuls.10_3", false);
+	Binesh.Include("Formuls.11", false);
+	Binesh.Include("Formuls.12", false);
+	Binesh.Include("Formuls.16", false);
+	Binesh.Include("Formuls.17", false);
+	Binesh.Include("Formuls.18", false);
+	Binesh.Include("Formuls.19", false);
+	Binesh.Include("Formuls.20", false);
+	Binesh.Include("Formuls.21", false);
+	Binesh.Include("Formuls.24", false);
+	Binesh.Include("Formuls.32", false);
+	Binesh.Include("Formuls.33", false);
+	Binesh.Include("Formuls.35", false);
+	Binesh.Include("Formuls.37", false);
+	Binesh.Include("Formuls.38", false);
+	Binesh.Include("Formuls.39", false);
+	Binesh.Include("Formuls.41", false);
+	Binesh.Include("Formuls.43", false);
+	Binesh.Include("Formuls.44", false);
+	Binesh.Include("Formuls.48", false);
+	Binesh.Include("Formuls.50", false);
+	Binesh.Include("Formuls.51", false);
+	Binesh.Include("Formuls.55", false);
+	Binesh.Include("Formuls.56", false);
+	Binesh.Include("Formuls.58", false);
+	Binesh.Include("Formuls.59", false);
+	Binesh.Include("Formuls.60", false);
+	Binesh.Include("Formuls.61", false);
+	Binesh.Include("Formuls.64", false);
+	Binesh.Include("Formuls.65", false);
+	Binesh.Include("Formuls.66", false);
+	Binesh.Include("Formuls.69", false);
+	Binesh.Include("Formuls.73", false);
+	Binesh.Include("Formuls.74", false);
+	Binesh.Include("Formuls.75", false);
+	Binesh.Include("Formuls.76", false);
+	Binesh.Include("Formuls.77_1", false);
+	Binesh.Include("Formuls.77_2", false);
+	Binesh.Include("Formuls.78_1", false);
+	Binesh.Include("Formuls.78_2", false);
+	Binesh.Include("Formuls.79_1", false);
+	Binesh.Include("Formuls.79_2", false);
+	Binesh.Include("Formuls.81", false);
+	Binesh.Include("Formuls.82_1", false);
+	Binesh.Include("Formuls.82_2", false);
+	Binesh.Include("Formuls.83_1", false);
+	Binesh.Include("Formuls.83_2", false);
+	Binesh.Include("Formuls.84", false);
+	Binesh.Include("Formuls.85", false);
+	Binesh.Include("Formuls.86", false);
+	Binesh.Include("Formuls.87", false);
+	Binesh.Include("Formuls.88", false);
+	Binesh.Include("Formuls.90", false);
+	Binesh.Include("Formuls.91", false);
+	Binesh.Include("Formuls.92", false);
+	Binesh.Include("Formuls.93_1", false);
+	Binesh.Include("Formuls.93_2", false);
+	Binesh.Include("Formuls.94_1", false);
+	Binesh.Include("Formuls.94_2", false);
+	Binesh.Include("Formuls.95", false);
+	Binesh.Include("Formuls.97_1", false);
+	Binesh.Include("Formuls.97_2", false);
+	Binesh.Include("Formuls.97_3", false);
+	Binesh.Include("Formuls.102", false);
+	Binesh.Include("Formuls.111", false);
+	Binesh.Include("Formuls.112", false);
+	Binesh.Include("Formuls.114_1", false);
+	Binesh.Include("Formuls.114_2", false);
+	Binesh.Include("Formuls.114_3", false);
+	Binesh.Include("Formuls.118", false);
+	Binesh.Include("Formuls.123", false);
+	Binesh.Include("Formuls.126", false);
+	Binesh.Include("Formuls.128", false);
+	Binesh.Include("Formuls.129", false);
+	Binesh.Include("Formuls.130", false);
+	Binesh.Include("Formuls.131", false);
+	Binesh.Include("Formuls.132", false);
+	Binesh.Include("Formuls.133", false);
+	Binesh.Include("Formuls.134", false);
+	Binesh.Include("Formuls.137", false);
+	Binesh.Include("Formuls.139", false);
+	Binesh.Include("Formuls.140", false);
+	Binesh.Include("Formuls.141", false);
+	Binesh.Include("Formuls.142_1", false);
+	Binesh.Include("Formuls.142_2", false);
+	Binesh.Include("Formuls.142_3", false);
+	Binesh.Include("Formuls.143", false);
+	Binesh.Include("Formuls.144", false);
+	Binesh.Include("Formuls.145", false);
+	Binesh.Include("Formuls.146", false);
+	Binesh.Include("Formuls.147", false);
+	
+	-- DONT MOVE IT: --
+	Binesh.Include("Formuls.5", false);
+	Binesh.Include("Formuls.13_1", false);
+	Binesh.Include("Formuls.13_2", false);
+	Binesh.Include("Formuls.20", false);
+	Binesh.Include("Formuls.22_1", false);
+	Binesh.Include("Formuls.22_2", false);
+	Binesh.Include("Formuls.36", false);
+	Binesh.Include("Formuls.47_1", false);
+	Binesh.Include("Formuls.47_2", false);
+	Binesh.Include("Formuls.49", false);</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>1</DesignCodeLine>
-<DesignCodeCol>31</DesignCodeCol>
+<DesignCodeLine>118</DesignCodeLine>
+<DesignCodeCol>37</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9914,6 +10035,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	-- Include Joins
 	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Joins.lua") then
 		Binesh.Include("Joins", false);
+		Binesh.Joins()
 	end
 	
 	for index = 1, ListBox.GetCount("Words") do
@@ -9980,20 +10102,24 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	end
 	if V_Speed == nil and V_Speed_mh == nil and V_Speed_miles == nil and V_Speed_mileh == nil then
 		if ListBox.FindItem('Words', -1, LB_BYTEXT, "”—⁄  „ Ê”ÿ") == -1 and ListBox.FindItem('Words', -1, LB_BYTEXT, "VBar") == -1 then
-			CheckV_Speed = ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ")
-			if ListBox.GetItemText("Words", CheckV_Speed+1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", CheckV_Speed+1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", CheckV_Speed+1) ~= "œÊ„Ì‰" then
-				V_Speed = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", false);
-				if V_Speed == nil then
-					V_Speed_mh = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "m/h", "„ — »— ”«⁄ ", false);
-					if V_Speed_mh == nil then
-						V_Speed_miles = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "mile/s", "„«Ì· »— À«‰ÌÂ", false);
-						if V_Speed_miles == nil then
-							V_Speed_mileh = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "mile/h", "„«Ì· »— ”«⁄ ", false);
+			if ListBox.FindItem('Words', -1, LB_BYTEXT, "„ÕÌÿ ‘›«›") == -1 then
+				CheckV_Speed = ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ")
+				if ListBox.GetItemText("Words", CheckV_Speed+1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", CheckV_Speed+1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", CheckV_Speed+1) ~= "œÊ„Ì‰" then
+					if ListBox.GetItemText("Words", CheckV_Speed-1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", CheckV_Speed-1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", CheckV_Speed-1) ~= "œÊ„Ì‰" then
+						V_Speed = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", false);
+						if V_Speed == nil then
+							V_Speed_mh = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "m/h", "„ — »— ”«⁄ ", false);
+							if V_Speed_mh == nil then
+								V_Speed_miles = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "mile/s", "„«Ì· »— À«‰ÌÂ", false);
+								if V_Speed_miles == nil then
+									V_Speed_mileh = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "mile/h", "„«Ì· »— ”«⁄ ", false);
+								end
+							end
 						end
 					end
 				end
+				CheckV_Speed = nil
 			end
-			CheckV_Speed = nil
 		end
 	end
 	
@@ -10023,11 +10149,13 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	if t == nil and t_Min == nil and t_Hour == nil then
 		Checkt = ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰")
 		if ListBox.GetItemText("Words", Checkt+1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", Checkt+1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", Checkt+1) ~= "œÊ„Ì‰" then
-			t = Binesh.Genesis("“„«‰", "t", "", "", 1, "s", "À«‰ÌÂ", false);
-			if t == nil then
-				t_Min = Binesh.Genesis("“„«‰", "t", "", "", 1, "min", "œﬁÌﬁÂ", false);
-				if t_Min == nil then
-					t_Hour = Binesh.Genesis("“„«‰", "t", "", "", 1, "hour", "”«⁄ ", false);
+			if ListBox.GetItemText("Words", Checkt-1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", Checkt-1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", Checkt-1) ~= "œÊ„Ì‰" then
+				t = Binesh.Genesis("“„«‰", "t", "", "", 1, "s", "À«‰ÌÂ", false);
+				if t == nil then
+					t_Min = Binesh.Genesis("“„«‰", "t", "", "", 1, "min", "œﬁÌﬁÂ", false);
+					if t_Min == nil then
+						t_Hour = Binesh.Genesis("“„«‰", "t", "", "", 1, "hour", "”«⁄ ", false);
+					end
 				end
 			end
 		end
@@ -10095,13 +10223,15 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	-- 18
 	CheckSpeed_Glass = ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ")
 	if ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", CheckSpeed_Glass+1) ~= "œÊ„Ì‰" then
-		if C_Speed_Glass == nil then
-			Binesh.PreparationSearchFirsts("”—⁄ ", "Œ·«¡");
-			C_Speed_Glass = Binesh.Genesis("Œ·«¡ ”—⁄ ", "C", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", false);
-		end
-		if V_Speed_Glass == nil then
-			Binesh.PreparationSearchFirsts("”—⁄ ", "„ÕÌÿ ‘›«›");
-			V_Speed_Glass = Binesh.Genesis("”—⁄ ", "V", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", false);
+		if ListBox.GetItemText("Words", CheckSpeed_Glass-1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", CheckSpeed_Glass-1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", CheckSpeed_Glass-1) ~= "œÊ„Ì‰" then
+			if C_Speed_Glass == nil then
+				Binesh.PreparationSearchFirsts("”—⁄ ", "Œ·«¡");
+				C_Speed_Glass = Binesh.Genesis("Œ·«¡ ”—⁄ ", "C", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", false);
+			end
+			if V_Speed_Glass == nil then
+				Binesh.PreparationSearchFirsts("”—⁄ ", "„ÕÌÿ ‘›«›");
+				V_Speed_Glass = Binesh.Genesis("„ÕÌÿ ‘›«› ”—⁄ ", "V", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", false);
+			end
 		end
 	end
 	CheckSpeed_Glass = nil
@@ -10119,12 +10249,12 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	-- 21
 	if p_Lens == nil then
 		if p_Glass ~= nil then
-			p_Lens = p_Lens
+			p_Lens = p_Glass
 		end
 	end
 	if q_Lens == nil then
 		if q_Glass ~= nil then
-			q_Lens = q_Lens
+			q_Lens = q_Glass
 		end
 	end
 	
@@ -10141,7 +10271,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		if VBar_Speed == nil then
 			VBar_Speed_mh = Binesh.Genesis("”—⁄  „ Ê”ÿ", "V", "", "", 1, "m/h", "„ — »— ”«⁄ ", false);
 			if VBar_Speed_mh == nil then
-				VBar_Speed_miles = Binesh.Genesis("”—⁄  „ Ê”ÿ", "V", "", "", 1, "mile/s", "„«Ì· »— À«‰ÌÂ", false);
+			VBar_Speed_miles = Binesh.Genesis("”—⁄  „ Ê”ÿ", "V", "", "", 1, "mile/s", "„«Ì· »— À«‰ÌÂ", false);
 				if VBar_Speed_miles == nil then
 					VBar_Speed_mileh = Binesh.Genesis("”—⁄  „ Ê”ÿ", "V", "", "", 1, "mile/h", "„«Ì· »— ”«⁄ ", false);
 				end
@@ -10155,14 +10285,20 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		if x == nil then
 			x = Binesh.Genesis("Ã«»Ã«ÌÌ œÊ„Ì‰", "x", "", "", 1, "m", "„ —", false);
 		end
+		if x ~= nil then
+			_x2, x2 = x, x
+		end
 	end
 	if x0 == nil then
 		x0 = Binesh.Genesis("«Ê·Ì‰ Ã«»Ã«ÌÌ", "x0", "", "", 1, "m", "„ —", false);
 		if x0 == nil then
 			x0 = Binesh.Genesis("Ã«»Ã«ÌÌ «Ê·Ì‰", "x0", "", "", 1, "m", "„ —", false);
 		end
+		if x0 ~= nil then
+			_x1, x1 = x, x
+		end
 	end
-		
+	
 	-- 35
 	if V2_Speed == nil then
 		V2_Speed = Binesh.Genesis("œÊ„Ì‰ ”—⁄ ", "V", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", false);
@@ -10195,6 +10331,9 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	if F == nil then
 		F = Binesh.Genesis("‰Ì—Ê", "F", "", "", 1, "N", "‰ÌÊ Ê‰", false);
 	end
+	if k_Coil == nil then
+		k_Coil = Binesh.Genesis("÷—Ì» ›‰—", "k", "", "", 1, "N/m", "‰ÌÊ Ê‰ »— „ —", false, false);
+	end
 	
 	-- 44
 	
@@ -10217,10 +10356,18 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	
 	-- 49
 	if d == nil then
-		d = Binesh.Genesis("Ã«»Ã«ÌÌ", "d", "", "", 1, "m", "„ —", false);
-		if d ~= nil then
-			d_Distance = d
+		Checkd = ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ")
+		if ListBox.GetItemText("Words", Checkd+1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", Checkd+1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", Checkd+1) ~= "œÊ„Ì‰" then
+			if ListBox.GetItemText("Words", Checkd-1) ~= " €ÌÌ—" and ListBox.GetItemText("Words", Checkd-1) ~= "«Ê·Ì‰" and ListBox.GetItemText("Words", Checkd-1) ~= "œÊ„Ì‰" then
+				d = Binesh.Genesis("Ã«»Ã«ÌÌ", "d", "", "", 1, "m", "„ —", false);
+				if d ~= nil then
+					d_Distance = d
+					x0, _Deltax = d, d
+					
+				end
+			end
 		end
+		Checkd = nil
 	end
 	
 	-- 50
@@ -10650,20 +10797,19 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	-- 147
 	
 	-- 36
-	if t0 == nil then
-		if t == nil then
-			t0 = Binesh.Genesis("“„«‰", "t0", "", "", 1, "s", "À«‰ÌÂ", false); -- ç‰œ Õ«·  œ«—œ
-		else
+	if t0 == nil and t0_Min == nil and t0_Hour == nil then
+		if t ~= nil then
 			t0 = t
-		end
-		if t0 ~= nil then
-			t = t0
+		elseif t_Min ~= nil then
+			t0_Min = t_Min
+		elseif t_Hour ~= nil then
+			t0_Hour = t_Hour
 		end
 	end
 	
 	-- Deltas:
 	-- 4
-	if (_DeltaT == nil or _T1 == nil or _T2 == nil) and (_DeltaTeta == nil or _Teta1 == nil or _Teta2 == nil) and (_DeltaTF == nil or _TF1 == nil or _TF2 == nil) then
+	if _DeltaT == nil and _DeltaTeta == nil and _DeltaTF == nil then
 		_DeltaT, _T1, _T2 = Binesh.Genesis("œ„«", "T", "", "", 1, "K", "ò·ÊÌ‰", true);
 		if _DeltaT == nil or _T1 == nil or _T2 == nil then
 			_DeltaTeta, _Teta1, _Teta2 = Binesh.Genesis("œ„«", "Teta", "", "", 1, "C", "”·”ÌÊ”", true);
@@ -10674,7 +10820,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	end
 	
 	-- 32
-	if _Deltax == nil or _x1 == nil or _x2 == nil then
+	if _Deltax == nil then
 		_Deltax, _x1, _x2 = Binesh.Genesis("Ã«»Ã«ÌÌ", "x", "", "", 1, "m", "„ —", true);
 		if _x1 ~= nil then
 			x0, x1 = _x1, _x1
@@ -10683,7 +10829,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 			x, x2 = _x2, _x2
 		end
 	end
-	if _Deltat == nil or _t1 == nil or _t2 == nil then
+	if _Deltat == nil then
 		_Deltat, _t1, _t2 = Binesh.Genesis("“„«‰", "t", "", "", 1, "s", "À«‰ÌÂ", true);
 		if _t1 ~= nil then
 			t0, t1 = _t1, _t1
@@ -10694,7 +10840,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	end
 	
 	-- 66
-	if _DeltaL == nil or _L1 == nil or _L2 == nil then
+	if _DeltaL == nil then
 		if L == nil then
 			_DeltaL, _L1, _L2 = Binesh.Genesis("ÿÊ·", "L", "", "", 1, "m", "„ —", true);
 		else
@@ -10709,13 +10855,13 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	end
 	
 	-- 69
-	if _DeltaV == nil or _V1 == nil or _V2 == nil or _DeltaVL == nil or _V1lL == nil or _V2L == nil then
+	if _DeltaV == nil and _DeltaVL == nil then
 		_DeltaV, _V1, _V2 = Binesh.Genesis("ÕÃ„", "V", "", "", 1, "m^3", "„ — „ò⁄»", true);
-		if _DeltaV == nil or _V1 == nil or _V2 == nil then
+		if _DeltaV == nil then
 			_DeltaVL, _V1L, _V2L = Binesh.Genesis("ÕÃ„", "V", "", "", 1, "L", "·Ì —", true);
-			if _DeltaVL == nil or _V1L == nil or _V2L == nil then
+			if _DeltaVL == nil then
 				_DeltaVL, _V1L, _V2L = Binesh.Genesis("ÕÃ„", "V", "", "", 1, "Lit", "·Ì —", true);
-				if _DeltaVL == nil or _V1L == nil or _V2L == nil then
+				if _DeltaVL == nil then
 					_DeltaVL, _V1L, _V2L = Binesh.Genesis("ÕÃ„", "V", "", "", 1, "Liter", "·Ì —", true);
 				end
 			end
@@ -10729,18 +10875,18 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	end
 	
 	-- 75
-	if _DeltaU_In == nil or _U1_In == nil or _U2_In == nil then
+	if _DeltaU_In == nil then
 		_DeltaU_In, _U1_In, _U2_In =  Binesh.Genesis("«‰—éÌ œ—Ê‰Ì", "U", "", "", 1, "J", "éÊ·", true);
 	end
 	
 	-- 91
-	if _DeltaU == nil or _U1 == nil or _U2 == nil then
+	if _DeltaU == nil then
 		_DeltaU, _U1, _U2 =  Binesh.Genesis("«‰—éÌ Å «‰”Ì·", "U", "", "", 1, "J", "éÊ·", true);
 	end
 	
 	-- 92
-	if _DeltaV_Electric == nil or _V1_Electric == nil or _V2_Electric == nil then
-		if V0_Electric == nil and V1_Electric == nil and V_Electric == nil then
+	if _DeltaV_Electric == nil then
+		if V0_Electric == nil then
 			_DeltaV_Electric, _V1_Electric, _V2_Electric =  Binesh.Genesis("Ê· «é", "V", "", "", 1, "V", "Ê· ", true);
 			if _V1_Electric ~= nil then
 				V0_Electric, V1_Electric = _V1_Electric, _V1_Electric
@@ -10758,7 +10904,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	end
 	
 	-- 94
-	if _DeltaV_Speed == nil or _V1_Speed == nil or _V2_Speed == nil then
+	if _DeltaV_Speed == nil then
 		if ListBox.FindItem('Words', -1, LB_BYTEXT, "”—⁄  „ Ê”ÿ") == -1 and ListBox.FindItem('Words', -1, LB_BYTEXT, "VBar") == -1 then
 			_DeltaV_Speed, _V1_Speed, _V2_Speed =  Binesh.Genesis("”—⁄ ", "V", "", "", 1, "m/s", "„ — »— À«‰ÌÂ", true);
 			if _V1_Speed ~= nil then
@@ -10781,7 +10927,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	
 	
 	-- 16
-	if i == nil and i_Radian then
+	if i == nil and i_Radian == nil then
 		i = Binesh.Genesis("“«ÊÌÂ  «»‘", "i", "m", "", 1, "", "œ—ÃÂ", false);
 		if i == nil then
 			i_Radian = Binesh.Genesis("“«ÊÌÂ  «»‘", "i", "m", "", 1, "", "—«œÌ«‰", false);
@@ -10822,11 +10968,6 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	-- 22
 	if m_Zoom == nil then
 		m_Zoom = Binesh.Genesis("»“—ê ‰„«ÌÌ", "m", "", "", 1, "", "", false, false);
-	end
-	
-	-- 43
-	if k_Coil == nil then
-		k_Coil = Binesh.Genesis("÷—Ì» ›‰—", "k", "", "", 1, "", "", false, false);
 	end
 	
 	-- 47
@@ -10907,120 +11048,8 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	if c == nil then
 		c = Binesh.Genesis("Ÿ—›Ì  ê—„«", "c", "", "", 1, "", "", false, false);
 	end
-	----------- *** -------
 	
-	Binesh.Include("Formuls.1", false);
-	Binesh.Include("Formuls.2", false);
-	Binesh.Include("Formuls.1-2 EX", false);
-	Binesh.Include("Formuls.4_1", false);
-	Binesh.Include("Formuls.6", false);
-	Binesh.Include("Formuls.7", false);
-	Binesh.Include("Formuls.8_1", false);
-	Binesh.Include("Formuls.8_2", false);
-	Binesh.Include("Formuls.8_3", false);
-	Binesh.Include("Formuls.9", false);
-	Binesh.Include("Formuls.10_1", false);
-	Binesh.Include("Formuls.10_2", false);
-	Binesh.Include("Formuls.10_3", false);
-	Binesh.Include("Formuls.11", false);
-	Binesh.Include("Formuls.12", false);
-	Binesh.Include("Formuls.17", false);
-	Binesh.Include("Formuls.18", false);
-	Binesh.Include("Formuls.19", false);
-	Binesh.Include("Formuls.21", false);
-	Binesh.Include("Formuls.24", false);
-	Binesh.Include("Formuls.32", false);
-	Binesh.Include("Formuls.33", false);
-	Binesh.Include("Formuls.35", false);
-	Binesh.Include("Formuls.37", false);
-	Binesh.Include("Formuls.38", false);
-	Binesh.Include("Formuls.39", false);
-	Binesh.Include("Formuls.41", false);
-	Binesh.Include("Formuls.43", false);
-	Binesh.Include("Formuls.44", false);
-	Binesh.Include("Formuls.48", false);
-	Binesh.Include("Formuls.50", false);
-	Binesh.Include("Formuls.51", false);
-	Binesh.Include("Formuls.56", false);
-	Binesh.Include("Formuls.58", false);
-	Binesh.Include("Formuls.59", false);
-	Binesh.Include("Formuls.60", false);
-	Binesh.Include("Formuls.61", false);
-	Binesh.Include("Formuls.64", false);
-	Binesh.Include("Formuls.65", false);
-	Binesh.Include("Formuls.66", false);
-	Binesh.Include("Formuls.69", false);
-	Binesh.Include("Formuls.73", false);
-	Binesh.Include("Formuls.74", false);
-	Binesh.Include("Formuls.75", false);
-	Binesh.Include("Formuls.76", false);
-	Binesh.Include("Formuls.77_1", false);
-	Binesh.Include("Formuls.77_2", false);
-	Binesh.Include("Formuls.78_1", false);
-	Binesh.Include("Formuls.78_2", false);
-	Binesh.Include("Formuls.79_1", false);
-	Binesh.Include("Formuls.79_2", false);
-	Binesh.Include("Formuls.81", false);
-	Binesh.Include("Formuls.82_1", false);
-	Binesh.Include("Formuls.82_2", false);
-	Binesh.Include("Formuls.83_1", false);
-	Binesh.Include("Formuls.83_2", false);
-	Binesh.Include("Formuls.84", false);
-	Binesh.Include("Formuls.85", false);
-	Binesh.Include("Formuls.86", false);
-	Binesh.Include("Formuls.87", false);
-	Binesh.Include("Formuls.88", false);
-	Binesh.Include("Formuls.90", false);
-	Binesh.Include("Formuls.91", false);
-	Binesh.Include("Formuls.92", false);
-	Binesh.Include("Formuls.93_1", false);
-	Binesh.Include("Formuls.93_2", false);
-	Binesh.Include("Formuls.94_1", false);
-	Binesh.Include("Formuls.94_2", false);
-	Binesh.Include("Formuls.95", false);
-	Binesh.Include("Formuls.97_1", false);
-	Binesh.Include("Formuls.97_2", false);
-	Binesh.Include("Formuls.97_3", false);
-	Binesh.Include("Formuls.102", false);
-	Binesh.Include("Formuls.111", false);
-	Binesh.Include("Formuls.112", false);
-	Binesh.Include("Formuls.114_1", false);
-	Binesh.Include("Formuls.114_2", false);
-	Binesh.Include("Formuls.114_3", false);
-	Binesh.Include("Formuls.118", false);
-	Binesh.Include("Formuls.123", false);
-	Binesh.Include("Formuls.126", false);
-	Binesh.Include("Formuls.128", false);
-	Binesh.Include("Formuls.129", false);
-	Binesh.Include("Formuls.130", false);
-	Binesh.Include("Formuls.131", false);
-	Binesh.Include("Formuls.132", false);
-	Binesh.Include("Formuls.137", false);
-	Binesh.Include("Formuls.139", false);
-	Binesh.Include("Formuls.140", false);
-	Binesh.Include("Formuls.141", false);
-	Binesh.Include("Formuls.142_1", false);
-	Binesh.Include("Formuls.142_2", false);
-	Binesh.Include("Formuls.142_3", false);
-	Binesh.Include("Formuls.143", false);
-	Binesh.Include("Formuls.144", false);
-	Binesh.Include("Formuls.145", false);
-	Binesh.Include("Formuls.146", false);
-	Binesh.Include("Formuls.147", false);
-	
-	-- DONT MOVE IT: --
-	Binesh.Include("Formuls.5", false);
-	Binesh.Include("Formuls.13_1", false);
-	Binesh.Include("Formuls.13_2", false);
-	Binesh.Include("Formuls.20", false);
-	Binesh.Include("Formuls.22_1", false);
-	Binesh.Include("Formuls.22_2", false);
-	Binesh.Include("Formuls.36", false);
-	Binesh.Include("Formuls.47_1", false);
-	Binesh.Include("Formuls.47_2", false);
-	Binesh.Include("Formuls.49", false);
-	
-	Binesh.Include("ShowVars", false)
+	Page.ClickObject("xButton1");
 	
 	Web.Refresh("Web1");
 	Web.Refresh("Web2");
@@ -11032,8 +11061,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>260</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>275</DesignCodeLine>
+<DesignCodeCol>5</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11170,6 +11199,241 @@ end</Script>
 <MouseOverSoundMode>0</MouseOverSoundMode>
 <MouseClickSound/>
 <MouseClickSoundMode>0</MouseClickSoundMode>
+</Object>
+<Object>
+<Type>20</Type>
+<Name>xButton1</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>0</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>0</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>611</Top>
+<Bottom>634</Bottom>
+<Left>664</Left>
+<Right>739</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script>Binesh.F1()
+Binesh.F2()
+Binesh.F1_2EX()
+Binesh.F4_1()
+Binesh.F6()
+Binesh.F7()
+Binesh.F8_1()
+Binesh.F8_2()
+Binesh.F8_3()
+Binesh.F9()
+Binesh.F10_1()
+Binesh.F10_2()
+Binesh.F10_3()
+Binesh.F11()
+Binesh.F12()
+Binesh.F16()
+Binesh.F17()
+Binesh.F18()
+Binesh.F19()
+Binesh.F20()
+Binesh.F21()
+Binesh.F24()
+Binesh.F32()
+Binesh.F33()
+Binesh.F35()
+Binesh.F37()
+Binesh.F38()
+Binesh.F39()
+Binesh.F41()
+Binesh.F43()
+Binesh.F44()
+Binesh.F48()
+Binesh.F50()
+Binesh.F51()
+Binesh.F55()
+Binesh.F56()
+Binesh.F58()
+Binesh.F59()
+Binesh.F60()
+Binesh.F61()
+Binesh.F64()
+Binesh.F65()
+Binesh.F66()
+Binesh.F69()
+Binesh.F73()
+Binesh.F74()
+Binesh.F75()
+Binesh.F76()
+Binesh.F77_1()
+Binesh.F77_2()
+Binesh.F78_1()
+Binesh.F78_2()
+Binesh.F79_1()
+Binesh.F79_2()
+Binesh.F81()
+Binesh.F82_1()
+Binesh.F82_2()
+Binesh.F83_1()
+Binesh.F83_2()
+Binesh.F84()
+Binesh.F85()
+Binesh.F86()
+Binesh.F87()
+Binesh.F88()
+Binesh.F90()
+Binesh.F91()
+Binesh.F92()
+Binesh.F93_1()
+Binesh.F93_2()
+Binesh.F94_1()
+Binesh.F94_2()
+Binesh.F95()
+Binesh.F97_1()
+Binesh.F97_2()
+Binesh.F97_3()
+Binesh.F102()
+Binesh.F111()
+Binesh.F112()
+Binesh.F114_1()
+Binesh.F114_2()
+Binesh.F114_3()
+Binesh.F118()
+Binesh.F123()
+Binesh.F126()
+Binesh.F128()
+Binesh.F129()
+Binesh.F130()
+Binesh.F131()
+Binesh.F132()
+Binesh.F133()
+Binesh.F134()
+Binesh.F137()
+Binesh.F139()
+Binesh.F140()
+Binesh.F141()
+Binesh.F142_1()
+Binesh.F142_2()
+Binesh.F142_3()
+Binesh.F143()
+Binesh.F144()
+Binesh.F145()
+Binesh.F146()
+Binesh.F147()
+
+-- DONT MOVE IT: --
+Binesh.F5()
+Binesh.F13_1()
+Binesh.F13_2()
+Binesh.F22_1()
+Binesh.F22_2()
+Binesh.F36()
+Binesh.F47_1()
+Binesh.F47_2()
+Binesh.F49()</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>104</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Right-Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Hyperlink</Name>
+<Args>string e_Hyperlink</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<Options>
+<Text>Click Here</Text>
+<TextColor format="hex">000000</TextColor>
+<EnableMarkup>0</EnableMarkup>
+<ButtonImage/>
+<TextAlignment>2</TextAlignment>
+<ImageAlignment>0</ImageAlignment>
+<ImageTextRelation>3</ImageTextRelation>
+<Theme>6</Theme>
+<Style>0</Style>
+<State>0</State>
+<MouseOverSoundMode>0</MouseOverSoundMode>
+<MouseOverSound/>
+<MouseClickSoundMode>0</MouseClickSoundMode>
+<MouseClickSound/>
+</Options>
+<FontData>
+<FontName>Segoe UI</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-12</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
 </Object>
 <HGuidelines/>
 <VGuidelines/>
@@ -37536,7 +37800,11 @@ end</Script>
 	Label.SetVisible("Label2", false);
 	Plugin.SetVisible("Plugin1", false);
 	if String.Find(Input.GetText("Input1"), "^", 1, false) == -1 then
-		Input.SetText("Input2", Math.Ceil(Input.GetText("Input1")));
+		if Math.Floor(Input.GetText("Input1"))*10 &lt; 5 then
+			Input.SetText("Input2", Math.Floor(Input.GetText("Input1")));
+		else
+			Input.SetText("Input2", Math.Ceil(Input.GetText("Input1")));
+		end
 	else
 		nums = AMS.DelimitedStringToTable(Input.GetText("Input1"), "*10^");
 		Input.SetText("Input2", Math.Ceil(tonumber(nums[1])).."*10^"..nums[2]);
@@ -37553,8 +37821,8 @@ SaveZarib()</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>11</DesignCodeLine>
+<DesignCodeCol>35</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
