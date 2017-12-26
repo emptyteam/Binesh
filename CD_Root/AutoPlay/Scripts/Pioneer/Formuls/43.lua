@@ -81,7 +81,7 @@ function Binesh.F43()
 			Binesh.AddToHTML("F = -"..k_Coil.."*".._Deltax.." &#8658; F = "..F.." N")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("k: "..k_Coil.."N/m", "V")
+			Binesh.AddToHTML("k: "..k_Coil.." N/m", "V")
 			Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
 			Binesh.AddToHTML("F: ?", "V")
 			
@@ -94,12 +94,12 @@ function Binesh.F43()
 	end
 	
 	Findk_Coil = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "÷—Ì» ›‰—");
-	if Findm ~= -1 and ListBox.GetItemData("unknowns", Findm) == "m" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
+	if Findk_Coil ~= -1 and ListBox.GetItemData("unknowns", Findk_Coil) == "k" and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ›‰—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "k") ~= -1 then
 		if F ~= nil and _Deltax ~= nil then
 			Binesh.CreateHTMLFile("F = -kDeltax", "k = - <span>F/Deltax</span>")
-			k_Coil = -F*_Deltax
+			k_Coil = -F/_Deltax
 			
-			Binesh.AddToHTML("k = - <span>"..F.."/".._Deltax.."</span> &#8658; k = "..k_Coil.."N/m")
+			Binesh.AddToHTML("k = - <span>"..F.."/".._Deltax.."</span> &#8658; k = "..k_Coil.." N/m")
 			Web.Refresh("Web1");
 			
 			Binesh.AddToHTML("F: "..F.." N", "V")
@@ -114,7 +114,7 @@ function Binesh.F43()
 		end
 	end
 	
-	FindDeltax = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ");
+	FindDeltax = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ã«»Ã«ÌÌ");
 	if FindDeltax ~= -1 and ListBox.GetItemData("unknowns", FindDeltax) == "Deltax" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ Ã«»Ã«ÌÌ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltax") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x2") ~= -1) then
 		if F ~= nil and k_Coil ~= nil then
 			Binesh.CreateHTMLFile("F = -kDeltax", "Deltax = - <span>F/k</span>")
@@ -124,7 +124,7 @@ function Binesh.F43()
 			Web.Refresh("Web1");
 			
 			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("k: "..k_Coil.."N/m", "V")
+			Binesh.AddToHTML("k: "..k_Coil.." N/m", "V")
 			Binesh.AddToHTML("Deltax: ?", "V")
 			
 			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ã«»Ã«ÌÌ");
