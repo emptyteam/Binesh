@@ -99,8 +99,12 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "„ò«‰", "Ã«»Ã«ÌÌ", false);
 		result = String.Replace(result, "À«» ", "÷—Ì»", false);
 		result = String.Replace(result, "‘Ì", "Ã”„", false);
+		result = String.Replace(result, "Ã‰»Ã”„", "Ã‰»‘Ì", false);
 		result = String.Replace(result, "‰Ê—Ì ", "‰Ê— ", false);
 		result = String.Replace(result, "‰Ê—", "„ÕÌÿ ‘›«›", false);
+		result = String.Replace(result, "Liter", "L", false);
+		result = String.Replace(result, "Lit", "L", false);
+		result = String.Replace(result, "éÊ·Ì", "éÊ·", false);
 		
 		result = String.Replace(result, "f s", "fs,max", false);
 		result = String.Replace(result, "fs ,max", "fs,max", false);
