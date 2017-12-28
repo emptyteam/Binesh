@@ -15,7 +15,7 @@ function Binesh.F97_1()
 	end
 	
 	FindU = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÇäÑŽí");
-	if FindU ~= -1 and ListBox.GetItemData("unknowns", FindU) == "U" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
+	if FindU ~= -1 and ListBox.GetItemData("unknowns", FindU) == "K" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
 		if V_Electric ~= nil and C_Condenser ~= nil then
 			Binesh.CreateHTMLFile("U = <span>1/2</span>CV<sup>2</sup>")
 			U = 0.5*C_Condenser*V_Electric^2

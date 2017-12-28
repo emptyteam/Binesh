@@ -91,10 +91,10 @@ function Binesh.F39()
 	FindV0_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ");
 	if FindV0_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV0_Speed) == "V0" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V0") ~= -1 then
 		if x ~= nil and t ~= nil and a ~= nil and x0 ~= nil then
-			Binesh.CreateHTMLFile("x = <span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>", "V<sub>0</sub> = <span>2x-2x<sub>0</sub>-at<sup>2</sup>/2t</span>")
-			V0_Speed = 2*x-2*x0-a*t^2/(2*t)
+			Binesh.CreateHTMLFile("x = <span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>", "V<sub>0</sub> = <span>(x-x<sub>0</sub>)-(0.5*at<sup>2</sup>)/t</span>")
+			V0_Speed = ((x-x0)-(0.5*a*t^2))/t
 			
-			Binesh.AddToHTML("V<sub>0</sub> = <span>2*"..x.."-2*"..x0.."-"..a.."*"..t.."<sup>2</sup>/2*"..t.."</span> &#8658; V<sub>0</sub> = "..V0_Speed.." m/s")
+			Binesh.AddToHTML("V<sub>0</sub> = <span>("..x.."-"..x0..")-(0.5*"..a.."*"..t..")<sup>2</sup>/"..t.."</span> &#8658; V<sub>0</sub> = "..V0_Speed.." m/s")
 			Web.Refresh("Web1");
 			
 			Binesh.AddToHTML("x: "..x.." m", "V")
@@ -114,10 +114,10 @@ function Binesh.F39()
 	Findx0 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ Ã«»Ã«ÌÌ");
 	if Findx0 ~= -1 and ListBox.GetItemData("unknowns", Findx0) == "x0" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x0") ~= -1 then
 		if a ~= nil and t ~= nil and V0_Speed ~= nil and x ~= nil then
-			Binesh.CreateHTMLFile("x = <span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>", "x<sub>0</sub> = -<span>1/2</span>at<sup>2</sup>-V<sub>0</sub>t+x")
-			x0 = -0.5*a*t^2-V0_Speed*t+x
+			Binesh.CreateHTMLFile("x = <span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t+x<sub>0</sub>", "x<sup>0</sub> = x-<span>1/2</span>at<sup>2</sup>-V<sub>0</sub>t")
+			x0 = x-(0.5*a*t^2)-(V0_Speed*t)
 			
-			Binesh.AddToHTML("x<sub>0</sub> = -<span>1/2</span>"..a.."*"..t.."<sup>2</sup>-"..V0_Speed.."*"..t.."+"..x.." &#8658; x<sub>0</sub> = "..x0.." m")
+			Binesh.AddToHTML("x<sub>0</sub> = "..x.."-<span>1/2</span>"..a.."*"..t.."<sup>2</sup>-"..V0_Speed.."*"..t.." &#8658; x<sub>0</sub> = "..x0.." m")
 			Web.Refresh("Web1");
 			
 			Binesh.AddToHTML("x: "..x.." m", "V")

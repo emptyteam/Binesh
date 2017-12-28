@@ -16,12 +16,12 @@ function Binesh.F97_2()
 	end
 	
 	FindU = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÇäÑŽí");
-	if FindU ~= -1 and ListBox.GetItemData("unknowns", FindU) == "U" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
+	if FindU ~= -1 and ListBox.GetItemData("unknowns", FindU) == "K" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
 		if q ~= nil and C_Condenser ~= nil then
 			Binesh.CreateHTMLFile("U = <span>1/2</span><span>q<sup>2</sup>/C</span>")
-			U = 0.5*(q^2*C_CondenserC)
+			U = 0.5*(q^2*C_Condenser)
 			
-			Binesh.AddToHTML("U = <span>1/2</span>*<span>"..q.."<sup>2</sup>/"..C_Condenser.."<span> &#8658; U = "..U.." J")
+			Binesh.AddToHTML("U = <span>1/2</span>*<span>"..q.."<sup>2</sup>/"..C_Condenser.."</span> &#8658; U = "..U.." J")
 			Web.Refresh("Web1");
 			
 			Binesh.AddToHTML("C: "..C_Condenser.." F", "V")
@@ -67,7 +67,7 @@ function Binesh.F97_2()
 			Web.Refresh("Web1");
 			
 			Binesh.AddToHTML("U: "..U.." J", "V")
-			Binesh.AddToHTML("C: "..C_Condense.." F", "V")
+			Binesh.AddToHTML("C: "..C_Condenser.." F", "V")
 			Binesh.AddToHTML("q: ?", "V")
 			
 			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÐÑå");

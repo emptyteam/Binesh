@@ -46,7 +46,7 @@ function Binesh.F95()
 			Binesh.AddToHTML("q = "..C_Condenser.."*"..V_Electric.."&#8658; q = "..q.." C")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("C: "..C_Condenser.." C", "V")
+			Binesh.AddToHTML("C: "..C_Condenser.." F", "V")
 			Binesh.AddToHTML("V: "..V_Electric.." V", "V")
 			Binesh.AddToHTML("q: ?", "V")
 			
@@ -67,8 +67,8 @@ function Binesh.F95()
 			Binesh.AddToHTML("V = <span>"..q.."/"..C_Condenser.."</span> &#8658; V = "..V_Electric.." V")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("C: "..C_Condenser.." C", "V")
-			Binesh.AddToHTML("U: "..U.." J", "V")
+			Binesh.AddToHTML("q: "..q.." C", "V")
+			Binesh.AddToHTML("C: "..C_Condenser.." F", "V")
 			Binesh.AddToHTML("V: ?", "V")
 			
 			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ê· «é");

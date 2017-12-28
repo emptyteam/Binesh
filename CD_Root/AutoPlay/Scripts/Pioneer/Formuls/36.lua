@@ -1,5 +1,5 @@
 function Binesh.F36()
-	--[[if t0 == nil then
+	if t0 == nil then
 		Binesh.AddUnknown("“„«‰", "t0")
 	end
 	
@@ -73,5 +73,5 @@ function Binesh.F36()
 				ListBox.DeleteItem("unknowns", unknownPersianindex);
 			end
 		end
-	end]]
+	end
 end

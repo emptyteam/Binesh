@@ -39,7 +39,7 @@ function Binesh.F86()
 	end
 	
 	Findq1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ –—Â");
-	if Findq1 ~= -1 and ListBox.GetItemData("unknowns", Findq1) == "q1" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q1") ~= -1 then
+	if Findq1 ~= -1 and ListBox.GetItemData("unknowns", Findq1) == "q1" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q1") ~= -1 then
 		if F ~= nil and q2 ~= nil and r_3 ~= nil then
 			q1 = F*r_3^2/(9*10^9*Math.Abs(q2))
 			
@@ -61,7 +61,7 @@ function Binesh.F86()
 	end
 	
 	Findq2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ –—Â");
-	if Findq2 ~= -1 and ListBox.GetItemData("unknowns", Findq2) == "q2" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q2") ~= -1 then
+	if Findq2 ~= -1 and ListBox.GetItemData("unknowns", Findq2) == "q2" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q2") ~= -1 then
 		if F ~= nil and r_3 ~= nil and q1 ~= nil then
 			q2 = F*r_3^2/(9*10^9*Math.Abs(q1))
 			

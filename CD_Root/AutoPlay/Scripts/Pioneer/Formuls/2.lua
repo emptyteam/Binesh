@@ -12,7 +12,7 @@ function Binesh.F2()
 	end
 	
 	FindU = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÇäÑŽí");
-	if FindU ~= -1 and ListBox.GetItemData("unknowns", FindU) == "U" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
+	if FindU ~= -1 and ListBox.GetItemData("unknowns", FindU) == "K" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
 		if m ~= nil and h ~= nil then
 			Binesh.CreateHTMLFile("U = mgh")
 			U = m*9.8*h

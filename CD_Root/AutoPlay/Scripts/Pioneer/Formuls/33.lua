@@ -16,7 +16,7 @@ function Binesh.F33()
 	end
 	
 	Findx = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ Ã«»Ã«ÌÌ");
-	if Findx ~= -1 and ListBox.GetItemData("unknowns", Findx) == "x" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x") ~= -1 then
+	if Findx ~= -1 and ListBox.GetItemData("unknowns", Findx) == "x" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x") ~= -1 then
 		if V_Speed ~= nil and t ~= nil and x0 ~= nil then
 			Binesh.CreateHTMLFile("x = V*t+x<sub>0</sub>")
 			x = V_Speed*t + x0
@@ -82,7 +82,7 @@ function Binesh.F33()
 	end
 	
 	Findx0 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ Ã«»Ã«ÌÌ");
-	if Findx0 ~= -1 and ListBox.GetItemData("unknowns", Findx0) == "x0" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "X0") ~= -1 then
+	if Findx0 ~= -1 and ListBox.GetItemData("unknowns", Findx0) == "x0" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "X0") ~= -1 then
 		if x ~= nil and V_Speed ~= nil and t ~= nil then
 			Binesh.CreateHTMLFile("x = V*t+x<sub>0</sub>", "x<sub>0</sub> = x-V*t")
 			x0 = x-V_Speed*t

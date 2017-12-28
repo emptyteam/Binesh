@@ -12,7 +12,7 @@ function Binesh.F97_3()
 	end
 	
 	FindU = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«‰—éÌ");
-	if FindU ~= -1 and ListBox.GetItemData("unknowns", FindU) == "U" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
+	if FindU ~= -1 and ListBox.GetItemData("unknowns", FindU) == "K" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
 		if V_Electric ~= nil and q ~= nil then
 			Binesh.CreateHTMLFile("U = <span>1/2</span>qV")
 			U = 0.5*q*V_Electric
@@ -57,14 +57,14 @@ function Binesh.F97_3()
 	if FindV_Electric ~= -1 and ListBox.GetItemData("unknowns", FindV_Electric) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
 		if U ~= nil and q ~= nil then
 			Binesh.CreateHTMLFile("U = <span>1/2</span>qV", "V = <span>2U/q</span>")
-			V_Electric = Math.Sqrt(2*U/q)
+			V_Electric = (2*U/q)
 			
 			Binesh.AddToHTML("U: "..U.." J", "V")
 			Binesh.AddToHTML("q: "..q.." C", "V")
 			Binesh.AddToHTML("V: ?", "V")
 			
-			
-			Binesh.AddToHTML("V = Sqrt(2*"..U.."/"..q..") &#8658; V = "..V_Speed.." m/s")
+
+			Binesh.AddToHTML("V = Sqrt(2*"..U.."/"..q..") &#8658; V = "..V_Electric.." V")
 			Web.Refresh("Web1");
 			
 			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "Ê· «é");

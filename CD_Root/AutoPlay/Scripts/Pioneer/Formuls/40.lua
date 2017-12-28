@@ -1,4 +1,16 @@
-function Binesh.F41()
+function Binesh.F40()
+	if V_Speed == nil then
+		Binesh.AddUnknown("œÊ„Ì‰ ”—⁄ ", "V")
+	end
+	
+	if V0_Speed == nil then
+		Binesh.AddUnknown("«Ê·Ì‰ ”—⁄ ", "V0")
+	end
+	
+	if a == nil then
+		Binesh.AddUnknown("‘ «»", "a")
+	end
+	
 	if _Deltax == nil then
 		Binesh.AddUnknown(" €ÌÌ— Ã«»Ã«ÌÌ", "Deltax")
 	end
@@ -9,14 +21,6 @@ function Binesh.F41()
 	
 	if _x2 == nil then
 		Binesh.AddUnknown("œÊ„Ì‰ Ã«»Ã«ÌÌ", "x2")
-	end
-	
-	if V0_Speed == nil then
-		Binesh.AddUnknown("«Ê·Ì‰ ”—⁄ ", "V0")
-	end
-	
-	if a == nil then
-		Binesh.AddUnknown("‘ «»", "a")
 	end
 	
 	--------------------------{DELTA}--------------------------
@@ -72,21 +76,22 @@ function Binesh.F41()
 	end
 	--------------------------END {DELTA}--------------------------
 	
-	FindDeltax = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ã«»Ã«ÌÌ");
-	if FindDeltax ~= -1 and ListBox.GetItemData("unknowns", FindDeltax) == "Deltax" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ Ã«»Ã«ÌÌ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltax") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x2") ~= -1) then
-		if a ~= nil and V0_Speed ~= nil then
-			Binesh.CreateHTMLFile("Deltax = <span>V<sub>0</sub><sup>2</sup>/2a</span>")
-		    _Deltax = (V0_Speed^2)/(2*a)
-			Binesh.AddToHTML("Deltax = <span>"..V0_Speed.."<sup>2</sup>/2*"..a.."</span> &#8658; Deltax = ".._Deltax.." m")
+	FindV_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ");
+	if FindV_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV_Speed) == "V" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then 
+		if V0_Speed ~= nil and a ~= nil and _Deltax ~= nil then
+			Binesh.CreateHTMLFile("V<sup>2</sup>-V<sub>0</sub><sup>2</sup> = 2aDeltax", "V = Sqrt((2aDeltax)/V<sub>0</sub><sup>2</sup>)")
+			V_Speed = Math.Sqrt((2*a*_Deltax)/V0_Speed^2);
+			Binesh.AddToHTML("V = sqrt((2*"..a.."*".._Deltax..")/"..V0_Speed.."<sup>2</sup>)</span> &#8658; V = "..V_Speed.." m/s")
 			
 			Web.Refresh("Web1");
 			
 			Binesh.AddToHTML("V<sub>0</sub>: "..V0_Speed.." m/s", "V")
 			Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
-			Binesh.AddToHTML("Deltax: ?", "V")
-			
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ã«»Ã«ÌÌ");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Deltax");
+			Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
+			Binesh.AddToHTML("V: ?", "V")
+				
+			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ");
+			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "V");
 			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 				ListBox.DeleteItem("unknowns", unknownPersianindex);
 			end
@@ -95,15 +100,16 @@ function Binesh.F41()
 	
 	FindV0_Speed = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ");
 	if FindV0_Speed ~= -1 and ListBox.GetItemData("unknowns", FindV0_Speed) == "V0" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V0") ~= -1 then 
-		if a ~= nil and _Deltax ~= nil then
-			Binesh.CreateHTMLFile("Deltax = <span>V<sub>0</sub><sup>2</sup>/2a</span>", " V<sub>0</sub> = sqrt(2aDeltax)")
-			V0_Speed = Math.Sqrt(2*a*_Deltax);
-			Binesh.AddToHTML("V<sub>0</sub> = sqrt(2*"..a.."*".._Deltax..")</span> &#8658; V<sub>0</sub> = "..V0_Speed.." m/s")
+		if V_Speed ~= nil and a ~= nil and _Deltax ~= nil then
+			Binesh.CreateHTMLFile("V<sup>2</sup>-V<sub>0</sub><sup>2</sup> = 2aDeltax", "V<sub>0</sub><sup>2</sup> = Sqrt((2aDeltax)/V<sup>2</sup>)")
+			V0_Speed = Math.Sqrt((2*a*_Deltax)/V_Speed^2);
+			Binesh.AddToHTML("V<sub>0</sub> = sqrt((2*"..a.."*".._Deltax..")/"..V.."<sup>2</sup>)</span> &#8658; V<sub>0</sub> = "..V0_Speed.." m/s")
 			
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
+			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
 			Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
 			Binesh.AddToHTML("V<sub>0</sub>: ?", "V")
 				
 			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ");
@@ -116,19 +122,42 @@ function Binesh.F41()
 	
 	Finda = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘ «»");
 	if Finda ~= -1 and ListBox.GetItemData("unknowns", Finda) == "a" and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then
-		if V0_Speed ~= nil and _Deltax ~= nil then
-			Binesh.CreateHTMLFile("Deltax = <span>V<sub>0</sub><sup>2</sup>/2a</span>", "a = <span>V<sub>0</sub><sup>2</sup>/2Deltax</span>")
-			a = V0_Speed^2/(2*_Deltax)
-			Binesh.AddToHTML("a = <span>"..V0_Speed.."<sup>2</sup>/2*".._Deltax.."</span> &#8658; a = "..a.." m/s<sup>2</sup>")
+		if V_Speed ~= nil and V0_Speed ~= nil and _Deltax ~= nil then
+			Binesh.CreateHTMLFile("V<sup>2</sup>-V<sub>0</sub><sup>2</sup> = 2aDeltax", "a = <span>V<sup>2</sup>-V<sub>0</sub><sup>2</sup>/2Deltax</span>")
+			a = ((V_Speed^2)-(V0_Speed^2))/(2*_Deltax)
+			Binesh.AddToHTML("a = <span>"..V_Speed.."<sup>2</sup>-"..V0_Speed.."<sup>2</sup>/2*".._Deltax.."</span> &#8658; a = "..a.." m/s<sup>2</sup>")
 			
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
+			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
 			Binesh.AddToHTML("V<sub>0</sub>: "..V0_Speed.." m/s", "V")
+			Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
 			Binesh.AddToHTML("a: ?", "V")
 			
 			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "‘ «»");
 			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "a");
+			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
+				ListBox.DeleteItem("unknowns", unknownPersianindex);
+			end
+		end
+	end
+	
+	FindDeltax = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ã«»Ã«ÌÌ");
+	if FindDeltax ~= -1 and ListBox.GetItemData("unknowns", FindDeltax) == "Deltax" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ Ã«»Ã«ÌÌ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltax") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x2") ~= -1) then
+		if V ~= nil and V0_Speed ~= nil and a ~= nil then
+			Binesh.CreateHTMLFile("V<sup>2</sup>-V<sub>0</sub><sup>2</sup> = 2aDeltax", "Deltax = V<sup>2</sup>-V<sub>0</sub><sup>2</sup>/2a")
+		    _Deltax = ((V^2) - (V0_Speed^2)) / (2*a)
+			Binesh.AddToHTML("Deltax = <span>"..V0_Speed.."<sup>2</sup>/2*"..a.."</span> &#8658; Deltax = ".._Deltax.." m")
+			
+			Web.Refresh("Web1");
+			
+			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+			Binesh.AddToHTML("V<sub>0</sub>: "..V0_Speed, "V")
+			Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("Deltax: ?", "V")
+			
+			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— Ã«»Ã«ÌÌ");
+			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Deltax");
 			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
 				ListBox.DeleteItem("unknowns", unknownPersianindex);
 			end
