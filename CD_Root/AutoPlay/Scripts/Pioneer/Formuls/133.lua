@@ -48,7 +48,7 @@ function Binesh.F133()
 	end
 	
 	FindI1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ Ã—Ì«‰");
-	if FindI1 ~= -1 and ListBox.GetItemData("unknowns", FindI1) == "I1" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I1") ~= -1 then
+	if FindI1 ~= -1 and ListBox.GetItemData("unknowns", FindI1) == "I1" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰ «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I1") ~= -1 then
 		if F ~= nil and l ~= nil and I2 ~= nil and d_Distance ~= nil then
 			Binesh.CreateHTMLFile("F = <span>Mu<sub>0</sub>/2Pi</span>*<span>I<sub>1</sub>I<sub>2</sub>/d</span>*l", "I<sub>1</sub> = <span>2PidF/Mu<sub>0</sub>I<sub>2</sub>L</span>")
 			I1 = d_Distance*F/(2*10^-7*I2*l)
@@ -71,7 +71,7 @@ function Binesh.F133()
 	end
 	
 	FindI2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ Ã—Ì«‰");
-	if FindI2 ~= -1 and ListBox.GetItemData("unknowns", FindI2) == "I2" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I2") ~= -1 then
+	if FindI2 ~= -1 and ListBox.GetItemData("unknowns", FindI2) == "I2" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰ œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I2") ~= -1 then
 		if F ~= nil and l ~= nil and I1 ~= nil and d_Distance ~= nil then
 			Binesh.CreateHTMLFile("F = <span>Mu<sub>0</sub>/2Pi</span>*<span>I<sub>1</sub>I<sub>2</sub>/d</span>*l", "I<sub>2</sub> = <span>2PidF/Mu<sub>0</sub>I<sub>1</sub>L</span>")
 			I2 = d_Distance*F/(2*10^-7*I1*l)

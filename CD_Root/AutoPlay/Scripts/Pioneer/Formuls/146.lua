@@ -36,7 +36,7 @@ function Binesh.F146()
 	end
 	
 	FindL1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ ÿÊ·");
-	if FindL1 ~= -1 and ListBox.GetItemData("unknowns", FindL1) == "L" then
+	if FindL1 ~= -1 and ListBox.GetItemData("unknowns", FindL1) == "L" and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ÿÊ·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÿÊ· «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L1") ~= -1 then
 		if L2 ~= nil and M_Injection ~= nil then
 			Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>*L<sub>2</sub>)", "L<sub>1</sub> = <span>M<sup>2</sup>/L<sub>2</sub></span>")
 			L1 = M^2/L2
@@ -57,7 +57,7 @@ function Binesh.F146()
 	end
 	
 	FindL2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ ÿÊ·");
-	if FindL2 ~= -1 and ListBox.GetItemData("unknowns", FindL2) == "L2" then
+	if FindL2 ~= -1 and ListBox.GetItemData("unknowns", FindL2) == "L2" and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ÿÊ·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÿÊ· œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L2") ~= -1 then
 		if M_Injection ~= nil and L2 ~= nil then
 			Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>*L<sub>2</sub>)", "L<sub>2</sub> = <span>M<sup>2</sup>/L<sub>1</sub></span>")
 			L2 = M^2/L1
