@@ -27,59 +27,6 @@ function Binesh.F38_1()
 		Binesh.AddUnknown("œÊ„Ì‰ “„«‰", "t2")
 	end
 	
-	--------------------------{DELTA}--------------------------
-	FindDeltat = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— “„«‰");
-	if FindDeltat ~= -1 and ListBox.GetItemData("unknowns", FindDeltat) == "Deltat" then
-		if _t1 ~= nil and _t2 ~= nil then
-			Binesh.CreateHTMLFile("Deltax = t<sub>2</sub>-t<sub>1</sub>")
-			_Deltat = _t2 - _t1
-			Binesh.AddToHTML("Deltat = ".._t2.."-".._t1.." &#8658; Deltat = ".._Deltat.." s")
-			Binesh.AddToHTML("<br>") -- Create ENTER in HTML
-			Web.Refresh("Web1");
-				
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— “„«‰");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Deltat");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
-		end
-	end
-	
-	Findt1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ “„«‰");
-	if Findt1 ~= -1 and ListBox.GetItemData("unknowns", Findt1) == "t1" then
-		if _Deltat ~= nil and _t2 ~= nil then
-			Binesh.CreateHTMLFile("Deltat = t<sub>2</sub>-t<sub>1</sub>", "t<sub>1</sub> = t<sub>2</sub>-Deltat")
-			_t1 = _t2-_Deltat
-			Binesh.AddToHTML("t<sub>1</sub> = ".._t2.."-".._Deltat.." &#8658; t<sub>1</sub> = ".._t1.." s")
-			Binesh.AddToHTML("<br>") -- Create ENTER in HTML
-			Web.Refresh("Web1");
-				
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ “„«‰");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "t1");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
-		end
-	end
-	
-	Findt2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ “„«‰");
-	if Findt2 ~= -1 and ListBox.GetItemData("unknowns", Findt2) == "t2" then
-		if _Deltat ~= nil and _t1 ~= nil then
-			Binesh.CreateHTMLFile("Deltat = t<sub>2</sub>-t<sub>1</sub>", "t<sub>2</sub> = Deltat+t<sub>1</sub>")
-			_t2 = _t1+_Deltat
-			Binesh.AddToHTML("t<sub>2</sub> = ".._Deltat.."+".._t1.." &#8658; t<sub>2</sub> = ".._t2.." s")
-			Binesh.AddToHTML("<br>") -- Create ENTER in HTML
-			Web.Refresh("Web1");
-				
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ “„«‰");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "t2");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
-		end
-	end
-	--------------------------END {DELTA}--------------------------
-	
 	FindDeltat = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— “„«‰");
 	if FindDeltat ~= -1 and ListBox.GetItemData("unknowns", FindDeltat) == "Deltat" and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltat") ~= -1 then
 		if V2_Speed ~= nil and V1_Speed ~= nil and _Deltax ~= nil then
