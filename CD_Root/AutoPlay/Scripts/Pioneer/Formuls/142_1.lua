@@ -1,14 +1,5 @@
 function Binesh.F142_1()
-	if Omega == nil then
-		Binesh.AddUnknown("ÓÑÚÊ ÒÇæíå", "Omega")
-	end
-	
-	if T_141 == nil then
-		Binesh.AddUnknown("ÏæÑÇä", "T")
-	end
-	
-	FindOmega = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÓÑÚÊ ÒÇæíå");
-	if FindOmega ~= -1 and ListBox.GetItemData("unknowns", FindOmega) == "Omega" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Omega") ~= -1 then
+	if Omega == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Omega") ~= -1 then
 		if T_141 ~= nil then
 			Binesh.CreateHTMLFile("Omega = <span>2Pi/T</span>")
 			
@@ -18,17 +9,10 @@ function Binesh.F142_1()
 			
 			Binesh.AddToHTML("T: "..T_141.." s", "V")
 			Binesh.AddToHTML("Omega: ?", "V")
-			
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÓÑÚÊ ÒÇæíå");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Omega");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
 		end
 	end
 	
-	FindT_141 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÏæÑÇä");
-	if FindT_141 ~= -1 and ListBox.GetItemData("unknowns", FindT_141) == "T" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÏæÑÇä") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T") ~= -1 then
+	if T_141 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÏæÑÇä") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T") ~= -1 then
 		if Oemga ~= nil then
 			Binesh.CreateHTMLFile("Omega = <span>2Pi/T</span>", "T = <span>2Pi/Omega</span>")
 			
@@ -38,12 +22,6 @@ function Binesh.F142_1()
 			
 			Binesh.AddToHTML("Omega: "..Omega.." rad/s", "V")
 			Binesh.AddToHTML("T: ?", "V")
-			
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "ÏæÑÇä");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "T");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
 		end
 	end
 end
