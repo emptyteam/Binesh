@@ -498,22 +498,6 @@ function Error(ErrorText, Exit)
 	end
 end
 
-function Binesh.AddUnknown(NamePersian, Symbol)
-	ListBox.SetUpdate("unknowns", false);
-	NamePersian = tostring(NamePersian)
-	Symbol = tostring(Symbol)
-	
-	UnknownNamePersian = ListBox.FindItem("unknowns", -1, LB_BYTEXT, NamePersian)
-	if UnknownNamePersian == -1 then
-		ListBox.AddItem("unknowns", NamePersian, Symbol);
-	else
-		if ListBox.GetItemData("unknowns", UnknownNamePersian) ~= Symbol then
-			ListBox.AddItem("unknowns", NamePersian, Symbol);
-		end
-	end
-	ListBox.SetUpdate("unknowns", true);
-end
-
 -- Include Pres Table
 Binesh.Include("Pres", false);
 
@@ -592,8 +576,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>502</DesignCodeLine>
-<DesignCodeCol>34</DesignCodeCol>
+<DesignCodeLine>433</DesignCodeLine>
+<DesignCodeCol>3</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -8826,130 +8810,142 @@ Pre_Input("Input1", TextInput1)
 Page.StartTimer(1, 1);
 
 Binesh.Include("Formuls.1", false);
-	Binesh.Include("Formuls.2", false);
-	Binesh.Include("Formuls.1-2 EX", false);
-	Binesh.Include("Formuls.4_1", false);
-	Binesh.Include("Formuls.6", false);
-	Binesh.Include("Formuls.7", false);
-	Binesh.Include("Formuls.8_1", false);
-	Binesh.Include("Formuls.8_2", false);
-	Binesh.Include("Formuls.8_3", false);
-	Binesh.Include("Formuls.9", false);
-	Binesh.Include("Formuls.10_1", false);
-	Binesh.Include("Formuls.10_2", false);
-	Binesh.Include("Formuls.10_3", false);
-	Binesh.Include("Formuls.11", false);
-	Binesh.Include("Formuls.12", false);
-	Binesh.Include("Formuls.16", false);
-	Binesh.Include("Formuls.17", false);
-	Binesh.Include("Formuls.18", false);
-	Binesh.Include("Formuls.19", false);
-	Binesh.Include("Formuls.20", false);
-	Binesh.Include("Formuls.21", false);
-	Binesh.Include("Formuls.24", false);
-	Binesh.Include("Formuls.32_1", false);
-	Binesh.Include("Formuls.32_2", false);
-	Binesh.Include("Formuls.32_3", false);
-	Binesh.Include("Formuls.33", false);
-	Binesh.Include("Formuls.35", false);
-	Binesh.Include("Formuls.37", false);
-	Binesh.Include("Formuls.38", false);
-	Binesh.Include("Formuls.39", false);
-	Binesh.Include("Formuls.40", false);
-	Binesh.Include("Formuls.41", false);
-	Binesh.Include("Formuls.43", false);
-	Binesh.Include("Formuls.44", false);
-	Binesh.Include("Formuls.48", false);
-	Binesh.Include("Formuls.50", false);
-	Binesh.Include("Formuls.51", false);
-	Binesh.Include("Formuls.55", false);
-	Binesh.Include("Formuls.56", false);
-	Binesh.Include("Formuls.58", false);
-	Binesh.Include("Formuls.59", false);
-	Binesh.Include("Formuls.60", false);
-	Binesh.Include("Formuls.61", false);
-	Binesh.Include("Formuls.64", false);
-	Binesh.Include("Formuls.65", false);
-	Binesh.Include("Formuls.66", false);
-	Binesh.Include("Formuls.69", false);
-	Binesh.Include("Formuls.73", false);
-	Binesh.Include("Formuls.74", false);
-	Binesh.Include("Formuls.75", false);
-	Binesh.Include("Formuls.76", false);
-	Binesh.Include("Formuls.77_1", false);
-	Binesh.Include("Formuls.77_2", false);
-	Binesh.Include("Formuls.78_1", false);
-	Binesh.Include("Formuls.78_2", false);
-	Binesh.Include("Formuls.79_1", false);
-	Binesh.Include("Formuls.79_2", false);
-	Binesh.Include("Formuls.81", false);
-	Binesh.Include("Formuls.82_1", false);
-	Binesh.Include("Formuls.82_2", false);
-	Binesh.Include("Formuls.83_1", false);
-	Binesh.Include("Formuls.83_2", false);
-	Binesh.Include("Formuls.84", false);
-	Binesh.Include("Formuls.85", false);
-	Binesh.Include("Formuls.86", false);
-	Binesh.Include("Formuls.87", false);
-	Binesh.Include("Formuls.88", false);
-	Binesh.Include("Formuls.90", false);
-	Binesh.Include("Formuls.91", false);
-	Binesh.Include("Formuls.92", false);
-	Binesh.Include("Formuls.93_1", false);
-	Binesh.Include("Formuls.93_2", false);
-	Binesh.Include("Formuls.94_1", false);
-	Binesh.Include("Formuls.94_2", false);
-	Binesh.Include("Formuls.95", false);
-	Binesh.Include("Formuls.97_1", false);
-	Binesh.Include("Formuls.97_2", false);
-	Binesh.Include("Formuls.97_3", false);
-	Binesh.Include("Formuls.102", false);
-	Binesh.Include("Formuls.111", false);
-	Binesh.Include("Formuls.112", false);
-	Binesh.Include("Formuls.114_1", false);
-	Binesh.Include("Formuls.114_2", false);
-	Binesh.Include("Formuls.114_3", false);
-	Binesh.Include("Formuls.118", false);
-	Binesh.Include("Formuls.123", false);
-	Binesh.Include("Formuls.126", false);
-	Binesh.Include("Formuls.128", false);
-	Binesh.Include("Formuls.129", false);
-	Binesh.Include("Formuls.130", false);
-	Binesh.Include("Formuls.131", false);
-	Binesh.Include("Formuls.132", false);
-	Binesh.Include("Formuls.133", false);
-	Binesh.Include("Formuls.134", false);
-	Binesh.Include("Formuls.137", false);
-	Binesh.Include("Formuls.139", false);
-	Binesh.Include("Formuls.140", false);
-	Binesh.Include("Formuls.141", false);
-	Binesh.Include("Formuls.142_1", false);
-	Binesh.Include("Formuls.142_2", false);
-	Binesh.Include("Formuls.142_3", false);
-	Binesh.Include("Formuls.143", false);
-	Binesh.Include("Formuls.144", false);
-	Binesh.Include("Formuls.145", false);
-	Binesh.Include("Formuls.146", false);
-	Binesh.Include("Formuls.147", false);
-	
-	-- DONT MOVE IT: --
-	Binesh.Include("Formuls.5", false);
-	Binesh.Include("Formuls.13_1", false);
-	Binesh.Include("Formuls.13_2", false);
-	Binesh.Include("Formuls.20", false);
-	Binesh.Include("Formuls.22_1", false);
-	Binesh.Include("Formuls.22_2", false);
-	Binesh.Include("Formuls.36", false);
-	Binesh.Include("Formuls.47_1", false);
-	Binesh.Include("Formuls.47_2", false);
-	Binesh.Include("Formuls.49", false);</Script>
+Binesh.Include("Formuls.2", false);
+Binesh.Include("Formuls.1_2 EX", false);
+Binesh.Include("Formuls.4_1", false);
+Binesh.Include("Formuls.4_2", false);
+Binesh.Include("Formuls.5", false);
+Binesh.Include("Formuls.6", false);
+Binesh.Include("Formuls.7", false);
+Binesh.Include("Formuls.8_1", false);
+Binesh.Include("Formuls.8_2", false);
+Binesh.Include("Formuls.8_3", false);
+Binesh.Include("Formuls.9", false);
+Binesh.Include("Formuls.10_1", false);
+Binesh.Include("Formuls.10_2", false);
+Binesh.Include("Formuls.10_3", false);
+Binesh.Include("Formuls.11", false);
+Binesh.Include("Formuls.12", false);
+Binesh.Include("Formuls.13_1", false);
+Binesh.Include("Formuls.13_2", false);
+Binesh.Include("Formuls.16", false);
+Binesh.Include("Formuls.17", false);
+Binesh.Include("Formuls.18", false);
+Binesh.Include("Formuls.19", false);
+Binesh.Include("Formuls.20", false);
+Binesh.Include("Formuls.21", false);
+Binesh.Include("Formuls.22_1", false);
+Binesh.Include("Formuls.22_2", false);
+Binesh.Include("Formuls.24", false);
+Binesh.Include("Formuls.32_1", false);
+Binesh.Include("Formuls.32_2", false);
+Binesh.Include("Formuls.32_3", false);
+Binesh.Include("Formuls.33_1", false);
+Binesh.Include("Formuls.33_2", false);
+Binesh.Include("Formuls.34_1", false);
+Binesh.Include("Formuls.34_2", false);
+Binesh.Include("Formuls.34_3", false);
+Binesh.Include("Formuls.35_1", false);
+Binesh.Include("Formuls.35_2", false);
+Binesh.Include("Formuls.36", false);
+Binesh.Include("Formuls.37", false);
+Binesh.Include("Formuls.38_1", false);
+Binesh.Include("Formuls.38_2", false);
+Binesh.Include("Formuls.38_3", false);
+Binesh.Include("Formuls.39_1", false);
+Binesh.Include("Formuls.39_2", false);
+Binesh.Include("Formuls.40_1", false);
+Binesh.Include("Formuls.40_2", false);
+Binesh.Include("Formuls.41_1", false);
+Binesh.Include("Formuls.41_2", false);
+Binesh.Include("Formuls.43_1", false);
+Binesh.Include("Formuls.43_2", false);
+Binesh.Include("Formuls.43 EX", false);
+Binesh.Include("Formuls.44", false);
+Binesh.Include("Formuls.47_1", false);
+Binesh.Include("Formuls.47_2", false);
+Binesh.Include("Formuls.48", false);
+Binesh.Include("Formuls.49", false);
+Binesh.Include("Formuls.50", false);
+Binesh.Include("Formuls.51", false);
+Binesh.Include("Formuls.55", false);
+Binesh.Include("Formuls.56", false);
+Binesh.Include("Formuls.58", false);
+Binesh.Include("Formuls.59", false);
+Binesh.Include("Formuls.60", false);
+Binesh.Include("Formuls.61", false);
+Binesh.Include("Formuls.64", false);
+Binesh.Include("Formuls.65", false);
+Binesh.Include("Formuls.66", false);
+Binesh.Include("Formuls.69", false);
+Binesh.Include("Formuls.71_1", false);
+Binesh.Include("Formuls.71_2", false);
+Binesh.Include("Formuls.73", false);
+Binesh.Include("Formuls.74", false);
+Binesh.Include("Formuls.75", false);
+Binesh.Include("Formuls.76", false);
+Binesh.Include("Formuls.77_1", false);
+Binesh.Include("Formuls.77_2", false);
+Binesh.Include("Formuls.78_1", false);
+Binesh.Include("Formuls.78_2", false);
+Binesh.Include("Formuls.79_1", false);
+Binesh.Include("Formuls.79_2", false);
+Binesh.Include("Formuls.81", false);
+Binesh.Include("Formuls.82_1", false);
+Binesh.Include("Formuls.82_2", false);
+Binesh.Include("Formuls.83_1", false);
+Binesh.Include("Formuls.83_2", false);
+Binesh.Include("Formuls.84", false);
+Binesh.Include("Formuls.85", false);
+Binesh.Include("Formuls.86", false);
+Binesh.Include("Formuls.87", false);
+Binesh.Include("Formuls.88", false);
+Binesh.Include("Formuls.90", false);
+Binesh.Include("Formuls.91", false);
+Binesh.Include("Formuls.92", false);
+Binesh.Include("Formuls.93_1", false);
+Binesh.Include("Formuls.93_2", false);
+Binesh.Include("Formuls.94_1", false);
+Binesh.Include("Formuls.94_2", false);
+Binesh.Include("Formuls.95", false);
+Binesh.Include("Formuls.97_1", false);
+Binesh.Include("Formuls.97_2", false);
+Binesh.Include("Formuls.97_3", false);
+Binesh.Include("Formuls.102", false);
+Binesh.Include("Formuls.111", false);
+Binesh.Include("Formuls.112", false);
+Binesh.Include("Formuls.114_1", false);
+Binesh.Include("Formuls.114_2", false);
+Binesh.Include("Formuls.114_3", false);
+Binesh.Include("Formuls.118", false);
+Binesh.Include("Formuls.123", false);
+Binesh.Include("Formuls.126", false);
+Binesh.Include("Formuls.128", false);
+Binesh.Include("Formuls.129", false);
+Binesh.Include("Formuls.130", false);
+Binesh.Include("Formuls.131", false);
+Binesh.Include("Formuls.132", false);
+Binesh.Include("Formuls.133", false);
+Binesh.Include("Formuls.134", false);
+Binesh.Include("Formuls.137", false);
+Binesh.Include("Formuls.139", false);
+Binesh.Include("Formuls.140", false);
+Binesh.Include("Formuls.141", false);
+Binesh.Include("Formuls.142_1", false);
+Binesh.Include("Formuls.142_2", false);
+Binesh.Include("Formuls.142_3", false);
+Binesh.Include("Formuls.143", false);
+Binesh.Include("Formuls.144", false);
+Binesh.Include("Formuls.145", false);
+Binesh.Include("Formuls.146", false);
+Binesh.Include("Formuls.147", false);</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>28</DesignCodeLine>
-<DesignCodeCol>29</DesignCodeCol>
+<DesignCodeLine>6</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9097,7 +9093,7 @@ end</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -9105,142 +9101,6 @@ end</Script>
 <Bottom>508</Bottom>
 <Left>807</Left>
 <Right>1042</Right>
-</Coordinates>
-<Ratios>
-<WidthRatio>-1.000000</WidthRatio>
-<HeightRatio>-1.000000</HeightRatio>
-</Ratios>
-<Event>
-<Name>On Double-Click</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Select</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Key</Name>
-<Args>number e_Key, table e_Modifiers</Args>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Focus</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Check</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Actions/>
-<Text>
-<TextColor>0</TextColor>
-<BackgroundColor>16777215</BackgroundColor>
-<FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>204</CharacterSet>
-<Height>-12</Height>
-<Weight>400</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-</Text>
-<Window>
-<BorderStyle>2</BorderStyle>
-<VerticalScrollbar>1</VerticalScrollbar>
-<HorizontalScrollbar>0</HorizontalScrollbar>
-<Sort>0</Sort>
-<MultipleSelect>0</MultipleSelect>
-<ReadOrder>0</ReadOrder>
-<CheckList>0</CheckList>
-</Window>
-<ListBoxItems>
-<ListItem>
-<Text>Item 1</Text>
-<Data>Data 1</Data>
-<Check>0</Check>
-</ListItem>
-<ListItem>
-<Text>Item 2</Text>
-<Data>Data 2</Data>
-<Check>0</Check>
-</ListItem>
-<ListItem>
-<Text>Item 3</Text>
-<Data>Data 3</Data>
-<Check>0</Check>
-</ListItem>
-</ListBoxItems>
-</Object>
-<Object>
-<Type>9</Type>
-<Name>unknowns</Name>
-<VisibleAtDesignTime>1</VisibleAtDesignTime>
-<VisibleAtRunTime>1</VisibleAtRunTime>
-<Locked>0</Locked>
-<Enabled>1</Enabled>
-<ToolTip/>
-<Cursor>0</Cursor>
-<Group>0</Group>
-<MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
-<TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
-<Coordinates>
-<Top>302</Top>
-<Bottom>504</Bottom>
-<Left>1059</Left>
-<Right>1218</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -9479,129 +9339,6 @@ end</Script>
 <ShowBorder>0</ShowBorder>
 <ShowScrollbars>1</ShowScrollbars>
 </WEB_BROWSER>
-</Object>
-<Object>
-<Type>1</Type>
-<Name>Label1</Name>
-<VisibleAtDesignTime>1</VisibleAtDesignTime>
-<VisibleAtRunTime>1</VisibleAtRunTime>
-<Locked>0</Locked>
-<Enabled>1</Enabled>
-<ToolTip/>
-<Cursor>0</Cursor>
-<Group>0</Group>
-<MaintainAspectRatio>1</MaintainAspectRatio>
-<Pin>0</Pin>
-<TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
-<Coordinates>
-<Top>613</Top>
-<Bottom>871</Bottom>
-<Left>47</Left>
-<Right>435</Right>
-</Coordinates>
-<Ratios>
-<WidthRatio>-1.000000</WidthRatio>
-<HeightRatio>-1.000000</HeightRatio>
-</Ratios>
-<Event>
-<Name>On Click</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Right-Click</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Enter</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Leave</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Actions/>
-<Text>
-<Body> ÊÌ ›«Ì· Â«ÌÌ òÂ »çÂ Â« „Ì«—‰ »Â Ã« unknownindex »‰ÊÌ”„:
-unknownPersianindex
-
- ÊÌ ›—„Ê· 76 »«  «»⁄ join »Ì«„ »—«  ò « „Ì Ê œÊ « „Ì Ê ”Â « „Ì »‰ÊÌ”„
-
- «»⁄  »œÌ· ›‘«— —Ê »Â ›—„Ê· 58 „‰ ﬁ· ò‰„
-
- «»⁄  »œÌ· ÕÃ„ —Ê »Â ›—„Ê· 57 „‰ ﬁ· ò‰„
-
-«Ê·Ì‰ œ· « x Ê t œ— ›—„Ê· 32
-
-«Ê·Ì‰ œ· « Ê· «é 92</Body>
-<NormalColor>10040064</NormalColor>
-<HighlightColor>10040064</HighlightColor>
-<MouseDownColor>10040064</MouseDownColor>
-<DisabledColor>12632256</DisabledColor>
-<FontData>
-<FontName>Segoe UI</FontName>
-<CharacterSet>178</CharacterSet>
-<Height>-16</Height>
-<Weight>400</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<Alignment>2</Alignment>
-<Orientation>0</Orientation>
-<AutoSize>1</AutoSize>
-<MouseOverSndMode>0</MouseOverSndMode>
-<MouseOverSound/>
-<MouseClickSndMode>0</MouseClickSndMode>
-<MouseClickSound/>
-<OriginalRect>
-<Top>613</Top>
-<Bottom>871</Bottom>
-<Left>47</Left>
-<Right>435</Right>
-</OriginalRect>
-</Text>
 </Object>
 <Object>
 <Type>40</Type>
@@ -9984,7 +9721,6 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	Binesh.ClearHTMLFile("V")
 	
 	ListBox.DeleteItem("Words", -1);
-	ListBox.DeleteItem("unknowns", -1);
 	Words = AMS.DelimitedStringToTable(InputQuiz, " ");
 	for WordCounter, Word in pairs(Words) do
 		ListBox.AddItem("Words", Word);
@@ -10005,13 +9741,13 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		end
 	end
 	
-	Page.ClickObject("xButton2"); -- Genesis 1
-	Page.ClickObject("xButton3"); -- Genesis 2
-	
-	Page.ClickObject("xButton1");
-	
-	Web.Refresh("Web1");
-	Web.Refresh("Web2");
+	for indexOfCalculate = 1, 5 do
+		Page.ClickObject("xButton2"); -- Genesis 1
+		Page.ClickObject("xButton3"); -- Genesis 2
+		Page.ClickObject("xButton1"); -- Calculate &amp; Show
+		Web.Refresh("Web1");
+		Web.Refresh("Web2");
+	end
 else
 	Error("”Ê«· —« Ê«—œ ò‰Ìœ.")
 end</Script>
@@ -10020,8 +9756,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>36</DesignCodeLine>
-<DesignCodeCol>43</DesignCodeCol>
+<DesignCodeLine>40</DesignCodeLine>
+<DesignCodeCol>4</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10170,7 +9906,7 @@ end</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -10186,129 +9922,142 @@ end</Script>
 <Event>
 <Name>On Click</Name>
 <Args/>
-<Script>Binesh.F1()
-Binesh.F2()
-Binesh.F1_2EX()
-Binesh.F4_1()
-Binesh.F6()
-Binesh.F7()
-Binesh.F8_1()
-Binesh.F8_2()
-Binesh.F8_3()
-Binesh.F9()
-Binesh.F10_1()
-Binesh.F10_2()
-Binesh.F10_3()
-Binesh.F11()
-Binesh.F12()
-Binesh.F16()
-Binesh.F17()
-Binesh.F18()
-Binesh.F19()
-Binesh.F20()
-Binesh.F21()
-Binesh.F24()
-Binesh.F32_1()
-Binesh.F32_2()
-Binesh.F32_3()
-Binesh.F33()
-Binesh.F35()
-Binesh.F37()
-Binesh.F38()
-Binesh.F39()
-Binesh.F40()
-Binesh.F41()
-Binesh.F43()
-Binesh.F44()
-Binesh.F48()
-Binesh.F50()
-Binesh.F51()
-Binesh.F55()
-Binesh.F56()
-Binesh.F58()
-Binesh.F59()
-Binesh.F60()
-Binesh.F61()
-Binesh.F64()
-Binesh.F65()
-Binesh.F66()
-Binesh.F69()
-Binesh.F73()
-Binesh.F74()
-Binesh.F75()
-Binesh.F76()
-Binesh.F77_1()
-Binesh.F77_2()
-Binesh.F78_1()
-Binesh.F78_2()
-Binesh.F79_1()
-Binesh.F79_2()
-Binesh.F81()
-Binesh.F82_1()
-Binesh.F82_2()
-Binesh.F83_1()
-Binesh.F83_2()
-Binesh.F84()
-Binesh.F85()
-Binesh.F86()
-Binesh.F87()
-Binesh.F88()
-Binesh.F90()
-Binesh.F91()
-Binesh.F92()
-Binesh.F93_1()
-Binesh.F93_2()
-Binesh.F94_1()
-Binesh.F94_2()
-Binesh.F95()
-Binesh.F97_1()
-Binesh.F97_2()
-Binesh.F97_3()
-Binesh.F102()
-Binesh.F111()
-Binesh.F112()
-Binesh.F114_1()
-Binesh.F114_2()
-Binesh.F114_3()
-Binesh.F118()
-Binesh.F123()
-Binesh.F126()
-Binesh.F128()
-Binesh.F129()
-Binesh.F130()
-Binesh.F131()
-Binesh.F132()
-Binesh.F133()
-Binesh.F134()
-Binesh.F137()
-Binesh.F139()
-Binesh.F140()
-Binesh.F141()
-Binesh.F142_1()
-Binesh.F142_2()
-Binesh.F142_3()
-Binesh.F143()
-Binesh.F144()
-Binesh.F145()
-Binesh.F146()
-Binesh.F147()
-
--- DONT MOVE IT: --
-Binesh.F5()
-Binesh.F13_1()
-Binesh.F13_2()
-Binesh.F22_1()
-Binesh.F22_2()
-Binesh.F36()
-Binesh.F47_1()
-Binesh.F47_2()
-Binesh.F49()</Script>
+<Script>Binesh.F1();
+Binesh.F2();
+Binesh.F1_2EX();
+Binesh.F4_1();
+Binesh.F4_2();
+Binesh.F5();
+Binesh.F6();
+Binesh.F7();
+Binesh.F8_1();
+Binesh.F8_2();
+Binesh.F8_3();
+Binesh.F9();
+Binesh.F10_1();
+Binesh.F10_2();
+Binesh.F10_3();
+Binesh.F11();
+Binesh.F12();
+Binesh.F13_1();
+Binesh.F13_2();
+Binesh.F16();
+Binesh.F17();
+Binesh.F18();
+Binesh.F19();
+Binesh.F20();
+Binesh.F21();
+Binesh.F22_1();
+Binesh.F22_2();
+Binesh.F24();
+Binesh.F32_1();
+Binesh.F32_2();
+Binesh.F32_3();
+Binesh.F33_1();
+Binesh.F33_2();
+Binesh.F34_1();
+Binesh.F34_2();
+Binesh.F34_3();
+Binesh.F35_1();
+Binesh.F35_2();
+Binesh.F36();
+Binesh.F37();
+Binesh.F38_1();
+Binesh.F38_2();
+Binesh.F38_3();
+Binesh.F39_1();
+Binesh.F39_2();
+Binesh.F40_1();
+Binesh.F40_2();
+Binesh.F41_1();
+Binesh.F41_2();
+Binesh.F43_1();
+Binesh.F43_2();
+Binesh.F43_EX();
+Binesh.F44();
+Binesh.F47_1();
+Binesh.F47_2();
+Binesh.F48();
+Binesh.F49();
+Binesh.F50();
+Binesh.F51();
+Binesh.F55();
+Binesh.F56();
+Binesh.F58();
+Binesh.F59();
+Binesh.F60();
+Binesh.F61();
+Binesh.F64();
+Binesh.F65();
+Binesh.F66();
+Binesh.F69();
+Binesh.F71_1();
+Binesh.F71_2();
+Binesh.F73();
+Binesh.F74();
+Binesh.F75();
+Binesh.F76();
+Binesh.F77_1();
+Binesh.F77_2();
+Binesh.F78_1();
+Binesh.F78_2();
+Binesh.F79_1();
+Binesh.F79_2();
+Binesh.F81();
+Binesh.F82_1();
+Binesh.F82_2();
+Binesh.F83_1();
+Binesh.F83_2();
+Binesh.F84();
+Binesh.F85();
+Binesh.F86();
+Binesh.F87();
+Binesh.F88();
+Binesh.F90();
+Binesh.F91();
+Binesh.F92();
+Binesh.F93_1();
+Binesh.F93_2();
+Binesh.F94_1();
+Binesh.F94_2();
+Binesh.F95();
+Binesh.F97_1();
+Binesh.F97_2();
+Binesh.F97_3();
+Binesh.F102();
+Binesh.F111();
+Binesh.F112();
+Binesh.F114_1();
+Binesh.F114_2();
+Binesh.F114_3();
+Binesh.F118();
+Binesh.F123();
+Binesh.F126();
+Binesh.F128();
+Binesh.F129();
+Binesh.F130();
+Binesh.F131();
+Binesh.F132();
+Binesh.F133();
+Binesh.F134();
+Binesh.F137();
+Binesh.F139();
+Binesh.F140();
+Binesh.F141();
+Binesh.F142_1();
+Binesh.F142_2();
+Binesh.F142_3();
+Binesh.F143();
+Binesh.F144();
+Binesh.F145();
+Binesh.F146();
+Binesh.F147();</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>24</DesignCodeLine>
+<DesignCodeLine>1</DesignCodeLine>
 <DesignCodeCol>12</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
@@ -10408,7 +10157,7 @@ Binesh.F49()</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -10549,12 +10298,12 @@ Binesh.F49()</Script>
 	
 	-- 11
 	if S == nil then
-		Binesh.PreparationSearchFirsts("„”«Õ ", "Ã”„");
-		S = Binesh.Genesis1("Ã”„ „”«Õ ", "S", "", "", 1, "m^2", "„ — „—»⁄");
+		Binesh.PreparationSearchFirsts("”ÿÕ", "Ã”„");
+		S = Binesh.Genesis1("Ã”„ ”ÿÕ", "S", "", "", 1, "m^2", "„ — „—»⁄");
 	end
 	if Sp == nil then
-		Binesh.PreparationSearchFirsts("„”«Õ ", "”«ÌÂ");
-		Sp = Binesh.Genesis1("”«ÌÂ „”«Õ ", "S`", "", "", 1, "m^2", "„ — „—»⁄");
+		Binesh.PreparationSearchFirsts("”ÿÕ", "”«ÌÂ");
+		Sp = Binesh.Genesis1("”«ÌÂ ”ÿÕ", "S`", "", "", 1, "m^2", "„ — „—»⁄");
 	end
 	if p_Source == nil then
 		Binesh.PreparationSearchFirsts("„‰»⁄ ‰Ê—", "›«’·Â", "Ã”„");
@@ -10722,7 +10471,6 @@ Binesh.F49()</Script>
 		if d ~= nil then
 			d_Distance = d
 			x0, _Deltax = d, d
-			
 		end
 	end
 	
@@ -10816,6 +10564,11 @@ Binesh.F49()</Script>
 		if Alpha_Length ~= nil then
 			Beta_Length = Alpha_Length
 		end
+	end
+	
+	-- 71
+	if K_71 == nil then
+		K_71 = Binesh.Genesis1("—”«‰‰œêÌ ”ÿÕ", "K", "", "", 1, "J/msC", "éÊ· »— „ — À«‰ÌÂ ”·”ÌÊ”");
 	end
 	
 	-- 73
@@ -10984,22 +10737,6 @@ Binesh.F49()</Script>
 	end
 	
 	-- 112
-	if Ru1 == nil then
-		if Ru_Resistor == nil then
-			Ru1 = Binesh.Genesis1("«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru1", "", "", 1, "Ohm.m", "«Â„ „ —")
-			if Ru1 == nil then
-				Ru1 = Binesh.Genesis1("„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰", "Ru1", "", "", 1, "Ohm.m", "«Â„ „ —")
-			end
-		else
-			Ru1 = Ru_Resistor
-		end
-	end
-	if Ru2 == nil then
-		Ru2 = Binesh.Genesis1("œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —")
-		if Ru2 == nil then
-			Ru2 = Binesh.Genesis1("„ﬁ«Ê„  ÊÌéÂ œÊ„Ì‰", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —")
-		end
-	end
 	if Alpha_112 == nil then
 		Alpha_112 = Binesh.Genesis1("÷—Ì» œ„«ÌÌ", "Alpha", "", "", 1, "1/C", "Ìò »— ”·”ÌÊ”");
 		if Alpha_112 == nil then
@@ -11090,9 +10827,6 @@ Binesh.F49()</Script>
 	-- 134
 	if Fi == nil then
 		Fi = Binesh.Genesis1("‘«—", "Fi", "", "", 1, "Ê»—", "Wb");
-	end
-	if A == nil then
-		A = Binesh.Genesis1("„”«Õ ", "A", "", "", 1, "m^2", "„ — „—»⁄");
 	end
 	
 	-- 137
@@ -11403,6 +11137,26 @@ Binesh.F49()</Script>
 		end
 	end
 	
+	-- 112
+	if _DeltaRu_Resistor == nil then
+		_DeltaRu_Resistor =  Binesh.Genesis1(" €ÌÌ— „ﬁ«Ê„  ÊÌéÂ", "DeltaRu", "", "", 1, "Ohm", "«Â„ „ —");
+		if _DeltaRu_Resistor == nil then
+			_DeltaRu_Resistor =  Binesh.Genesis1("„ﬁ«Ê„  ÊÌéÂ  €ÌÌ—", "DeltaRu", "", "", 1, "Ohm", "«Â„ „ —");
+		end
+	end
+	if _Ru_Resistor1 == nil then
+		_Ru_Resistor1 =  Binesh.Genesis1("«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru1", "", "", 1, "Ohm.m", "«Â„ „ —");
+		if _Ru_Resistor1 == nil then
+			_Ru_Resistor1 =  Binesh.Genesis1("„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰", "Ru1", "", "", 1, "Ohm.m", "«Â„ „ —");
+		end
+	end
+	if _Ru_Resistor2 == nil then
+		_Ru_Resistor2 =  Binesh.Genesis1("œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —");
+		if _Ru_Resistor2 == nil then
+			_Ru_Resistor2 =  Binesh.Genesis1("„ﬁ«Ê„  ÊÌéÂ œÊ„Ì‰", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —");
+		end
+	end
+	
 	----------- *** -------
 	-- 5
 	if n_e == nil and n_p == nil then
@@ -11544,8 +11298,8 @@ Binesh.F49()</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>2</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>980</DesignCodeLine>
+<DesignCodeCol>81</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11644,7 +11398,7 @@ Binesh.F49()</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -12052,6 +11806,11 @@ Binesh.F49()</Script>
 		if Alpha_Length ~= nil then
 			Beta_Length = Alpha_Length
 		end
+	end
+	
+	-- 71
+	if K_71 == nil then
+		K_71 = Binesh.Genesis2("—”«‰‰œêÌ ”ÿÕ", "K", "", "", 1, "J/msC", "éÊ· »— „ — À«‰ÌÂ ”·”ÌÊ”");
 	end
 	
 	-- 73
@@ -12639,6 +12398,27 @@ Binesh.F49()</Script>
 		end
 	end
 	
+	-- 112
+	if _DeltaRu_Resistor == nil then
+		_DeltaRu_Resistor =  Binesh.Genesis2(" €ÌÌ— „ﬁ«Ê„  ÊÌéÂ", "DeltaRu", "", "", 1, "Ohm.m", "«Â„ „ —");
+		if _DeltaRu_Resistor == nil then
+			_DeltaRu_Resistor =  Binesh.Genesis2("„ﬁ«Ê„  ÊÌéÂ  €ÌÌ—", "DeltaRu", "", "", 1, "Ohm.m", "«Â„ „ —");
+		end
+	end
+	if _Ru_Resistor1 == nil then
+		_Ru_Resistor1 =  Binesh.Genesis2("«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru1", "", "", 1, "Ohm.m", "«Â„ „ —");
+		if _Ru_Resistor1 == nil then
+			_Ru_Resistor1 =  Binesh.Genesis2("„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰", "Ru1", "", "", 1, "Ohm.m", "«Â„ „ —");
+		end
+	end
+	if _Ru_Resistor2 == nil then
+		_Ru_Resistor2 =  Binesh.Genesis2("œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —");
+		if _Ru_Resistor2 == nil then
+			_Ru_Resistor2 =  Binesh.Genesis2("„ﬁ«Ê„  ÊÌéÂ œÊ„Ì‰", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —");
+		end
+	end
+	
+	
 	----------- *** -------
 	-- 5
 	if n_e == nil and n_p == nil then
@@ -12780,8 +12560,8 @@ Binesh.F49()</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>2</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>986</DesignCodeLine>
+<DesignCodeCol>99</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
