@@ -1,159 +1,79 @@
 function Binesh.F91()
-	if _DeltaU == nil then
-		Binesh.AddUnknown(" €ÌÌ— «‰—éÌ Å «‰”Ì·", "DeltaU")
-	end
-	if _U1 == nil then
-		Binesh.AddUnknown("«Ê·Ì‰ «‰—éÌ Å «‰”Ì·", "U1")
-	end
-	if _U2 == nil then
-		Binesh.AddUnknown("œÊ„Ì‰ «‰—éÌ Å «‰”Ì·", "U2")
-	end
-	
-	if E_Electric == nil then
-		Binesh.AddUnknown("„Ìœ«‰", "E")
-	end
-	
-	if q == nil then
-		Binesh.AddUnknown("–—Â", "q")
-	end
-	
-	if d_Distance == nil then
-		Binesh.AddUnknown("›«’·Â", "d")
-	end
-	
-	if Teta == nil and Teta_Radian == nil then
-		Binesh.AddUnknown("“«ÊÌÂ", "Teta")
-	end
-	
 	--------------------------{DELTA}--------------------------
-	FindDeltaU = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·");
-	if FindDeltaU ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU) == "DeltaU" then
+	if _DeltaU == nil then
 		if _U1 ~= nil and _U2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>")
 			_DeltaU = _U2 - _U1
 			Binesh.AddToHTML("DeltaU = ".._U2.."-".._U1.." &#8658; DeltaV = ".._DeltaU.." J")
-			Binesh.AddToHTML("<br>") -- Create ENTER in HTML
-			Web.Refresh("Web1");
-				
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "DeltaU");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
 		end
 	end
 	
-	FindU1 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ Å «‰”Ì·");
-	if FindU1 ~= -1 and ListBox.GetItemData("unknowns", FindU1) == "U1" or ListBox.GetItemData("unknowns", FindU1) == "U1" then
+	if _U1 == nil then
 		if _DeltaU ~= nil and _U2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>", "U<sub>1</sub> = U<sub>2</sub>-DeltaU")
 			_U1 = _U2-_DeltaU
 			Binesh.AddToHTML("U<sub>1</sub> = ".._U2.."-".._DeltaU.." &#8658; U<sub>1</sub> = ".._U1.." J")
-			Binesh.AddToHTML("<br>") -- Create ENTER in HTML
-			Web.Refresh("Web1");
-				
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ Å «‰”Ì·");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "U1");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
 		end
 	end
 	
-	FindU2 = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ Å «‰”Ì·");
-	if FindU2 ~= -1 and ListBox.GetItemData("unknowns", FindU2) == "U2" or ListBox.GetItemData("unknowns", FindU2) == "U2" then
+	if _U2 == nil then
 		if _DeltaU ~= nil and _U1 ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>", "U<sub>2</sub> = DeltaU+U<sub>1</sub>")
 			_U2 = _U1+_DeltaU
 			Binesh.AddToHTML("U<sub>2</sub> = ".._DeltaU.."+".._U1.." &#8658; U<sub>2</sub> = ".._U2.." J")
-			Binesh.AddToHTML("<br>") -- Create ENTER in HTML
-			Web.Refresh("Web1");
-				
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ Å «‰”Ì·");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "U2");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
 		end
 	end
 	--------------------------END {DELTA}--------------------------
-	FindDeltaU = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·");
-	if FindDeltaU ~= -1 and ListBox.GetItemData("unknowns", FindDeltaU) == "DeltaU" and (ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U2") ~= -1) then
-		if E_Electric ~= nil and q ~= nil and Teta ~= nil and d_Distance ~= nil then
+	if _DeltaU == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1 then
+		if E_Electric ~= nil and q ~= nil and Teta ~= nil and d ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta")
-			_DeltaU = -E_Electric*Math.Abs(q)*d_Distance*Math.Cos(Math.Rad(Teta))
+			_DeltaU = -E_Electric*Math.Abs(q)*d*Math.Cos(Math.Rad(Teta))
 			
 			Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
 			Binesh.AddToHTML("q: "..q.." C", "V")
-			Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+			Binesh.AddToHTML("d: "..d.." m", "V")
 			Binesh.AddToHTML("Teta: "..Teta, "V")
 			Binesh.AddToHTML("DeltaU: ?", "V")
 			
-			Binesh.AddToHTML("DeltaU = -"..E_Electric.."*|"..q.."|*"..d_Distance.."*cos"..Teta.." &#8658; DeltaU = ".._DeltaU.." J")
-			
-			Web.Refresh("Web1");
-				
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ Å «‰”Ì·");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "DeltaU");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
+			Binesh.AddToHTML("DeltaU = -"..E_Electric.."*|"..q.."|*"..d.."*cos"..Teta.." &#8658; DeltaU = ".._DeltaU.." J")
 		end
 	end
 	
-	FindE_Electric = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
-	if FindE_Electric ~= -1 and ListBox.GetItemData("unknowns", FindE_Electric) == "E" and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1 then
-		if q ~= nil and _DeltaU ~= nil and d_Distance ~= nil and Teta ~= nil then
+	if E_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1 then
+		if q ~= nil and _DeltaU ~= nil and d ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "E = - <span>DeltaU/|q|dcosTeta</span>")
-			E_Electric = -_DeltaU/(Math.Abs(q)*d_Distance*Math.Cos(Math.Rad(Teta)))
+			E_Electric = -_DeltaU/(Math.Abs(q)*d*Math.Cos(Math.Rad(Teta)))
 			
 			Binesh.AddToHTML("DeltaU: ".._DeltaU.." J", "V")
 			Binesh.AddToHTML("q: "..q.." C", "V")
-			Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+			Binesh.AddToHTML("d: "..d.." m", "V")
 			Binesh.AddToHTML("Teta: "..Teta, "V")
 			Binesh.AddToHTML("E: ?", "V")
 			
-			Binesh.AddToHTML("E = - <span>".._DeltaU.."/|"..q.."|*"..d_Distance.."*cos"..Teta.."</span> &#8658; E = "..E_Electric.." N/C")
-			Web.Refresh("Web1");
-			
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "„Ìœ«‰");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "E");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
+			Binesh.AddToHTML("E = - <span>".._DeltaU.."/|"..q.."|*"..d.."*cos"..Teta.."</span> &#8658; E = "..E_Electric.." N/C")
 		end
 	end
 	
-	Findq = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
-	if Findq ~= -1 and ListBox.GetItemData("unknowns", Findq) == "q" and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
-		if E_Electric ~= nil and _DeltaU ~= nil and Teta ~= nil and d_Distance ~= nil then
+	if q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+		if E_Electric ~= nil and _DeltaU ~= nil and Teta ~= nil and d ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "q = |<span>DeltaU/EdcosTeta</span>|")
 			
-			q = Math.Abs(_DeltaU/(E_Electric*d_Distance*Math.Cos(Math.Rad(Teta))))
+			q = Math.Abs(_DeltaU/(E_Electric*d*Math.Cos(Math.Rad(Teta))))
 			
 			Binesh.AddToHTML("DeltaU: ".._DeltaU.." J", "V")
 			Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
-			Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+			Binesh.AddToHTML("d: "..d.." m", "V")
 			Binesh.AddToHTML("Teta: "..Teta, "V")
 			Binesh.AddToHTML("q: ?", "V")
 			
-			Binesh.AddToHTML("q = |<span>".._DeltaU.."/"..E_Electric.."*"..d_Distance.."*cos"..Teta.."</span>| &#8658; q = "..q.." C")
-			
-			Web.Refresh("Web1");
-				
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "–—Â");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "q");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
+			Binesh.AddToHTML("q = |<span>".._DeltaU.."/"..E_Electric.."*"..d.."*cos"..Teta.."</span>| &#8658; q = "..q.." C")
 		end
 	end
 	
-	Findd_Distance = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
-	if Findd_Distance ~= -1 and ListBox.GetItemData("unknowns", Findd_Distance) == "d" and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
+	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
 		if E_Electric ~= nil and _DeltaU ~= nil and Teta ~= nil and q ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "d = - <span>DeltaU/E|q|cosTeta</span>")
-			d_Distance = -_DeltaU / (E_Electric*Math.Abs(q)*Math.Cos(Math.Rad(Teta)))
+			d = -_DeltaU / (E_Electric*Math.Abs(q)*Math.Cos(Math.Rad(Teta)))
 			
 			Binesh.AddToHTML("DeltaU: ".._DeltaU.." J", "V")
 			Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
@@ -161,39 +81,24 @@ function Binesh.F91()
 			Binesh.AddToHTML("Teta: "..Teta, "V")
 			Binesh.AddToHTML("d: ?", "V")
 			
-			Binesh.AddToHTML("d = - <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*cos"..Teta.."</span> &#8658; d = "..d_Distance.." m")
-			Web.Refresh("Web1");
-				
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "›«’·Â");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "d");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
+			Binesh.AddToHTML("d = - <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*cos"..Teta.."</span> &#8658; d = "..d.." m")
 		end
 	end
 	
-	FindTeta = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ");
-	if FindTeta ~= -1 and ListBox.GetItemData("unknowns", FindTeta) == "Teta"or ListBox.GetItemData("unknowns", FindTeta) == "Alpha" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
-		if E_Electric ~= nil and _DeltaU ~= nil and d_Distance ~= nil and q ~= nil then
+	if Teta == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
+		if E_Electric ~= nil and _DeltaU ~= nil and d ~= nil and q ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "cosTeta = - <span>DeltaU/E|q|d</span>")
-			CosTeta = -_DeltaU/(E_Electric*Math.Abs(q)*d_Distance)
+			CosTeta = -_DeltaU/(E_Electric*Math.Abs(q)*d)
 			Teta_Radian = Math.Acos(Math.Acos(Math.Cos(CosTeta)))
 			Teta = Math.RadToDeg(Teta_Radian)
 			
-			Binesh.AddToHTML("cosTeta = - <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*"..d_Distance.." </span> &#8658; cosTeta = "..CosTeta.." &#8658; Teta<sub>Radian</sub> = "..Teta_Radian.." &#8658; Teta = "..Teta.."<sup>o</sup>")
-			Web.Refresh("Web1");
+			Binesh.AddToHTML("cosTeta = - <span>".._DeltaU.."/"..E_Electric.."*|"..q.."|*"..d.." </span> &#8658; cosTeta = "..CosTeta.." &#8658; Teta<sub>Radian</sub> = "..Teta_Radian.." &#8658; Teta = "..Teta.."<sup>o</sup>")
 			
 			Binesh.AddToHTML("DeltaU: ".._DeltaU.." J", "V")
 			Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
 			Binesh.AddToHTML("q: "..q.." C", "V")
-			Binesh.AddToHTML("d: "..d_Distance.." m", "V")
+			Binesh.AddToHTML("d: "..d.." m", "V")
 			Binesh.AddToHTML("Teta: ?", "V")
-			
-			unknownPersianindex = ListBox.FindItem("unknowns", -1, LB_BYTEXT, "“«ÊÌÂ");
-			unknownSymbolindex = ListBox.FindItem("unknowns", -1, LB_BYDATA, "Teta");
-			if unknownPersianindex == unknownSymbolindex and unknownPersianindex ~= -1 then
-				ListBox.DeleteItem("unknowns", unknownPersianindex);
-			end
 		end
 	end
 end
