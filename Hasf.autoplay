@@ -8876,14 +8876,21 @@ Binesh.Include("Formuls.60", false);
 Binesh.Include("Formuls.61", false);
 Binesh.Include("Formuls.64", false);
 Binesh.Include("Formuls.65", false);
-Binesh.Include("Formuls.66", false);
-Binesh.Include("Formuls.69", false);
+Binesh.Include("Formuls.66_1", false);
+Binesh.Include("Formuls.66_2", false);
+Binesh.Include("Formuls.66_3", false);
+Binesh.Include("Formuls.69_1", false);
+Binesh.Include("Formuls.69_2", false);
+Binesh.Include("Formuls.69_3", false);
 Binesh.Include("Formuls.71_1", false);
 Binesh.Include("Formuls.71_2", false);
 Binesh.Include("Formuls.73", false);
 Binesh.Include("Formuls.74", false);
-Binesh.Include("Formuls.75", false);
-Binesh.Include("Formuls.76", false);
+Binesh.Include("Formuls.75_1", false);
+Binesh.Include("Formuls.75_2", false);
+Binesh.Include("Formuls.76_1", false);
+Binesh.Include("Formuls.76_2", false);
+Binesh.Include("Formuls.76_3", false);
 Binesh.Include("Formuls.77_1", false);
 Binesh.Include("Formuls.77_2", false);
 Binesh.Include("Formuls.78_1", false);
@@ -8944,8 +8951,8 @@ Binesh.Include("Formuls.147", false);</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>6</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>85</DesignCodeLine>
+<DesignCodeCol>28</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9989,14 +9996,21 @@ Binesh.F60();
 Binesh.F61();
 Binesh.F64();
 Binesh.F65();
-Binesh.F66();
-Binesh.F69();
+Binesh.F66_1();
+Binesh.F66_2();
+Binesh.F66_3();
+Binesh.F69_1();
+Binesh.F69_2();
+Binesh.F69_3();
 Binesh.F71_1();
 Binesh.F71_2();
 Binesh.F73();
 Binesh.F74();
-Binesh.F75();
-Binesh.F76();
+Binesh.F75_1();
+Binesh.F75_2();
+Binesh.F76_1();
+Binesh.F76_2();
+Binesh.F76_3();
 Binesh.F77_1();
 Binesh.F77_2();
 Binesh.F78_1();
@@ -10057,7 +10071,7 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>1</DesignCodeLine>
+<DesignCodeLine>81</DesignCodeLine>
 <DesignCodeCol>12</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
