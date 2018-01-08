@@ -8891,12 +8891,18 @@ Binesh.Include("Formuls.75_2", false);
 Binesh.Include("Formuls.76_1", false);
 Binesh.Include("Formuls.76_2", false);
 Binesh.Include("Formuls.76_3", false);
-Binesh.Include("Formuls.77_1", false);
-Binesh.Include("Formuls.77_2", false);
-Binesh.Include("Formuls.78_1", false);
-Binesh.Include("Formuls.78_2", false);
-Binesh.Include("Formuls.79_1", false);
-Binesh.Include("Formuls.79_2", false);
+Binesh.Include("Formuls.77_1_1", false);
+Binesh.Include("Formuls.77_1_2", false);
+Binesh.Include("Formuls.77_2_1", false);
+Binesh.Include("Formuls.77_2_2", false);
+Binesh.Include("Formuls.78_1_1", false);
+Binesh.Include("Formuls.78_1_2", false);
+Binesh.Include("Formuls.78_2_1", false);
+Binesh.Include("Formuls.78_2_2", false);
+Binesh.Include("Formuls.79_1_1", false);
+Binesh.Include("Formuls.79_1_2", false);
+Binesh.Include("Formuls.79_2_1", false);
+Binesh.Include("Formuls.79_2_2", false);
 Binesh.Include("Formuls.81", false);
 Binesh.Include("Formuls.82_1", false);
 Binesh.Include("Formuls.82_2", false);
@@ -8951,8 +8957,8 @@ Binesh.Include("Formuls.147", false);</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>85</DesignCodeLine>
-<DesignCodeCol>28</DesignCodeCol>
+<DesignCodeLine>97</DesignCodeLine>
+<DesignCodeCol>30</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10011,12 +10017,18 @@ Binesh.F75_2();
 Binesh.F76_1();
 Binesh.F76_2();
 Binesh.F76_3();
-Binesh.F77_1();
-Binesh.F77_2();
-Binesh.F78_1();
-Binesh.F78_2();
-Binesh.F79_1();
-Binesh.F79_2();
+Binesh.F77_1_1();
+Binesh.F77_1_2();
+Binesh.F77_2_1();
+Binesh.F77_2_2();
+Binesh.F78_1_1();
+Binesh.F78_1_2();
+Binesh.F78_2_1();
+Binesh.F78_2_2();
+Binesh.F79_1_1();
+Binesh.F79_1_2();
+Binesh.F79_2_1();
+Binesh.F79_2_2();
 Binesh.F81();
 Binesh.F82_1();
 Binesh.F82_2();
@@ -10071,8 +10083,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>81</DesignCodeLine>
-<DesignCodeCol>12</DesignCodeCol>
+<DesignCodeLine>93</DesignCodeLine>
+<DesignCodeCol>14</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
