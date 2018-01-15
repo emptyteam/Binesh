@@ -6526,7 +6526,20 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <BookMarks count="0">
 </BookMarks>
 </Event>
-<Actions/>
+<Actions>
+<Action>
+<Type>1</Type>
+<Name>Show Page</Name>
+<Exit>0</Exit>
+<JumpType>6</JumpType>
+<TargetPage>Quiz Page</TargetPage>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+</Action>
+</Actions>
 <NormalImage>
 <Filename>AutoPlay\UI\Bottom Menu\2. Quiz.png</Filename>
 <UseTransColor>0</UseTransColor>
@@ -8809,165 +8822,29 @@ TextInput1 = "”Ê«· —« Ê«—œ ò‰Ìœ...";</Script>
 Pre_Input("Input1", TextInput1)
 Page.StartTimer(1, 1);
 
-Binesh.Include("Formuls.1", false);
-Binesh.Include("Formuls.2", false);
-Binesh.Include("Formuls.1_2 EX", false);
-Binesh.Include("Formuls.4_1", false);
-Binesh.Include("Formuls.4_2", false);
-Binesh.Include("Formuls.5", false);
-Binesh.Include("Formuls.6", false);
-Binesh.Include("Formuls.7", false);
-Binesh.Include("Formuls.8_1", false);
-Binesh.Include("Formuls.8_2", false);
-Binesh.Include("Formuls.8_3", false);
-Binesh.Include("Formuls.9", false);
-Binesh.Include("Formuls.10_1", false);
-Binesh.Include("Formuls.10_2", false);
-Binesh.Include("Formuls.10_3", false);
-Binesh.Include("Formuls.11", false);
-Binesh.Include("Formuls.12", false);
-Binesh.Include("Formuls.13_1", false);
-Binesh.Include("Formuls.13_2", false);
-Binesh.Include("Formuls.16", false);
-Binesh.Include("Formuls.17", false);
-Binesh.Include("Formuls.18", false);
-Binesh.Include("Formuls.19", false);
-Binesh.Include("Formuls.20", false);
-Binesh.Include("Formuls.21", false);
-Binesh.Include("Formuls.22_1", false);
-Binesh.Include("Formuls.22_2", false);
-Binesh.Include("Formuls.24", false);
-Binesh.Include("Formuls.32_1", false);
-Binesh.Include("Formuls.32_2", false);
-Binesh.Include("Formuls.32_3", false);
-Binesh.Include("Formuls.33_1", false);
-Binesh.Include("Formuls.33_2", false);
-Binesh.Include("Formuls.34_1", false);
-Binesh.Include("Formuls.34_2", false);
-Binesh.Include("Formuls.34_3", false);
-Binesh.Include("Formuls.35_1", false);
-Binesh.Include("Formuls.35_2", false);
-Binesh.Include("Formuls.36", false);
-Binesh.Include("Formuls.37", false);
-Binesh.Include("Formuls.38_1", false);
-Binesh.Include("Formuls.38_2", false);
-Binesh.Include("Formuls.38_3", false);
-Binesh.Include("Formuls.39_1", false);
-Binesh.Include("Formuls.39_2", false);
-Binesh.Include("Formuls.40_1", false);
-Binesh.Include("Formuls.40_2", false);
-Binesh.Include("Formuls.41_1", false);
-Binesh.Include("Formuls.41_2", false);
-Binesh.Include("Formuls.43_1", false);
-Binesh.Include("Formuls.43_2", false);
-Binesh.Include("Formuls.43 EX", false);
-Binesh.Include("Formuls.44", false);
-Binesh.Include("Formuls.47_1", false);
-Binesh.Include("Formuls.47_2", false);
-Binesh.Include("Formuls.48", false);
-Binesh.Include("Formuls.49", false);
-Binesh.Include("Formuls.50", false);
-Binesh.Include("Formuls.51", false);
-Binesh.Include("Formuls.55", false);
-Binesh.Include("Formuls.56", false);
-Binesh.Include("Formuls.58", false);
-Binesh.Include("Formuls.59", false);
-Binesh.Include("Formuls.60", false);
-Binesh.Include("Formuls.61", false);
-Binesh.Include("Formuls.64", false);
-Binesh.Include("Formuls.65", false);
-Binesh.Include("Formuls.66_1", false);
-Binesh.Include("Formuls.66_2", false);
-Binesh.Include("Formuls.66_3", false);
-Binesh.Include("Formuls.69_1", false);
-Binesh.Include("Formuls.69_2", false);
-Binesh.Include("Formuls.69_3", false);
-Binesh.Include("Formuls.71_1", false);
-Binesh.Include("Formuls.71_2", false);
-Binesh.Include("Formuls.73", false);
-Binesh.Include("Formuls.74", false);
-Binesh.Include("Formuls.75_1", false);
-Binesh.Include("Formuls.75_2", false);
-Binesh.Include("Formuls.76_1", false);
-Binesh.Include("Formuls.76_2", false);
-Binesh.Include("Formuls.76_3", false);
-Binesh.Include("Formuls.77_1_1", false);
-Binesh.Include("Formuls.77_1_2", false);
-Binesh.Include("Formuls.77_2_1", false);
-Binesh.Include("Formuls.77_2_2", false);
-Binesh.Include("Formuls.78_1_1", false);
-Binesh.Include("Formuls.78_1_2", false);
-Binesh.Include("Formuls.78_2_1", false);
-Binesh.Include("Formuls.78_2_2", false);
-Binesh.Include("Formuls.79_1_1", false);
-Binesh.Include("Formuls.79_1_2", false);
-Binesh.Include("Formuls.79_2_1", false);
-Binesh.Include("Formuls.79_2_2", false);
-Binesh.Include("Formuls.81", false);
-Binesh.Include("Formuls.82_1", false);
-Binesh.Include("Formuls.82_2", false);
-Binesh.Include("Formuls.83_1", false);
-Binesh.Include("Formuls.83_2", false);
-Binesh.Include("Formuls.84", false);
-Binesh.Include("Formuls.85", false);
-Binesh.Include("Formuls.86", false);
-Binesh.Include("Formuls.87", false);
-Binesh.Include("Formuls.88", false);
-Binesh.Include("Formuls.90", false);
-Binesh.Include("Formuls.91_1", false);
-Binesh.Include("Formuls.91_2", false);
-Binesh.Include("Formuls.92_1", false);
-Binesh.Include("Formuls.92_2", false);
-Binesh.Include("Formuls.92_3", false);
-Binesh.Include("Formuls.93_1_1", false);
-Binesh.Include("Formuls.93_1_2", false);
-Binesh.Include("Formuls.93_2_1", false);
-Binesh.Include("Formuls.93_2_2", false);
-Binesh.Include("Formuls.94_1", false);
-Binesh.Include("Formuls.94_2_1", false);
-Binesh.Include("Formuls.94_2_2", false);
-Binesh.Include("Formuls.95", false);
-Binesh.Include("Formuls.97_1", false);
-Binesh.Include("Formuls.97_2", false);
-Binesh.Include("Formuls.97_3", false);
-Binesh.Include("Formuls.102", false);
-Binesh.Include("Formuls.109_1", false);
-Binesh.Include("Formuls.109_2", false);
-Binesh.Include("Formuls.109_3", false);
-Binesh.Include("Formuls.111", false);
-Binesh.Include("Formuls.112", false);
-Binesh.Include("Formuls.114_1", false);
-Binesh.Include("Formuls.114_2", false);
-Binesh.Include("Formuls.114_3", false);
-Binesh.Include("Formuls.118", false);
-Binesh.Include("Formuls.123", false);
-Binesh.Include("Formuls.126", false);
-Binesh.Include("Formuls.128", false);
-Binesh.Include("Formuls.129", false);
-Binesh.Include("Formuls.130", false);
-Binesh.Include("Formuls.131", false);
-Binesh.Include("Formuls.132", false);
-Binesh.Include("Formuls.133", false);
-Binesh.Include("Formuls.134", false);
-Binesh.Include("Formuls.137", false);
-Binesh.Include("Formuls.139", false);
-Binesh.Include("Formuls.140", false);
-Binesh.Include("Formuls.141", false);
-Binesh.Include("Formuls.142_1", false);
-Binesh.Include("Formuls.142_2", false);
-Binesh.Include("Formuls.142_3", false);
-Binesh.Include("Formuls.143", false);
-Binesh.Include("Formuls.144", false);
-Binesh.Include("Formuls.145", false);
-Binesh.Include("Formuls.146", false);
-Binesh.Include("Formuls.147", false);</Script>
+-- Load All Functions
+StatusDlg.Show(MB_ICONINFORMATION, false);
+StatusDlg.SetTitle("Ê÷⁄Ì ");
+StatusDlg.SetMessage("›—«ŒÊ«‰Ì ›—„Ê· Â«");
+AllFormuls = File.Find("AutoPlay\\Scripts\\Pioneer\\Formuls", "*.lua", false, false);
+if AllFormuls then
+	for Counter, FormuleAddress in pairs(AllFormuls) do
+		StatusDlg.SetStatusText(Counter);
+		StatusDlg.SetMeterPos(0);
+		FormuleName = String.SplitPath(FormuleAddress).Filename
+		StatusDlg.SetMeterPos(50);
+		Binesh.Include("Formuls."..FormuleName, false);
+		StatusDlg.SetMeterPos(100);
+	end
+end
+StatusDlg.Hide();</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>128</DesignCodeLine>
-<DesignCodeCol>29</DesignCodeCol>
+<DesignCodeLine>4</DesignCodeLine>
+<DesignCodeCol>21</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10070,7 +9947,9 @@ Binesh.F109_1();
 Binesh.F109_2();
 Binesh.F109_3();
 Binesh.F111();
-Binesh.F112();
+Binesh.F112_1();
+Binesh.F112_2();
+Binesh.F112_3();
 Binesh.F114_1();
 Binesh.F114_2();
 Binesh.F114_3();
@@ -10084,6 +9963,12 @@ Binesh.F131();
 Binesh.F132();
 Binesh.F133();
 Binesh.F134();
+Binesh.F135_1();
+Binesh.F135_2();
+Binesh.F135_3();
+Binesh.F136_1();
+Binesh.F136_2();
+Binesh.F136_3();
 Binesh.F137();
 Binesh.F139();
 Binesh.F140();
@@ -10101,8 +9986,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>151</DesignCodeLine>
-<DesignCodeCol>14</DesignCodeCol>
+<DesignCodeLine>147</DesignCodeLine>
+<DesignCodeCol>13</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10684,11 +10569,17 @@ Binesh.F147();</Script>
 			q1 = q
 		end
 	end
+	if q1 ~= nil then
+		_q1 = q1
+	end
 	if q2 == nil then
 		q2 = Binesh.Genesis1("œÊ„Ì‰ –—Â", "q2", "", "", 1, "C", "òÊ·‰");
 		if q2 == nil then
 			q2 = Binesh.Genesis1("–—Â œÊ„Ì‰", "q2", "", "", 1, "C", "òÊ·‰");
 		end
+	end
+	if q2 ~= nil then
+		_q2 = q2
 	end
 	if r == nil then
 		r = Binesh.Genesis1("›«’·Â", "r", "", "", 1, "m^2", "„ — „—»⁄");
@@ -10880,11 +10771,6 @@ Binesh.F147();</Script>
 	-- 134
 	if Fi == nil then
 		Fi = Binesh.Genesis1("‘«—", "Fi", "", "", 1, "Ê»—", "Wb");
-	end
-	
-	-- 135
-	if N_Round == nil then
-		N_Round = Binesh.Genesis1("œÊ—", "N", "", "", 1, "", "œÊ—");
 	end
 	
 	-- 137
@@ -11235,6 +11121,26 @@ Binesh.F147();</Script>
 		end
 	end
 	
+	-- 136
+	if _Deltaq == nil then
+		_Deltaq =  Binesh.Genesis1("–—Â", "Deltaq", "", "", 1, "C", "òÊ·‰");
+		if _Deltaq == nil then
+			_Deltaq =  Binesh.Genesis1("–—Â  €ÌÌ—", "Deltaq", "", "", 1, "C", "òÊ·‰");
+		end
+	end
+	if _q1 == nil then
+		_q1 =  Binesh.Genesis1("«Ê·Ì‰ –—Â", "q1", "", "", 1, "C", "òÊ·‰");
+		if _q1 == nil then
+			_q1 =  Binesh.Genesis1("–—Â «Ê·Ì‰", "q1", "", "", 1, "C", "òÊ·‰");
+		end
+	end
+	if _q2 == nil then
+		_q2 =  Binesh.Genesis1("œÊ„Ì‰ –—Â", "q2", "", "", 1, "C", "òÊ·‰");
+		if _q2 == nil then
+			_q2 =  Binesh.Genesis1("–—Â œÊ„Ì‰", "q2", "", "", 1, "C", "òÊ·‰");
+		end
+	end
+	
 	----------- *** -------
 	-- 5
 	if n_e == nil and n_p == nil then
@@ -11344,6 +11250,14 @@ Binesh.F147();</Script>
 			end
 		end
 	end
+	if N_Ring ~= nil then
+		N_Round = N_Ring
+	end
+	
+	-- 135
+	if N_Round == nil then
+		N_Round = Binesh.Genesis1("œÊ—", "N", "", "", 1, "", "");
+	end
 	
 	-- 139
 	if L_Self == nil then
@@ -11376,8 +11290,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>667</DesignCodeLine>
-<DesignCodeCol>37</DesignCodeCol>
+<DesignCodeLine>477</DesignCodeLine>
+<DesignCodeCol>10</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -12157,11 +12071,6 @@ Binesh.F147();</Script>
 		Fi = Binesh.Genesis2("‘«—", "Fi", "", "", 1, "Ê»—", "Wb");
 	end
 	
-	-- 135
-	if N_Round == nil then
-		N_Round = Binesh.Genesis2("œÊ—", "N", "", "", 1, "", "œÊ—");
-	end
-	
 	-- 137
 	
 	-- 139
@@ -12510,6 +12419,26 @@ Binesh.F147();</Script>
 		end
 	end
 	
+	-- 136
+	if _Deltaq == nil then
+		_Deltaq =  Binesh.Genesis2("–—Â", "Deltaq", "", "", 1, "C", "òÊ·‰");
+		if _Deltaq == nil then
+			_Deltaq =  Binesh.Genesis2("–—Â  €ÌÌ—", "Deltaq", "", "", 1, "C", "òÊ·‰");
+		end
+	end
+	if _q1 == nil then
+		_q1 =  Binesh.Genesis2("«Ê·Ì‰ –—Â", "q1", "", "", 1, "C", "òÊ·‰");
+		if _q1 == nil then
+			_q1 =  Binesh.Genesis2("–—Â «Ê·Ì‰", "q1", "", "", 1, "C", "òÊ·‰");
+		end
+	end
+	if _q2 == nil then
+		_q2 =  Binesh.Genesis2("œÊ„Ì‰ –—Â", "q2", "", "", 1, "C", "òÊ·‰");
+		if _q2 == nil then
+			_q2 =  Binesh.Genesis2("–—Â œÊ„Ì‰", "q2", "", "", 1, "C", "òÊ·‰");
+		end
+	end
+	
 	----------- *** -------
 	-- 5
 	if n_e == nil and n_p == nil then
@@ -12618,6 +12547,14 @@ Binesh.F147();</Script>
 				n_Ring = N_Ring
 			end
 		end
+	end
+	if N_Ring ~= nil then
+		N_Round = N_Ring
+	end
+	
+	-- 135
+	if N_Round == nil then
+		N_Round = Binesh.Genesis2("œÊ—", "N", "", "", 1, "", "");
 	end
 	
 	-- 139
