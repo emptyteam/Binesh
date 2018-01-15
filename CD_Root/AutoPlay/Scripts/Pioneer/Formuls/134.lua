@@ -13,7 +13,7 @@ function Binesh.F134()
 		end
 	end
 	
-	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
 		if Fi ~= nil and B ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("Fi = ABcosTeta", "A = <span>Fi/BcosTeta</span>")
 			A = Fi/(B*Math.Cos(Math.Rad(Teta)))

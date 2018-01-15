@@ -1,8 +1,33 @@
 function Binesh.F135_1()
-	if Epsilon == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") or ListBox.FindItem("Words", -1, LB_BYTEXT, "Epsilon") ~= -1 then
-		if N ~= nil and _DeltaFi ~= nil and _Deltat ~= nil then
+	--------------------------{DELTA}--------------------------
+	if _DeltaFi == nil then
+		if _Fi1 ~= nil and _Fi2 ~= nil then
+			Binesh.CreateHTMLFile("DeltaFi = Fi<sub>2</sub>-Fi<sub>1</sub>")
+			_DeltaFi = _Fi2 - _Fi1
+			Binesh.AddToHTML("DeltaFi = ".._Fi2.."-".._Fi1.." &#8658; DeltaFi = ".._DeltaFi.." Wb")
+		end
+	end
+	
+	if _Fi1 == nil then
+		if _DeltaFi ~= nil and _Fi2 ~= nil then
+			Binesh.CreateHTMLFile("DeltaFi = Fi<sub>2</sub>-Fi<sub>1</sub>", "Fi<sub>1</sub> = Fi<sub>2</sub>-DeltaFi")
+			_Fi1 = _Fi2-_DeltaFi
+			Binesh.AddToHTML("Fi<sub>1</sub> = ".._Fi2.."-".._DeltaFi.." &#8658; Fi<sub>1</sub> = ".._Fi1.." Wb")
+		end
+	end
+	
+	if _Fi2 == nil then
+		if _DeltaFi ~= nil and _Fi1 ~= nil then
+			Binesh.CreateHTMLFile("DeltaFi = Fi<sub>2</sub>-Fi<sub>1</sub>", "Fi<sub>2</sub> = DeltaFi+Fi<sub>1</sub>")
+			_Fi2 = _Fi1+_DeltaFi
+			Binesh.AddToHTML("Fi<sub>2</sub> = ".._DeltaFi.."+".._Fi1.." &#8658; Fi<sub>2</sub> = ".._Fi2.." Wb")
+		end
+	end
+	--------------------------END {DELTA}--------------------------
+	if Epsilon == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Epsilon") ~= -1 then
+		if N_Round ~= nil and _DeltaFi ~= nil and _Deltat ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = -N<span>DeltaFi/Deltat</span>")
-			Epsilon = -N_Round(_DeltaFi/_Deltat)
+			Epsilon = -N_Round*(_DeltaFi/_Deltat)
 			
 			Binesh.AddToHTML("Epsilon = -("..N_Round..")<span>".._DeltaFi.."/".._Deltat.."</span> &#8658; Epsilon = "..Epsilon.." V")
 			
@@ -13,7 +38,7 @@ function Binesh.F135_1()
 		end
 	end
 	
-	if N_Round == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1 then
+	if N_Round == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Õ·ﬁÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1 then
 		if Epsilon ~= nil and _Deltat ~= nil and _DeltaFi ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = -N<span>DeltaFi/Deltat</span>", "N = - <span>EpsilonDeltat/DeltaFi</span>")
 			N_Round = -(Epsilon*_Deltat/_DeltaFi)
@@ -44,7 +69,7 @@ function Binesh.F135_1()
 	if _Deltat == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltat") ~= -1 then
 		if Epsilon ~= nil and N_Round ~= nil and _DeltaFi ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = -N<span>DeltaFi/Deltat</span>", "Deltat = -N<span>DeltaFi/Epsilon</span>")
-			_Deltat = -N_Round(_DeltaFi/Epsilon)
+			_Deltat = -N_Round*(_DeltaFi/Epsilon)
 			
 			Binesh.AddToHTML("Deltat = -("..N_Round..")<span>".._DeltaFi.."/"..Epsilon.."</span> &#8658; Deltat = ".._Deltat.." s")
 			
