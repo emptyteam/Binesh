@@ -113,4 +113,12 @@ function Binesh.Joins()
 	Binesh.Join('КЫннС гЮЗжгК жнЋе');
 	Binesh.Join('Зжбнд гЮЗжгК жнЋе');
 	Binesh.Join('Пжгнд гЮЗжгК жнЋе');
+	
+	Binesh.Join('КЫннС ФЗС');
+	Binesh.Join('Зжбнд ФЗС');
+	Binesh.Join('Пжгнд ФЗС');
+	
+	Binesh.Join('КЫннС РСе');
+	Binesh.Join('Зжбнд РСе');
+	Binesh.Join('Пжгнд РСе');
 end
