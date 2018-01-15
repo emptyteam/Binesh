@@ -8797,8 +8797,8 @@ TextInput1 = "”Ê«· —« Ê«—œ ò‰Ìœ...";</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>1</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>2</DesignCodeLine>
+<DesignCodeCol>23</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -8914,17 +8914,26 @@ Binesh.Include("Formuls.86", false);
 Binesh.Include("Formuls.87", false);
 Binesh.Include("Formuls.88", false);
 Binesh.Include("Formuls.90", false);
-Binesh.Include("Formuls.91", false);
-Binesh.Include("Formuls.92", false);
-Binesh.Include("Formuls.93_1", false);
-Binesh.Include("Formuls.93_2", false);
+Binesh.Include("Formuls.91_1", false);
+Binesh.Include("Formuls.91_2", false);
+Binesh.Include("Formuls.92_1", false);
+Binesh.Include("Formuls.92_2", false);
+Binesh.Include("Formuls.92_3", false);
+Binesh.Include("Formuls.93_1_1", false);
+Binesh.Include("Formuls.93_1_2", false);
+Binesh.Include("Formuls.93_2_1", false);
+Binesh.Include("Formuls.93_2_2", false);
 Binesh.Include("Formuls.94_1", false);
-Binesh.Include("Formuls.94_2", false);
+Binesh.Include("Formuls.94_2_1", false);
+Binesh.Include("Formuls.94_2_2", false);
 Binesh.Include("Formuls.95", false);
 Binesh.Include("Formuls.97_1", false);
 Binesh.Include("Formuls.97_2", false);
 Binesh.Include("Formuls.97_3", false);
 Binesh.Include("Formuls.102", false);
+Binesh.Include("Formuls.109_1", false);
+Binesh.Include("Formuls.109_2", false);
+Binesh.Include("Formuls.109_3", false);
 Binesh.Include("Formuls.111", false);
 Binesh.Include("Formuls.112", false);
 Binesh.Include("Formuls.114_1", false);
@@ -8957,8 +8966,8 @@ Binesh.Include("Formuls.147", false);</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>97</DesignCodeLine>
-<DesignCodeCol>30</DesignCodeCol>
+<DesignCodeLine>128</DesignCodeLine>
+<DesignCodeCol>29</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10040,17 +10049,26 @@ Binesh.F86();
 Binesh.F87();
 Binesh.F88();
 Binesh.F90();
-Binesh.F91();
-Binesh.F92();
-Binesh.F93_1();
-Binesh.F93_2();
+Binesh.F91_1();
+Binesh.F91_2();
+Binesh.F92_1();
+Binesh.F92_2();
+Binesh.F92_3();
+Binesh.F93_1_1();
+Binesh.F93_1_2();
+Binesh.F93_2_1();
+Binesh.F93_2_2();
 Binesh.F94_1();
-Binesh.F94_2();
+Binesh.F94_2_1();
+Binesh.F94_2_2();
 Binesh.F95();
 Binesh.F97_1();
 Binesh.F97_2();
 Binesh.F97_3();
 Binesh.F102();
+Binesh.F109_1();
+Binesh.F109_2();
+Binesh.F109_3();
 Binesh.F111();
 Binesh.F112();
 Binesh.F114_1();
@@ -10083,7 +10101,7 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>93</DesignCodeLine>
+<DesignCodeLine>151</DesignCodeLine>
 <DesignCodeCol>14</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
@@ -10757,6 +10775,15 @@ Binesh.F147();</Script>
 		end
 	end
 	
+	-- 109
+	if I == nil then
+		if IBar == nil then
+			IBar = Binesh.Genesis1("Ã—Ì«‰ „ Ê”ÿ", "IBar", "", "", 1, "A", "¬„Å—");
+		end
+	else
+		IBar = I
+	end
+	
 	-- 111
 	if Ru_Resistor == nil then
 		Ru_Resistor = Binesh.Genesis1("„ﬁ«Ê„  ÊÌéÂ", "Ru", "", "", 1, "Ohm.m", "«Â„ „ —");
@@ -10853,6 +10880,11 @@ Binesh.F147();</Script>
 	-- 134
 	if Fi == nil then
 		Fi = Binesh.Genesis1("‘«—", "Fi", "", "", 1, "Ê»—", "Wb");
+	end
+	
+	-- 135
+	if N_Round == nil then
+		N_Round = Binesh.Genesis1("œÊ—", "N", "", "", 1, "", "œÊ—");
 	end
 	
 	-- 137
@@ -11165,9 +11197,9 @@ Binesh.F147();</Script>
 	
 	-- 112
 	if _DeltaRu_Resistor == nil then
-		_DeltaRu_Resistor =  Binesh.Genesis1(" €ÌÌ— „ﬁ«Ê„  ÊÌéÂ", "DeltaRu", "", "", 1, "Ohm", "«Â„ „ —");
+		_DeltaRu_Resistor =  Binesh.Genesis1(" €ÌÌ— „ﬁ«Ê„  ÊÌéÂ", "DeltaRu", "", "", 1, "Ohm.m", "«Â„ „ —");
 		if _DeltaRu_Resistor == nil then
-			_DeltaRu_Resistor =  Binesh.Genesis1("„ﬁ«Ê„  ÊÌéÂ  €ÌÌ—", "DeltaRu", "", "", 1, "Ohm", "«Â„ „ —");
+			_DeltaRu_Resistor =  Binesh.Genesis1("„ﬁ«Ê„  ÊÌéÂ  €ÌÌ—", "DeltaRu", "", "", 1, "Ohm.m", "«Â„ „ —");
 		end
 	end
 	if _Ru_Resistor1 == nil then
@@ -11180,6 +11212,26 @@ Binesh.F147();</Script>
 		_Ru_Resistor2 =  Binesh.Genesis1("œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —");
 		if _Ru_Resistor2 == nil then
 			_Ru_Resistor2 =  Binesh.Genesis1("„ﬁ«Ê„  ÊÌéÂ œÊ„Ì‰", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —");
+		end
+	end
+	
+	-- 135
+	if _DeltaFi == nil then
+		_DeltaFi =  Binesh.Genesis1("‘«—", "DeltaFi", "", "", 1, "Wb", "Ê»—");
+		if _DeltaFi == nil then
+			_DeltaFi =  Binesh.Genesis1("‘«—  €ÌÌ—", "DeltaFi", "", "", 1, "Wb", "Ê»—");
+		end
+	end
+	if _Fi1 == nil then
+		_Fi1 =  Binesh.Genesis1("«Ê·Ì‰ ‘«—", "Fi1", "", "", 1, "Wb", "Ê»—");
+		if _Fi1 == nil then
+			_Fi1 =  Binesh.Genesis1("‘«— «Ê·Ì‰", "Fi1", "", "", 1, "Wb", "Ê»—");
+		end
+	end
+	if _Fi2 == nil then
+		_Fi2 =  Binesh.Genesis1("œÊ„Ì‰ ‘«—", "Fi2", "", "", 1, "Wb", "Ê»—");
+		if _Fi2 == nil then
+			_Fi2 =  Binesh.Genesis1("‘«— œÊ„Ì‰", "Fi2", "", "", 1, "Wb", "Ê»—");
 		end
 	end
 	
@@ -11324,8 +11376,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>980</DesignCodeLine>
-<DesignCodeCol>81</DesignCodeCol>
+<DesignCodeLine>667</DesignCodeLine>
+<DesignCodeCol>37</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11565,12 +11617,12 @@ Binesh.F147();</Script>
 	
 	-- 11
 	if S == nil then
-		Binesh.PreparationSearchFirsts("„”«Õ ", "Ã”„");
-		S = Binesh.Genesis2("Ã”„ „”«Õ ", "S", "", "", 1, "m^2", "„ — „—»⁄");
+		Binesh.PreparationSearchFirsts("”ÿÕ", "Ã”„");
+		S = Binesh.Genesis2("Ã”„ ”ÿÕ", "S", "", "", 1, "m^2", "„ — „—»⁄");
 	end
 	if Sp == nil then
-		Binesh.PreparationSearchFirsts("„”«Õ ", "”«ÌÂ");
-		Sp = Binesh.Genesis2("”«ÌÂ „”«Õ ", "S`", "", "", 1, "m^2", "„ — „—»⁄");
+		Binesh.PreparationSearchFirsts("”ÿÕ", "”«ÌÂ");
+		Sp = Binesh.Genesis2("”«ÌÂ ”ÿÕ", "S`", "", "", 1, "m^2", "„ — „—»⁄");
 	end
 	if p_Source == nil then
 		Binesh.PreparationSearchFirsts("„‰»⁄ ‰Ê—", "›«’·Â", "Ã”„");
@@ -11738,7 +11790,6 @@ Binesh.F147();</Script>
 		if d ~= nil then
 			d_Distance = d
 			x0, _Deltax = d, d
-			
 		end
 	end
 	
@@ -11999,28 +12050,21 @@ Binesh.F147();</Script>
 		end
 	end
 	
+	-- 109
+	if I == nil then
+		if IBar == nil then
+			IBar = Binesh.Genesis2("Ã—Ì«‰ „ Ê”ÿ", "IBar", "", "", 1, "A", "¬„Å—");
+		end
+	else
+		IBar = I
+	end
+	
 	-- 111
 	if Ru_Resistor == nil then
 		Ru_Resistor = Binesh.Genesis2("„ﬁ«Ê„  ÊÌéÂ", "Ru", "", "", 1, "Ohm.m", "«Â„ „ —");
 	end
 	
 	-- 112
-	if Ru1 == nil then
-		if Ru_Resistor == nil then
-			Ru1 = Binesh.Genesis2("«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru1", "", "", 1, "Ohm.m", "«Â„ „ —")
-			if Ru1 == nil then
-				Ru1 = Binesh.Genesis2("„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰", "Ru1", "", "", 1, "Ohm.m", "«Â„ „ —")
-			end
-		else
-			Ru1 = Ru_Resistor
-		end
-	end
-	if Ru2 == nil then
-		Ru2 = Binesh.Genesis2("œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —")
-		if Ru2 == nil then
-			Ru2 = Binesh.Genesis2("„ﬁ«Ê„  ÊÌéÂ œÊ„Ì‰", "Ru2", "", "", 1, "Ohm.m", "«Â„ „ —")
-		end
-	end
 	if Alpha_112 == nil then
 		Alpha_112 = Binesh.Genesis2("÷—Ì» œ„«ÌÌ", "Alpha", "", "", 1, "1/C", "Ìò »— ”·”ÌÊ”");
 		if Alpha_112 == nil then
@@ -12112,8 +12156,10 @@ Binesh.F147();</Script>
 	if Fi == nil then
 		Fi = Binesh.Genesis2("‘«—", "Fi", "", "", 1, "Ê»—", "Wb");
 	end
-	if A == nil then
-		A = Binesh.Genesis2("„”«Õ ", "A", "", "", 1, "m^2", "„ — „—»⁄");
+	
+	-- 135
+	if N_Round == nil then
+		N_Round = Binesh.Genesis2("œÊ—", "N", "", "", 1, "", "œÊ—");
 	end
 	
 	-- 137
@@ -12444,6 +12490,25 @@ Binesh.F147();</Script>
 		end
 	end
 	
+	-- 135
+	if _DeltaFi == nil then
+		_DeltaFi =  Binesh.Genesis2("‘«—", "DeltaFi", "", "", 1, "Wb", "Ê»—");
+		if _DeltaFi == nil then
+			_DeltaFi =  Binesh.Genesis2("‘«—  €ÌÌ—", "DeltaFi", "", "", 1, "Wb", "Ê»—");
+		end
+	end
+	if _Fi1 == nil then
+		_Fi1 =  Binesh.Genesis2("«Ê·Ì‰ ‘«—", "Fi1", "", "", 1, "Wb", "Ê»—");
+		if _Fi1 == nil then
+			_Fi1 =  Binesh.Genesis2("‘«— «Ê·Ì‰", "Fi1", "", "", 1, "Wb", "Ê»—");
+		end
+	end
+	if _Fi2 == nil then
+		_Fi2 =  Binesh.Genesis2("œÊ„Ì‰ ‘«—", "Fi2", "", "", 1, "Wb", "Ê»—");
+		if _Fi2 == nil then
+			_Fi2 =  Binesh.Genesis2("‘«— œÊ„Ì‰", "Fi2", "", "", 1, "Wb", "Ê»—");
+		end
+	end
 	
 	----------- *** -------
 	-- 5
@@ -12586,8 +12651,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>986</DesignCodeLine>
-<DesignCodeCol>99</DesignCodeCol>
+<DesignCodeLine>2</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
