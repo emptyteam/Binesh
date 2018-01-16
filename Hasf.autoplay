@@ -17,7 +17,7 @@
 <ProjectInfo ToolTipStyle="1">
 <Office2007Theme Theme="5"/>
 <WindowStyles>
-<Width>1200</Width>
+<Width>800</Width>
 <Height>600</Height>
 <WindowTitle>»Ì‰‘</WindowTitle>
 <WindowStyle>0</WindowStyle>
@@ -203,12 +203,49 @@ PageNumber = 1
 
 -- Zarib Vars
 Zarib = {}
-Zarib.ga = Application.LoadValue("Zarib", "ga");
-Zarib.e = Application.LoadValue("Zarib", "e");
-Zarib.G = Application.LoadValue("Zarib", "G");
-Zarib.k = Application.LoadValue("Zarib", "k");
-Zarib.R = Application.LoadValue("Zarib", "R");
-Zarib.Pi = Application.LoadValue("Zarib", "Pi");
+if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga") ~= "" then
+	Zarib.ga = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga"))
+else
+	Zarib.ga = 9.80665
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga", "9.80665");
+end
+if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e") ~= "" then
+	Zarib.e = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e"))
+else
+	Zarib.e = 1.602*10^-19
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e", "1.602*10^-19");
+end
+if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G") ~= "" then
+	Zarib.G = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G"))
+else
+	Zarib.G = 6.67384*10^-11
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G", "6.67384*10^-11");
+end
+if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k") ~= "" then
+	Zarib.k = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k"))
+else
+	Zarib.k = 8.9879*10^9
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k", "8.9879*10^9");
+end
+if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R") ~= "" then
+	Zarib.R = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R"))
+else
+	Zarib.R = 8.314472
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R", "8.314472");
+end
+if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi") ~= "" then
+	Zarib.R = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi"))
+else
+	Zarib.Pi = math.pi
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi", tostring(math.pi));
+end
+
+-- Skin Vars
+Skin = {}
+Skin.Name = ""
+if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name") == "" then
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name", "Cyan");
+end
 
 --------------------------------------------- GLOBAL VARIABLES ---------------------------------------------
 
@@ -498,6 +535,13 @@ function Error(ErrorText, Exit)
 	end
 end
 
+function Binesh.LoadSkin()
+
+end
+if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name") ~= "" then
+	Binesh.LoadSkin(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name"))
+end
+
 -- Include Pres Table
 Binesh.Include("Pres", false);
 
@@ -576,8 +620,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>433</DesignCodeLine>
-<DesignCodeCol>3</DesignCodeCol>
+<DesignCodeLine>140</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -640,16 +684,14 @@ end</Script>
 <Script>Binesh.ClearHTMLFile()
 Binesh.ClearHTMLFile("V")
 
-if REPAIR == true then
-	Page.Jump("Page2");
-end</Script>
+Binesh.LoadSkin(Application.LoadValue("Skin", "Name"))</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>4</DesignCodeLine>
-<DesignCodeCol>20</DesignCodeCol>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -6471,7 +6513,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <Event>
 <Name>On Click</Name>
 <Args/>
-<Script/>
+<Script>Dialog.Message("", "«Ì‰ ﬁ”„  œ— Õ«· ”«Œ  „Ì »«‘œ.", MB_OK, MB_ICONINFORMATION, MB_DEFBUTTON1);</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
@@ -6526,20 +6568,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <BookMarks count="0">
 </BookMarks>
 </Event>
-<Actions>
-<Action>
-<Type>1</Type>
-<Name>Show Page</Name>
-<Exit>0</Exit>
-<JumpType>6</JumpType>
-<TargetPage>Quiz Page</TargetPage>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-</Action>
-</Actions>
+<Actions/>
 <NormalImage>
 <Filename>AutoPlay\UI\Bottom Menu\2. Quiz.png</Filename>
 <UseTransColor>0</UseTransColor>
@@ -37862,7 +37891,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("4e1e1e"));</
 <VGuidelines/>
 </Page>
 </PageDialog>
-<PageDialog width="480" height="300" dialog_title=" ‰ŸÌ„«  ÷—«Ì»" dialog_style="0" movable="1" use_custom_icon="0" custom_icon="" always_on_top="1" resizable="0" min_width="480" min_height="300" fit_custom_mask_to_window="1" custom_mask="">
+<PageDialog width="480" height="300" dialog_title=" ‰ŸÌ„«  ÷—«Ì»" dialog_style="0" movable="1" use_custom_icon="0" custom_icon="" always_on_top="0" resizable="0" min_width="480" min_height="300" fit_custom_mask_to_window="1" custom_mask="">
 <Page>
 <Name>Zarib</Name>
 <InheritObs/>
@@ -37898,50 +37927,26 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("4e1e1e"));</
 <Event>
 <Name>On Show</Name>
 <Args/>
-<Script>if Application.LoadValue("Zarib", "ga") == "" then
-	Application.SaveValue("Zarib", "ga", "9.80665");
-	Application.SaveValue("Zarib", "ga_r", "false");
-end
-
-if Application.LoadValue("Zarib", "e") == "" then
-	Application.SaveValue("Zarib", "e", "1.602*10^-19");
-	Application.SaveValue("Zarib", "e_r", "false");
-end
-
-if Application.LoadValue("Zarib", "G") == "" then
-	Application.SaveValue("Zarib", "G", "6.67384*10^-11");
-	Application.SaveValue("Zarib", "G_r", "false");
-end
-
-if Application.LoadValue("Zarib", "k") == "" then
-	Application.SaveValue("Zarib", "k", "8.9879*10^9");
-	Application.SaveValue("Zarib", "k_r", "false");
-end
-
-if Application.LoadValue("Zarib", "R") == "" then
-	Application.SaveValue("Zarib", "R", "8.314472");
-	Application.SaveValue("Zarib", "R_r", "false");
-end
-
-if Application.LoadValue("Zarib", "Pi") == "" then
-	Application.SaveValue("Zarib", "Pi", math.pi);
-	Application.SaveValue("Zarib", "Pi_r", "false");
-end
-
-function SaveZarib()
+<Script>function SaveZarib()
 	Node = Tree.GetSelectedNode("Tree1");
 	if Node == "1.1" then
-		Application.SaveValue("Zarib", "ga", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "ga", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "ga_r", tostring(CheckBox.GetChecked("CheckBox1")));
 	elseif Node == "1.2" then
-		Application.SaveValue("Zarib", "e", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "e", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "e_r", tostring(CheckBox.GetChecked("CheckBox1")));
 	elseif Node == "2.1" then
-		Application.SaveValue("Zarib", "G", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "G", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "G_r", tostring(CheckBox.GetChecked("CheckBox1")));
 	elseif Node == "3.1" then
-		Application.SaveValue("Zarib", "k", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "k", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "k_r", tostring(CheckBox.GetChecked("CheckBox1")));
 	elseif Node == "3.2" then
-		Application.SaveValue("Zarib", "R", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "R", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "R_r", tostring(CheckBox.GetChecked("CheckBox1")));
 	elseif Node == "4.1" then
-		Application.SaveValue("Zarib", "Pi", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "Pi", Input.GetText("Input2"));
+		INIFile.SetValue("Settings.bin", "Zarib", "Pi_r", tostring(CheckBox.GetChecked("CheckBox1")));
 	end
 end
 
@@ -37951,9 +37956,12 @@ Label.SetVisible("Label1", false);
 Label.SetVisible("Label2", false);
 
 Input.SetVisible("Input1", false);
+Input.SetText("Input1", "");
 Input.SetVisible("Input2", false);
+Input.SetText("Input2", "");
 
 CheckBox.SetVisible("CheckBox1", false);
+CheckBox.SetChecked("CheckBox1", false);
 
 Plugin.SetVisible("Plugin1", false);
 
@@ -37963,8 +37971,8 @@ Tree.SetSelectedNode("Tree1", "");</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>21</DesignCodeLine>
-<DesignCodeCol>46</DesignCodeCol>
+<DesignCodeLine>19</DesignCodeLine>
+<DesignCodeCol>94</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -38185,54 +38193,45 @@ Tree.SetSelectedNode("Tree1", "");</Script>
 <Args>string e_NodeIndex</Args>
 <Script>if e_NodeIndex ~= "" and e_NodeIndex ~= "1" and e_NodeIndex ~= "2" and e_NodeIndex ~= "3" and e_NodeIndex ~= "4" then
 	Label.SetVisible("Label1", true);
-	Label.SetVisible("Label2", true);
 	
 	Input.SetVisible("Input1", true);
 	Input.SetVisible("Input2", true);
 	
 	CheckBox.SetVisible("CheckBox1", true);
 	
-	CheckBox.SetChecked("CheckBox1", false);
-	
-	Plugin.SetVisible("Plugin1", true);
-	
 	local function GetInfo(Number, Name)
+		CheckBox.SetChecked("CheckBox1", false);
 		Input.SetText("Input1", Number);
-		_Name = Application.LoadValue("Zarib", Name);
-		_Name_r = Application.LoadValue("Zarib", Name.."_r");
-		if _Name_r == "true" then
-			Page.ClickObject("CheckBox1");
-		end
-		Input.SetText("Input2", _Name);
-		
-		if _Name_r == "false" then
-			FindPower = String.Find(Input.GetText("Input1"), "^", 1, false)
-			if FindPower == -1 then
-				Original = String.Replace(Input.GetText("Input1"), ".", "", false);
-				Original = String.Replace(Original, "-", "", false);
-				
-				Custom = String.Replace(Input.GetText("Input2"), ".", "", false);
-				Custom = String.Replace(Custom, "-", "", false);
-			else
-				ONumbers = AMS.DelimitedStringToTable(Input.GetText("Input1"), "*10^");
-				
-				Original = String.Replace(ONumbers[1], ".", "", false);
-				Original = String.Replace(Original, "-", "", false);
-				
-				CNumbers = AMS.DelimitedStringToTable(Input.GetText("Input2"), "*10^");
-				
-				Custom = String.Replace(CNumbers[1], ".", "", false);
-				Custom = String.Replace(Custom, "-", "", false);
-			end
+		ININumber = INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", Name);
+		Input.SetText("Input2", ININumber);
+		if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", Name.."_r") == "true" then -- is Rounded
+			Label.SetVisible("Label2", false);
+			Plugin.SetVisible("Plugin1", false);
+			Plugin.SetVisible("Plugin3", false);
+			CheckBox.SetChecked("CheckBox1", true);
+		else -- not Rounded
+			Label.SetVisible("Label2", true);
+			Plugin.SetVisible("Plugin1", true);
+			Plugin.SetVisible("Plugin3", true);
+			CheckBox.SetChecked("CheckBox1", false);
 			
-			SliderEx.SetRange("Plugin1", 0, #Original-1);
-			SliderEx.SetTickFreq("Plugin1", #Original-1);
-			Pos = #Original - #Custom
-			if Pos == 0 then
-				SliderEx.SetSliderPos("Plugin1", SliderEx.GetRange("Plugin1").Maximum);
+			if String.Find(Number, "*10^", 1, false) ~= -1 then
+				ONumbers = AMS.DelimitedStringToTable(Input.GetText("Input1"), "*10^");
+				Original = String.Replace(ONumbers[1], "-", "", false);
+				Original = String.Mid(Original, String.Find(Original, "."), -1);
+				
+				CNumbers = AMS.DelimitedStringToTable(ININumber, "*10^");
+				Custom = String.Replace(CNumbers[1], "-", "", false);
+				Custom = String.Mid(Custom, String.Find(Custom, "."), -1);
 			else
-				SliderEx.SetSliderPos("Plugin1", Pos);
+				Original = String.Replace(Number, "-", "", false);
+				Original = String.Mid(Original, String.Find(Original, "."), -1);
+				
+				Custom = String.Replace(ININumber, "-", "", false);
+				Custom = String.Mid(Custom, String.Find(Custom, "."), -1);
 			end
+			SliderEx.SetRange("Plugin1", 1, #Original-1);
+			SliderEx.SetTickFreq("Plugin1", #Custom);
 		end
 	end
 	
@@ -38265,8 +38264,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>62</DesignCodeLine>
-<DesignCodeCol>19</DesignCodeCol>
+<DesignCodeLine>39</DesignCodeLine>
+<DesignCodeCol>33</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -38735,6 +38734,82 @@ end</Script>
 </Object>
 <Object>
 <Type>40</Type>
+<Name>Plugin3</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>0</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>186</Top>
+<Bottom>233</Bottom>
+<Left>17</Left>
+<Right>222</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<PLUGIN>
+<DLLFile>Shape\Shape.apo</DLLFile>
+<CustomData>2,0,5052645,3,0,4724693,7,7</CustomData>
+</PLUGIN>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
+</Object>
+<Object>
+<Type>40</Type>
 <Name>Plugin1</Name>
 <VisibleAtDesignTime>1</VisibleAtDesignTime>
 <VisibleAtRunTime>0</VisibleAtRunTime>
@@ -38760,48 +38835,27 @@ end</Script>
 <Event>
 <Name>On PosChange</Name>
 <Args>number e_Pos</Args>
-<Script>if e_Pos ~= Pos then
-	Power = String.Find(Input.GetText("Input1"), "^", 1, false);
-	if Power ~= -1 then -- Find ^
-		if e_Pos == 0 then
-			nums = AMS.DelimitedStringToTable(Input.GetText("Input1"), "*10^");
-			if Math.Floor(tonumber(nums[1])) == 0 then
-				Input.SetText("Input2", "0")
-			elseif Math.Floor(tonumber(nums[1])) == 1 then
-				Input.SetText("Input2", "10^"..nums[2])
-			else
-				Input.SetText("Input2", Math.Floor(tonumber(nums[1])).."*10^"..nums[2]);
-			end
-		else
-			NumPower = AMS.DelimitedStringToTable(Input.GetText("Input1"), "*10^");
-			NumDot = AMS.DelimitedStringToTable(NumPower[1], ".");
-			AfterDot = String.Mid(NumDot[2], 1, e_Pos);
-			_Number = NumDot[1].."."..AfterDot.."*10^"..NumPower[2]
-			Input.SetText("Input2", _Number);
-		end
-	else
-		if e_Pos == 0 then
-			_Number = Math.Floor(Input.GetText("Input1"));
-			Input.SetText("Input2", _Number);
-		else
-			Nums = AMS.DelimitedStringToTable(Input.GetText("Input1"), ".");
-			if Nums ~= nil then
-				AfterDot = String.Mid(Nums[2], 1, e_Pos);
-				_Number = Nums[1].."."..AfterDot
-				Input.SetText("Input2", _Number);
-			end
-		end
-	end
-	SaveZarib()
-	Pos = e_Pos
+<Script>e_Pos = String.Replace(e_Pos, "-", "", true)
+if String.Find(Input.GetText("Input1"), "*10^", 1, false) ~= -1 then
+	ONumbers = AMS.DelimitedStringToTable(Input.GetText("Input1"), "*10^");
+	Number = tonumber(String.Replace(ONumbers[1], "-", "", false));
+else
+	Number = tonumber(Input.GetText("Input1"));
+end
+Number = (Math.Round(Number * (10^e_Pos)))/(10^e_Pos)
+
+if String.Find(Input.GetText("Input1"), "*10^", 1, false) ~= -1 then
+	Input.SetText("Input2", Number.."*10^"..ONumbers[2]);
+else
+	Input.SetText("Input2", Number);
 end</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>31</DesignCodeLine>
-<DesignCodeCol>4</DesignCodeCol>
+<DesignCodeLine>2</DesignCodeLine>
+<DesignCodeCol>72</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -39041,20 +39095,27 @@ end</Script>
 <Script>if CheckBox.GetChecked(this) then
 	Label.SetVisible("Label2", false);
 	Plugin.SetVisible("Plugin1", false);
+	Plugin.SetVisible("Plugin3", false);
 	if String.Find(Input.GetText("Input1"), "^", 1, false) == -1 then
-		if Math.Floor(Input.GetText("Input1"))*10 &lt; 5 then
-			Input.SetText("Input2", Math.Floor(Input.GetText("Input1")));
-		else
-			Input.SetText("Input2", Math.Ceil(Input.GetText("Input1")));
-		end
+		Input.SetText("Input2", Math.Round(tonumber(Input.GetText("Input1"))));
 	else
 		nums = AMS.DelimitedStringToTable(Input.GetText("Input1"), "*10^");
-		Input.SetText("Input2", Math.Ceil(tonumber(nums[1])).."*10^"..nums[2]);
+		Input.SetText("Input2", Math.Round(tonumber(nums[1])).."*10^"..nums[2]);
 	end
 else
 	Label.SetVisible("Label2", true);
 	Plugin.SetVisible("Plugin1", true);
 	Input.SetText("Input2", Input.GetText("Input1"));
+	if String.Find(Input.GetText("Input1"), "*10^", 1, false) ~= -1 then
+		ONumbers = AMS.DelimitedStringToTable(Input.GetText("Input1"), "*10^");
+		Original = String.Replace(ONumbers[1], "-", "", false);
+		Original = String.Mid(Original, String.Find(Original, "."), -1);
+	else
+		Original = String.Replace(Input.GetText("Input1"), "-", "", false);
+		Original = String.Mid(Original, String.Find(Original, "."), -1);
+
+	end
+	SliderEx.SetRange("Plugin1", 0, #Original);
 end
 
 SaveZarib()</Script>
@@ -39063,8 +39124,8 @@ SaveZarib()</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>11</DesignCodeLine>
-<DesignCodeCol>35</DesignCodeCol>
+<DesignCodeLine>19</DesignCodeLine>
+<DesignCodeCol>51</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -39138,6 +39199,82 @@ SaveZarib()</Script>
 <AntiAlias>1</AntiAlias>
 </FontData>
 </Font>
+</Object>
+<Object>
+<Type>40</Type>
+<Name>Plugin2</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>0</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>236</Top>
+<Bottom>265</Bottom>
+<Left>17</Left>
+<Right>222</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<PLUGIN>
+<DLLFile>Shape\Shape.apo</DLLFile>
+<CustomData>2,0,5052645,3,0,4724693,7,7</CustomData>
+</PLUGIN>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
 </Object>
 <Object>
 <Type>7</Type>
@@ -39311,163 +39448,11 @@ SaveZarib()</Script>
 <MouseClickSndMode>0</MouseClickSndMode>
 <MouseClickSound/>
 </Object>
-<Object>
-<Type>40</Type>
-<Name>Plugin2</Name>
-<VisibleAtDesignTime>1</VisibleAtDesignTime>
-<VisibleAtRunTime>0</VisibleAtRunTime>
-<Locked>0</Locked>
-<Enabled>1</Enabled>
-<ToolTip/>
-<Cursor>1</Cursor>
-<Group>0</Group>
-<MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>1</Pin>
-<TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
-<Coordinates>
-<Top>236</Top>
-<Bottom>265</Bottom>
-<Left>17</Left>
-<Right>222</Right>
-</Coordinates>
-<Ratios>
-<WidthRatio>-1.000000</WidthRatio>
-<HeightRatio>-1.000000</HeightRatio>
-</Ratios>
-<Event>
-<Name>On Click</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Enter</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Leave</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Actions/>
-<PLUGIN>
-<DLLFile>Shape\Shape.apo</DLLFile>
-<CustomData>2,0,5052645,3,0,4724693,7,7</CustomData>
-</PLUGIN>
-<MouseOverSndMode>0</MouseOverSndMode>
-<MouseOverSound/>
-<MouseClickSndMode>0</MouseClickSndMode>
-<MouseClickSound/>
-</Object>
-<Object>
-<Type>40</Type>
-<Name>Plugin3</Name>
-<VisibleAtDesignTime>1</VisibleAtDesignTime>
-<VisibleAtRunTime>0</VisibleAtRunTime>
-<Locked>0</Locked>
-<Enabled>1</Enabled>
-<ToolTip/>
-<Cursor>1</Cursor>
-<Group>0</Group>
-<MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>1</Pin>
-<TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
-<Coordinates>
-<Top>186</Top>
-<Bottom>233</Bottom>
-<Left>17</Left>
-<Right>222</Right>
-</Coordinates>
-<Ratios>
-<WidthRatio>-1.000000</WidthRatio>
-<HeightRatio>-1.000000</HeightRatio>
-</Ratios>
-<Event>
-<Name>On Click</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Enter</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Leave</Name>
-<Args/>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Actions/>
-<PLUGIN>
-<DLLFile>Shape\Shape.apo</DLLFile>
-<CustomData>2,0,5052645,3,0,4724693,7,7</CustomData>
-</PLUGIN>
-<MouseOverSndMode>0</MouseOverSndMode>
-<MouseOverSound/>
-<MouseClickSndMode>0</MouseClickSndMode>
-<MouseClickSound/>
-</Object>
 <HGuidelines/>
 <VGuidelines/>
 </Page>
 </PageDialog>
-<PageDialog width="600" height="380" dialog_title=" ‰ŸÌ„«  ‰—„ «›“«—" dialog_style="0" movable="1" use_custom_icon="0" custom_icon="" always_on_top="0" resizable="0" min_width="480" min_height="300" fit_custom_mask_to_window="1" custom_mask="">
+<PageDialog width="600" height="500" dialog_title=" ‰ŸÌ„«  ‰—„ «›“«—" dialog_style="0" movable="1" use_custom_icon="0" custom_icon="" always_on_top="0" resizable="0" min_width="480" min_height="300" fit_custom_mask_to_window="1" custom_mask="">
 <Page>
 <Name>Settings</Name>
 <InheritObs/>
@@ -39561,8 +39546,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>6</DesignCodeLine>
-<DesignCodeCol>53</DesignCodeCol>
+<DesignCodeLine>7</DesignCodeLine>
+<DesignCodeCol>3</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -39701,8 +39686,8 @@ end</Script>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>330</Top>
-<Bottom>381</Bottom>
+<Top>450</Top>
+<Bottom>501</Bottom>
 <Left>0</Left>
 <Right>601</Right>
 </Coordinates>
@@ -39777,8 +39762,8 @@ end</Script>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>329</Top>
-<Bottom>381</Bottom>
+<Top>449</Top>
+<Bottom>501</Bottom>
 <Left>310</Left>
 <Right>422</Right>
 </Coordinates>
@@ -39868,8 +39853,8 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("321313"));</
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>329</Top>
-<Bottom>381</Bottom>
+<Top>449</Top>
+<Bottom>501</Bottom>
 <Left>311</Left>
 <Right>642</Right>
 </Coordinates>
@@ -39910,14 +39895,14 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("4e1e1e"));</
 <Event>
 <Name>On Click</Name>
 <Args/>
-<Script>Page.Jump("Home Page");</Script>
+<Script>Page.ClickObject("BMenu - Item1 - Icon");</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
 <DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>23</DesignCodeCol>
+<DesignCodeCol>41</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -39960,8 +39945,8 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("4e1e1e"));</
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>347</Top>
-<Bottom>364</Bottom>
+<Top>467</Top>
+<Bottom>484</Bottom>
 <Left>484</Left>
 <Right>582</Right>
 </Coordinates>
@@ -39972,14 +39957,25 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("4e1e1e"));</
 <Event>
 <Name>On Click</Name>
 <Args/>
-<Script/>
+<Script>-- Skin
+SkinSelect = ThumbList.GetSelectedItems("Tab1 - Skin Picker");
+Skin.Name = ThumbList.GetItemInfo("Tab1 - Skin Picker", SkinSelect[1]).filetitle;
+Application.SaveValue("Skin", "Name", Skin.Name);
+Binesh.LoadSkin(Skin.Name)
+
+-- Round Numbers
+if CheckBox.GetChecked("CheckBox1") then
+	Application.SaveValue("Settings", "RoundNumbers", "true");
+else
+	Application.SaveValue("Settings", "RoundNumbers", "false");
+end</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>8</DesignCodeLine>
+<DesignCodeCol>56</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -40056,8 +40052,8 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("4e1e1e"));</
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>329</Top>
-<Bottom>381</Bottom>
+<Top>449</Top>
+<Bottom>501</Bottom>
 <Left>-1</Left>
 <Right>111</Right>
 </Coordinates>
@@ -40148,8 +40144,8 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>329</Top>
-<Bottom>381</Bottom>
+<Top>449</Top>
+<Bottom>501</Bottom>
 <Left>0</Left>
 <Right>331</Right>
 </Coordinates>
@@ -40240,8 +40236,8 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>347</Top>
-<Bottom>363</Bottom>
+<Top>467</Top>
+<Bottom>483</Bottom>
 <Left>203</Left>
 <Right>291</Right>
 </Coordinates>
@@ -40403,7 +40399,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <VisibleAtDesignTime>1</VisibleAtDesignTime>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
-<Enabled>1</Enabled>
+<Enabled>0</Enabled>
 <ToolTip/>
 <Cursor>1</Cursor>
 <Group>0</Group>
@@ -40677,7 +40673,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <VisibleAtDesignTime>1</VisibleAtDesignTime>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
-<Enabled>1</Enabled>
+<Enabled>0</Enabled>
 <ToolTip/>
 <Cursor>1</Cursor>
 <Group>0</Group>
@@ -40789,7 +40785,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <VisibleAtDesignTime>1</VisibleAtDesignTime>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
-<Enabled>1</Enabled>
+<Enabled>0</Enabled>
 <ToolTip/>
 <Cursor>1</Cursor>
 <Group>0</Group>
@@ -40875,7 +40871,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <VisibleAtDesignTime>1</VisibleAtDesignTime>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
-<Enabled>1</Enabled>
+<Enabled>0</Enabled>
 <ToolTip/>
 <Cursor>1</Cursor>
 <Group>0</Group>
@@ -40987,7 +40983,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <VisibleAtDesignTime>1</VisibleAtDesignTime>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
-<Enabled>1</Enabled>
+<Enabled>0</Enabled>
 <ToolTip/>
 <Cursor>1</Cursor>
 <Group>0</Group>
@@ -41170,18 +41166,23 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <Event>
 <Name>On Select</Name>
 <Args/>
-<Script>Select = ThumbList.GetSelectedItems("Tab1 - Skin Picker");
+<Script>-- Show Preview
+Select = ThumbList.GetSelectedItems("Tab1 - Skin Picker");
 Skin.Info = ThumbList.GetItemInfo("Tab1 - Skin Picker", Select[1]);
 Image.Load("Tab1 - Skin Preview", Skin.Info.filepath);
 -- First: Remove 'bsp-' then remove '.png'
-Paragraph.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Skin.Info.filename, "bsp-", "", false), ".png", "", false));</Script>
+local Name = String.Replace(Skin.Info.filetitle, "bsp-", "", false)
+Paragraph.SetText("Tab1 - Skin Preview-Title", Name);
+
+-- Set Skin
+Binesh.LoadSkin(Name)</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>4</DesignCodeLine>
-<DesignCodeCol>19</DesignCodeCol>
+<DesignCodeLine>9</DesignCodeLine>
+<DesignCodeCol>7</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -42079,6 +42080,115 @@ Paragraph.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Ski
 <MouseClickSound/>
 </Text>
 </Object>
+<Object>
+<Type>15</Type>
+<Name>CheckBox1</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>0</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>346</Top>
+<Bottom>366</Bottom>
+<Left>8</Left>
+<Right>593</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Right-Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<Options>
+<Text>„ﬁœ«— ‰Â«ÌÌ „Õ«”»«  ê—œ ‘Êœ</Text>
+<NormalColor format="hex">ffffff</NormalColor>
+<HighlightColor format="hex">ffffff</HighlightColor>
+<MouseDownColor format="hex">ffffff</MouseDownColor>
+<Disabled format="hex">c0c0c0</Disabled>
+<Alignment>2</Alignment>
+<ButtonAlign>1</ButtonAlign>
+<RTLReadingOrder>1</RTLReadingOrder>
+<Checked>0</Checked>
+<MouseOverSoundMode>0</MouseOverSoundMode>
+<MouseOverSound/>
+<MouseClickSoundMode>0</MouseClickSoundMode>
+<MouseClickSound/>
+</Options>
+<Font>
+<FontData>
+<FontName>IRANSans Light</FontName>
+<CharacterSet>178</CharacterSet>
+<Height>-12</Height>
+<Weight>300</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Font>
+</Object>
 <HGuidelines>
 <Guideline>
 <pt>8</pt>
@@ -42098,6 +42208,10 @@ Paragraph.SetText("Tab1 - Skin Preview-Title", String.Replace(String.Replace(Ski
 </Guideline>
 <Guideline>
 <pt>568</pt>
+<locked>0</locked>
+</Guideline>
+<Guideline>
+<pt>592</pt>
 <locked>0</locked>
 </Guideline>
 </HGuidelines>
