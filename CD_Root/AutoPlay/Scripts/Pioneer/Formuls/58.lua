@@ -10,7 +10,7 @@ function Binesh.F58()
 			Binesh.CreateHTMLFile("P = <span>F/A</span>")
 			P = F/A
 			
-			Binesh.AddToHTML("P = "..F.."*"..A.." &#8658; P = "..P.." Pa")
+			Binesh.AddToHTML("P = <span>"..F.."/"..A.."</span> &#8658; P = "..P.." Pa")
 			
 			Binesh.AddToHTML("F: "..F.." N", "V")
 			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
@@ -23,7 +23,7 @@ function Binesh.F58()
 			Binesh.CreateHTMLFile("P = <span>F/A</span>", "F = PA")
 			F = P*A
 			
-			Binesh.AddToHTML("F = <span>"..P.."*"..A.."</span> &#8658; F = "..F.." N")
+			Binesh.AddToHTML("F = "..P.."*"..A.." &#8658; F = "..F.." N")
 			
 			Binesh.AddToHTML("P: "..P.." Pa", "V")
 			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
