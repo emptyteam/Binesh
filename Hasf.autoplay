@@ -17,7 +17,7 @@
 <ProjectInfo ToolTipStyle="1">
 <Office2007Theme Theme="5"/>
 <WindowStyles>
-<Width>800</Width>
+<Width>1000</Width>
 <Height>600</Height>
 <WindowTitle>»Ì‰‘</WindowTitle>
 <WindowStyle>0</WindowStyle>
@@ -118,6 +118,13 @@ tbl.End = {" Å«Ì«‰ ", " «‰ Â« ", " À«‰ÊÌÂ ", " œÊ„ ", " «‰ Â« ", " Å«Ì«‰Ì ", " ¬
 	USER.Nickname = ""
 	USER.isLogin = false
 	USER.Use = 1
+	
+	-- For Skin
+	SKIN = {}
+	SKIN.Name					= INIFile.GetValue("Settings.bin", "Skin", "Name");
+	SKIN.MainColor				= INIFile.GetValue("Skins\\bsp-Alerji.ini", "Color", "Main");
+	SKIN.MenuMainColor			= INIFile.GetValue("Skins\\bsp-Alerji.ini", "Color", "Main");
+	SKIN.MenuSecondColor		= INIFile.GetValue("Skins\\bsp-Alerji.ini", "Color", "Main");
 	
 	-- For Get Category
 	Category = {}
@@ -241,8 +248,6 @@ else
 end
 
 -- Skin Vars
-Skin = {}
-Skin.Name = ""
 if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name") == "" then
 	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name", "Cyan");
 end
@@ -536,11 +541,34 @@ function Error(ErrorText, Exit)
 end
 
 function Binesh.LoadSkin()
-
-end
-if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name") ~= "" then
-	Binesh.LoadSkin(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name"))
-end
+	Skin = INIFile.GetValue("Settings.bin", "Skin", "Name");
+	isPage = Application.GetCurrentPage()
+	if isPage ~= "" then -- Page
+		Objects = Page.EnumerateObjects();
+	else
+		Objects = DialogEx.EnumerateObjects();
+	end
+	for Counter, ObjectName in pairs(Objects) do
+		if isPage ~= "" then -- is Page
+			ObjectType = Page.GetObjectType(ObjectName);
+		else -- is Dialog
+			ObjectType = DialogEx.GetObjectType(ObjectName);
+		end -- isPage
+		
+		if ObjectType == OBJECT_INPUT then
+			BackColor = Input.GetProperties(ObjectName).BackgroundColor;
+		
+		elseif ObjectType == OBJECT_LISTBOX then
+			
+		elseif ObjectType == OBJECT_PLUGIN then
+			
+		elseif ObjectType == OBJECT_WEB then
+			
+		elseif ObjectType == OBJECT_LABEL then
+			
+		end
+	end -- For: Objects
+end -- Function
 
 -- Include Pres Table
 Binesh.Include("Pres", false);
@@ -620,8 +648,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>140</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>58</DesignCodeLine>
+<DesignCodeCol>15</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -682,16 +710,14 @@ end</Script>
 <Name>On Startup</Name>
 <Args/>
 <Script>Binesh.ClearHTMLFile()
-Binesh.ClearHTMLFile("V")
-
-Binesh.LoadSkin(Application.LoadValue("Skin", "Name"))</Script>
+Binesh.ClearHTMLFile("V")</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>1</DesignCodeLine>
+<DesignCodeCol>25</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -852,7 +878,10 @@ Binesh.LoadSkin(Application.LoadValue("Skin", "Name"))</Script>
 <Event>
 <Name>On Show</Name>
 <Args/>
-<Script>function ShowSymbols(Visible, X_Pos, Y_Pos, Enabled)
+<Script>if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name") ~= "" then
+	Binesh.LoadSkin(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name"))
+end
+function ShowSymbols(Visible, X_Pos, Y_Pos, Enabled)
 	if X_Pos ~= nil and Y_Pos ~= nil then
 		-- Row 1
 			-- Backgrounds
@@ -966,8 +995,8 @@ Page.Navigate(PAGE_NEXT);</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>28</DesignCodeLine>
-<DesignCodeCol>34</DesignCodeCol>
+<DesignCodeLine>2</DesignCodeLine>
+<DesignCodeCol>3</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -8852,28 +8881,28 @@ Pre_Input("Input1", TextInput1)
 Page.StartTimer(1, 1);
 
 -- Load All Functions
-StatusDlg.Show(MB_ICONINFORMATION, false);
-StatusDlg.SetTitle("Ê÷⁄Ì ");
-StatusDlg.SetMessage("›—«ŒÊ«‰Ì ›—„Ê· Â«");
+--StatusDlg.Show(MB_ICONINFORMATION, false);
+--StatusDlg.SetTitle("Ê÷⁄Ì ");
+--StatusDlg.SetMessage("›—«ŒÊ«‰Ì ›—„Ê· Â«");
 AllFormuls = File.Find("AutoPlay\\Scripts\\Pioneer\\Formuls", "*.lua", false, false);
 if AllFormuls then
 	for Counter, FormuleAddress in pairs(AllFormuls) do
-		StatusDlg.SetStatusText(Counter);
-		StatusDlg.SetMeterPos(0);
+		--StatusDlg.SetStatusText(Counter);
+		--StatusDlg.SetMeterPos(0);
 		FormuleName = String.SplitPath(FormuleAddress).Filename
-		StatusDlg.SetMeterPos(50);
+		--StatusDlg.SetMeterPos(50);
 		Binesh.Include("Formuls."..FormuleName, false);
-		StatusDlg.SetMeterPos(100);
+		--StatusDlg.SetMeterPos(100);
 	end
 end
-StatusDlg.Hide();</Script>
+--StatusDlg.Hide();</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>4</DesignCodeLine>
-<DesignCodeCol>21</DesignCodeCol>
+<DesignCodeLine>16</DesignCodeLine>
+<DesignCodeCol>4</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9669,13 +9698,13 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		end
 	end
 	
-	for indexOfCalculate = 1, 5 do
+	--for indexOfCalculate = 1, 5 do
 		Page.ClickObject("xButton2"); -- Genesis 1
 		Page.ClickObject("xButton3"); -- Genesis 2
 		Page.ClickObject("xButton1"); -- Calculate &amp; Show
 		Web.Refresh("Web1");
 		Web.Refresh("Web2");
-	end
+	--end
 else
 	Error("”Ê«· —« Ê«—œ ò‰Ìœ.")
 end</Script>
@@ -9685,7 +9714,7 @@ end</Script>
 <TreeState>0</TreeState>
 </TreeStates>
 <DesignCodeLine>40</DesignCodeLine>
-<DesignCodeCol>4</DesignCodeCol>
+<DesignCodeCol>3</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9911,6 +9940,7 @@ Binesh.F50();
 Binesh.F51();
 Binesh.F55();
 Binesh.F56();
+Binesh.F57();
 Binesh.F58();
 Binesh.F59();
 Binesh.F60();
@@ -10015,8 +10045,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>147</DesignCodeLine>
-<DesignCodeCol>13</DesignCodeCol>
+<DesignCodeLine>61</DesignCodeLine>
+<DesignCodeCol>10</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10258,6 +10288,9 @@ Binesh.F147();</Script>
 	if S == nil then
 		Binesh.PreparationSearchFirsts("”ÿÕ", "Ã”„");
 		S = Binesh.Genesis1("Ã”„ ”ÿÕ", "S", "", "", 1, "m^2", "„ — „—»⁄");
+		if S ~= nil then
+			A = S
+		end
 	end
 	if Sp == nil then
 		Binesh.PreparationSearchFirsts("”ÿÕ", "”«ÌÂ");
@@ -10275,7 +10308,7 @@ Binesh.F147();</Script>
 	-- 12
 	if p_Glass == nil then
 		Binesh.PreparationSearchFirsts("Ã”„", "›«’·Â");
-		p_Glass = Binesh.Genesis1("›«’·Â Ã”„", " p", "", "", 1, "m", "„ — ");
+		p_Glass = Binesh.Genesis1("›«’·Â Ã”„", " p", "", "", 1, "m", "„ —");
 	end
 	if q_Glass == nil then
 		Binesh.PreparationSearchFirsts("”«ÌÂ", "›«’·Â");
@@ -10458,8 +10491,20 @@ Binesh.F147();</Script>
 			W_Use = W
 		end
 	end
-	 
-	 -- 58
+	
+	-- 57
+	if V == nil and VL == nil then
+		V = Binesh.Genesis1("ÕÃ„", "V", "", "", 1, "m^3", "„ — „ò⁄»");
+		if V == nil then
+			VL = Binesh.Genesis1("ÕÃ„", "V", "", "", 1, "L", "·Ì —");
+		end
+	end
+	Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »Â „ — „ò⁄»");
+	if Ru == nil then
+		Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »Â ·Ì —");
+	end
+	
+	-- 58
 	if P == nil then
 		P = Binesh.Genesis1("›‘«—", "P", "", "", 1, "Pa", "Å«”ò«·");
 		if P == nil then
@@ -10530,12 +10575,6 @@ Binesh.F147();</Script>
 	end
 	
 	-- 73
-	if V == nil and VL == nil then
-		V = Binesh.Genesis1("ÕÃ„", "V", "", "", 1, "m^3", "„ — „ò⁄»");
-		if V == nil then
-			VL = Binesh.Genesis1("ÕÃ„", "V", "", "", 1, "L", "·Ì —");
-		end
-	end
 	if n == nil then
 		n = Binesh.Genesis1("„Ê·", "n", "", "", 1, "mol", "„Ê·");
 	end
@@ -11319,8 +11358,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>477</DesignCodeLine>
-<DesignCodeCol>10</DesignCodeCol>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11562,6 +11601,9 @@ Binesh.F147();</Script>
 	if S == nil then
 		Binesh.PreparationSearchFirsts("”ÿÕ", "Ã”„");
 		S = Binesh.Genesis2("Ã”„ ”ÿÕ", "S", "", "", 1, "m^2", "„ — „—»⁄");
+		if S ~= nil then
+			A = S
+		end
 	end
 	if Sp == nil then
 		Binesh.PreparationSearchFirsts("”ÿÕ", "”«ÌÂ");
@@ -11579,7 +11621,7 @@ Binesh.F147();</Script>
 	-- 12
 	if p_Glass == nil then
 		Binesh.PreparationSearchFirsts("Ã”„", "›«’·Â");
-		p_Glass = Binesh.Genesis2("›«’·Â Ã”„", " p", "", "", 1, "m", "„ — ");
+		p_Glass = Binesh.Genesis2("›«’·Â Ã”„", " p", "", "", 1, "m", "„ —");
 	end
 	if q_Glass == nil then
 		Binesh.PreparationSearchFirsts("”«ÌÂ", "›«’·Â");
@@ -11762,8 +11804,20 @@ Binesh.F147();</Script>
 			W_Use = W
 		end
 	end
-	 
-	 -- 58
+	
+	-- 57
+	if V == nil and VL == nil then
+		V = Binesh.Genesis2("ÕÃ„", "V", "", "", 1, "m^3", "„ — „ò⁄»");
+		if V == nil then
+			VL = Binesh.Genesis2("ÕÃ„", "V", "", "", 1, "L", "·Ì —");
+		end
+	end
+	Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »Â „ — „ò⁄»");
+	if Ru == nil then
+		Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »Â ·Ì —");
+	end
+	
+	-- 58
 	if P == nil then
 		P = Binesh.Genesis2("›‘«—", "P", "", "", 1, "Pa", "Å«”ò«·");
 		if P == nil then
@@ -11834,12 +11888,6 @@ Binesh.F147();</Script>
 	end
 	
 	-- 73
-	if V == nil and VL == nil then
-		V = Binesh.Genesis2("ÕÃ„", "V", "", "", 1, "m^3", "„ — „ò⁄»");
-		if V == nil then
-			VL = Binesh.Genesis2("ÕÃ„", "V", "", "", 1, "L", "·Ì —");
-		end
-	end
 	if n == nil then
 		n = Binesh.Genesis2("„Ê·", "n", "", "", 1, "mol", "„Ê·");
 	end
@@ -11902,11 +11950,17 @@ Binesh.F147();</Script>
 			q1 = q
 		end
 	end
+	if q1 ~= nil then
+		_q1 = q1
+	end
 	if q2 == nil then
 		q2 = Binesh.Genesis2("œÊ„Ì‰ –—Â", "q2", "", "", 1, "C", "òÊ·‰");
 		if q2 == nil then
 			q2 = Binesh.Genesis2("–—Â œÊ„Ì‰", "q2", "", "", 1, "C", "òÊ·‰");
 		end
+	end
+	if q2 ~= nil then
+		_q2 = q2
 	end
 	if r == nil then
 		r = Binesh.Genesis2("›«’·Â", "r", "", "", 1, "m^2", "„ — „—»⁄");
@@ -42162,7 +42216,7 @@ Binesh.LoadSkin(Name)</Script>
 </Event>
 <Actions/>
 <Options>
-<Text>„ﬁœ«— ‰Â«ÌÌ „Õ«”»«  ê—œ ‘Êœ</Text>
+<Text>„ﬁœ«— ‰Â«ÌÌ „Õ«”»« ° ê—œ ‘Êœ</Text>
 <NormalColor format="hex">ffffff</NormalColor>
 <HighlightColor format="hex">ffffff</HighlightColor>
 <MouseDownColor format="hex">ffffff</MouseDownColor>
