@@ -12,7 +12,7 @@ function Binesh.F97_1()
 		end
 	end
 	
-	if C_Condenser == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Œ«“‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1 then
+	if C_Condenser == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1 then
 		if V_Electric ~= nil and U ~= nil then
 			Binesh.CreateHTMLFile("U = <span>1/2</span>CV<sup>2</sup>", "C = <span>2U/V<sup>2</sup></span>")
 			C_Condenser = (2*U)/(V_Electric^2)
