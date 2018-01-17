@@ -215,36 +215,49 @@ if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga") ~= "" then
 else
 	Zarib.ga = 9.80665
 	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga", "9.80665");
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga_r", "false");
 end
 if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e") ~= "" then
 	Zarib.e = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e"))
 else
 	Zarib.e = 1.602*10^-19
 	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e", "1.602*10^-19");
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e_r", "false");
 end
 if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G") ~= "" then
 	Zarib.G = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G"))
 else
 	Zarib.G = 6.67384*10^-11
 	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G", "6.67384*10^-11");
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G_r", "false");
 end
 if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k") ~= "" then
 	Zarib.k = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k"))
 else
 	Zarib.k = 8.9879*10^9
 	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k", "8.9879*10^9");
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k_r", "false");
 end
 if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R") ~= "" then
 	Zarib.R = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R"))
 else
 	Zarib.R = 8.314472
 	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R", "8.314472");
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R_r", "false");
+end
+if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ec") ~= "" then
+	Zarib.ec = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ec"))
+else
+	Zarib.ec = 8.854187817*10^-12
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ec", "8.854187817*10^-12");
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ec_r", "false");
 end
 if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi") ~= "" then
-	Zarib.R = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi"))
+	Zarib.Pi = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi"))
 else
 	Zarib.Pi = math.pi
 	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi", tostring(math.pi));
+	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi_r", "false");
 end
 
 -- Skin Vars
@@ -648,8 +661,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>58</DesignCodeLine>
-<DesignCodeCol>15</DesignCodeCol>
+<DesignCodeLine>194</DesignCodeLine>
+<DesignCodeCol>63</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -38303,6 +38316,8 @@ Tree.SetSelectedNode("Tree1", "");</Script>
 		GetInfo("8.9879*10^9", "k")
 	elseif e_NodeIndex == "3.2" then
 		GetInfo("8.314472", "R")
+	elseif e_NodeIndex == "3.3" then
+		GetInfo("8.854187817*10^-12", "ec")
 	elseif e_NodeIndex == "4.1" then
 		GetInfo(math.pi, "Pi")
 	end
@@ -38322,8 +38337,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>39</DesignCodeLine>
-<DesignCodeCol>33</DesignCodeCol>
+<DesignCodeLine>55</DesignCodeLine>
+<DesignCodeCol>11</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -38531,6 +38546,19 @@ end</Script>
 <Selected>0</Selected>
 <Expanded>0</Expanded>
 <NodeIndex>3.2</NodeIndex>
+<ImageIndex>-1</ImageIndex>
+<SelectedImageIndex>-1</SelectedImageIndex>
+<Checked>0</Checked>
+</AMSTreeData>
+<node_sibling>1</node_sibling>
+</tree_node>
+<tree_node>
+<AMSTreeData>
+<Text>÷—Ì» «·ò —ÌòÌ ê–—œÂÌ Œ·√(e)</Text>
+<Data>F3-3</Data>
+<Selected>0</Selected>
+<Expanded>0</Expanded>
+<NodeIndex>3.3</NodeIndex>
 <ImageIndex>-1</ImageIndex>
 <SelectedImageIndex>-1</SelectedImageIndex>
 <Checked>0</Checked>
