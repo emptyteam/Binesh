@@ -45,7 +45,7 @@ function Binesh.F96()
 		if Kapa ~= nil and C_Condenser ~= nil and A ~= nil then
 			d = Kapa*Zarib.ec*(A/C_Condenser)
 			
-			Binesh.CreateHTMLFile("C = KapaEpsilon<sub>0</sub> <span>A/d</span>", "A = KapaEpsilon<sub>0</sub> <span>A/C</span>")
+			Binesh.CreateHTMLFile("C = KapaEpsilon<sub>0</sub> <span>A/d</span>", "d = KapaEpsilon<sub>0</sub> <span>A/C</span>")
 			Binesh.AddToHTML("d = "..Kapa.."*"..Zarib.ec.." <span>"..A.."/"..C_Condenser.."</span> &#8658; d = "..d.." m")
 			
 			Binesh.AddToHTML("Kapa: "..Kapa, "V")
