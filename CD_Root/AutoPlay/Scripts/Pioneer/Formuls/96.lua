@@ -40,4 +40,18 @@ function Binesh.F96()
 			Binesh.AddToHTML("A: ?", "V")
 		end
 	end
+	
+	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then
+		if Kapa ~= nil and C_Condenser ~= nil and A ~= nil then
+			d = Kapa*Zarib.ec*(A/C_Condenser)
+			
+			Binesh.CreateHTMLFile("C = KapaEpsilon<sub>0</sub> <span>A/d</span>", "A = KapaEpsilon<sub>0</sub> <span>A/C</span>")
+			Binesh.AddToHTML("d = "..Kapa.."*"..Zarib.ec.." <span>"..A.."/"..C_Condenser.."</span> &#8658; d = "..d.." m")
+			
+			Binesh.AddToHTML("Kapa: "..Kapa, "V")
+			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("C: "..C_Condenser.." F", "V")
+			Binesh.AddToHTML("d: ?", "V")
+		end
+	end
 end
