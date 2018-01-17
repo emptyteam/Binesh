@@ -96,7 +96,8 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÈÓÇãÏ ÒÇæíå", "ÓÑÚÊ ÒÇæíå", false);
 		result = String.Replace(result, "ÎáÇ", "ÎáÇÁ", false);
 		result = String.Replace(result, "ÎáÇÁÁ", "ÎáÇÁ", false);
-		result = String.Replace(result, "ÊÕæíÑ", "ÓÇíå", false);
+		result = String.Replace(result, "ÊÕæíÑí", "ÊÕæíÑ", false);
+		result = String.Replace(result, "ÊÕæíÑ ãÌÇÒí", "ÓÇíå", false);
 		result = String.Replace(result, "ã˜Çä", "ÌÇÈÌÇíí", false);
 		result = String.Replace(result, "ËÇÈÊ", "ÖÑíÈ", false);
 		result = String.Replace(result, "Ôí", "ÌÓã", false);
@@ -107,6 +108,9 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "Lit", "L", false);
 		result = String.Replace(result, "æáí", "æá", false);
 		result = String.Replace(result, "ÖÎÇãÊ", "Øæá", false);
+		result = String.Replace(result, "ÌÑíÇä Çá˜ÊÑí˜í ãÊæÓØ", "ÌÑíÇä ãÊæÓØ", false);
+		result = String.Replace(result, "ÇäÑí ãİíÏ", "ÇäÑí ÊæáíÏí", false);
+		result = String.Replace(result, "ÇäÑí ãİíÏ", "ÇäÑí ÊæáíÏí", false);
 		
 		result = String.Replace(result, "f s", "fs,max", false);
 		result = String.Replace(result, "fs ,max", "fs,max", false);
