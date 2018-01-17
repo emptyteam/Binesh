@@ -2,7 +2,7 @@ function Binesh.F97_2()
 	if U == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
 		if q ~= nil and C_Condenser ~= nil then
 			Binesh.CreateHTMLFile("U = <span>1/2</span><span>q<sup>2</sup>/C</span>")
-			U = 0.5*(q^2*C_Condenser)
+			U = 0.5*(q^2/C_Condenser)
 			
 			Binesh.AddToHTML("U = <span>1/2</span>*<span>"..q.."<sup>2</sup>/"..C_Condenser.."</span> &#8658; U = "..U.." J")
 			

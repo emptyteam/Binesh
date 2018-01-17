@@ -27,10 +27,10 @@ function Binesh.F97_1()
 	
 	if V_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
 		if U ~= nil and C_Condenser ~= nil then
-			Binesh.CreateHTMLFile("U = 1/2CV<sup>2</sup>", "V = <span>Sqrt(2U/C)</span>")
+			Binesh.CreateHTMLFile("U = <span>1/2</span>CV<sup>2</sup>", "V = Sqrt(<span>2U/C</span>)")
 			V_Electric = Math.Sqrt(2*U/C_Condenser)
 			
-			Binesh.AddToHTML("V = Sqrt(2*"..U.."/"..C_Condenser..") &#8658; V = "..V_Electric.." V")
+			Binesh.AddToHTML("V = Sqrt(<span>2*"..U.."/"..C_Condenser.."</span>) &#8658; V = "..V_Electric.." V")
 			
 			Binesh.AddToHTML("U: "..U.." J", "V")
 			Binesh.AddToHTML("C: "..C_Condenser.." F", "V")
