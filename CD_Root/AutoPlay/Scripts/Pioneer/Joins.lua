@@ -1,4 +1,5 @@
 function Binesh.Joins()
+	Binesh.Join('˜םבז ׁד ָׁ דÊׁ ד˜Úָ');
 	Binesh.Join('ײׁםָ ַױ״˜ַ˜ ּהָװם');
 	Binesh.Join('˜זבה ָׁ דÊׁ דָׁÚ');
 	Binesh.Join('Ýַױבו ˜ַהזהם');
