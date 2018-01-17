@@ -10499,9 +10499,11 @@ Binesh.F147();</Script>
 			VL = Binesh.Genesis1("ÕÃ„", "V", "", "", 1, "L", "·Ì —");
 		end
 	end
-	Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »Â „ — „ò⁄»");
 	if Ru == nil then
-		Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »Â ·Ì —");
+		Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »— „ — „ò⁄»");
+		if Ru == nil then
+			Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »— ·Ì —");
+		end
 	end
 	
 	-- 58
@@ -11358,8 +11360,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>338</DesignCodeLine>
+<DesignCodeCol>1</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11812,9 +11814,11 @@ Binesh.F147();</Script>
 			VL = Binesh.Genesis2("ÕÃ„", "V", "", "", 1, "L", "·Ì —");
 		end
 	end
-	Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »Â „ — „ò⁄»");
 	if Ru == nil then
-		Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »Â ·Ì —");
+		Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »Â „ — „ò⁄»");
+		if Ru == nil then
+			Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »Â ·Ì —");
+		end
 	end
 	
 	-- 58
@@ -12671,8 +12675,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>2</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>343</DesignCodeLine>
+<DesignCodeCol>4</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
