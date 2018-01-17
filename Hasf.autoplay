@@ -661,8 +661,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>194</DesignCodeLine>
-<DesignCodeCol>63</DesignCodeCol>
+<DesignCodeLine>183</DesignCodeLine>
+<DesignCodeCol>86</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -10011,6 +10011,7 @@ Binesh.F94_1();
 Binesh.F94_2_1();
 Binesh.F94_2_2();
 Binesh.F95();
+Binesh.F96();
 Binesh.F97_1();
 Binesh.F97_2();
 Binesh.F97_3();
@@ -10058,7 +10059,7 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>61</DesignCodeLine>
+<DesignCodeLine>119</DesignCodeLine>
 <DesignCodeCol>10</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
@@ -10699,6 +10700,7 @@ Binesh.F147();</Script>
 	end
 	if d_Distance ~= nil then
 		r_3 = d_Distance
+		d = d_Distance
 	end
 	
 	-- 94
@@ -10719,6 +10721,9 @@ Binesh.F147();</Script>
 	-- 95
 	if C_Condenser == nil then
 		C_Condenser = Binesh.Genesis1("Ÿ—›Ì ", "C", "", "", 1, "F", "›«—«œ");
+		if C_Condenser == nil then
+			C_Condenser = Binesh.Genesis1("Œ«“‰", "C", "", "", 1, "F", "›«—«œ");
+		end
 	end
 	
 	-- 97
@@ -11373,8 +11378,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>338</DesignCodeLine>
-<DesignCodeCol>1</DesignCodeCol>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11828,9 +11833,9 @@ Binesh.F147();</Script>
 		end
 	end
 	if Ru == nil then
-		Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »Â „ — „ò⁄»");
+		Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »— „ — „ò⁄»");
 		if Ru == nil then
-			Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »Â ·Ì —");
+			Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »— ·Ì —");
 		end
 	end
 	
@@ -12014,6 +12019,7 @@ Binesh.F147();</Script>
 	end
 	if d_Distance ~= nil then
 		r_3 = d_Distance
+		d = d_Distance
 	end
 	
 	-- 94
@@ -12034,6 +12040,9 @@ Binesh.F147();</Script>
 	-- 95
 	if C_Condenser == nil then
 		C_Condenser = Binesh.Genesis2("Ÿ—›Ì ", "C", "", "", 1, "F", "›«—«œ");
+		if C_Condenser == nil then
+			C_Condenser = Binesh.Genesis2("Œ«“‰", "C", "", "", 1, "F", "›«—«œ");
+		end
 	end
 	
 	-- 97
@@ -12688,8 +12697,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>343</DesignCodeLine>
-<DesignCodeCol>4</DesignCodeCol>
+<DesignCodeLine>2</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -38554,7 +38563,7 @@ end</Script>
 </tree_node>
 <tree_node>
 <AMSTreeData>
-<Text>÷—Ì» «·ò —ÌòÌ ê–—œÂÌ Œ·√(e)</Text>
+<Text>÷—Ì» «·ò —ÌòÌ ê–—œÂÌ Œ·√(Epsilon)</Text>
 <Data>F3-3</Data>
 <Selected>0</Selected>
 <Expanded>0</Expanded>
