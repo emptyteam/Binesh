@@ -47,7 +47,7 @@ function Binesh.F71_1()
 		end
 	end
 	
-	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "лсЦ сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
 		if Q ~= nil and L ~= nil and t ~= nil and K_71 ~= nil and _DeltaTeta ~= nil then
 			Binesh.CreateHTMLFile("<span>Q/t</span> = K <span>ADeltaTeta/L</span>", "A = <span>QL/tKDeltaTeta</span>")
 			A = (Q*L)/(t*K_71*_DeltaTeta)

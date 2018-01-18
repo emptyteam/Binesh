@@ -27,7 +27,7 @@ function Binesh.F111()
 		end
 	end
 	
-	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "лсЦ сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
 		if R ~= nil and L ~= nil and Ru_Resistor ~= nil then
 			A = Ru_Resistor*L/R
 			

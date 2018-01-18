@@ -45,7 +45,7 @@ function Binesh.F139()
 		end
 	end
 	
-	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "лсЦ сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
 		if k_Self ~= nil and I ~= nil and L_Self ~= nil and N_Ring ~= nil then
 			Binesh.CreateHTMLFile("L = kMu<sub>0</sub>N<sup>2<sup><span>A/I</span>", "A = <span>LI/Mu<sub>0</sub>kN<sup>2<sup></span>")
 			

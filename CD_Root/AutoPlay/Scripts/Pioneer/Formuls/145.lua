@@ -33,7 +33,7 @@ function Binesh.F145()
 		end
 	end
 	
-	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "лсЦ сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
 		if I ~= nil and B ~= nil and t ~= nil and Omega ~= nil and N_Ring ~= nil and R ~= nil then
 			Binesh.CreateHTMLFile("I = <span>NABOmega/R</span>sinOmegat", "I = <span>IR/NBOmegasinOmegat</span>")
 			A = I*R/(N_Ring*B*Omega*Math.Sin(Omega*t))

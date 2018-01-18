@@ -31,7 +31,7 @@ function Binesh.F144()
 		end
 	end
 	
-	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "лсЦ сьм") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
 		if Epsilon ~= nil and B ~= nil and t ~= nil and Omega ~= nil and N_Ring ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = NABcosOmegat", "A = <span>Epsilon/NBcosOmegat</span>")
 			A = Epsilon/(N_Ring*B*Math.Cos(Omega*t))
