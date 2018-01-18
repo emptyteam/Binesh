@@ -23,7 +23,7 @@ function Binesh.F93_1_1()
 		end
 	end
 	
-	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
+	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
 		if _DeltaV_Electric ~= nil and E_Electric ~= nil then
 			Binesh.CreateHTMLFile("DeltaV = Ed", "d = <span>DeltaV/E</span>")
 			d = _DeltaV_Electric / E_Electric

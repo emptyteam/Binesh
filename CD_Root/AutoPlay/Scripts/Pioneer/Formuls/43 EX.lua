@@ -25,7 +25,7 @@ function Binesh.F43_EX()
 		end
 	end
 	
-	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x") ~= -1 then
+	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x") ~= -1 then
 		if F ~= nil and k_Coil ~= nil then
 			Binesh.CreateHTMLFile("F = -kx", "x = - <span>F/k</span>")
 			d = -F/k_Coil
