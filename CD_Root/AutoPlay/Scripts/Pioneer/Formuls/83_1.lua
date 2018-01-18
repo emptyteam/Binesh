@@ -63,7 +63,7 @@ function Binesh.F83_1()
 			Binesh.AddToHTML("Eta<sub>max</sub>: "..EtaK, "V")
 			Binesh.AddToHTML("T<subH</sub>: ?", "V")
 			
-			Binesh.AddToHTML("T<sub>H</sub> = - <span>"..T_C.."/(-1+"..EtaK.."</span> &#8658; T<sub>H</sub> = "..T_H.."<sup>o</sup>K")
+			Binesh.AddToHTML("T<sub>H</sub> = - <span>"..T_C.."/(-1+"..EtaK..")</span> &#8658; T<sub>H</sub> = "..T_H.."<sup>o</sup>K")
 		end
 	end
 end
