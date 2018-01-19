@@ -4,7 +4,7 @@ function Binesh.F112_1()
 		if _Ru_Resistor1 ~= nil and _Ru_Resistor2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaRu = Ru<sub>2</sub>-Ru<sub>1</sub>")
 			_DeltaRu_Resistor = _Ru_Resistor2 - _Ru_Resistor1
-			Binesh.AddToHTML("DeltaRu = ".._Ru_Resistor2.."-".._Ru_Resistor1.." &#8658; DeltaRu = ".._DeltaRu.." Ohm.m")
+			Binesh.AddToHTML("DeltaRu = ".._Ru_Resistor2.."-".._Ru_Resistor1.." &#8658; DeltaRu = ".._DeltaRu_Resistor.." Ohm.m")
 		end
 	end
 	
