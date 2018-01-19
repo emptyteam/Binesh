@@ -111,6 +111,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÌÑíÇä Çá˜ÊÑí˜í ãÊæÓØ", "ÌÑíÇä ãÊæÓØ", false);
 		result = String.Replace(result, "ÇäÑí ãİíÏ", "ÇäÑí ÊæáíÏí", false);
 		result = String.Replace(result, "ÇäÑí ãİíÏ", "ÇäÑí ÊæáíÏí", false);
+		result = String.Replace(result, "ÏÑ åÑ ÏŞíŞå", "ÒãÇä 60 ËÇäíå", false);
 		
 		result = String.Replace(result, "f s", "fs,max", false);
 		result = String.Replace(result, "fs ,max", "fs,max", false);
@@ -168,7 +169,9 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "m ol", " mol", false);
 		result = String.Replace(result, "mol", " mol", false);
 		result = String.Replace(result, "K", " K", true);
+		result = String.Replace(result, "1/ K", "1/K", true);
 		result = String.Replace(result, "C", " C", true);
+		result = String.Replace(result, "1/ C", "1/C", true);
 		result = String.Replace(result, "g", " g", true);
 		result = String.Replace(result, "g/mol", " g/mol", true);
 		
