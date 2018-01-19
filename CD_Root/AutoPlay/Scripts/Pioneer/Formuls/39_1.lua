@@ -16,7 +16,7 @@ function Binesh.F39_1()
 	if a == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then
 		if _Deltax ~= nil and t ~= nil and V0_Speed ~= nil then
 			Binesh.CreateHTMLFile("x = <span>1/2</span>at<sup>2</sup>+V<sub>0</sub>t", "a = <span>2(Deltax-V<sub>0</sub>t)/t<sup>2</sup></span>")
-			a = 2*(Deltax-(V0_Speed*t))/(t^2)
+			a = 2*(_Deltax-(V0_Speed*t))/(t^2)
 			
 			Binesh.AddToHTML("a = <span>2(".._Deltax.."-"..V0_Speed.."*"..t..")/"..t.."<sup>2</sup></span> &#8658; a = "..a.." m/s<sup>2</sup>")
 			
