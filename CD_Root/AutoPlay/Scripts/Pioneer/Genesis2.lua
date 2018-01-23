@@ -1,5 +1,4 @@
 function Binesh.Genesis2(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, UnitPersian, isUnit)
-	Binesh.Join(NamePersian);
 	UnitPersian = String.Replace(UnitPersian, "»Â", "»—");
 	Binesh.Join(UnitPersian);
 	
@@ -38,10 +37,10 @@ function Binesh.Genesis2(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, U
 									ListBox.DeleteItem("Words", index+1); -- Delete Unit
 									ListBox.DeleteItem("Words", index); -- Delete Number
 									return Number
-								end
-							end
-						end
-					end
+								end -- Check Lenght Unit
+							end -- Check Unit
+						end -- Check Pre
+					end -- for Pre
 				else
 					Number = Number/PreValue
 					

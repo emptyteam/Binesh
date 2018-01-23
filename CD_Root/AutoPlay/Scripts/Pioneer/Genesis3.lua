@@ -1,5 +1,4 @@
 function Binesh.Genesis3(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, UnitPersian, isUnit)
-	Binesh.Join(NamePersian);
 	UnitPersian = String.Replace(UnitPersian, "»Â", "»—");
 	Binesh.Join(UnitPersian);
 	
