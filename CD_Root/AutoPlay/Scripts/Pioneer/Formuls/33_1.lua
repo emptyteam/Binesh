@@ -45,7 +45,7 @@ function Binesh.F33_1()
 			Binesh.CreateHTMLFile("x = Vt+x<sub>0</sub>", "x<sub>0</sub> = x-Vt")
 			x0 = x-V_Speed*t
 			
-			Binesh.AddToHTML("x<sub>0</sub> = "..x.."-"..V_Speed.."*"..t.." &#8658; x<sub>0</sub. = "..x0.." m")
+			Binesh.AddToHTML("x<sub>0</sub> = "..x.."-"..V_Speed.."*"..t.." &#8658; x<sub>0</sub> = "..x0.." m")
 			
 			Binesh.AddToHTML("x: "..x.." m" , "V")
 			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")

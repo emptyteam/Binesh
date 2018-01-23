@@ -60,7 +60,7 @@ function Binesh.F112_1()
 		end
 	end
 	
-	if Alpha_112 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» œ„«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
+	if Alpha_112 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
 		if _DeltaRu_Resistor ~= nil and _Ru_Resistor1 ~= nil and _DeltaTeta ~= nil then
 			Binesh.CreateHTMLFile("DeltaRu = Ru<sub>1</sub>AlphaDeltaTeta", "Alpha = <span>DeltaRu/Ru<sub>1</sub>DeltaTeta</span>")
 			Alpha_112 = _DeltaRu_Resistor/(_Ru_Resistor1*_DeltaTeta)

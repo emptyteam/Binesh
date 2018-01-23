@@ -1,5 +1,5 @@
 function Binesh.F114_1()
-	if U_Output == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
+	if U_Output == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
 		if I ~= nil and t ~= nil and R ~= nil then
 			Binesh.CreateHTMLFile("U = RI<sup>2</sup>t")
 			U_Output = R * I^2 * t
