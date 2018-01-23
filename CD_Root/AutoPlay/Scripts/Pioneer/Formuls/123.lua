@@ -44,7 +44,7 @@ function Binesh.F123()
 	if R2 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ „ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„  œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R2") ~= -1 then
 		if I2 ~= nil and R1 ~= nil and I1 ~= nil then
 			Binesh.CreateHTMLFile("<span>I<sub>2</sub>/I<sub>1</sub></span> = <span>R<sub>1</sub>/R<sub>2</sub></span>", "R<sub>2</sub> = <span>I<sub>1</sub>R<sub>1</sub>/I<sub>2</sub></span>")
-			I2 = (I1*R1)/R2
+			R2 = (I1*R1)/I2
 			
 			Binesh.AddToHTML("R<sub>2</sub> = <span>"..I1.."*"..R1.."/"..I2.."</span> &#8658; R<sub>2</sub> = "..R2.." Ohm")
 			
