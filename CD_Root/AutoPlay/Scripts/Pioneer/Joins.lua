@@ -1,6 +1,7 @@
 function Binesh.Joins()
 	Binesh.Join('Шнбж Р—г »— г — гШЏ»');
 	Binesh.Join('÷—н» «’ЎШ«Ш ћд»‘н');
+	Binesh.Join('÷—н» «’ЎШ«Ш «н” «нн');
 	Binesh.Join('Шжбд »— г — г—»Џ');
 	Binesh.Join('Ё«’бе Ш«дждн');
 	Binesh.Join('‘—«нЎ г Џ«—Ё');
@@ -123,6 +124,13 @@ function Binesh.Joins()
 	Binesh.Join('ѕжгнд «д—Он Б «д”нб');
 	Binesh.Join('«д—Он Б «д”нб ѕжгнд');
 	
+	Binesh.Join(' џнн— ў—Ён ');
+	Binesh.Join('ў—Ён   џнн—');
+	Binesh.Join('«жбнд ў—Ён ');
+	Binesh.Join('ў—Ён  «жбнд');
+	Binesh.Join('ѕжгнд ў—Ён ');
+	Binesh.Join('ў—Ён  ѕжгнд');
+	
 	Binesh.Join(' џнн— жб «О');
 	Binesh.Join('жб «О  џнн—');
 	Binesh.Join('«жбнд жб «О');
@@ -136,6 +144,13 @@ function Binesh.Joins()
 	Binesh.Join('”—Џ  «жбнд');
 	Binesh.Join('ѕжгнд ”—Џ ');
 	Binesh.Join('”—Џ  ѕжгнд');
+	
+	Binesh.Join(' џнн— гё«жг ');
+	Binesh.Join('гё«жг   џнн—');
+	Binesh.Join('«жбнд гё«жг ');
+	Binesh.Join('гё«жг  «жбнд');
+	Binesh.Join('ѕжгнд гё«жг ');
+	Binesh.Join('гё«жг  ѕжгнд');
 	
 	Binesh.Join(' џнн— гё«жг  жнОе');
 	Binesh.Join('гё«жг  жнОе  џнн—');
