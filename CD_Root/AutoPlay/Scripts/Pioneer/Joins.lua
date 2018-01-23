@@ -131,6 +131,13 @@ function Binesh.Joins()
 	Binesh.Join('ѕжгнд ў—Ён ');
 	Binesh.Join('ў—Ён  ѕжгнд');
 	
+	Binesh.Join(' џнн— ћ—н«д');
+	Binesh.Join('ћ—н«д  џнн—');
+	Binesh.Join('«жбнд ћ—н«д');
+	Binesh.Join('ћ—н«д «жбнд');
+	Binesh.Join('ѕжгнд ћ—н«д');
+	Binesh.Join('ћ—н«д ѕжгнд');
+	
 	Binesh.Join(' џнн— жб «О');
 	Binesh.Join('жб «О  џнн—');
 	Binesh.Join('«жбнд жб «О');
