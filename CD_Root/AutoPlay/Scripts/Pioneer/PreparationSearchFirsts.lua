@@ -10,7 +10,7 @@ function Binesh.PreparationSearchFirsts(NamePersian, SearchFirst1, SearchFirst2)
 		if FindNamePersian ~= -1 then
 			Find = FindNamePersian
 		end
-		SET = false
+		SET		= false
 		if FindSearchFirst1 ~= -1 then
 			for indexText = 1, 4 do
 				Text = ListBox.GetItemText("Words", Find+indexText);
@@ -36,9 +36,19 @@ function Binesh.PreparationSearchFirsts(NamePersian, SearchFirst1, SearchFirst2)
 							ListBox.SetItemText("Words", Find-indexText, SearchFirst1.." "..NamePersian);
 							break;
 						else
-							ListBox.SetItemText("Words", Find-indexText, SearchFirst1.." "..NamePersian.." "..SearchFirst1);
+							ListBox.SetItemText("Words", Find-indexText, SearchFirst1.." "..NamePersian.." "..SearchFirst2);
 							break;
 						end
+					elseif Text == SearchFirst2 then
+						ListBox.DeleteItem("Words", Find);
+						for i = 1, 4 then
+							Text = ListBox.GetItemText("Words", Find-indexText-i);
+							if Text == SearchFirst1 then
+								ListBox.DeleteItem("Words", Find-indexText);
+								ListBox.SetItemText("Words", Find-indexText, SearchFirst1.." "..NamePersian.." "..SearchFirst2);
+								break;
+							end
+						end -- for
 					end
 				end -- for
 			end
