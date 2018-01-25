@@ -15,10 +15,10 @@ function Binesh.F132()
 	
 	if l == nil or ListBox.GetItemData("unknowns", Findl) == "L" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "l") ~= -1 then
 		if I ~= nil and B ~= nil and N_Ring ~= nil then
-			Binesh.CreateHTMLFile("B = Mu<sub>0</sub><span>N/l</span>I", "l = <span>Mu<sub>0</sub><span>N/B</span>I</span>")
+			Binesh.CreateHTMLFile("B = Mu<sub>0</sub><span>N/l</span>I", "l = Mu<sub>0</sub><span>N/B</span>I")
 			l = 4*Zarib.Pi*10^-7*(N_Ring/B)*I
 			
-			Binesh.AddToHTML("l = Mu<sub>0</sub>*<span>"..N_Ring.."/"..B.."</span>*"..I.." &#8658; l = "..l.." m")
+			Binesh.AddToHTML("l = 4Pi*10<sup>-7</sup>*<span>"..N_Ring.."/"..B.."</span>*"..I.." &#8658; l = "..l.." m")
 			
 			Binesh.AddToHTML("B: "..B.." T", "V")
 			Binesh.AddToHTML("I: "..I.." A", "V")

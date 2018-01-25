@@ -44,13 +44,13 @@ function Binesh.F83_1()
 		if EtaK ~= nil and T_H ~= nil then
 			Binesh.CreateHTMLFile("Eta<sub>max</sub> = 1- <span>T<sub>C</sub>/T<sub>H</sub></span>", "T<sub>C</sub> = -(-1+Eta<sub>max</sub>)T<sub>H</sub>")
 			
-			TC = -(-1+EtaK)*TH
+			TC = -(-1+EtaK)*T_H
 			
 			Binesh.AddToHTML("Eta<sub>max</sub>: "..EtaK, "V")
 			Binesh.AddToHTML("T<sub>H</sub>: "..T_H.."<sup>o</sup>K", "V")
 			Binesh.AddToHTML("T<sub>C</sub>: ?", "V")
 			
-			Binesh.AddToHTML("T<sub>C</sub> = -(-1+"..EtaK..")*"..TH.." &#8658; T<sub>C</sub> = "..TC.."<sup>o</sup>K")
+			Binesh.AddToHTML("T<sub>C</sub> = -(-1+"..EtaK..")*"..T_H.." &#8658; T<sub>C</sub> = "..TC.."<sup>o</sup>K")
 		end
 	end
 	

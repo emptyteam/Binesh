@@ -1,5 +1,5 @@
 function Binesh.F33_1()
-	if x == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x") ~= -1 then
+	if x == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "x") ~= -1 then
 		if V_Speed ~= nil and t ~= nil and x0 ~= nil then
 			Binesh.CreateHTMLFile("x = Vt+x<sub>0</sub>")
 			x = V_Speed*t + x0
@@ -40,7 +40,7 @@ function Binesh.F33_1()
 		end
 	end
 	
-	if x0 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "X0") ~= -1 then
+	if x0 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "X0") ~= -1 then
 		if x ~= nil and V_Speed ~= nil and t ~= nil then
 			Binesh.CreateHTMLFile("x = Vt+x<sub>0</sub>", "x<sub>0</sub> = x-Vt")
 			x0 = x-V_Speed*t

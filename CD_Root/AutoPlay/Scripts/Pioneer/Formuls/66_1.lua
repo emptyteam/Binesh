@@ -45,7 +45,7 @@ function Binesh.F66_1()
 	if L == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ÿÊ·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÿÊ· «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
 		if _DeltaL ~= nil and Alpha_Length ~= nil and _DeltaTeta ~= nil then
 			Binesh.CreateHTMLFile("DeltaL = L<sub>1</sub>AlphaDeltaTeta", "L<sub>1</sub> = <span>DeltaL/AlphaDeltaTeta</span>")
-			L = _DeltaL/(Alpha_Length*DeltaTeta)
+			L = _DeltaL/(Alpha_Length*_DeltaTeta)
 			
 			Binesh.AddToHTML("L<sub>1</sub> = <span>".._DeltaL.."/"..Alpha_Length.."*".._DeltaTeta.."</span> &#8658; L<sub>1</sub> = "..L.." m")
 			
@@ -56,7 +56,7 @@ function Binesh.F66_1()
 		end
 	end
 	
-	if Alpha_Length == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» «‰»”«ÿ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
+	if Alpha_Length == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» «‰»”«ÿ ÿÊ·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
 		if _DeltaL ~= nil and _DeltaTeta ~= nil and L ~= nil then
 			Binesh.CreateHTMLFile("DeltaL = L<sub>1</sub>AlphaDeltaTeta", "Alpha = <span>DeltaL/L<sub>1</sub>DeltaTeta</span>")
 			Alpha_Length = _DeltaL/(L*_DeltaTeta)
@@ -75,7 +75,7 @@ function Binesh.F66_1()
 			Binesh.CreateHTMLFile("DeltaL = L<sub>1</sub>AlphaDeltaTeta", "DeltaTeta = <span>DeltaL/L<sub>1</sub>Alpha</span>")
 			_DeltaTeta = _DeltaL/(L*Alpha_Length)
 			
-			Binesh.AddToHTML("DeltaTeta = <span>".._DeltaL.."/"..L.."*"..ALpha_Length.."</span> &#8658; DeltaTeta = ".._DeltaTeta.."<sup>o</sup>C")
+			Binesh.AddToHTML("DeltaTeta = <span>".._DeltaL.."/"..L.."*"..Alpha_Length.."</span> &#8658; DeltaTeta = ".._DeltaTeta.."<sup>o</sup>C")
 			
 			Binesh.AddToHTML("DeltaL: ".._DeltaL.." m", "V")
 			Binesh.AddToHTML("L<sub>1</sub>: "..L.." m", "V")

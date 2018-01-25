@@ -1,6 +1,6 @@
 function Binesh.F112_2()
-	if _Ru_Resistor1 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ru1") ~= -1 then
-		if _DeltaRu_Resistor ~= nil and Alpha_112 ~= nil and _DeltaTeta ~= nil and _Ru_Resistor2 ~= nil then
+	if _Ru_Resistor1 == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ru1") ~= -1 then
+		if Alpha_112 ~= nil and _DeltaTeta ~= nil and _Ru_Resistor2 ~= nil then
 			Binesh.CreateHTMLFile("Ru<sub>2</sub> = Ru<sub>1</sub>(1+AlphaDeltaTeta)", "Ru<sub>1</sub> = <span>Ru<sub>2</sub>/1+AlphaDeltaTeta</span>")
 			_Ru_Resistor1 = _Ru_Resistor2/(1+Alpha_112*_DeltaTeta)
 			
@@ -17,8 +17,8 @@ function Binesh.F112_2()
 		end
 	end
 	
-	if _Ru_Resistor2 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„  ÊÌéÂ œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ru1") ~= -1 then
-		if _DeltaRu_Resistor ~= nil and Alpha_112 ~= nil and _DeltaTeta ~= nil and _Ru_Resistor1 ~= nil then
+	if _Ru_Resistor2 == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ „ﬁ«Ê„  ÊÌéÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„  ÊÌéÂ œÊ„Ì‰") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ru1") ~= -1 then
+		if Alpha_112 ~= nil and _DeltaTeta ~= nil and _Ru_Resistor1 ~= nil then
 			Binesh.CreateHTMLFile("Ru<sub>2</sub> = Ru<sub>1</sub>(1+AlphaDeltaTeta)")
 			_Ru_Resistor2 = _Ru_Resistor1*(1+Alpha_112*_DeltaTeta)
 			

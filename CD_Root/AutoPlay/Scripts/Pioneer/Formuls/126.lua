@@ -32,7 +32,7 @@ function Binesh.F126()
 			Binesh.CreateHTMLFile("V = Epsilon-Ir", "I = <span>Epsilon-V/r</span>")
 			I = (Epsilon-V_Electric)/r_Resistor
 			
-			Binesh.AddToHTML("I = <span>"..Epsilon.."-"..V_Electric.."/"..r_Resistor.."</span> &#8658; I = "..I.." A")
+			Binesh.AddToHTML("I = <span>"..Epsilon.."-"..V_Electric.."/"..r_Resistor.."</span> &#8658; I = "..math.abs(I).." A")
 			
 			Binesh.AddToHTML("r: "..r_Resistor.." m", "V")
 			Binesh.AddToHTML("Epsilon: "..Epsilon.." Ohm", "V")

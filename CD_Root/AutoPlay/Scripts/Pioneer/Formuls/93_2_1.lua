@@ -1,5 +1,5 @@
 function Binesh.F93_2_1()
-	if _DeltaV_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+	if _DeltaV_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— Ê· «é") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
 		if E_Electric ~= nil and d ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("DeltaV = -EdcosTeta")
 			_DeltaV_Electric = -E_Electric*d*Math.Cos(Math.Rad(Teta))
@@ -25,7 +25,7 @@ function Binesh.F93_2_1()
 		end
 	end
 	
-	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã«»Ã«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
+	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
 		if _DeltaV_Electric ~= nil and E_Electric ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("DeltaV = -EdcosTeta", "d = - <span>DeltaV/EcosTeta</span>")
 			d = -_DeltaV_Electric / (E_Electric*Math.Cos(Math.Rad(Teta)))
@@ -38,7 +38,7 @@ function Binesh.F93_2_1()
 		end
 	end
 	
-	if Teta == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
+	if Teta == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1) then
 		if _DeltaV_Electric ~= nil and E_Electric ~= nil and d ~= nil then
 			Binesh.CreateHTMLFile("DeltaV = -EdcosTeta", "cosTeta = - <span>DeltaV/Ed</span>")
 			

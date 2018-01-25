@@ -13,7 +13,7 @@ function Binesh.F118()
 		end
 	end
 	
-	if R1 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ „ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„  «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R1") ~= -1 then
+	if R1 == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ „ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„  «Ê·Ì‰") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "R1") ~= -1 then
 		if RT ~= nil and V1_Electric ~= nil and VT_Electric ~= nil then
 			Binesh.CreateHTMLFile("<span>V<sub>1</sub>/V<sub>T</sub></span> = <span>R<sub>1</sub>/R<sub>T</sub></span>", "R<sub>1</sub> = <span>V<sub>1</sub>R<sub>T</sub>/V<sub>T</sub></span>")
 			R1 = V1_Electric*RT/VT_Electric
@@ -27,7 +27,7 @@ function Binesh.F118()
 		end
 	end
 	
-	if V1_Electric == nil  and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 then
+	if V1_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é «Ê·Ì‰") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 then
 		if RT ~= nil and R1 ~= nil and VT_Electric ~= nil then
 			Binesh.CreateHTMLFile("<span>V<sub>1</sub>/V<sub>T</sub></span> = <span>R<sub>1</sub>/R<sub>T</sub></span>", "V<sub>1</sub> = <span>R<sub>1</sub>V<sub>T</sub>/R<sub>T</sub></span>")
 			V1_Electric = R1*VT_Electric/RT

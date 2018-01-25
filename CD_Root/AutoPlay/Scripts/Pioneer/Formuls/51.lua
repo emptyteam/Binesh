@@ -19,7 +19,7 @@ function Binesh.F51()
 		end
 	end
 	
-	if L == nil or ListBox.GetItemData("unknowns", FindL) == "l" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
+	if L == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
 		if V_Speed ~= nil and Alpha ~= nil then
 			Binesh.CreateHTMLFile("V = Sqrt(2gL(1-cosAlpha))", "L = -<span>V<sup>2</sup>/2g(cosAlpha-1)</span>")
 			
@@ -33,7 +33,7 @@ function Binesh.F51()
 		end
 	end
 	
-	if Alpha == nil or ListBox.GetItemData("unknowns", FindAlpha) == "Teta" and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
+	if Alpha == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
 		if V_Speed ~= nil and L ~= nil then
 			Binesh.CreateHTMLFile("V = Sqrt(2gL(1-cosAlpha))", "cosAlpha = 1- <span>V<sup>2</sup>/2gL</span>")
 			

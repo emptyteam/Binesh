@@ -1,5 +1,5 @@
 function Binesh.F65_1()
-	if ListBox.FindItem("Words", -1, LB_BYTEXT, " »ŒÌ—") ~= -1 then
+	if String.Find(Input.GetText("Input1"), " »ŒÌ—", 1, false) ~= -1 then
 		if Q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1 then
 			if m ~= nil and LV ~= nil then
 				Binesh.CreateHTMLFile("Q = mL<sub>V</sub>")

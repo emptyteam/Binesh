@@ -44,7 +44,7 @@ function Binesh.F128()
 		end
 	end
 	
-	if l == nil or ListBox.GetItemData("unknowns", Findl) == "L" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "l") ~= -1 then
+	if l == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "l") ~= -1 then
 		if F ~= nil and B ~= nil and I ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("F = BIlsinTeta", "l = <span>F/IBSinTeta</span>")
 			l = F/(I*B*Math.Sin(Math.Rad(Teta)))

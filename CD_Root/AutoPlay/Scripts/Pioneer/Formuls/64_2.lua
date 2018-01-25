@@ -1,5 +1,5 @@
 function Binesh.F64_2()
-	if ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰Ã„«œ") ~= -1 then
+	if String.Find(Input.GetText("Input1"), "«‰Ã„«œ", 1, false) ~= -1 then
 		if Q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1 then
 			if m ~= nil and L_F ~= nil then
 				Q =  -m*L_F

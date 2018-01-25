@@ -1,5 +1,14 @@
 function Binesh.F12_EX()
-	if f == nil then
+	local Engage = false
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "⁄œ”Ì") ~= -1 then
+		local Engage = true
+	end
+	
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "¬Ì‰Â") ~= -1 then
+		local Engage = true
+	end
+	
+	if f == nil and Engage == true then
 		if R_Radius ~= nil then
 			Binesh.CreateHTMLFile("f = <span>r/2</span>")
 			f = R_Radius/2
