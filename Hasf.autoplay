@@ -76,7 +76,7 @@ tbl = {}
 tbl.Delta = {}
 
 tbl.Delta.Words = {"  €ÌÌ— ", "  »«œ· ", "  ›«Ê  ", " «Œ ·«› ", " œ· « "}
-tbl.Delta.First = {" ‘—Ê⁄ ", " ¬€«“Ì‰ ", " «Ê· ", " «Ê·ÌÂ ", " «» œ« ", " ¬€«“ ", " «Ê·Ì‰ ", " «“ "}
+tbl.Delta.First = {" ‘—Ê⁄ ", " ¬€«“Ì‰ ", " «Ê· ", " «Ê·ÌÂ ", " «» œ« ", " ¬€«“ ", " «Ê·Ì‰ "}
 tbl.Delta.Second = {" À«‰ÊÌÂ ", " Å«Ì«‰ ", " œÊ„ ", " »⁄œ ", " ‰Â«Ì  ", " œÊ„Ì‰ ", " ‰Â«ÌÌ ", " «›“«Ì‘ ", " ò«Â‘ ", " œÊ„ÌÂ "}
 
 tbl.Start = {" ‘—Ê⁄ ", " ¬€«“Ì‰ ", " «Ê· ", " «Ê·ÌÂ ", " «» œ« ", " ¬€«“ "}
@@ -748,8 +748,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>658</DesignCodeLine>
-<DesignCodeCol>24</DesignCodeCol>
+<DesignCodeLine>13</DesignCodeLine>
+<DesignCodeCol>91</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -9809,6 +9809,10 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		if Text == "„Ã«“Ì" then
 			ListBox.SetItemText("Words", index, "”«ÌÂ");
 		end
+		
+		if Text == "«Œ ·«› Å «‰”Ì·" then
+			ListBox.SetItemText("Words", index, "Ê· «é");
+		end
 	end
 	
 	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ClearData.lua") then
@@ -9831,8 +9835,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>53</DesignCodeLine>
-<DesignCodeCol>27</DesignCodeCol>
+<DesignCodeLine>11</DesignCodeLine>
+<DesignCodeCol>26</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10167,8 +10171,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>16</DesignCodeLine>
-<DesignCodeCol>16</DesignCodeCol>
+<DesignCodeLine>73</DesignCodeLine>
+<DesignCodeCol>15</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10530,18 +10534,18 @@ Binesh.F147();</Script>
 		
 	-- 33
 	if x == nil then
-		x = Binesh.Genesis1("œÊ„Ì‰ Ã«»Ã«ÌÌ", "x", "", "", 1, "m", "„ —");
+		x = Binesh.Genesis1("œÊ„Ì‰ ›«’·Â", "x", "", "", 1, "m", "„ —");
 		if x == nil then
-			x = Binesh.Genesis1("Ã«»Ã«ÌÌ œÊ„Ì‰", "x", "", "", 1, "m", "„ —");
+			x = Binesh.Genesis1("›«’·Â œÊ„Ì‰", "x", "", "", 1, "m", "„ —");
 		end
 		if x ~= nil then
 			_x2, x2 = x, x
 		end
 	end
 	if x0 == nil then
-		x0 = Binesh.Genesis1("«Ê·Ì‰ Ã«»Ã«ÌÌ", "x0", "", "", 1, "m", "„ —");
+		x0 = Binesh.Genesis1("«Ê·Ì‰ ›«’·Â", "x0", "", "", 1, "m", "„ —");
 		if x0 == nil then
-			x0 = Binesh.Genesis1("Ã«»Ã«ÌÌ «Ê·Ì‰", "x0", "", "", 1, "m", "„ —");
+			x0 = Binesh.Genesis1("›«’·Â «Ê·Ì‰", "x0", "", "", 1, "m", "„ —");
 		end
 		if x0 ~= nil then
 			_x1, x1 = x0, x0
@@ -10605,7 +10609,7 @@ Binesh.F147();</Script>
 	
 	-- 49
 	if d == nil then
-		d = Binesh.Genesis1("Ã«»Ã«ÌÌ", "d", "", "", 1, "m", "„ —");
+		d = Binesh.Genesis1("›«’·Â", "d", "", "", 1, "m", "„ —");
 		if d ~= nil then
 			d_Distance = d
 			x0, _Deltax = d, d
@@ -10657,7 +10661,7 @@ Binesh.F147();</Script>
 	end
 	
 	-- 58
-	if P == nil then
+	if P == nil and Pa == nil then
 		P = Binesh.Genesis1("›‘«—", "P", "", "", 1, "Pa", "Å«”ò«·");
 		if P == nil then
 			Pa = Binesh.Genesis1("›‘«—", "P", "", "", 1, "atm", "« „”›—");
@@ -10723,12 +10727,17 @@ Binesh.F147();</Script>
 	
 	-- 66
 	if Alpha_Length == nil then
-		Alpha_Length = Binesh.Genesis1("÷—Ì» «‰»”«ÿ", "Alpha", "", "", 1, "1/C", "»— ”·”ÌÊ”");
+		Alpha_Length = Binesh.Genesis1("÷—Ì» «‰»”«ÿ ÿÊ·", "Alpha", "", "", 1, "1/C", "»— ”·”ÌÊ”");
 		if Alpha_Length == nil then
-			Alpha_Length = Binesh.Genesis1("÷—Ì» «‰»”«ÿ", "Alpha", "", "", 1, "1/K", "»— ò·ÊÌ‰");
+			Alpha_Length = Binesh.Genesis1("÷—Ì» «‰»”«ÿ ÿÊ·", "Alpha", "", "", 1, "1/K", "»— ò·ÊÌ‰");
 		end
-		if Alpha_Length ~= nil then
-			Beta_Length = 3*Alpha_Length
+	end
+	
+	-- 69
+	if Beta_Length == nil then
+		Beta_Length = Binesh.Genesis1("÷—Ì» «‰»”«ÿ ÕÃ„", "Beta", "", "", 1, "1/C", "»— ”·”ÌÊ”");
+		if Beta_Length == nil then
+			Beta_Length = Binesh.Genesis1("÷—Ì» «‰»”«ÿ ÕÃ„", "Beta", "", "", 1, "1/K", "»— ò·ÊÌ‰");
 		end
 	end
 	
@@ -10987,13 +10996,6 @@ Binesh.F147();</Script>
 	-- 129
 	
 	-- 130
-	if r_3 == nil then
-		if d_Distance == nil then
-			r_3 = Binesh.Genesis1("›«’·Â", "r", "", "", 1, "m", "„ —");
-		else
-			r_3 = d_Distance
-		end
-	end
 	
 	-- 131
 	
@@ -11135,9 +11137,9 @@ Binesh.F147();</Script>
 	
 	-- 32
 	if _Deltax == nil then
-		_Deltax = Binesh.Genesis1(" €ÌÌ— Ã«»Ã«ÌÌ", "Deltax", "", "", 1, "m", "„ —");
+		_Deltax = Binesh.Genesis1(" €ÌÌ— ›«’·Â", "Deltax", "", "", 1, "m", "„ —");
 		if _Deltax == nil then
-			_Deltax = Binesh.Genesis1("Ã«»Ã«ÌÌ  €ÌÌ—", "Deltax", "", "", 1, "m", "„ —");
+			_Deltax = Binesh.Genesis1("›«’·Â  €ÌÌ—", "Deltax", "", "", 1, "m", "„ —");
 		end
 	end
 	if _Deltat == nil then
@@ -11531,8 +11533,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>887</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>708</DesignCodeLine>
+<DesignCodeCol>7</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11894,18 +11896,18 @@ Binesh.F147();</Script>
 		
 	-- 33
 	if x == nil then
-		x = Binesh.Genesis2("œÊ„Ì‰ Ã«»Ã«ÌÌ", "x", "", "", 1, "m", "„ —");
+		x = Binesh.Genesis2("œÊ„Ì‰ ›«’·Â", "x", "", "", 1, "m", "„ —");
 		if x == nil then
-			x = Binesh.Genesis2("Ã«»Ã«ÌÌ œÊ„Ì‰", "x", "", "", 1, "m", "„ —");
+			x = Binesh.Genesis2("›«’·Â œÊ„Ì‰", "x", "", "", 1, "m", "„ —");
 		end
 		if x ~= nil then
 			_x2, x2 = x, x
 		end
 	end
 	if x0 == nil then
-		x0 = Binesh.Genesis2("«Ê·Ì‰ Ã«»Ã«ÌÌ", "x0", "", "", 1, "m", "„ —");
+		x0 = Binesh.Genesis2("«Ê·Ì‰ ›«’·Â", "x0", "", "", 1, "m", "„ —");
 		if x0 == nil then
-			x0 = Binesh.Genesis2("Ã«»Ã«ÌÌ «Ê·Ì‰", "x0", "", "", 1, "m", "„ —");
+			x0 = Binesh.Genesis2("›«’·Â «Ê·Ì‰", "x0", "", "", 1, "m", "„ —");
 		end
 		if x0 ~= nil then
 			_x1, x1 = x0, x0
@@ -11969,7 +11971,7 @@ Binesh.F147();</Script>
 	
 	-- 49
 	if d == nil then
-		d = Binesh.Genesis2("Ã«»Ã«ÌÌ", "d", "", "", 1, "m", "„ —");
+		d = Binesh.Genesis2("›«’·Â", "d", "", "", 1, "m", "„ —");
 		if d ~= nil then
 			d_Distance = d
 			x0, _Deltax = d, d
@@ -12021,7 +12023,7 @@ Binesh.F147();</Script>
 	end
 	
 	-- 58
-	if P == nil then
+	if P == nil and Pa == nil then
 		P = Binesh.Genesis2("›‘«—", "P", "", "", 1, "Pa", "Å«”ò«·");
 		if P == nil then
 			Pa = Binesh.Genesis2("›‘«—", "P", "", "", 1, "atm", "« „”›—");
@@ -12087,12 +12089,17 @@ Binesh.F147();</Script>
 	
 	-- 66
 	if Alpha_Length == nil then
-		Alpha_Length = Binesh.Genesis2("÷—Ì» «‰»”«ÿ", "Alpha", "", "", 1, "1/C", "»— ”·”ÌÊ”");
+		Alpha_Length = Binesh.Genesis2("÷—Ì» «‰»”«ÿ ÿÊ·", "Alpha", "", "", 1, "1/C", "»— ”·”ÌÊ”");
 		if Alpha_Length == nil then
-			Alpha_Length = Binesh.Genesis2("÷—Ì» «‰»”«ÿ", "Alpha", "", "", 1, "1/K", "»— ò·ÊÌ‰");
+			Alpha_Length = Binesh.Genesis2("÷—Ì» «‰»”«ÿ ÿÊ·", "Alpha", "", "", 1, "1/K", "»— ò·ÊÌ‰");
 		end
-		if Alpha_Length ~= nil then
-			Beta_Length = 3*Alpha_Length
+	end
+	
+	-- 69
+	if Beta_Length == nil then
+		Beta_Length = Binesh.Genesis2("÷—Ì» «‰»”«ÿ ÕÃ„", "Beta", "", "", 1, "1/C", "»— ”·”ÌÊ”");
+		if Beta_Length == nil then
+			Beta_Length = Binesh.Genesis2("÷—Ì» «‰»”«ÿ ÕÃ„", "Beta", "", "", 1, "1/K", "»— ò·ÊÌ‰");
 		end
 	end
 	
@@ -12499,9 +12506,9 @@ Binesh.F147();</Script>
 	
 	-- 32
 	if _Deltax == nil then
-		_Deltax = Binesh.Genesis2(" €ÌÌ— Ã«»Ã«ÌÌ", "Deltax", "", "", 1, "m", "„ —");
+		_Deltax = Binesh.Genesis2(" €ÌÌ— ›«’·Â", "Deltax", "", "", 1, "m", "„ —");
 		if _Deltax == nil then
-			_Deltax = Binesh.Genesis2("Ã«»Ã«ÌÌ  €ÌÌ—", "Deltax", "", "", 1, "m", "„ —");
+			_Deltax = Binesh.Genesis2("›«’·Â  €ÌÌ—", "Deltax", "", "", 1, "m", "„ —");
 		end
 	end
 	if _Deltat == nil then
@@ -12895,8 +12902,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>884</DesignCodeLine>
-<DesignCodeCol>2</DesignCodeCol>
+<DesignCodeLine>2</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
