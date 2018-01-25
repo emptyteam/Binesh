@@ -73,6 +73,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "İäÑí", "İäÑ", false);
 		result = String.Replace(result, "ÑãÇí", "ÑãÇ", false);
 		result = String.Replace(result, "ÏãÇí", "ÏãÇ", false);
+		result = String.Replace(result, "ÍÌãí", "ÍÌã", false);
 		result = String.Replace(result, "ÈÑÂíäÏ", "ÈÑÇíäÏ", false);
 		result = String.Replace(result, "ÈÑÂíäÏÔ", "ÈÑÇíäÏ", false);
 		result = String.Replace(result, "ÈÑÇíäÏÔ", "ÈÑÇíäÏ", false);
@@ -95,7 +96,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÌÑã ãæá˜æáí", "ÌÑã ãæáí", false);
 		result = String.Replace(result, "ÓÑÚÊí", "ÓÑÚÊ", false);
 		result = String.Replace(result, "ÏãÇí", "ÏãÇ", false);
-		result = String.Replace(result, "ãÓÇİÊ", "ÌÇÈÌÇíí", false);
+		result = String.Replace(result, "ãÓÇİÊ", "İÇÕáå", false);
 		result = String.Replace(result, "˜ÇÑí", "˜ÇÑ", false);
 		result = String.Replace(result, "ÈÇÒÏå ÍÏÇ˜ËÑ", "ÈÇÒÏå ˜ÇÑäæ", false);
 		result = String.Replace(result, "ÇÈÚÇÏ", "ÍÌã", false);
@@ -119,7 +120,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÈÓÇãÏ ÒÇæíå", "ÓÑÚÊ ÒÇæíå", false);
 		result = String.Replace(result, "ÎáÇ", "ÎáÇÁ", false);
 		result = String.Replace(result, "ÎáÇÁÁ", "ÎáÇÁ", false);
-		result = String.Replace(result, "ã˜Çä", "ÌÇÈÌÇíí", false);
+		result = String.Replace(result, "ã˜Çä", "İÇÕáå", false);
 		result = String.Replace(result, "ËÇÈÊ", "ÖÑíÈ", false);
 		result = String.Replace(result, "Ôí", "ÌÓã", false);
 		result = String.Replace(result, "ÌäÈÌÓã", "ÌäÈÔí", false);
@@ -134,6 +135,13 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÊÑãÒ", "ÊæŞİ", false);
 		result = String.Replace(result, "ÇäÈÓÇØ Øæá", "ÊÛííÑ Øæá", false);
 		result = String.Replace(result, "ÖÑíÈ ÊÛííÑ Øæá", "ÖÑíÈ ÇäÈÓÇØ", false);
+		result = String.Replace(result, "ÌÇÈÌÇíí", "İÇÕáå", false);
+		
+		result = String.Replace(result, "ÑãÇ äåÇä", "", false);
+		result = String.Replace(result, "ÑãÇ ÊÈÎíÑ", "ÊÈÎíÑ", false);
+		result = String.Replace(result, "ÑãÇ ãíÚÇä", "ãíÚÇä", false);
+		result = String.Replace(result, "ÑãÇ ĞæÈ", "ĞæÈ", false);
+		result = String.Replace(result, "ÑãÇ ÇäÌãÇÏ", "ÇäÌãÇÏ", false);
 		
 		result = String.Replace(result, "ÏÑ åÑ ËÇäíå", "ÒãÇä 1 ËÇäíå", false);
 		result = String.Replace(result, "ÏÑ åÑ ÏŞíŞå", "ÒãÇä 60 ËÇäíå", false);
