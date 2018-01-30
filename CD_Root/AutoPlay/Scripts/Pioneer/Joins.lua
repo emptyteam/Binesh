@@ -63,6 +63,7 @@ function Binesh.Joins()
 	Binesh.Join('Oh m');
 	Binesh.Join('÷—Ì» ›‰—');
 	Binesh.Join('Â„ ÕÃ„');
+	Binesh.Join('›‘«— «ÿ—«› „«Ì⁄');
 	Binesh.Join('Â„ ›‘«—');
 	Binesh.Join('Â„ œ„«');
 	Binesh.Join('«Â„ „ —');

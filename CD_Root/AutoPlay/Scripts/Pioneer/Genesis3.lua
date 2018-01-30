@@ -33,7 +33,7 @@ function Binesh.Genesis3(NamePersian, Symbol, Pre, PrePersian, PreValue, Unit, U
 			Find = FindNameFA
 			Number = FindNumber(Find)
 			return Number
-		elseif FindSymbol ~= -1 then
+		elseif FindSymbol ~= -1 and ListBox.GetItemText("Words", FindSymbol) == Symbol then
 			Find = FindSymbol
 			Number = FindNumber(Find)
 			return Number

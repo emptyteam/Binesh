@@ -2,6 +2,17 @@ function Binesh.TrimString(sInput)
 	if sInput ~= "" then
 		result = tostring(sInput);
 		
+		result = String.Replace(result, "?", "", false);
+		result = String.Replace(result, "¿", "", false);
+		result = String.Replace(result, "¡", "", false);
+		result = String.Replace(result, ",", "", false);
+		result = String.Replace(result, ":", "", false);
+		result = String.Replace(result, "&", "", false);
+		result = String.Replace(result, "$", "", false);
+		result = String.Replace(result, "#", "", false);
+		result = String.Replace(result, "@", "", false);
+		result = String.Replace(result, "~", "", false);
+		
 		result = String.Replace(result, "ÊÚÏÇÏãæá", "ÊÚÏÇÏ ãæá", false);
 		
 		result = String.Replace(result, "ÑæÊæäí", "ÑæÊæä", false);
@@ -134,8 +145,13 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "Çåã ÏÑ ãÊÑ", "Çåã ãÊÑ", false);
 		result = String.Replace(result, "ÊÑãÒ", "ÊæŞİ", false);
 		result = String.Replace(result, "ÇäÈÓÇØ Øæá", "ÊÛííÑ Øæá", false);
-		result = String.Replace(result, "ÖÑíÈ ÊÛííÑ Øæá", "ÖÑíÈ ÇäÈÓÇØ", false);
+		result = String.Replace(result, "ÖÑíÈ ÊÛííÑ Øæá", "ÖÑíÈ ÇäÈÓÇØ Øæá", false);
 		result = String.Replace(result, "ÌÇÈÌÇíí", "İÇÕáå", false);
+		result = String.Replace(result, "ÇáŞÇííÏí", "ÖÑíÈ ÎæÏÇáŞÇíí", false);
+		result = String.Replace(result, "ÎæÏ ÇáŞÇíí", "ÎæÏÇáŞÇíí", false);
+		result = String.Replace(result, "ÈÏæä åÓÊå", "åÓÊå 1", false);
+		result = String.Replace(result, "ÒæÇíå", "ÒÇæíå", false);
+		result = String.Replace(result, "ãíÏÇäí", "ãíÏÇä", false);
 		
 		result = String.Replace(result, "ÑãÇ äåÇä", "", false);
 		result = String.Replace(result, "ÑãÇ ÊÈÎíÑ", "ÊÈÎíÑ", false);
@@ -181,17 +197,6 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "atmosphere", "atm", false);
 		result = String.Replace(result, "minute", "min", false);
 		result = String.Replace(result, "minutes", "min", false);
-		
-		result = String.Replace(result, "?", "", false);
-		result = String.Replace(result, "¿", "", false);
-		result = String.Replace(result, "¡", "", false);
-		result = String.Replace(result, ",", "", false);
-		result = String.Replace(result, ":", "", false);
-		result = String.Replace(result, "&", "", false);
-		result = String.Replace(result, "$", "", false);
-		result = String.Replace(result, "#", "", false);
-		result = String.Replace(result, "@", "", false);
-		result = String.Replace(result, "~", "", false);
 		
 		result = String.Replace(result, "m", " m ", false);
 		result = String.Replace(result, "m /s", " m/s", false);

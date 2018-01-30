@@ -22,6 +22,24 @@ function Binesh.ConvertToHTML(sFormule, WhatFile)
 		sFormule = String.Replace(sFormule, "</", "<~", true);
 		sFormule = String.Replace(sFormule, "/", "</span><span class='fdn'>", true);
 		sFormule = String.Replace(sFormule, "<~", "</", true);
+		
+		sFormule = String.Replace(sFormule, "m</span><span class='fdn'>s", "m/s", true);
+		sFormule = String.Replace(sFormule, "m</span><span class='fdn'>h", "m/h", true);
+		sFormule = String.Replace(sFormule, "mile</span><span class='fdn'>s", "mile/s", true);
+		sFormule = String.Replace(sFormule, "mile</span><span class='fdn'>h", "mile/h", true);
+		sFormule = String.Replace(sFormule, "J</span><span class='fdn'>KgC", "J/KgC", true);
+		sFormule = String.Replace(sFormule, "N</span><span class='fdn'>m", "N/m", true);
+		sFormule = String.Replace(sFormule, "Kg</span><span class='fdn'>m", "Kg/m", true);
+		sFormule = String.Replace(sFormule, "Kg</span><span class='fdn'>L", "Kg/L", true);
+		sFormule = String.Replace(sFormule, "J</span><span class='fdn'>Kg", "J/Kg", true);
+		sFormule = String.Replace(sFormule, "1</span><span class='fdn'>C", "1/C", true);
+		sFormule = String.Replace(sFormule, "1</span><span class='fdn'>K", "1/K", true);
+		sFormule = String.Replace(sFormule, "J</span><span class='fdn'>msC", "J/msC", true);
+		sFormule = String.Replace(sFormule, "g</span><span class='fdn'>mol", "g/mol", true);
+		sFormule = String.Replace(sFormule, "J</span><span class='fdn'>molK", "J/molK", true);
+		sFormule = String.Replace(sFormule, "N</span><span class='fdn'>C", "N/C", true);
+		sFormule = String.Replace(sFormule, "C</span><span class='fdn'>m", "C/m", true);
+		sFormule = String.Replace(sFormule, "rad</span><span class='fdn'>s", "rad/s", true);
 	else
 		sFormule = String.Replace(sFormule, "/", " / ", true);
 	end
@@ -35,16 +53,21 @@ function Binesh.ConvertToHTML(sFormule, WhatFile)
 	sFormule = String.Replace(sFormule, "Teta", "&theta;", true);
 	sFormule = String.Replace(sFormule, "Pi", "&pi;", true);
 	sFormule = String.Replace(sFormule, "Ru", "&rho;", true);
-	sFormule = String.Replace(sFormule, "LSigma", "&Sigma;", true);
-	sFormule = String.Replace(sFormule, "SSigma", "&sigma;", true);
+	sFormule = String.Replace(sFormule, "Sigma", "&sigma;", true);
 	sFormule = String.Replace(sFormule, "Fi", "&Phi;", true);
 	sFormule = String.Replace(sFormule, "Ohm", "&Omega;", true);
-	sFormule = String.Replace(sFormule, "SOmega", "&omega;", true);
+	sFormule = String.Replace(sFormule, "Omega", "&omega;", true);
 	sFormule = String.Replace(sFormule, "Mu", "&mu;", true);
 	
-	sFormule = String.Replace(sFormule, "VBar", "&veebar;", false);
-	
-	sFormule = String.Replace(sFormule, "aBar", "&atilde;", false);
+	if WhatFile == "V" then
+		sFormule = String.Replace(sFormule, "VBar", "<span style='Bar-White'>V</span>", false);
+		sFormule = String.Replace(sFormule, "aBar", "<span class='Bar-White'>a</span>", false);
+		sFormule = String.Replace(sFormule, "IBar", "<span class='Bar-White'>I</span>", false);
+	else
+		sFormule = String.Replace(sFormule, "VBar", "<span class='Bar-Black'>V</span>", false);
+		sFormule = String.Replace(sFormule, "aBar", "<span class='Bar-Black'>a</span>", false);
+		sFormule = String.Replace(sFormule, "IBar", "<span class='Bar-Black'>I</span>", false);
+	end
 	
 	sFormule = String.Replace(sFormule, "Sqrt", "&radic;", false);
 	sFormule = String.Replace(sFormule, "*", "×", true);
@@ -87,4 +110,14 @@ function Binesh.AddToHTML(FormuleInput, WhatFile)
 	if WhatFile == "V" then
 		TextFile.WriteFromString(_SourceFolder.."\\"..WhatFile..".html", "<br>", true);
 	end
+end
+
+function Binesh.AddCommentToHTML(Comment, WhatFile)
+	FormuleInput = Binesh.ConvertToHTML(Comment, WhatFile);
+	
+	if WhatFile == nil then
+		WhatFile = "F"
+	end
+	
+	TextFile.WriteFromString(_SourceFolder.."\\"..WhatFile..".html", "<p style='direction: rtl; font-family: IRANSans; color: red; font-size: 15px;'>"..Comment.."</p>", true);
 end
