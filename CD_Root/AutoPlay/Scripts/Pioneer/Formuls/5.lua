@@ -1,5 +1,5 @@
 function Binesh.F5()
-	if q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÐÑå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+	if q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÐÑå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 		if n_e ~= nil or n_p ~= nil then
 			Binesh.CreateHTMLFile("q = ne")
 			if n_e ~= nil then
@@ -15,7 +15,7 @@ function Binesh.F5()
 		end
 	end
 	
-	if n_e == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÊÚÏÇÏ Çá˜ÊÑæä") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1 then
+	if n_e == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÊÚÏÇÏ Çá˜ÊÑæä") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1) then
 		if q ~= nil then
 			Binesh.CreateHTMLFile("q = ne", "n = <span>q/e</span>")
 			n_e = q / (1.6*10^-19)

@@ -43,7 +43,7 @@ function Binesh.F79_2_1()
 		end
 	end
 	--------------------------END {DELTA}--------------------------
-	if Q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1 then
+	if Q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1) then
 		if CV ~= nil and V ~= nil and _DeltaP ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>VDeltaP")
 			Q = (CV/Zarib.R)*V*_DeltaP
@@ -57,7 +57,7 @@ function Binesh.F79_2_1()
 		end
 	end
 	
-	if CV == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "CV") ~= -1 then
+	if CV == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "CV") ~= -1) then
 		if Q ~= nil and V ~= nil and _DeltaP ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>VDeltaP", "C<sub>V</sub> = <span>QR/VDeltaP</span>")
 			CV = (Q*Zarib.R)/(V*_DeltaP)
@@ -71,7 +71,7 @@ function Binesh.F79_2_1()
 		end
 	end
 	
-	if V == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then  
+	if V == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1) then  
 		if Q ~= nil and CV ~= nil and _DeltaP ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>VDeltaP", "V = <span>QR/C<sub>V</sub>DeltaP</span>")
 			V = (Q*Zarib.R)/(CV*_DeltaP)
@@ -85,7 +85,7 @@ function Binesh.F79_2_1()
 		end
 	end
 	
-	if _DeltaP == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaP") ~= -1 then
+	if _DeltaP == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaP") ~= -1)) then
 		if Q ~= nil and V ~= nil and CV ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>VDeltaP", "DeltaP = <span>QR/C<sub>V</sub>V</span>")
 			_DeltaP = (Q*Zarib.R)/(CV*V)

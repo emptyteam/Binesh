@@ -1,5 +1,5 @@
 function Binesh.F43_1()
-	if F == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1 then
+	if F == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1) then
 		if k_Coil ~= nil and _Deltax ~= nil then
 			Binesh.CreateHTMLFile("F = -kDeltax")
 			F = -k_Coil*_Deltax
@@ -12,7 +12,7 @@ function Binesh.F43_1()
 		end
 	end
 	
-	if k_Coil == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ›‰—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "k") ~= -1 then
+	if k_Coil == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ›‰—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "k") ~= -1) then
 		if F ~= nil and _Deltax ~= nil then
 			Binesh.CreateHTMLFile("F = -kDeltax", "k = - <span>F/Deltax</span>")
 			k_Coil = -F/_Deltax
@@ -25,7 +25,7 @@ function Binesh.F43_1()
 		end
 	end
 	
-	if _Deltax == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltax") ~= -1 then
+	if _Deltax == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltax") ~= -1)) then
 		if F ~= nil and k_Coil ~= nil then
 			Binesh.CreateHTMLFile("F = -kDeltax", "Deltax = - <span>F/k</span>")
 			_Deltax = -F/k_Coil

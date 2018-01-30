@@ -1,5 +1,5 @@
 function Binesh.F49()
-	if W == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
+	if W == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1) then
 		if F ~= nil and d ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("W<sub>F</sub> = FdcosTeta")
 			
@@ -14,7 +14,7 @@ function Binesh.F49()
 		end
 	end
 	
-	if F == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1 then
+	if F == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1) then
 		if W ~= nil and d ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("W<sub>F</sub> = FdcosTeta", "F = <span>W<sub>F</sub>/dcosTeta</span>")
 			
@@ -29,9 +29,9 @@ function Binesh.F49()
 		end
 	end
 	
-	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then
+	if d == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1) then
 		if W ~= nil and F ~= nil and Teta ~= nil then
-			Binesh.CreateHTMLFile("W<sub>F</sub> = F*d*cosTeta", "d = <span>W<sub>F</sub>/F*cosTeta</span>")
+			Binesh.CreateHTMLFile("W<sub>F</sub> = FdcosTeta", "d = <span>W<sub>F</sub>/F*cosTeta</span>")
 			
 			d = W/(F*Math.Cos(Math.Rad(Teta)))
 			
@@ -44,7 +44,7 @@ function Binesh.F49()
 		end
 	end
 	
-	if Teta == nil or ListBox.GetItemData("unknowns", FindTeta) == "Alpha" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
+	if Teta == nil or ((ListBox.GetItemData("unknowns", FindTeta) == "Alpha" and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1)) then
 		if W ~= nil and d ~= nil and F ~= nil then
 			Binesh.CreateHTMLFile("W<sub>F</sub> = FdcosTeta", "cosTeta = <span>W<sub>F</sub>/Fd</span>")
 			

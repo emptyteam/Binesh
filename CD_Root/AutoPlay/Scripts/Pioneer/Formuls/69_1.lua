@@ -28,7 +28,7 @@ function Binesh.F69_1()
 	--------------------------{DELTA}--------------------------
 	if _DeltaV == nil then
 		if V ~= nil and _V2 ~= nil then
-			Binesh.AddToHTML("DeltaV = V<sub>2</sub>-V<sub>1</sub>")
+			Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>")
 			_DeltaV = _V2 - V
 			Binesh.AddToHTML("DeltaV = ".._V2.."-"..V.." &#8658; DeltaV = ".._DeltaV.." m<sup>3</sup>")
 		end
@@ -36,7 +36,7 @@ function Binesh.F69_1()
 	
 	if V == nil then
 		if _DeltaV ~= nil and _V2 ~= nil then
-			Binesh.AddToHTML("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>1</sub> = V<sub>2</sub>-DeltaV")
+			Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>1</sub> = V<sub>2</sub>-DeltaV")
 			V = _V2-_DeltaV
 			Binesh.AddToHTML("V<sub>1</sub> = ".._V2.."-".._DeltaV.." &#8658; V<sub>1</sub> = "..V.." m<sup>3</sup>")
 		end
@@ -44,15 +44,15 @@ function Binesh.F69_1()
 	
 	if _V2 == nil then
 		if _DeltaV ~= nil and V ~= nil then
-			Binesh.AddToHTML("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>2</sub> = DeltaV+V<sub>1</sub>")
+			Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>2</sub> = DeltaV+V<sub>1</sub>")
 			_V2 = V+_DeltaV
 			Binesh.AddToHTML("V<sub>2</sub> = ".._DeltaV.."+"..V.." &#8658; V<sub>2</sub> = ".._V2.." m<sup>3</sup>")
 		end
 	end
 	--------------------------END {DELTA}--------------------------
-	if _DeltaV == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 then
+	if _DeltaV == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1)) then
 		if Beta_Length ~= nil and _DeltaTeta ~= nil and V ~= nil then
-			Binesh.AddToHTML("DeltaV = V<sub>1</sub>BetaDeltaTeta")
+			Binesh.CreateHTMLFile("DeltaV = V<sub>1</sub>BetaDeltaTeta")
 			_DeltaV = V*Beta_Length*_DeltaTeta
 			
 			Binesh.AddToHTML("V<sub>1</sub>: "..V.." m<sup>3</sup>", "V")
@@ -63,9 +63,9 @@ function Binesh.F69_1()
 			Binesh.AddToHTML("DeltaV = "..V.."*"..Beta_Length.."*".._DeltaTeta.." &#8658; DeltaV = ".._DeltaV.." m<sup>3</sup>")
 		end
 	end
-	if Beta_Length == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» «‰»”«ÿ ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Beta") ~= -1 then
+	if Beta_Length == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» «‰»”«ÿ ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Beta") ~= -1) then
 		if _DeltaV ~= nil and _DeltaTeta ~= nil and V ~= nil then
-			Binesh.AddToHTML("DeltaV = V<sub>1</sub>BetaDeltaTeta","Beta = <span>DeltaV/DeltaTetaV<sub>1</sub></span>")
+			Binesh.CreateHTMLFile("DeltaV = V<sub>1</sub>BetaDeltaTeta","Beta = <span>DeltaV/DeltaTetaV<sub>1</sub></span>")
 			Beta_Length = _DeltaV/(_DeltaTeta*V)
 			
 			Binesh.AddToHTML("DeltaV: ".._DeltaV.." m<sup>3</sup>", "V")
@@ -73,13 +73,13 @@ function Binesh.F69_1()
 			Binesh.AddToHTML("V<sub>1</sub>: "..V.." m<sup>3</sup>", "V")
 			Binesh.AddToHTML("Beta: ?", "V")
 			
-			Binesh.AddToHTML("Beta = <span>".._DeltaV.."/".._DeltaTeta.."*"..V.."</span> &#8658; Beta_Length = "..Beta_Length.." 1/C")
+			Binesh.AddToHTML("Beta = <span>".._DeltaV.."/".._DeltaTeta.."*"..V.."</span> &#8658; Beta = "..Beta_Length.." 1/C")
 		end
 	end
 	
-	if _DeltaTeta == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„«  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaTeta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaT") ~= -1 then
+	if _DeltaTeta == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„«  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaTeta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaT") ~= -1)) then
 		if Beta_Length ~= nil and _DeltaV ~= nil and V ~= nil then
-			Binesh.AddToHTML("DeltaV = V<sub>1</sub>BetaDeltaTeta", "DeltaTeta = <span>DeltaV/V<sub>1</sub>Beta</sapn>")
+			Binesh.CreateHTMLFile("DeltaV = V<sub>1</sub>BetaDeltaTeta", "DeltaTeta = <span>DeltaV/V<sub>1</sub>Beta</span>")
 			_DeltaTeta = _DeltaV/(V*Beta_Length)
 			
 			Binesh.AddToHTML("DeltaV: ".._DeltaV.." m<sup>3</sup>", "V")
@@ -91,9 +91,9 @@ function Binesh.F69_1()
 		end
 	end
 	
-	if V == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„ «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 then 
+	if V == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„ «Ê·Ì‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "V1") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1)) then 
 		if Beta_Length ~= nil and _DeltaV ~= nil and _DeltaTeta ~= nil then
-			Binesh.AddToHTML("DeltaV = V<sub>1</sub>BetaDeltaTeta", "V<sub>1</sub> = <span>DeltaV/BetaDeltaTeta</sapn>")
+			Binesh.CreateHTMLFile("DeltaV = V<sub>1</sub>BetaDeltaTeta", "V<sub>1</sub> = <span>DeltaV/BetaDeltaTeta</span>")
 			V = _DeltaV/(Beta_Length*_DeltaTeta)
 			
 			Binesh.AddToHTML("DeltaV: ".._DeltaV.." m<sup>3</sup>", "V")

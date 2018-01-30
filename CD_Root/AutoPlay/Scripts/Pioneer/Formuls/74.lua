@@ -1,5 +1,5 @@
 function Binesh.F74()
-	if Ru == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "çê«·Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ru") ~= -1 then
+	if Ru == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "çê«·Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ru") ~= -1) then
 		if Pa ~= nil and T ~= nil and M ~= nil then
 			Binesh.CreateHTMLFile("Ru = <span>PM/RT</span>")
 			Ru = P*M/Zarib.R*T
@@ -13,7 +13,7 @@ function Binesh.F74()
 		end
 	end
 	
-	if P == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1 then
+	if P == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1) then
 		if Ru ~= nil and T ~= nil and M ~= nil then
 			Binesh.CreateHTMLFile("Ru = <span>PM/RT</span>", "P = <span>RuRT/M</span>")
 			
@@ -28,7 +28,7 @@ function Binesh.F74()
 		end
 	end
 	
-	if T == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T") ~= -1 then
+	if T == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "T") ~= -1) then
 		if Ru ~= nil and P ~= nil and M ~= nil then
 			Binesh.CreateHTMLFile("Ru = <span>PM/RT</span>", "T = <span>PM/RRu</span>")
 			T = P*M/(Zarib.R*Ru)
@@ -42,7 +42,7 @@ function Binesh.F74()
 		end
 	end
 	
-	if M == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„ „Ê·Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "M") ~= -1 then
+	if M == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„ „Ê·Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "M") ~= -1) then
 		if Ru ~= nil and T ~= nil and P ~= nil then
 			Binesh.CreateHTMLFile("Ru = <span>PM/RT</span>", "M = <span>RuRT/P</span>")
 			M = Zarib.R*Ru*T/P

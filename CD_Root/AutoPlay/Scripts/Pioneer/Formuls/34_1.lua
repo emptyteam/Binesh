@@ -24,7 +24,7 @@ function Binesh.F34_1()
 		end
 	end
 	--------------------------END {DELTA}--------------------------
-	if a == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then 
+	if a == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1) then 
 		if _DeltaV_Speed ~= nil and _Deltat ~= nil then
 			Binesh.CreateHTMLFile("a = <span>DeltaV/Deltat</span>")
 			a = _DeltaV_Speed/_Deltat
@@ -37,7 +37,7 @@ function Binesh.F34_1()
 		end
 	end
 	
-	if _DeltaV_Speed == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄   €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 then 
+	if _DeltaV_Speed == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄   €ÌÌ—") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1) then 
 		if a ~= nil and _Deltat ~= nil then
 			Binesh.CreateHTMLFile("a = <span>DeltaV/Deltat</span>", "DeltaV = aDeltat")
 			_DeltaV_Speed = a*_Deltat
@@ -50,7 +50,7 @@ function Binesh.F34_1()
 		end
 	end
 	
-	if _Deltat == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltat") ~= -1 then
+	if _Deltat == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰  €ÌÌ—") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltat") ~= -1) then
 		if _DeltaV_Speed ~= nil and a ~= nil then
 			Binesh.CreateHTMLFile("a = <span>DeltaV/Deltat</span>", "Deltat = <span>DeltaV/a</span>")
 			_Deltat = _DeltaV_Speed/a

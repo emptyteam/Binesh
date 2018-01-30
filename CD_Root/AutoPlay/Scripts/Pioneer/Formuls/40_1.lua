@@ -1,5 +1,5 @@
 function Binesh.F40_1()
-	if V_Speed == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄  œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then 
+	if V_Speed == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄  œÊ„Ì‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1)) then 
 		if V0_Speed ~= nil and a ~= nil and _Deltax ~= nil then
 			Binesh.CreateHTMLFile("V<sup>2</sup>-V<sub>0</sub><sup>2</sup> = 2aDeltax", "V = Sqrt(<span>2aDeltax/V<sub>0</sub><sup>2</sup></span>)")
 			V_Speed = Math.Sqrt((2*a*_Deltax)/V0_Speed^2);
@@ -13,7 +13,7 @@ function Binesh.F40_1()
 		end
 	end
 	
-	if V0_Speed == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄  «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V0") ~= -1 then 
+	if V0_Speed == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄  «Ê·Ì‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "V0") ~= -1)) then 
 		if V_Speed ~= nil and a ~= nil and _Deltax ~= nil then
 			Binesh.CreateHTMLFile("V<sup>2</sup>-V<sub>0</sub><sup>2</sup> = 2aDeltax", "V<sub>0</sub><sup>2</sup> = Sqrt(<span>2aDeltax/V<sup>2</sup></span>)")
 			V0_Speed = Math.Sqrt((2*a*_Deltax)/V_Speed^2);
@@ -27,7 +27,7 @@ function Binesh.F40_1()
 		end
 	end
 	
-	if a == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then
+	if a == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1) then
 		if V_Speed ~= nil and V0_Speed ~= nil and _Deltax ~= nil then
 			Binesh.CreateHTMLFile("V<sup>2</sup>-V<sub>0</sub><sup>2</sup> = 2aDeltax", "a = <span>V<sup>2</sup>-V<sub>0</sub><sup>2</sup>/2Deltax</span>")
 			a = ((V_Speed^2)-(V0_Speed^2))/(2*_Deltax)
@@ -41,7 +41,7 @@ function Binesh.F40_1()
 		end
 	end
 	
-	if _Deltax == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltax") ~= -1 then
+	if _Deltax == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltax") ~= -1)) then
 		if V_Speed ~= nil and V0_Speed ~= nil and a ~= nil then
 			Binesh.CreateHTMLFile("V<sup>2</sup>-V<sub>0</sub><sup>2</sup> = 2aDeltax", "Deltax = <span>V<sup>2</sup>-V<sub>0</sub><sup>2</sup>/2a</span>")
 		    _Deltax = ((V_Speed^2) - (V0_Speed^2)) / (2*a)

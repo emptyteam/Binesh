@@ -1,5 +1,5 @@
 function Binesh.F17()
-	if n_Glass == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ‘ò” ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1 then
+	if n_Glass == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ‘ò” ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1) then
 		if i ~= nil and r_Glass ~= nil then
 			Binesh.CreateHTMLFile("n = <span>sini/sinr</span>")
 			n_Glass = Math.Sin(i)/Math.Sin(r_Glass)
@@ -12,7 +12,7 @@ function Binesh.F17()
 		end
 	end
 	
-	if i == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ  «»‘") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "i") ~= -1 then
+	if i == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ  «»‘") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "i") ~= -1) then
 		if n_Glass ~= nil and r_Glass ~= nil then
 			Binesh.CreateHTMLFile("n = <span>sini/sinr</span>", "sini = nsinr")
 			Sini = n_Glass * Math.Sin(r_Glass)
@@ -27,7 +27,7 @@ function Binesh.F17()
 		end
 	end
 	
-	if r_Glass == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ ‘ò” ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "r") ~= -1 then
+	if r_Glass == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ ‘ò” ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "r") ~= -1) then
 		if n_Glass ~= nil and i ~= nil then
 			Binesh.CreateHTMLFile("n = <span>sini/sinr</span>", "sinr = <span>sini/n<span>")
 			Sinr_Glass = Math.Sin(i)/n_Glass

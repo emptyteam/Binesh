@@ -1,5 +1,5 @@
 function Binesh.F75_2()
-	if _U1_In == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«жбнд «д—Он ѕ—ждн") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«д—Он ѕ—ждн «жбнд") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U1") ~= -1 then
+	if _U1_In == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "«жбнд «д—Он ѕ—ждн") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«д—Он ѕ—ждн «жбнд") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "U1") ~= -1)) then
 		if Q ~= nil and W ~= nil and _U2_In ~= nil then
 			Binesh.CreateHTMLFile("U<sub>2</sub>-U<sub>1</sub> = Q+W", "U<sub>1</sub> = -(Q+W)+U<sub>2</sub>")
 			_U1_In = -(Q+W)+_U2_In
@@ -13,7 +13,7 @@ function Binesh.F75_2()
 		end
 	end
 	
-	if _U2_In == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ѕжгнд «д—Он ѕ—ждн") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«д—Он ѕ—ждн ѕжгнд") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U2") ~= -1 then
+	if _U2_In == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "ѕжгнд «д—Он ѕ—ждн") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«д—Он ѕ—ждн ѕжгнд") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "U2") ~= -1)) then
 		if Q ~= nil and W ~= nil and _U1_In ~= nil then
 			Binesh.CreateHTMLFile("U<sub>2</sub>-U<sub>1</sub> = Q+W", "U<sub>2</sub> = Q+W+U<sub>1</sub>")
 			_U2_In = Q+W+_U1_In

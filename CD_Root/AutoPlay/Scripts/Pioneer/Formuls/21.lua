@@ -1,6 +1,6 @@
 function Binesh.F21()
 	if isLens == true then
-		if f == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "⁄œ”Ì ›«’·Â ò«‰Ê‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "f") ~= -1 then
+		if f == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "⁄œ”Ì ›«’·Â ò«‰Ê‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "f") ~= -1) then
 			if q_Lens ~= nil and p_Lens ~= nil then
 				Binesh.CreateHTMLFile("<span>1/f</span> = <span>1/p+1/q</span>", "f = <span>qp/q+p</span>")
 				f = q_Lens*p_Lens/q_Lens+p_Lens
@@ -13,7 +13,7 @@ function Binesh.F21()
 			end
 		end
 		
-		if q_Lens == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â ”«ÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+		if q_Lens == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â ”«ÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 			if p_Lens ~= nil and f ~= nil then
 				Binesh.CreateHTMLFile("<span>1/f</span> = <span>1/p+1/q</span>", "<span>1/q</span> = <span>1/f</span>-<span>1/p</span>")
 				Binesh.AddToHTML("q = <span>fp/f-p</span> &#8658; ")
@@ -27,7 +27,7 @@ function Binesh.F21()
 			end
 		end
 		
-		if p_Lens == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â Ã”„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "p") ~= -1 then
+		if p_Lens == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â Ã”„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "p") ~= -1) then
 			if q_Lens ~= nil and f ~= nil then
 				Binesh.CreateHTMLFile("<span>1/f</span> = <span>1/p+1/q</span>", "<span>1/p</span> = <span>1/f</span>-<span>1/q</span>")
 				Binesh.AddToHTML("p = <span>fq/f-q</span> &#8658; ")

@@ -1,7 +1,7 @@
 function Binesh.F48()
 	UP = ListBox.FindItem("Words", -1, LB_BYTEXT, "»«·«")
 	DOWN = ListBox.FindItem("Words", -1, LB_BYTEXT, "Å«ÌÌ‰")
-	if N == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1 then
+	if N == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1) then
 		if a ~= nil and m ~= nil then
 			if UP ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g+a)")
@@ -25,7 +25,7 @@ function Binesh.F48()
 		end
 	end
 	
-	if m == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
+	if m == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1) then
 		if N ~= nil and a ~= nil then
 			if UP ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g+a)", "m = <span>N/(g+a)</span>")
@@ -35,7 +35,7 @@ function Binesh.F48()
 				Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
 				Binesh.AddToHTML("m: ?", "V")
 				
-				Binesh.AddToHTML("m = <span>N/("..Zarib.g.."+a)</span> &#8658; m = "..m.." Kg")
+				Binesh.AddToHTML("m = <span>N/("..Zarib.g.."+a)</span> &#8658; m = "..math.abs(m).." Kg")
 			elseif DOWN ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g+a)", "m = -<span>N/(-g+a)</span>")
 				m = -N/(-Zarib.g+a)
@@ -44,12 +44,12 @@ function Binesh.F48()
 				Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
 				Binesh.AddToHTML("m: ?", "V")
 				
-				Binesh.AddToHTML("m = -<span>"..N.."/(-"..Zarib.g.."+"..a..")</span> &#8658; m = "..m.." Kg")
+				Binesh.AddToHTML("m = -<span>"..N.."/(-"..Zarib.g.."+"..a..")</span> &#8658; m = "..math.abs(m).." Kg")
 			end
 		end
 	end
 	
-	if a == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1 then
+	if a == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‘ «»") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "a") ~= -1) then
 		if m ~= nil and N ~= nil then
 			if UP ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g+a)", "a = -<span>(gm-N)/m</span>")

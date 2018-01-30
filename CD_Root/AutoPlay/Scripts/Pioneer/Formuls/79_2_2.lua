@@ -1,5 +1,5 @@
-function Binesh.F79_2_1()
-	if _P1 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«— «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P1") ~= -1 then
+function Binesh.F79_2_2()
+	if _P1 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«— «Ê·Ì‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "P1") ~= -1)) then
 		if Q ~= nil and V ~= nil and CV ~= nil and _P2 ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>V(P<sub>2</sub>-P<sub>1</sub>)", "P<sub>2</sub>-P<sub>1</sub> = <span>QR/C<sub>V</sub>V</span>")
 			Binesh.AddToHTML("P<sub>1</sub> = P<sub>2</sub>- <span>QR/C<sub>V</sub>V</span>")
@@ -15,7 +15,7 @@ function Binesh.F79_2_1()
 		end
 	end
 	
-	if _P2 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«— œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P2") ~= -1 then
+	if _P2 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«— œÊ„Ì‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "P2") ~= -1)) then
 		if Q ~= nil and V ~= nil and CV ~= nil and _P1 ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>V</sub>/R</span>V(P<sub>2</sub>-P<sub>1</sub>)", "P<sub>2</sub>-P<sub>1</sub> = <span>QR/C<sub>V</sub>V</span>")
 			Binesh.AddToHTML("P<sub>2</sub> = P<sub>1</sub>+ <span>QR/C<sub>V</sub>V</span>")

@@ -24,7 +24,7 @@ function Binesh.F75_1()
 		end
 	end
 	--------------------------END {DELTA}--------------------------
-	if Q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1 then
+	if Q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1) then
 		if W ~= nil and _DeltaU_In ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = Q+W", " Q = DeltaU-W")
 			Q = _DeltaU_In-W
@@ -37,7 +37,7 @@ function Binesh.F75_1()
 		end
 	end
 	
-	if W == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then 
+	if W == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1) then 
 		if Q ~= nil and _DeltaU_In ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = Q+W", "W = DeltaU-Q")
 			W = _DeltaU_In-Q
@@ -50,7 +50,7 @@ function Binesh.F75_1()
 		end
 	end
 	
-	if _DeltaU_In == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ œ—Ê‰Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ œ—Ê‰Ì  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1 then
+	if _DeltaU_In == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ œ—Ê‰Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ œ—Ê‰Ì  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1)) then
 		if Q ~= nil and W ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = Q+W")
 			_DeltaU_In = Q+W

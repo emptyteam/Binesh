@@ -1,5 +1,5 @@
 function Binesh.F47_1()
-	if fs_max == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«’ÿò«ò œ— ¬” «‰Â Õ—ò ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "fs,max") ~= -1 then
+	if fs_max == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "«’ÿò«ò œ— ¬” «‰Â Õ—ò ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "fs,max") ~= -1) then
 		if N ~= nil and Mus ~= nil then
 			Binesh.CreateHTMLFile("f<sub>s,max</sub> = Mu<sub>s</sub>N")
 			fs_max = Mus*N
@@ -12,7 +12,7 @@ function Binesh.F47_1()
 		end
 	end
 	
-	if N == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1 then
+	if N == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1) then
 		if fs_max ~= nil and Mus ~= nil then
 			Binesh.CreateHTMLFile("f<sub>s,max</sub> = Mu<sub>s</sub>N", "N = <span>f<sub>s,max</sub>/Mu<sub>s</sub></span>")
 			N = fs_max/Mus
@@ -25,7 +25,7 @@ function Binesh.F47_1()
 		end
 	end
 	
-	if Mus == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» «’ÿò«ò «Ì” «ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Mus") ~= -1 then
+	if Mus == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» «’ÿò«ò «Ì” «ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Mus") ~= -1) then
 		if fs_max ~= nil and N ~= nil then
 			Binesh.CreateHTMLFile("f<sub>s,max</sub> = Mu<sub>s</sub>N", "Mu<sub>s</sub> = <span>f<sub>s,max</sub>/N</span>")
 			Mus = fs_max/N

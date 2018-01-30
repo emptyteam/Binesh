@@ -1,5 +1,5 @@
 function Binesh.F82_1()
-	if Eta == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "»«“œÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Eta") ~= -1 then
+	if Eta == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "»«“œÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Eta") ~= -1) then
 		if QH ~= nil and W ~= nil then
 			Binesh.CreateHTMLFile("Eta = <span>|W|/Q<sub>H</sub></span>")
 			
@@ -13,7 +13,7 @@ function Binesh.F82_1()
 		end
 	end
 	
-	if QH == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„‰»⁄ ê—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "QH") ~= -1 then
+	if QH == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„‰»⁄ ê—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "QH") ~= -1) then
 		if W ~= nil and Eta ~= nil then
 			Binesh.CreateHTMLFile("Eta = <span>|W|/Q<sub>H</sub></span>", "Q<sub>H</sub> = <span>|W|/Eta</span>")
 			QH = Math.Abs(W)/Eta
@@ -26,7 +26,7 @@ function Binesh.F82_1()
 		end
 	end
 	
-	if W == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
+	if W == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1) then
 		if Eta ~= nil and QH ~= nil then
 			Binesh.CreateHTMLFile("Eta = <span>|W|/Q<sub>H</sub></span>", "W = |EtaQ<sub>H</sub>|")
 			W = Math.Abs(Eta*QH)

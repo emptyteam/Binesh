@@ -27,7 +27,7 @@ function Binesh.F1()
 		Binesh.AddToHTML("<br>");
 	end
 	
-	if K == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K") ~= -1 then
+	if K == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇäÑŽí") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K") ~= -1) then
 		if V_Speed ~= nil and m ~= nil then
 			Binesh.CreateHTMLFile("K = <span>1/2</span>mV<sup>2</sup>")
 			K = 0.5*(m*(V_Speed^2))
@@ -40,12 +40,12 @@ function Binesh.F1()
 		end
 	end
 	
-	if m == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÌÑã") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
+	if m == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÌÑã") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1) then
 		if K ~= nil and V_Speed ~= nil then
 			Binesh.CreateHTMLFile("K = <span>1/2</span>mV<sup>2</sup>", "m = <span>2K/V<sup>2</sup></span>")
 			m = (2*K)/(V_Speed^2)
 			
-			Binesh.AddToHTML("m = <span>2*"..K.."/"..V_Speed.."<sup>2</sup></span> &#8658; m = "..m.." Kg")
+			Binesh.AddToHTML("m = <span>2*"..K.."/"..V_Speed.."<sup>2</sup></span> &#8658; m = "..math.abs(m).." Kg")
 					
 			Binesh.AddToHTML("K: "..K.." J", "V")
 			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
@@ -53,7 +53,7 @@ function Binesh.F1()
 		end
 	end
 	
-	if V_Speed == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+	if V_Speed == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1) then
 		if K ~= nil and m ~= nil then
 			Binesh.CreateHTMLFile("K = <span>1/2</span>mV<sup>2</sup>", "V = Sqrt(<span>2K/m</span>)")
 			V_Speed = Math.Sqrt(2*K/m)

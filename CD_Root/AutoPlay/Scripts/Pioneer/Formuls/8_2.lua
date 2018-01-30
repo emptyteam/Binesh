@@ -1,5 +1,5 @@
 function Binesh.F8_2()
-	if W == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ «·ò —ÌòÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
+	if W == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ «·ò —ÌòÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1) then
 		if V_Electric ~= nil and I ~= nil and t ~= nil then
 			Binesh.CreateHTMLFile("W = IVt")
 			W = V_Electric*I*t
@@ -13,7 +13,7 @@ function Binesh.F8_2()
 		end
 	end
 	
-	if V_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+	if V_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1) then
 		if W ~= nil and I ~= nil and t ~= nil then
 			Binesh.CreateHTMLFile("W = IVt", "V = <span>W/It</span>")
 			V_Electric = W/(I*t)
@@ -27,7 +27,7 @@ function Binesh.F8_2()
 		end
 	end
 	
-	if I == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1 then
+	if I == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1) then
 		if W ~= nil and V_Electric ~= nil and t ~= nil then
 			Binesh.CreateHTMLFile("W = IVt", "I = <span>W/Vt</span>")
 			I = W/(V*t)
@@ -41,7 +41,7 @@ function Binesh.F8_2()
 		end
 	end
 	
-	if t == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1 then
+	if t == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1) then
 		if W ~= nil and V_Electric ~= nil and I ~= nil then
 			Binesh.CreateHTMLFile("W = IVt", "t = <span>W/VI</span>")
 			t = W/(V_Electric*I)

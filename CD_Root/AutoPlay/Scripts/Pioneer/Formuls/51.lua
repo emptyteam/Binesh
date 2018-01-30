@@ -5,7 +5,7 @@ function Binesh.F51()
 		Binesh.AddToHTML("D<sub>Alpha</sub> = <span>180*"..Alpha_Radian.."/"..Zarib.Pi.."</span> &#8658; D<sub>Alpha</sub> = "..Alpha.."<sup>o</sup>")
 	end
 	
-	if V_Speed == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+	if V_Speed == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1) then
 		if L ~= nil and Alpha ~= nil then
 			Binesh.CreateHTMLFile("V = Sqrt(2gL(1-cosAlpha))")
 			
@@ -19,7 +19,7 @@ function Binesh.F51()
 		end
 	end
 	
-	if L == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
+	if L == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1) then
 		if V_Speed ~= nil and Alpha ~= nil then
 			Binesh.CreateHTMLFile("V = Sqrt(2gL(1-cosAlpha))", "L = -<span>V<sup>2</sup>/2g(cosAlpha-1)</span>")
 			
@@ -33,7 +33,7 @@ function Binesh.F51()
 		end
 	end
 	
-	if Alpha == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
+	if Alpha == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1) then
 		if V_Speed ~= nil and L ~= nil then
 			Binesh.CreateHTMLFile("V = Sqrt(2gL(1-cosAlpha))", "cosAlpha = 1- <span>V<sup>2</sup>/2gL</span>")
 			

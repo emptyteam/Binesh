@@ -1,6 +1,6 @@
 function Binesh.F65_1()
 	if String.Find(Input.GetText("Input1"), " »ŒÌ—", 1, false) ~= -1 then
-		if Q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1 then
+		if Q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1) then
 			if m ~= nil and LV ~= nil then
 				Binesh.CreateHTMLFile("Q = mL<sub>V</sub>")
 				Q = m*LV
@@ -13,12 +13,12 @@ function Binesh.F65_1()
 			end
 		end
 		
-		if m == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then
+		if m == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1) then
 			if LV ~= nil and Q ~= nil then
 				Binesh.CreateHTMLFile("Q = mL<sub>V</sub>", "m = <span>Q/L<sub>V</sub></span>")
 				m = Q/LV
 				
-				Binesh.AddToHTML("m = <span>"..Q.."/"..LV.."</span> &#8658; m = "..m.." Kg")
+				Binesh.AddToHTML("m = <span>"..Q.."/"..LV.."</span> &#8658; m = "..math.abs(m).." Kg")
 				
 				Binesh.AddToHTML("Q: "..Q.." J", "V")
 				Binesh.AddToHTML("L<sub>V</sub>: "..LV.." <span>J/kg</span>", "V")
@@ -26,7 +26,7 @@ function Binesh.F65_1()
 			end
 		end
 		
-		if LV == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " »ŒÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "LV") ~= -1 then
+		if LV == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, " »ŒÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "LV") ~= -1) then
 			if Q ~= nil and m ~= nil then
 				Binesh.CreateHTMLFile("Q = mL<sub>V</sub>", "L<sub>V</sub> = <span>Q/m</span>")
 				LV = Q/m

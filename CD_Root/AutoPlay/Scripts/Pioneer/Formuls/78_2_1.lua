@@ -1,5 +1,5 @@
 function Binesh.F78_2_1()
-	if Q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1 then
+	if Q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1) then
 		if P ~= nil and CP ~= nil and _DeltaV ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>p</sub>/R</span>PDeltaV")
 			Q = (CP/Zarib.R)*P*_DeltaV
@@ -13,7 +13,7 @@ function Binesh.F78_2_1()
 		end
 	end
 	
-	if P == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1 then
+	if P == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1) then
 		if Q ~= nil and CP ~= nil and _DeltaV ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>p</sub>/R</span>PDeltaV", "P = <span>QR/C<sub>P</sub>DeltaV</span>")
 			P = (Q*Zarib.R)/(CP*_DeltaV)
@@ -27,7 +27,7 @@ function Binesh.F78_2_1()
 		end
 	end
 	
-	if CP == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "CP") ~= -1 then
+	if CP == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "CP") ~= -1) then
 		if Q ~= nil and _DeltaV ~= nil and P ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>p</sub>/R</span>PDeltaV", "C<sub>P</sub> = <span>QR/PDeltaV</span>")
 			CP = (Q*Zarib.R)/(P*_DeltaV)
@@ -41,7 +41,7 @@ function Binesh.F78_2_1()
 		end
 	end
 	
-	if _DeltaV == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 then
+	if _DeltaV == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ÕÃ„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÕÃ„  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1)) then
 		if Q ~= nil and CP ~= nil and P ~= nil then
 			Binesh.CreateHTMLFile("Q = <span>C<sub>p</sub>/R</span>PDeltaV", "DeltaV = <span>QR/C<sub>p</sub>P</span>")
 			_DeltaV = (Q*R)/(CP*P)

@@ -1,5 +1,5 @@
 function Binesh.F66_2()
-	if _L1 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Зжбнд Шжб") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Шжб Зжбнд") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L1") ~= -1 then
+	if _L1 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "Зжбнд Шжб") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Шжб Зжбнд") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "L1") ~= -1)) then
 		if _L2 ~= nil and Alpha_Length ~= nil and _DeltaTeta ~= nil and _DeltaL == nil then
 			Binesh.CreateHTMLFile("L<sub>2</sub> = L<sub>1</sub>(1+AlphaDeltaTeta)", "L<sub>1</sub> = <span>L<sub>2</sub>/1+AlphaDeltaTeta</span>")
 			_L1 = _L2/(1+Alpha_Length*_DeltaTeta)
@@ -13,7 +13,7 @@ function Binesh.F66_2()
 		end
 	end
 	
-	if _L2 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Пжгнд Шжб") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Шжб Пжгнд") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L2") ~= -1 then
+	if _L2 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "Пжгнд Шжб") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Шжб Пжгнд") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "L2") ~= -1)) then
 		if _L1 ~= nil and Alpha_Length ~= nil and _DeltaTeta ~= nil and _DeltaL == nil then
 			Binesh.CreateHTMLFile("L<sub>2</sub> = L<sub>1</sub>(1+AlphaDeltaTeta)")
 			_L2 = _L1*(1+Alpha_Length*_DeltaTeta)

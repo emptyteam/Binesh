@@ -63,7 +63,7 @@ function Binesh.F4_1()
 		end
 	end
 	--------------------------END {DELTA}--------------------------
-	if Q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1 then
+	if Q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Q") ~= -1) then
 		if m ~= nil and c ~= nil and _DeltaTeta ~= nil then
 			Binesh.CreateHTMLFile("Q = mcDeltaTeta")
 			Q = m*c*_DeltaTeta
@@ -77,7 +77,7 @@ function Binesh.F4_1()
 		end
 	end
 	
-	if m == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1 then 
+	if m == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1) then 
 		if Q ~= nil and c ~= nil and _DeltaTeta ~= nil then
 			Binesh.CreateHTMLFile("Q = m*c*DeltaTeta", "m = <span>Q/cDeltaTeta</span>")
 			m = Q/c*_DeltaTeta
@@ -87,11 +87,11 @@ function Binesh.F4_1()
 			Binesh.AddToHTML("DeltaTeta: ".._DeltaTeta.."<sup>o</sup>C", "V")
 			Binesh.AddToHTML("m: ?", "V")
 			
-			Binesh.AddToHTML("m = <span>"..Q.."/"..c.."*".._DeltaTeta.."</span> &#8658; m = "..m.." Kg")
+			Binesh.AddToHTML("m = <span>"..Q.."/"..c.."*".._DeltaTeta.."</span> &#8658; m = "..math.abs(m).." Kg")
 		end
 	end
 	
-	if c == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "c") ~= -1 then 
+	if c == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì  ê—„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "c") ~= -1) then 
 		if Q ~= nil and m ~= nil and _DeltaTeta ~= nil then
 			Binesh.CreateHTMLFile("Q = m*c*DeltaTeta", "c = <span>Q/m*DeltaTeta</span>")
 			c = Q/m*_DeltaTeta
@@ -112,7 +112,7 @@ function Binesh.F4_1()
 		end
 	end
 	
-	if _DeltaTeta == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„«  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaTeta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaT") ~= -1 then
+	if _DeltaTeta == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— œ„«") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„«  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaTeta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaT") ~= -1)) then
 		if Q ~= nil and m ~= nil and c ~= nil then
 			Binesh.CreateHTMLFile("Q = m*c*DeltaTeta", "DeltaTeta = <span>Q/mc</span>")
 			_DeltaTeta = Q/m*c

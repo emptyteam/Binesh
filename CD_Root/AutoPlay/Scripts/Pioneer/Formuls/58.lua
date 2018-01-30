@@ -5,7 +5,7 @@ function Binesh.F58()
 		Binesh.AddToHTML("P<sub>Pascal</sub> = "..Pa.."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = "..P.." Pa")
 	end
 	
-	if P == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1 then
+	if P == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1) then
 		if F ~= nil and A ~= nil then
 			Binesh.CreateHTMLFile("P = <span>F/A</span>")
 			P = F/A
@@ -18,7 +18,7 @@ function Binesh.F58()
 		end
 	end
 	
-	if F == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1 then
+	if F == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1) then
 		if P ~= nil and A ~= nil then
 			Binesh.CreateHTMLFile("P = <span>F/A</span>", "F = PA")
 			F = P*A
@@ -31,7 +31,7 @@ function Binesh.F58()
 		end
 	end
 	
-	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ ”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ ”ÿÕ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1)) then
 		if P ~= nil and F ~= nil then
 			Binesh.CreateHTMLFile("P = <span>F/A</span>", "A = <span>F/P</span>")
 			A = F/P

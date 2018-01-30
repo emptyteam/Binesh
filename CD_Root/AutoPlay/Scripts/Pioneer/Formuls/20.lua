@@ -6,7 +6,7 @@ function Binesh.F20()
 		Binesh.AddToHTML("<br>")
 	end
 	
-	if C == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ Õœ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1 then
+	if C == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ Õœ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1) then
 		if n_Glass ~= nil then
 			Binesh.CreateHTMLFile("sinC = <span>1/n</span>")
 			SinC = 1/n_Glass
@@ -20,7 +20,7 @@ function Binesh.F20()
 		end
 	end
 	
-	if n_Glass == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ‘ò” ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1 then
+	if n_Glass == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ‘ò” ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1) then
 		if C ~= nil then
 			Binesh.CreateHTMLFile("sinC = <span>1/n</span>", "n = <span>1/sinC</span>")
 			n_Glass = 1/Math.Sin(Math.Rad(C))
