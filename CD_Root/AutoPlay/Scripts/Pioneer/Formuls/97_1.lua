@@ -1,5 +1,5 @@
 function Binesh.F97_1()
-	if U == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
+	if U == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1) then
 		if V_Electric ~= nil and C_Condenser ~= nil then
 			Binesh.CreateHTMLFile("U = <span>1/2</span>CV<sup>2</sup>")
 			U = 0.5*C_Condenser*V_Electric^2
@@ -12,7 +12,7 @@ function Binesh.F97_1()
 		end
 	end
 	
-	if C_Condenser == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1 then
+	if C_Condenser == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1) then
 		if V_Electric ~= nil and U ~= nil then
 			Binesh.CreateHTMLFile("U = <span>1/2</span>CV<sup>2</sup>", "C = <span>2U/V<sup>2</sup></span>")
 			C_Condenser = (2*U)/(V_Electric^2)
@@ -25,7 +25,7 @@ function Binesh.F97_1()
 		end
 	end
 	
-	if V_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+	if V_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1) then
 		if U ~= nil and C_Condenser ~= nil then
 			Binesh.CreateHTMLFile("U = <span>1/2</span>CV<sup>2</sup>", "V = Sqrt(<span>2U/C</span>)")
 			V_Electric = Math.Sqrt(2*U/C_Condenser)

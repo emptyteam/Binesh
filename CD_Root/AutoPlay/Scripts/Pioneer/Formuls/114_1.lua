@@ -1,5 +1,5 @@
 function Binesh.F114_1()
-	if U_Output == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
+	if U_Output == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1) then
 		if I ~= nil and t ~= nil and R ~= nil then
 			Binesh.CreateHTMLFile("U = RI<sup>2</sup>t")
 			U_Output = R * I^2 * t
@@ -13,7 +13,7 @@ function Binesh.F114_1()
 		end
 	end
 	
-	if I == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "¬„Å—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1 then
+	if I == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "¬„Å—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1) then
 		if U_Output ~= nil and R ~= nil and t ~= nil then
 			I = Math.Sqrt(U_Output/(R*t))
 			
@@ -27,7 +27,7 @@ function Binesh.F114_1()
 		end
 	end
 	
-	if R == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1 then
+	if R == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1) then
 		if I ~= nil and t ~= nil and U_Output ~= nil then
 			R = U/(I^2*t)
 			
@@ -41,7 +41,7 @@ function Binesh.F114_1()
 		end
 	end
 	
-	if t == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1 then
+	if t == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1) then
 		if R ~= nil and I ~= nil and U_Output ~= nil then
 			t = U_Output/(I^2*R)
 			

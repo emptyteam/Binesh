@@ -1,5 +1,5 @@
 function Binesh.F111()
-	if R == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1 then
+	if R == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1) then
 		if Ru_Resistor ~= nil and A ~= nil and L ~= nil then
 			R =  Ru_Resistor * L / A
 			
@@ -13,7 +13,7 @@ function Binesh.F111()
 		end
 	end
 	
-	if Ru_Resistor == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„  ÊÌéÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ru") ~= -1 then
+	if Ru_Resistor == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„  ÊÌéÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ru") ~= -1) then
 		if R ~= nil and L ~= nil and A ~= nil then
 			Ru_Resistor = R*A/L
 			
@@ -27,7 +27,7 @@ function Binesh.F111()
 		end
 	end
 	
-	if A == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ ”ÿÕ") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ ”ÿÕ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1)) then
 		if R ~= nil and L ~= nil and Ru_Resistor ~= nil then
 			A = Ru_Resistor*L/R
 			
@@ -41,7 +41,7 @@ function Binesh.F111()
 		end
 	end
 	
-	if L == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÿÊ·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1 then
+	if L == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÿÊ·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1) then
 		if Ru_Resistor ~= nil and A ~= nil and R ~= nil then
 			L = R*A/Ru_Resistor
 			

@@ -1,5 +1,5 @@
 function Binesh.F85()
-	if K_Ice == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ⁄„·ò—œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K") ~= -1 then
+	if K_Ice == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ⁄„·ò—œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "K") ~= -1) then
 		if W ~= nil and QC ~= nil then
 			K_Ice = QC / W
 			
@@ -12,7 +12,7 @@ function Binesh.F85()
 		end
 	end
 	
-	if QC == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„‰»⁄ ”—œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "QC") ~= -1 then
+	if QC == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„‰»⁄ ”—œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "QC") ~= -1) then
 		if K_Ice ~= nil and W ~= nil then
 			QC = K_Ice*W
 			
@@ -25,7 +25,7 @@ function Binesh.F85()
 		end
 	end
 	
-	if W == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
+	if W == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1) then
 		if K_Ice ~= nil and QC ~= nil then
 			W = QC/K_Ice
 			Binesh.CreateHTMLFile("K = <span>Q<sub>C</sub>/W</span>", "W = <span>Q<sub>C</sub>/K</span>")

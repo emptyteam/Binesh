@@ -1,5 +1,5 @@
 function Binesh.F114_3()
-	if U_Output == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1 then
+	if U_Output == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ „’—›Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U") ~= -1) then
 		if R ~= nil and t ~= nil and V_Electric ~= nil then
 			U_Output =  V_Electric^2 * t / R
 			
@@ -13,7 +13,7 @@ function Binesh.F114_3()
 		end
 	end
 	
-	if R == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1 then
+	if R == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1) then
 		if U_Output ~= nil and V_Electric ~= nil and t ~= nil then
 			R = V_Electric^2*t/U_Output
 			
@@ -27,7 +27,7 @@ function Binesh.F114_3()
 		end
 	end
 	
-	if V_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+	if V_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1) then
 		if R ~= nil and t ~= nil and U_Output ~= nil then
 			V_Electric = Math.Sqrt(R*U_Output/t)
 			
@@ -41,7 +41,7 @@ function Binesh.F114_3()
 		end
 	end
 	
-	if t == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1 then
+	if t == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "t") ~= -1) then
 		if R ~= nil and V_Electric ~= nil and U_Output ~= nil then
 			t = U_Output*R/V_Electric^2
 			

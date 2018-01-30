@@ -1,5 +1,5 @@
 function Binesh.F136_3()
-	if _Fi1 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "‘«— «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Fi1") ~= -1 then
+	if _Fi1 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ ‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "‘«— «Ê·Ì‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Fi1") ~= -1)) then
 		if N_Round ~= nil and _Deltaq ~= nil and R ~= nil and _Fi2 ~= nil then
 			Binesh.CreateHTMLFile("Deltaq = <span>N/R</span>Fi<sub>2</sub>-Fi<sub>1</sub>", "Fi<sub>2</sub>-Fi<sub>1</sub> = <span>RDeltaq/N</span>")
 			Binesh.AddToHTML("Fi<sub>1</sub> = Fi<sub>2</sub>- <span>RDeltaq/N</span> &#8658; ")
@@ -16,7 +16,7 @@ function Binesh.F136_3()
 		end
 	end
 	
-	if _Fi2 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "‘«— œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Fi2") ~= -1 then
+	if _Fi2 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ ‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "‘«— œÊ„Ì‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Fi2") ~= -1)) then
 		if N_Round ~= nil and _Deltaq ~= nil and R ~= nil and _Fi1 ~= nil then
 			Binesh.CreateHTMLFile("Deltaq = <span>N/R</span>Fi<sub>2</sub>-Fi<sub>1</sub>", "Fi<sub>2</sub>-Fi<sub>1</sub> = <span>RDeltaq/N</span>")
 			Binesh.AddToHTML("Fi<sub>2</sub> = Fi<sub>1</sub>+ <span>RDeltaq/N</span> &#8658; ")

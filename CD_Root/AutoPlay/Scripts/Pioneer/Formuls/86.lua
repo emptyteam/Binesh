@@ -1,5 +1,5 @@
 function Binesh.F86()
-	if F == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1 then
+	if F == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1) then
 		if q1 ~= nil and q2 ~= nil and r_3 ~= nil then
 			F = 9*10^9 * (Math.Abs(q1)* Math.Abs(q2) / (r_3^2))
 			
@@ -13,7 +13,7 @@ function Binesh.F86()
 		end
 	end
 	
-	if q1 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q1") ~= -1 then
+	if q1 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â «Ê·Ì‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "q1") ~= -1)) then
 		if F ~= nil and q2 ~= nil and r_3 ~= nil then
 			q1 = F*r_3^2/(9*10^9*Math.Abs(q2))
 			
@@ -27,7 +27,7 @@ function Binesh.F86()
 		end
 	end
 	
-	if q2 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q2") ~= -1 then
+	if q2 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â œÊ„Ì‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "q2") ~= -1)) then
 		if F ~= nil and r_3 ~= nil and q1 ~= nil then
 			q2 = F*r_3^2/(9*10^9*Math.Abs(q1))
 			
@@ -41,7 +41,7 @@ function Binesh.F86()
 		end
 	end
 	
-	if r_3 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "r") ~= -1 then
+	if r_3 == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "r") ~= -1) then
 		if q1 ~= nil and q2 ~= nil and F ~= nil then
 			r_3 = Math.Sqrt(9*10^9*Math.Abs(q1)*Math.Abs(q2)/F)
 			

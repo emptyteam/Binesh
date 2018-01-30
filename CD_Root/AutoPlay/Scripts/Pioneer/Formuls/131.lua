@@ -1,5 +1,5 @@
 function Binesh.F131()
-	if B == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "B") ~= -1 then
+	if B == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "B") ~= -1) then
 		if N_Ring ~= nil and R_Radius ~= nil and I ~= nil then
 			Binesh.CreateHTMLFile("B = <span>NMu<sub>0</sub>I/2R</span>")
 			B = N_Ring * 4*3.14*10^(-7) * I /(2*R_Radius)
@@ -13,7 +13,7 @@ function Binesh.F131()
 		end
 	end
 	
-	if R_Radius == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‘⁄«⁄") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1 then
+	if R_Radius == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‘⁄«⁄") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1) then
 		if N_Ring ~= nil and B ~= nil and I ~= nil then
 			Binesh.CreateHTMLFile("B = <span>NMu<sub>0</sub>I/2R</span>", "R = <span>NMu<sub>0</sub>I/2B</span>")
 			R_Radius = N_Ring * 4*Zarib.Pi*10^(-7) * I /(2*B)
@@ -27,7 +27,7 @@ function Binesh.F131()
 		end
 	end
 	
-	if N_Ring == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Õ·ﬁÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1 then
+	if N_Ring == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Õ·ﬁÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1) then
 		if R_Radius ~= nil and B ~= nil and I ~= nil then
 			Binesh.CreateHTMLFile("B = <span>NMu<sub>0</sub>I/2R</span>", "N = <span>2BR/Mu<sub>0</sub>I</span>")
 			N_Ring = 2*B*R_Radius/(4*Zarib.Pi*10^(-7)*I)
@@ -41,7 +41,7 @@ function Binesh.F131()
 		end
 	end
 	
-	if I == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1 then
+	if I == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1) then
 		if N_Ring ~= nil and B ~= nil and R_Radius ~= nil then
 			Binesh.CreateHTMLFile("B = <span>NMu<sub>0</sub>I/2R</span>", "I = <span>2BR/Mu<sub>0</sub>N</span>")
 			I = 2*B*R_Radius/(4*Zarib.Pi*10^(-7)*N_Ring)

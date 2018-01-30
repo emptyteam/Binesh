@@ -1,5 +1,5 @@
 function Binesh.F92_3()
-	if _U1 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U1") ~= -1 then
+	if _U1 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "«Ê·Ì‰ «‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ «Ê·Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "U1") ~= -1)) then
 		if _DeltaV_Electric ~= nil and q ~= nil and _U2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaV = <span>U<sub>2</sub>-U<sub>1</sub>/q</span>", "U<sub>2</sub>-U<sub>1</sub> = DeltaVq")
 			Binesh.AddToHTML("U<sub>1</sub> = U<sub>2</sub>-DeltaVq &#8658; ")
@@ -13,7 +13,7 @@ function Binesh.F92_3()
 		end
 	end
 	
-	if _U2 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "U2") ~= -1 then
+	if _U2 == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ„Ì‰ «‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ œÊ„Ì‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "U2") ~= -1)) then
 		if _DeltaV_Electric ~= nil and q ~= nil and _U1 ~= nil then
 			Binesh.CreateHTMLFile("DeltaV = <span>U<sub>2</sub>-U<sub>1</sub>/q</span>", "U<sub>2</sub>-U<sub>1</sub> = DeltaVq")
 			Binesh.AddToHTML("U<sub>2</sub> = U<sub>1</sub>+DeltaVq &#8658; ")

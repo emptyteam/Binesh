@@ -1,5 +1,5 @@
 function Binesh.F142_2()
-	if Omega == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Omega") ~= -1 then
+	if Omega == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÑÚÊ ÒÇæíå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Omega") ~= -1) then
 		if f_Hz ~= nil then
 			Binesh.CreateHTMLFile("Omega = 2Pif")
 			
@@ -12,7 +12,7 @@ function Binesh.F142_2()
 		end
 	end
 	
-	if f_Hz == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ÝÑ˜ÇäÓ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "f") ~= -1 then
+	if f_Hz == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÝÑ˜ÇäÓ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "f") ~= -1) then
 		if Oemga ~= nil then
 			Binesh.CreateHTMLFile("Omega = 2Pif", "f = <span>2Pi/Omega</span>")
 			

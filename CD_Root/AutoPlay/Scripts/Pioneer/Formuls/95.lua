@@ -1,5 +1,5 @@
 function Binesh.F95()
-	if C_Condenser == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1 then
+	if C_Condenser == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1) then
 		if q ~= nil and V_Electric ~= nil then
 			C_Condenser = q/V_Electric
 			
@@ -12,7 +12,7 @@ function Binesh.F95()
 		end
 	end
 	
-	if q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+	if q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 		if C_Condenser ~= nil and V_Electric ~= nil then
 			q = C_Condenser*V_Electric
 			
@@ -25,7 +25,7 @@ function Binesh.F95()
 		end
 	end
 	
-	if V_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+	if V_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1) then
 		if q ~= nil and C_Condenser ~= nil then
 			V_Electric = q/C_Condenser
 			

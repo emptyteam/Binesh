@@ -24,7 +24,7 @@ function Binesh.F135_1()
 		end
 	end
 	--------------------------END {DELTA}--------------------------
-	if Epsilon == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Epsilon") ~= -1 then
+	if Epsilon == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Epsilon") ~= -1) then
 		if N_Round ~= nil and _DeltaFi ~= nil and _Deltat ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = -N<span>DeltaFi/Deltat</span>")
 			Epsilon = -N_Round*(_DeltaFi/_Deltat)
@@ -38,7 +38,7 @@ function Binesh.F135_1()
 		end
 	end
 	
-	if N_Round == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Õ·ﬁÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1 then
+	if N_Round == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "œÊ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Õ·ﬁÂ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1)) then
 		if Epsilon ~= nil and _Deltat ~= nil and _DeltaFi ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = -N<span>DeltaFi/Deltat</span>", "N = - <span>EpsilonDeltat/DeltaFi</span>")
 			N_Round = -(Epsilon*_Deltat/_DeltaFi)
@@ -52,7 +52,7 @@ function Binesh.F135_1()
 		end
 	end
 	
-	if _DeltaFi == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "‘«—  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaFi") ~= -1 then
+	if _DeltaFi == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ‘«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "‘«—  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaFi") ~= -1)) then
 		if Epsilon ~= nil and N_Round ~= nil and _Deltat ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = -N<span>DeltaFi/Deltat</span>", "DeltaFi = <span>EpsilonDeltat/-N</span>")
 			_DeltaFi = Epsilon*_Deltat/(-N_Round)
@@ -66,7 +66,7 @@ function Binesh.F135_1()
 		end
 	end
 	
-	if _Deltat == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltat") ~= -1 then
+	if _Deltat == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltat") ~= -1)) then
 		if Epsilon ~= nil and N_Round ~= nil and _DeltaFi ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = -N<span>DeltaFi/Deltat</span>", "Deltat = -N<span>DeltaFi/Epsilon</span>")
 			_Deltat = -N_Round*(_DeltaFi/Epsilon)

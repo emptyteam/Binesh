@@ -24,7 +24,7 @@ function Binesh.F109_1()
 		end
 	end
 	--------------------------END {DELTA}--------------------------
-	if IBar == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰ „ Ê”ÿ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "IBar") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1 then
+	if IBar == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰ „ Ê”ÿ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "IBar") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1)) then
 		if _Deltaq ~= nil and _Deltat ~= nil then
 			Binesh.CreateHTMLFile("IBar = <span>Deltaq/Deltat</span>")
 			IBar = _Deltaq/_Deltat
@@ -37,7 +37,7 @@ function Binesh.F109_1()
 		end
 	end
 	
-	if _Deltaq == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltaq") ~= -1 then
+	if _Deltaq == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— –—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltaq") ~= -1)) then
 		if IBar ~= nil and _Deltat ~= nil then
 			Binesh.CreateHTMLFile("IBar = <span>Deltaq/Deltat</span>", "Deltaq = IBarDeltat")
 			_Deltaq = IBar*_Deltat
@@ -50,7 +50,7 @@ function Binesh.F109_1()
 		end
 	end
 	
-	if _Deltat == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltat") ~= -1 then
+	if _Deltat == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— “„«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "“„«‰  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Deltat") ~= -1)) then
 		if IBar ~= nil and _Deltaq ~= nil then
 			Binesh.CreateHTMLFile("IBar = <span>Deltaq/Deltat</span>", "Deltat = <span>Deltaq/IBar</span>")
 			_Deltat = _Deltaq/IBar

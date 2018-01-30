@@ -5,7 +5,7 @@ function Binesh.F129()
 		q = -q
 	end
 	
-	if F == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1 then
+	if F == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1) then
 		if q ~= nil and V_Speed ~= nil and B ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("F = qVBsinTeta")
 			F = q*V_Speed*B*Math.Sin(Math.Rad(Teta))
@@ -20,7 +20,7 @@ function Binesh.F129()
 		end
 	end
 	
-	if q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+	if q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 		if F ~= nil and V_Speed ~= nil and B ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("F = qVBsinTeta", "q = <span>F/VBsinTeta</span>")
 			q = F/(V_Speed*B*Math.Sin(Math.Rad(Teta)))
@@ -35,7 +35,7 @@ function Binesh.F129()
 		end
 	end
 	
-	if V_Speed == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+	if V_Speed == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1) then
 		if F ~= nil and q ~= nil and B ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("F = qVBsinTeta", "V = <span>F/qBsinTeta</span>")
 			V_Speed = F/(q*B*Math.Sin(Math.Rad(Teta)))
@@ -50,7 +50,7 @@ function Binesh.F129()
 		end
 	end
 	
-	if B == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "B") ~= -1 then
+	if B == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "B") ~= -1) then
 		if F ~= nil and q ~= nil and V_Speed ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("F = qVBsinTeta", "B = <span>F/qVsinTeta</span>")
 			
@@ -66,7 +66,7 @@ function Binesh.F129()
 		end
 	end
 	
-	if Teta == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1 then
+	if Teta == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Alpha") ~= -1)) then
 		if F ~= nil and q ~= nil and V_Speed ~= nil and B ~= nil then
 			Binesh.CreateHTMLFile("F = qVBsinTeta", "sinTeta = <span>F/qVB</span>")
 			

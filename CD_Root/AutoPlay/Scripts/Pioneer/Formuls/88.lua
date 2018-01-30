@@ -1,5 +1,5 @@
 function Binesh.F88()
-	if E_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1 then
+	if E_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1) then
 		if q ~= nil and r_3 ~= nil then
 			Binesh.CreateHTMLFile("E = K<span>q/r<sup>2</sup></span>")
 			E_Electric = ((9*10^9)*q)/(r_3^2)
@@ -19,7 +19,7 @@ function Binesh.F88()
 		end
 	end
 	
-	if q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+	if q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 		if E_Electric ~= nil and r_3 ~= nil then
 			Binesh.CreateHTMLFile("E = K<span>q/r<sup>2</sup></span>", "q = <span>Er<sup>2</sup>/K</span>")
 			q = (E_Electric*(r_3^2))/(9*10^9)
@@ -32,7 +32,7 @@ function Binesh.F88()
 		end
 	end
 	
-	if r_3 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "r") ~= -1 then
+	if r_3 == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "r") ~= -1) then
 		if E_Electric ~= nil and q ~= nil then
 			Binesh.CreateHTMLFile("E = K<span>q/r<sup>2</sup></span>", "r = Sqrt(<span>Kq/E</span>)")
 			r_3 = Math.Sqrt(((9*10^9)*q)/E_Electric)

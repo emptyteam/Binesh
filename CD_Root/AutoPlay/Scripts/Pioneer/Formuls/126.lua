@@ -1,5 +1,5 @@
 function Binesh.F126()
-	if V_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1 then
+	if V_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ê· «é") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "V") ~= -1) then
 		if Epsilon ~= nil and r_Resistor ~= nil and I ~= nil then
 			Binesh.CreateHTMLFile("V = Epsilon-Ir")
 			V_Electric = Epsilon-(I*r_Resistor)
@@ -13,7 +13,7 @@ function Binesh.F126()
 		end
 	end
 	
-	if Epsilon == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Epsilon") ~= -1 then
+	if Epsilon == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Epsilon") ~= -1) then
 		if V_Electric ~= nil and r_Resistor ~= nil and I ~= nil then
 			Binesh.CreateHTMLFile("V = Epsilon-Ir", "Epsilon = V+Ir")
 			Epsilon = V_Electric + (I*r_Resistor)
@@ -27,7 +27,7 @@ function Binesh.F126()
 		end
 	end
 	
-	if I == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1 then
+	if I == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1) then
 		if V_Electric ~= nil and r_Resistor ~= nil and Epsilon ~= nil  then
 			Binesh.CreateHTMLFile("V = Epsilon-Ir", "I = <span>Epsilon-V/r</span>")
 			I = (Epsilon-V_Electric)/r_Resistor
@@ -41,7 +41,7 @@ function Binesh.F126()
 		end
 	end
 	
-	if r_Resistor == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "r") ~= -1 then
+	if r_Resistor == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„ ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "r") ~= -1)) then
 		if V_Electric ~= nil and Epsilon ~= nil and I ~= nil then
 			Binesh.CreateHTMLFile("V = Epsilon-Ir", "r = <span>Epsilon-V/I</span>")
 			r_Resistor = (Epsilon-V_Electric)/I

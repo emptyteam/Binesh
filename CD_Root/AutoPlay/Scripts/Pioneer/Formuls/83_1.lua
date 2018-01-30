@@ -26,7 +26,7 @@ function Binesh.F83_1()
 		Binesh.AddToHTML("T<sub>H</sub> = "..T_HC.."+273 &#8658; T<sub>H</sub> = "..T_H.." K")
 	end
 	
-	if EtaK == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "»«“œÂ ò«—‰Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Eta_max") ~= -1 then
+	if EtaK == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "»«“œÂ ò«—‰Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Eta_max") ~= -1) then
 		if T_C ~= nil and T_H ~= nil then
 			Binesh.CreateHTMLFile("Eta<sub>max</sub> = 1- <span>T<sub>C</sub>/T<sub>H</sub></span>")
 			
@@ -40,7 +40,7 @@ function Binesh.F83_1()
 		end
 	end
 	
-	if T_C == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„« „‰»⁄ ”—œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "TC") ~= -1 then
+	if T_C == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "œ„« „‰»⁄ ”—œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "TC") ~= -1) then
 		if EtaK ~= nil and T_H ~= nil then
 			Binesh.CreateHTMLFile("Eta<sub>max</sub> = 1- <span>T<sub>C</sub>/T<sub>H</sub></span>", "T<sub>C</sub> = -(-1+Eta<sub>max</sub>)T<sub>H</sub>")
 			
@@ -54,7 +54,7 @@ function Binesh.F83_1()
 		end
 	end
 	
-	if T_H == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„‰»⁄ ê—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "TH") ~= -1 then
+	if T_H == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„‰»⁄ ê—„") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "TH") ~= -1) then
 		if EtaK ~= nil and T_C ~= nil then
 			Binesh.CreateHTMLFile("Eta<sub>max</sub> = 1- <span>T<sub>C</sub>/T<sub>H</sub></span>", "T<sub>H</sub> = - <span>T<sub>C</sub>/(-1+Eta<sub>max</sub>)</span>")
 			T_H = -T_C/(-1+EtaK)

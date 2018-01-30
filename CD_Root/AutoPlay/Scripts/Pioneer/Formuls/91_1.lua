@@ -24,7 +24,7 @@ function Binesh.F91_1()
 		end
 	end
 	--------------------------END {DELTA}--------------------------
-	if _DeltaU == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1 then
+	if _DeltaU == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— «‰—éÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ  €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "«‰—éÌ Å «‰”Ì·") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaU") ~= -1)) then
 		if E_Electric ~= nil and q ~= nil and Teta ~= nil and d ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta")
 			_DeltaU = -E_Electric*Math.Abs(q)*d*Math.Cos(Math.Rad(Teta))
@@ -39,7 +39,7 @@ function Binesh.F91_1()
 		end
 	end
 	
-	if E_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1 then
+	if E_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1) then
 		if q ~= nil and _DeltaU ~= nil and d ~= nil and Teta ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "E = - <span>DeltaU/|q|dcosTeta</span>")
 			E_Electric = -_DeltaU/(Math.Abs(q)*d*Math.Cos(Math.Rad(Teta)))
@@ -54,7 +54,7 @@ function Binesh.F91_1()
 		end
 	end
 	
-	if q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+	if q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 		if E_Electric ~= nil and _DeltaU ~= nil and Teta ~= nil and d ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "q = |<span>DeltaU/EdcosTeta</span>|")
 			
@@ -70,7 +70,7 @@ function Binesh.F91_1()
 		end
 	end
 	
-	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then 
+	if d == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1)) then 
 		if E_Electric ~= nil and _DeltaU ~= nil and Teta ~= nil and q ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "d = - <span>DeltaU/E|q|cosTeta</span>")
 			d = -_DeltaU / (E_Electric*Math.Abs(q)*Math.Cos(Math.Rad(Teta)))
@@ -85,7 +85,7 @@ function Binesh.F91_1()
 		end
 	end
 	
-	if Teta == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1 then
+	if Teta == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Teta") ~= -1) then
 		if E_Electric ~= nil and _DeltaU ~= nil and d ~= nil and q ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = -E|q|dcosTeta", "cosTeta = - <span>DeltaU/E|q|d</span>")
 			CosTeta = -_DeltaU/(E_Electric*Math.Abs(q)*d)

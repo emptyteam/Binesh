@@ -1,5 +1,5 @@
 function Binesh.F94_2_1()
-	if W_Out == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«— Œ«—ÃÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1 then
+	if W_Out == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«— Œ«—ÃÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1) then
 		if _DeltaV_Speed ~= nil and q ~= nil then
 			Binesh.CreateHTMLFile("W = qDeltaV")
 			W_Out = q*_DeltaV_Speed
@@ -11,7 +11,7 @@ function Binesh.F94_2_1()
 		end
 	end
 	
-	if _DeltaV_Speed == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄   €ÌÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1 then
+	if _DeltaV_Speed == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ”—⁄ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄   €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaV") ~= -1)) then
 		if q ~= nil and W_Out ~= nil then
 			Binesh.CreateHTMLFile("W = qDeltaV", "DeltaV = <span>W/q</span>")
 			_DeltaV_Speed = W_Out/q
@@ -23,7 +23,7 @@ function Binesh.F94_2_1()
 		end
 	end
 	
-	if q == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1 then
+	if q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 		if W_Out ~= nil and _DetlaV ~= nil then
 			Binesh.CreateHTMLFile("W = qDeltaV", "q = <span>W/DeltaV</span>")
 			q = W_Out/_DeltaV_Speed

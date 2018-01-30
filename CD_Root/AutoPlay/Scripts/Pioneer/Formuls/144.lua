@@ -1,5 +1,5 @@
 function Binesh.F144()
-	if Epsilon == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Epsilon") ~= -1 then
+	if Epsilon == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Epsilon") ~= -1) then
 		if A ~= nil and B ~= nil and t ~= nil and Omega ~= nil and N_Ring ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = NABcosOmegat")
 			Epsilon = N_Ring*A*B*Math.Cos(Omega*t)
@@ -15,7 +15,7 @@ function Binesh.F144()
 		end
 	end
 	
-	if N_Ring == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Õ·ﬁÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1 then
+	if N_Ring == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Õ·ﬁÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "N") ~= -1) then
 		if A ~= nil and B ~= nil and t ~= nil and Omega ~= nil and Epsilon ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = NABcosOmegat", "N = <span>Epsilon/ABcosOmegat</span>")
 			N_Ring = Epsilon/(A*B*Math.Cos(Omega*t))
@@ -31,7 +31,7 @@ function Binesh.F144()
 		end
 	end
 	
-	if A == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ ”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ ”ÿÕ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1)) then
 		if Epsilon ~= nil and B ~= nil and t ~= nil and Omega ~= nil and N_Ring ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = NABcosOmegat", "A = <span>Epsilon/NBcosOmegat</span>")
 			A = Epsilon/(N_Ring*B*Math.Cos(Omega*t))
@@ -47,7 +47,7 @@ function Binesh.F144()
 		end
 	end
 	
-	if B == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "B") ~= -1 then
+	if B == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "B") ~= -1) then
 		if A ~= nil and Epsilon ~= nil and t ~= nil and Omega ~= nil and N_Ring ~= nil then
 			Binesh.CreateHTMLFile("Epsilon = NABcosOmegat", "B = <span>Epsilon/NAcosOmegat</span>")
 			B = Epsilon/(N_Ring*A*Math.Cos(Omega*t))

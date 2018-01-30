@@ -1,5 +1,5 @@
 function Binesh.F87()
-	if E_Electric == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1 then
+	if E_Electric == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "E") ~= -1) then
 		if F ~= nil and q_0_87 ~= nil then
 			E_Electric = F/q_0_87
 			
@@ -12,7 +12,7 @@ function Binesh.F87()
 		end
 	end
 	
-	if F == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1 then
+	if F == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "F") ~= -1) then
 		if E_Electric ~= nil and q_0_87 ~= nil then
 			F = E_Electric*q_0_87
 			
@@ -25,7 +25,7 @@ function Binesh.F87()
 		end
 	end
 	
-	if q_0_87 == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â ¬“„Ê‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q0") ~= -1 then
+	if q_0_87 == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â ¬“„Ê‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q0") ~= -1) then
 		if  E_Electric ~= nil and F ~= nil then
 			q_0_87 = F/E_Electric
 			

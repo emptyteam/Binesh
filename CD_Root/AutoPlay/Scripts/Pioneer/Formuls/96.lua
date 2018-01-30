@@ -1,5 +1,5 @@
 function Binesh.F96()
-	if C_Condenser == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1 then
+	if C_Condenser == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ÿ—›Ì ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1) then
 		if Kapa ~= nil and A ~= nil and d ~= nil then
 			C_Condenser = Kapa*Zarib.ec*(A/d)
 			
@@ -13,7 +13,7 @@ function Binesh.F96()
 		end
 	end
 	
-	if Kapa == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» œÌ «·ò —Ìò") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Kapa") ~= -1 then
+	if Kapa == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» œÌ «·ò —Ìò") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Kapa") ~= -1) then
 		if C_Condenser ~= nil and A ~= nil and d ~= nil then
 			Kapa = d*C_Condenser/(A*Zarib.ec)
 			
@@ -27,7 +27,7 @@ function Binesh.F96()
 		end
 	end
 	
-	if A == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ ”ÿÕ") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1 then
+	if A == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "”ÿÕ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã”„ ”ÿÕ") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "A") ~= -1)) then
 		if Kapa ~= nil and C_Condenser ~= nil and d ~= nil then
 			A = d*C_Condenser/(Kapa*Zarib.ec)
 			
@@ -41,7 +41,7 @@ function Binesh.F96()
 		end
 	end
 	
-	if d == nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1 then
+	if d == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "d") ~= -1) then
 		if Kapa ~= nil and C_Condenser ~= nil and A ~= nil then
 			d = Kapa*Zarib.ec*(A/C_Condenser)
 			
