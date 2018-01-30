@@ -17,7 +17,7 @@
 <ProjectInfo ToolTipStyle="1">
 <Office2007Theme Theme="5"/>
 <WindowStyles>
-<Width>1000</Width>
+<Width>800</Width>
 <Height>600</Height>
 <WindowTitle>ÈíäÔ</WindowTitle>
 <WindowStyle>0</WindowStyle>
@@ -26,9 +26,9 @@
 <WindowOptions>
 <Movable>1</Movable>
 <AlwaysOnTop>0</AlwaysOnTop>
-<Resizable>0</Resizable>
-<MinWidth>790</MinWidth>
-<MinHeight>545</MinHeight>
+<Resizable>1</Resizable>
+<MinWidth>800</MinWidth>
+<MinHeight>600</MinHeight>
 </WindowOptions>
 <TransparentWindow>
 <TransparentImage/>
@@ -810,14 +810,16 @@ end</Script>
 <Name>On Startup</Name>
 <Args/>
 <Script>Binesh.ClearHTMLFile()
-Binesh.ClearHTMLFile("V")</Script>
+Binesh.ClearHTMLFile("V")
+
+AMS.SetRTL(true, false, false, false, false);</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>1</DesignCodeLine>
-<DesignCodeCol>25</DesignCodeCol>
+<DesignCodeLine>3</DesignCodeLine>
+<DesignCodeCol>45</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -1240,7 +1242,7 @@ Page.Navigate(PAGE_NEXT);
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>4</AutoResize>
 <Coordinates>
 <Top>0</Top>
 <Bottom>184</Bottom>
@@ -1330,7 +1332,7 @@ Page.Navigate(PAGE_NEXT);
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>4</AutoResize>
 <Coordinates>
 <Top>23</Top>
 <Bottom>52</Bottom>
@@ -1406,7 +1408,7 @@ Page.Navigate(PAGE_NEXT);
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>4</AutoResize>
 <Coordinates>
 <Top>26</Top>
 <Bottom>49</Bottom>
@@ -6078,7 +6080,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>14</AutoResize>
 <Coordinates>
 <Top>550</Top>
 <Bottom>602</Bottom>
@@ -6168,7 +6170,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -6259,7 +6261,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("321313"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -6351,7 +6353,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>590</Bottom>
@@ -6447,7 +6449,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -6537,7 +6539,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -6629,7 +6631,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>590</Bottom>
@@ -6725,7 +6727,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -6815,7 +6817,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -6907,7 +6909,7 @@ ShapeEx.SetFillColor("BMenu - Item3 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>590</Bottom>
@@ -7004,7 +7006,7 @@ ShapeEx.SetFillColor("BMenu - Item3 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -7094,7 +7096,7 @@ ShapeEx.SetFillColor("BMenu - Item3 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -7186,7 +7188,7 @@ ShapeEx.SetFillColor("BMenu - Item4 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>589</Bottom>
@@ -7282,7 +7284,7 @@ ShapeEx.SetFillColor("BMenu - Item4 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -7372,7 +7374,7 @@ ShapeEx.SetFillColor("BMenu - Item4 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -7464,7 +7466,7 @@ ShapeEx.SetFillColor("BMenu - Item5 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>590</Bottom>
@@ -7560,7 +7562,7 @@ ShapeEx.SetFillColor("BMenu - Item5 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -7650,7 +7652,7 @@ ShapeEx.SetFillColor("BMenu - Item5 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -7742,7 +7744,7 @@ ShapeEx.SetFillColor("BMenu - Item6 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>590</Bottom>
@@ -7838,7 +7840,7 @@ ShapeEx.SetFillColor("BMenu - Item6 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -7928,7 +7930,7 @@ ShapeEx.SetFillColor("BMenu - Item6 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -8020,7 +8022,7 @@ ShapeEx.SetFillColor("BMenu - Item7 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>589</Bottom>
@@ -8116,7 +8118,7 @@ ShapeEx.SetFillColor("BMenu - Item7 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -8206,7 +8208,7 @@ ShapeEx.SetFillColor("BMenu - Item7 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -8298,7 +8300,7 @@ ShapeEx.SetFillColor("BMenu - Item8 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>590</Bottom>
@@ -8394,7 +8396,7 @@ ShapeEx.SetFillColor("BMenu - Item8 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -8484,7 +8486,7 @@ ShapeEx.SetFillColor("BMenu - Item8 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -8576,7 +8578,7 @@ ShapeEx.SetFillColor("BMenu - Item9 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>590</Bottom>
@@ -8672,7 +8674,7 @@ ShapeEx.SetFillColor("BMenu - Item9 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -8762,7 +8764,7 @@ ShapeEx.SetFillColor("BMenu - Item9 - Back", Math.HexColorToNumber("4e1e1e"));</
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>549</Top>
 <Bottom>601</Bottom>
@@ -8854,7 +8856,7 @@ ShapeEx.SetFillColor("BMenu - Item10 - Back", Math.HexColorToNumber("4e1e1e"));<
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>15</AutoResize>
 <Coordinates>
 <Top>556</Top>
 <Bottom>590</Bottom>
@@ -9153,7 +9155,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>11</AutoResize>
 <Coordinates>
 <Top>302</Top>
 <Bottom>508</Bottom>
@@ -9289,7 +9291,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>12</AutoResize>
 <Coordinates>
 <Top>194</Top>
 <Bottom>538</Bottom>
@@ -9350,7 +9352,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>8</AutoResize>
 <Coordinates>
 <Top>183</Top>
 <Bottom>550</Bottom>
@@ -9411,7 +9413,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>5</AutoResize>
 <Coordinates>
 <Top>24</Top>
 <Bottom>50</Bottom>
@@ -9487,7 +9489,7 @@ end</Script>
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>5</AutoResize>
 <Coordinates>
 <Top>30</Top>
 <Bottom>45</Bottom>
@@ -9581,7 +9583,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>5</AutoResize>
 <Coordinates>
 <Top>24</Top>
 <Bottom>50</Bottom>
@@ -9657,7 +9659,7 @@ end</Script>
 <MaintainAspectRatio>1</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>5</AutoResize>
 <Coordinates>
 <Top>32</Top>
 <Bottom>42</Bottom>
@@ -9751,7 +9753,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>5</AutoResize>
 <Coordinates>
 <Top>22</Top>
 <Bottom>52</Bottom>
@@ -9823,6 +9825,7 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 	for indexOfCalculate = 1, 5 do
 		Page.ClickObject("xButton2"); -- Genesis 1
 		Page.ClickObject("xButton3"); -- Genesis 2
+		Page.ClickObject("xButton4"); -- Genesis 3
 		Page.ClickObject("xButton1"); -- Calculate &amp; Show
 	end
 	Web.Refresh("Web1");
@@ -9835,8 +9838,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>11</DesignCodeLine>
-<DesignCodeCol>26</DesignCodeCol>
+<DesignCodeLine>58</DesignCodeLine>
+<DesignCodeCol>28</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9901,7 +9904,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>5</AutoResize>
 <Coordinates>
 <Top>22</Top>
 <Bottom>52</Bottom>
@@ -9987,7 +9990,7 @@ end</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>11</AutoResize>
 <Coordinates>
 <Top>611</Top>
 <Bottom>634</Bottom>
@@ -10155,6 +10158,7 @@ Binesh.F136_1();
 Binesh.F136_2();
 Binesh.F136_3();
 Binesh.F137();
+Binesh.F138_1();
 Binesh.F139();
 Binesh.F140();
 Binesh.F141();
@@ -10171,8 +10175,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>73</DesignCodeLine>
-<DesignCodeCol>15</DesignCodeCol>
+<DesignCodeLine>154</DesignCodeLine>
+<DesignCodeCol>13</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10273,7 +10277,7 @@ Binesh.F147();</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>11</AutoResize>
 <Coordinates>
 <Top>641</Top>
 <Bottom>664</Bottom>
@@ -10401,6 +10405,9 @@ Binesh.F147();</Script>
 	end
 	if V_Electric == nil then
 		V_Electric = Binesh.Genesis1("æáÊÇ", "V", "", "", 1, "V", "æáÊ");
+	end
+	if V_Electric ~= nil then
+		Epsilon = V_Electric
 	end
 	
 	-- 9
@@ -10558,6 +10565,9 @@ Binesh.F147();</Script>
 		if V2_Speed == nil then
 			V2_Speed = Binesh.Genesis1("ÓÑÚÊ Ïæãíä", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
 		end
+		if V2_Speed ~= nil then
+			_V2_Speed = V2_Speed
+		end
 	end
 	if a == nil then
 		a = Binesh.Genesis1("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÌĞæÑ ËÇäíå");
@@ -10568,7 +10578,7 @@ Binesh.F147();</Script>
 			V0_Speed = Binesh.Genesis1("ÓÑÚÊ Çæáíä", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
 		end
 		if V0_Speed ~= nil then
-			V1_Speed = V0_Speed
+			V1_Speed, _V1_Speed = V0_Speed, V0_Speed
 		end
 	end
 	
@@ -10771,7 +10781,7 @@ Binesh.F147();</Script>
 	-- 76
 	if C_V == nil then
 		if c == nil then
-			C_V = Binesh.Genesis1("ÙÑİíÊ ÑãÇ", "CV", "", "", 1, "J/mol*K", "æá ÈÑ ãæá ˜áæíä");
+			C_V = Binesh.Genesis1("ÙÑİíÊ ÑãÇ", "CV", "", "", 1, "J/molK", "æá ÈÑ ãæá ˜áæíä");
 		else
 			C_V = c
 		end
@@ -10783,7 +10793,7 @@ Binesh.F147();</Script>
 	if ListBox.FindItem("Words", -1, LB_BYTEXT, "åã İÔÇÑ") ~= -1 then
 		if CP == nil then
 			if c == nil and C_V == nil then
-				CP = Binesh.Genesis1("ÙÑİíÊ ÑãÇ", "CP", "", "", 1, "J/mol*K", "æá ÈÑ ãæá ˜áæíä");
+				CP = Binesh.Genesis1("ÙÑİíÊ ÑãÇ", "CP", "", "", 1, "J/molK", "æá ÈÑ ãæá ˜áæíä");
 			elseif c ~= nil then
 				CP = c
 			elseif C_V ~= nil then
@@ -11021,6 +11031,11 @@ Binesh.F147();</Script>
 	end
 	
 	-- 137
+	
+	-- 138
+	if L_Self == nil then
+		L_Self = Binesh.Genesis1("ÖÑíÈ ÎæÏÇáŞÇíí", "L", "", "", 1, "H", "åÇäÑí");
+	end
 	
 	-- 139
 	
@@ -11346,7 +11361,7 @@ Binesh.F147();</Script>
 	
 	-- 135
 	if _DeltaFi == nil then
-		_DeltaFi =  Binesh.Genesis1("ÔÇÑ", "DeltaFi", "", "", 1, "Wb", "æÈÑ");
+		_DeltaFi =  Binesh.Genesis1("ÊÛííÑ ÔÇÑ", "DeltaFi", "", "", 1, "Wb", "æÈÑ");
 		if _DeltaFi == nil then
 			_DeltaFi =  Binesh.Genesis1("ÔÇÑ ÊÛííÑ", "DeltaFi", "", "", 1, "Wb", "æÈÑ");
 		end
@@ -11366,7 +11381,7 @@ Binesh.F147();</Script>
 	
 	-- 136
 	if _Deltaq == nil then
-		_Deltaq =  Binesh.Genesis1("ĞÑå", "Deltaq", "", "", 1, "C", "˜æáä");
+		_Deltaq =  Binesh.Genesis1("ÊÛííÑ ĞÑå", "Deltaq", "", "", 1, "C", "˜æáä");
 		if _Deltaq == nil then
 			_Deltaq =  Binesh.Genesis1("ĞÑå ÊÛííÑ", "Deltaq", "", "", 1, "C", "˜æáä");
 		end
@@ -11383,6 +11398,9 @@ Binesh.F147();</Script>
 			_q2 =  Binesh.Genesis1("ĞÑå Ïæãíä", "q2", "", "", 1, "C", "˜æáä");
 		end
 	end
+	
+	-- 138
+	
 	
 	----------- *** -------
 	-- 4
@@ -11508,9 +11526,6 @@ Binesh.F147();</Script>
 	end
 	
 	-- 139
-	if L_Self == nil then
-		L_Self = Binesh.Genesis1("ÖÑíÈ ÎæÏÇáŞÇíí", "L", "", "", 1, "", "", false);
-	end
 	if k_Self == nil then
 		k_Self = Binesh.Genesis1("åÓÊå", "k", "", "", 1, "", "", false);
 	end
@@ -11533,22 +11548,27 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>708</DesignCodeLine>
-<DesignCodeCol>7</DesignCodeCol>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
 <Event>
 <Name>On Right-Click</Name>
 <Args/>
-<Script/>
+<Script>if _DeltaI == nil then
+		_DeltaI =  Binesh.Genesis1("ÊÛííÑ ÌÑíÇä", "DeltaI", "", "", 1, "C", "ÂãÑ");
+		if _DeltaI == nil then
+			_DeltaI =  Binesh.Genesis1("ÌÑíÇä ÊÛííÑ", "DeltaI", "", "", 1, "C", "ÂãÑ");
+		end
+	end</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>3</DesignCodeLine>
+<DesignCodeCol>76</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11635,7 +11655,7 @@ Binesh.F147();</Script>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>11</AutoResize>
 <Coordinates>
 <Top>671</Top>
 <Bottom>694</Bottom>
@@ -11763,6 +11783,9 @@ Binesh.F147();</Script>
 	end
 	if V_Electric == nil then
 		V_Electric = Binesh.Genesis2("æáÊÇ", "V", "", "", 1, "V", "æáÊ");
+	end
+	if V_Electric ~= nil then
+		Epsilon = V_Electric
 	end
 	
 	-- 9
@@ -11920,6 +11943,9 @@ Binesh.F147();</Script>
 		if V2_Speed == nil then
 			V2_Speed = Binesh.Genesis2("ÓÑÚÊ Ïæãíä", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
 		end
+		if V2_Speed ~= nil then
+			_V2_Speed = V2_Speed
+		end
 	end
 	if a == nil then
 		a = Binesh.Genesis2("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÌĞæÑ ËÇäíå");
@@ -11930,7 +11956,7 @@ Binesh.F147();</Script>
 			V0_Speed = Binesh.Genesis2("ÓÑÚÊ Çæáíä", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
 		end
 		if V0_Speed ~= nil then
-			V1_Speed = V0_Speed
+			V1_Speed, _V1_Speed = V0_Speed, V0_Speed
 		end
 	end
 	
@@ -12133,7 +12159,7 @@ Binesh.F147();</Script>
 	-- 76
 	if C_V == nil then
 		if c == nil then
-			C_V = Binesh.Genesis2("ÙÑİíÊ ÑãÇ", "CV", "", "", 1, "J/mol*K", "æá ÈÑ ãæá ˜áæíä");
+			C_V = Binesh.Genesis2("ÙÑİíÊ ÑãÇ", "CV", "", "", 1, "J/molK", "æá ÈÑ ãæá ˜áæíä");
 		else
 			C_V = c
 		end
@@ -12145,7 +12171,7 @@ Binesh.F147();</Script>
 	if ListBox.FindItem("Words", -1, LB_BYTEXT, "åã İÔÇÑ") ~= -1 then
 		if CP == nil then
 			if c == nil and C_V == nil then
-				CP = Binesh.Genesis2("ÙÑİíÊ ÑãÇ", "CP", "", "", 1, "J/mol*K", "æá ÈÑ ãæá ˜áæíä");
+				CP = Binesh.Genesis2("ÙÑİíÊ ÑãÇ", "CP", "", "", 1, "J/molK", "æá ÈÑ ãæá ˜áæíä");
 			elseif c ~= nil then
 				CP = c
 			elseif C_V ~= nil then
@@ -12358,13 +12384,6 @@ Binesh.F147();</Script>
 	-- 129
 	
 	-- 130
-	if r_3 == nil then
-		if d_Distance == nil then
-			r_3 = Binesh.Genesis2("İÇÕáå", "r", "", "", 1, "m", "ãÊÑ");
-		else
-			r_3 = d_Distance
-		end
-	end
 	
 	-- 131
 	
@@ -12390,6 +12409,11 @@ Binesh.F147();</Script>
 	end
 	
 	-- 137
+	
+	-- 138
+	if L_Self == nil then
+		L_Self = Binesh.Genesis2("ÖÑíÈ ÎæÏÇáŞÇíí", "L", "", "", 1, "H", "åÇäÑí");
+	end
 	
 	-- 139
 	
@@ -12715,7 +12739,7 @@ Binesh.F147();</Script>
 	
 	-- 135
 	if _DeltaFi == nil then
-		_DeltaFi =  Binesh.Genesis2("ÔÇÑ", "DeltaFi", "", "", 1, "Wb", "æÈÑ");
+		_DeltaFi =  Binesh.Genesis2("ÊÛííÑ ÔÇÑ", "DeltaFi", "", "", 1, "Wb", "æÈÑ");
 		if _DeltaFi == nil then
 			_DeltaFi =  Binesh.Genesis2("ÔÇÑ ÊÛííÑ", "DeltaFi", "", "", 1, "Wb", "æÈÑ");
 		end
@@ -12735,7 +12759,7 @@ Binesh.F147();</Script>
 	
 	-- 136
 	if _Deltaq == nil then
-		_Deltaq =  Binesh.Genesis2("ĞÑå", "Deltaq", "", "", 1, "C", "˜æáä");
+		_Deltaq =  Binesh.Genesis2("ÊÛííÑ ĞÑå", "Deltaq", "", "", 1, "C", "˜æáä");
 		if _Deltaq == nil then
 			_Deltaq =  Binesh.Genesis2("ĞÑå ÊÛííÑ", "Deltaq", "", "", 1, "C", "˜æáä");
 		end
@@ -12752,6 +12776,9 @@ Binesh.F147();</Script>
 			_q2 =  Binesh.Genesis2("ĞÑå Ïæãíä", "q2", "", "", 1, "C", "˜æáä");
 		end
 	end
+	
+	-- 138
+	
 	
 	----------- *** -------
 	-- 4
@@ -12877,9 +12904,6 @@ Binesh.F147();</Script>
 	end
 	
 	-- 139
-	if L_Self == nil then
-		L_Self = Binesh.Genesis2("ÖÑíÈ ÎæÏÇáŞÇíí", "L", "", "", 1, "", "", false);
-	end
 	if k_Self == nil then
 		k_Self = Binesh.Genesis2("åÓÊå", "k", "", "", 1, "", "", false);
 	end
@@ -12966,6 +12990,1379 @@ Binesh.F147();</Script>
 <Actions/>
 <Options>
 <Text>Genesis2</Text>
+<TextColor format="hex">000000</TextColor>
+<EnableMarkup>0</EnableMarkup>
+<ButtonImage/>
+<TextAlignment>2</TextAlignment>
+<ImageAlignment>0</ImageAlignment>
+<ImageTextRelation>3</ImageTextRelation>
+<Theme>6</Theme>
+<Style>0</Style>
+<State>0</State>
+<MouseOverSoundMode>0</MouseOverSoundMode>
+<MouseOverSound/>
+<MouseClickSoundMode>0</MouseClickSoundMode>
+<MouseClickSound/>
+</Options>
+<FontData>
+<FontName>Segoe UI</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-12</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Object>
+<Object>
+<Type>20</Type>
+<Name>xButton4</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>0</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>11</AutoResize>
+<Coordinates>
+<Top>701</Top>
+<Bottom>724</Bottom>
+<Left>664</Left>
+<Right>840</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script>-- 81
+	if QH == nil then
+		QH = Binesh.Genesis3("ãäÈÚ Ñã", "QH", "", "", 1, "J", "æá");
+	end
+	if QC == nil then
+		QC = Binesh.Genesis3("ãäÈÚ ÓÑÏ", "QC", "", "", 1, "J", "æá");
+	end
+	
+	-- 83
+	if T_C == nil and T_CC == nil and T_CF == nil then
+		T_C = Binesh.Genesis3("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "K", "˜áæíä");
+		if T_C == nil then
+			T_CC = Binesh.Genesis3("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "C", "ÓáÓíæÓ");
+			if T_CC == nil then
+				T_CF = Binesh.Genesis3("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "F", "İÇÑäåÇíÊ");
+			end
+		end
+	end
+	if T_H == nil and T_HC == nil and T_HF == nil then
+		T_H = Binesh.Genesis3("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "K", "˜áæíä");
+		if T_H == nil then
+			T_HC = Binesh.Genesis3("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "C", "ÓáÓíæÓ");
+			if T_HC == nil then
+				T_HF = Binesh.Genesis3("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "F", "İÇÑäåÇíÊ");
+			end
+		end
+	end
+	
+	-- 49
+	if W == nil then
+		W = Binesh.Genesis3("˜ÇÑ", "W", "", "", 1, "J", "æá");
+	end
+	
+	-- 1
+	if K == nil then
+		K = Binesh.Genesis3("ÇäÑí", "K", "", "", 1, "J", "æá");
+		if K ~= nil then
+			U			= K
+			_DeltaU		= K
+			E_53		= K
+			U_PipeWire	= K
+			W			= K
+		end
+	end
+	if m == nil then
+		m = Binesh.Genesis3("ÌÑã", "m", "˜íáæ", "K", 10^3, "g", "Ñã");
+		if m == nil then
+			m_Ton = Binesh.Genesis3("ÌÑã", "m", "", "", 1, "Ton", "Êä");
+			if m_Ton == nil then
+				m_Ton = Binesh.Genesis3("ÌÑã", "m", "", "", 1, "ton", "Êä");
+			end
+		end
+	end
+	if V_Speed == nil and V_Speed_mh == nil and V_Speed_miles == nil and V_Speed_mileh == nil then
+		V_Speed = Binesh.Genesis3("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		if V_Speed == nil then
+			V_Speed_mh = Binesh.Genesis3("ÓÑÚÊ", "V", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
+			if V_Speed_mh == nil then
+				V_Speed_miles = Binesh.Genesis3("ÓÑÚÊ", "V", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå");
+				if V_Speed_miles == nil then
+					V_Speed_mileh = Binesh.Genesis3("ÓÑÚÊ", "V", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ");
+					if V_Speed_mileh ~= nil then
+						V0_Speed_mileh = V_Speed_mileh
+					end
+				else
+					V0_Speed_miles = V_Speed_miles
+				end
+			else
+				V0_Speed_mh = V_Speed_mh
+			end
+		else
+			V0_Speed = V_Speed
+		end
+	end
+	
+	-- 2
+	if h == nil then
+		h = Binesh.Genesis3("ÇÑÊİÇÚ", "h", "", "", 1, "m", "ãÊÑ");
+	end
+	
+	-- 4
+	if Q == nil then
+		Q = Binesh.Genesis3("ÑãÇ", "Q", "", "", 1, "J", "æá");
+	end
+	if c == nil then
+		c = Binesh.Genesis3("ÙÑİíÊ ÑãÇ", "c", "", "", 1, "J/KgC", "æá ÈÑ ˜íáæ Ñã ÓáÓíæÓ");
+	end
+	
+	
+	-- 5
+	if q == nil then
+		q = Binesh.Genesis3("ĞÑå", "q", "", "", 1, "C", "˜æáä");
+	end
+	
+	-- 6
+	if I == nil then
+		I = Binesh.Genesis3("ÌÑíÇä", "I", "", "", 1, "A", "ÂãÑ");
+	end
+	if t == nil and t_Min == nil and t_Hour == nil then
+		t = Binesh.Genesis3("ÒãÇä", "t", "", "", 1, "s", "ËÇäíå");
+		if t == nil then
+			t_Min = Binesh.Genesis3("ÒãÇä", "t", "", "", 1, "min", "ÏŞíŞå");
+			if t_Min == nil then
+				t_Hour = Binesh.Genesis3("ÒãÇä", "t", "", "", 1, "hour", "ÓÇÚÊ");
+			end
+		end
+	end
+	
+	-- 7
+	if R == nil then
+		R = Binesh.Genesis3("ãŞÇæãÊ", "R", "", "", 1, "Ohm", "Çåã");
+	end
+	if V_Electric == nil then
+		V_Electric = Binesh.Genesis3("æáÊÇ", "V", "", "", 1, "V", "æáÊ");
+	end
+	if V_Electric ~= nil then
+		Epsilon = V_Electric
+	end
+	
+	-- 9
+	if P_Power == nil then
+		P_Power = Binesh.Genesis3("ÊæÇä", "P", "", "", 1, "W", "æÇÊ");
+	end
+	
+	-- 10
+	
+	-- 11
+	if S == nil then
+		Binesh.PreparationSearchFirsts("ÓØÍ", "ÌÓã");
+		S = Binesh.Genesis3("ÌÓã ÓØÍ", "S", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+		if S ~= nil then
+			A = S
+		end
+	end
+	if Sp == nil then
+		Binesh.PreparationSearchFirsts("ÓØÍ", "ÓÇíå");
+		Sp = Binesh.Genesis3("ÓÇíå ÓØÍ", "S`", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+	end
+	if p_Source == nil then
+		Binesh.PreparationSearchFirsts("ãäÈÚ äæÑ", "İÇÕáå", "ÌÓã");
+		p_Source = Binesh.Genesis3("İÇÕáå ãäÈÚ äæÑ ÌÓã", "p", "", "", 1, "m", "ãÊÑ");
+		if p_Source ~= nil then
+			p_Glass = p_Source
+		end
+	end
+	if q_Source == nil then
+		Binesh.PreparationSearchFirsts("ãäÈÚ äæÑ", "İÇÕáå", "ÓÇíå");
+		q_Source = Binesh.Genesis3("İÇÕáå ãäÈÚ äæÑ ÓÇíå", "q", "", "", 1, "m", "ãÊÑ");
+		if q_Source ~= nil then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "ãÍÏÈ") ~= -1 then
+				q_Source = -q_Source
+			end
+			q_Glass = q_Source
+		end
+	end
+	
+	-- 12
+	if p_Glass == nil then
+		Binesh.PreparationSearchFirsts("ÌÓã", "İÇÕáå");
+		p_Glass = Binesh.Genesis3("İÇÕáå ÌÓã", " p", "", "", 1, "m", "ãÊÑ");
+	end
+	if q_Glass == nil then
+		Binesh.PreparationSearchFirsts("ÓÇíå", "İÇÕáå");
+		q_Glass = Binesh.Genesis3("İÇÕáå ÓÇíå", "q", "", "", 1, "m", "ãÊÑ");
+		if q_Glass ~= nil then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "ãÍÏÈ") ~= -1 then
+				q_Glass = -q_Glass
+			end
+		end
+	end
+	if f == nil then
+		f = Binesh.Genesis3("İÇÕáå ˜Çäæäí", "f", "", "", 1, "m", "ãÊÑ");
+		if f ~= nil then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "ãÍÏÈ") ~= -1 then
+				f = -f
+			end
+		end
+	end
+	if R_Radius == nil then
+		R_Radius = Binesh.Genesis3("ÔÚÇÚ", "R", "", "", 1, "m", "ãÊÑ");
+		if R_Radius == nil then
+			R_Radius = Binesh.Genesis3("ÔÚÇÚ", "r", "", "", 1, "m", "ãÊÑ");
+		end
+	end
+	
+	-- 13
+	if ApBp == nil then
+		Binesh.PreparationSearchFirsts("Øæá", "ÓÇíå");
+		ApBp = Binesh.Genesis3("ÓÇíå Øæá", "A`B`", "", "", 1, "m", "ãÊÑ");
+	end
+	if AB == nil then
+		Binesh.PreparationSearchFirsts("Øæá", "ÌÓã");
+		AB = Binesh.Genesis3("ÌÓã Øæá", "AB", "", "", 1, "m", "ãÊÑ");
+	end
+	
+	-- 18
+	if C_Speed_Glass == nil then
+		Binesh.PreparationSearchFirsts("ÓÑÚÊ", "ÎáÇÁ");
+		C_Speed_Glass = Binesh.Genesis3("ÎáÇÁ ÓÑÚÊ", "C", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+	end
+	if V_Speed_Glass == nil then
+		Binesh.PreparationSearchFirsts("ÓÑÚÊ", "ãÍíØ ÔİÇİ");
+		V_Speed_Glass = Binesh.Genesis3("ãÍíØ ÔİÇİ ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+	end
+	
+	-- 19
+	if h_Glass == nil then
+		h_Glass = Binesh.Genesis3("ÚãŞ ÙÇåÑí", "h", "", "", 1, "m", "ãÊÑ");
+	end
+	if H == nil then
+		H = Binesh.Genesis3("ÚãŞ æÇŞÚí", "H", "", "", 1, "m", "ãÊÑ");
+	end
+	
+	-- 20
+	
+	-- 21
+	if p_Lens == nil then
+		if p_Glass ~= nil then
+			p_Lens = p_Glass
+		end
+	end
+	if q_Lens == nil then
+		if q_Glass ~= nil then
+			q_Lens = q_Glass
+		end
+	end
+	
+	-- 22
+	
+	-- 24
+	if D == nil then
+		D = Binesh.Genesis3("ÊæÇä ÚÏÓí", "D", "", "", 1, "diopter", "ÏíæÊÑ");
+	end
+	
+	-- 32
+	if VBar_Speed == nil and VBar_Speed_mh == nil and VBar_Speed_miles == nil and VBar_Speed_mileh == nil then
+		VBar_Speed = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		if VBar_Speed == nil then
+			VBar_Speed_mh = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
+			if VBar_Speed_mh == nil then
+			VBar_Speed_miles = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå");
+				if VBar_Speed_miles == nil then
+					VBar_Speed_mileh = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ");
+				end
+			end
+		end
+	end
+		
+	-- 33
+	if x == nil then
+		x = Binesh.Genesis3("Ïæãíä İÇÕáå", "x", "", "", 1, "m", "ãÊÑ");
+		if x == nil then
+			x = Binesh.Genesis3("İÇÕáå Ïæãíä", "x", "", "", 1, "m", "ãÊÑ");
+		end
+		if x ~= nil then
+			_x2, x2 = x, x
+		end
+	end
+	if x0 == nil then
+		x0 = Binesh.Genesis3("Çæáíä İÇÕáå", "x0", "", "", 1, "m", "ãÊÑ");
+		if x0 == nil then
+			x0 = Binesh.Genesis3("İÇÕáå Çæáíä", "x0", "", "", 1, "m", "ãÊÑ");
+		end
+		if x0 ~= nil then
+			_x1, x1 = x0, x0
+		end
+	end
+	
+	-- 35
+	if V2_Speed == nil then
+		V2_Speed = Binesh.Genesis3("Ïæãíä ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		if V2_Speed == nil then
+			V2_Speed = Binesh.Genesis3("ÓÑÚÊ Ïæãíä", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		end
+		if V2_Speed ~= nil then
+			_V2_Speed = V2_Speed
+		end
+	end
+	if a == nil then
+		a = Binesh.Genesis3("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÌĞæÑ ËÇäíå");
+	end
+	if V0_Speed == nil then
+		V0_Speed = Binesh.Genesis3("Çæáíä ÓÑÚÊ", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		if V0_Speed == nil then
+			V0_Speed = Binesh.Genesis3("ÓÑÚÊ Çæáíä", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		end
+		if V0_Speed ~= nil then
+			V1_Speed, _V1_Speed = V0_Speed, V0_Speed
+		end
+	end
+	
+	-- 37
+	
+	-- 38
+	
+	-- 39
+	
+	-- 41
+	
+	-- 43
+	if F == nil then
+		F = Binesh.Genesis3("äíÑæ", "F", "", "", 1, "N", "äíæÊæä");
+	end
+	if k_Coil == nil then
+		k_Coil = Binesh.Genesis3("ÖÑíÈ İäÑ", "k", "", "", 1, "N/m", "äíæÊæä ÈÑ ãÊÑ");
+	end
+	
+	-- 44
+	
+	-- 47
+	if fs_max == nil then
+		fs_max = Binesh.Genesis3("ÇÕØ˜Ç˜ ÏÑ ÂÓÊÇäå ÍÑ˜Ê", "fs,max", "", "", 1, "N", "äíæÊæä");
+	end
+	if fk == nil then
+		fk = Binesh.Genesis3("ÇÕØ˜Ç˜ ÌäÈÔí", "fk", "", "", 1, "N", "äíæÊæä");
+	end
+	if N == nil then
+		if F == nil then
+			N = Binesh.Genesis3("äíÑæ", "N", "", "", 1, "N", "äíæÊæä");
+		else
+			N = F
+		end
+	end
+	
+	-- 48
+	
+	-- 49
+	if d == nil then
+		d = Binesh.Genesis3("İÇÕáå", "d", "", "", 1, "m", "ãÊÑ");
+		if d ~= nil then
+			d_Distance = d
+			x0, _Deltax = d, d
+		end
+	end
+	
+	-- 50
+	
+	-- 51
+	if L == nil then
+		L = Binesh.Genesis3("Øæá", "L", "", "", 1, "m", "ãÊÑ");
+	end
+	
+	 -- 55
+	if P_Power_Bar == nil then
+		P_Power_Bar = Binesh.Genesis3("ÊæÇä ãÊæÓØ", "PBar", "", "", 1, "W", "æÇÊ");
+	end
+	 
+	 -- 56
+	 if R_Output == nil then
+	 	R_Output = Binesh.Genesis3("ÈÇÒÏå", "R", "", "", 1, "%", "ÏÑÕÏ");
+	 end
+	 if WP == nil then
+	 	WP = Binesh.Genesis3("ÇäÑí ÊæáíÏí", "W`", "", "", 1, "J", "æá");
+	 end
+	if W_Use == nil then
+		if W == nil then
+	 		W_Use = Binesh.Genesis3("ÇäÑí ãÕÑİí", "W", "", "", 1, "J", "æá");
+	 		if W_Use ~= nil then
+	 			U_Output = W_Use
+	 		end
+		else
+			W_Use = W
+		end
+	end
+	
+	-- 57
+	if V == nil and VL == nil then
+		V = Binesh.Genesis3("ÍÌã", "V", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ");
+		if V == nil then
+			VL = Binesh.Genesis3("ÍÌã", "V", "", "", 1, "L", "áíÊÑ");
+		end
+	end
+	if Ru == nil then
+		Ru = Binesh.Genesis3("Çáí", "Ru", "", "", 1, "Kg/m^3", "˜íáæ Ñã ÈÑ ãÊÑ ã˜ÚÈ");
+		if Ru == nil then
+			Ru = Binesh.Genesis3("Çáí", "Ru", "", "", 1, "Kg/L", "˜íáæ Ñã ÈÑ áíÊÑ");
+		end
+	end
+	
+	-- 58
+	if P == nil and Pa == nil then
+		P = Binesh.Genesis3("İÔÇÑ", "P", "", "", 1, "Pa", "ÇÓ˜Çá");
+		if P == nil then
+			Pa = Binesh.Genesis3("İÔÇÑ", "P", "", "", 1, "atm", "ÇÊãÓİÑ");
+		end
+	end
+	if A == nil then
+		A = Binesh.Genesis3("ÓØÍ", "A", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+	end
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "ÔÑÇíØ ãÊÚÇÑİ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "STP") ~= -1 then
+		P = 10^5
+	end
+	-- 59
+	
+	-- 60
+	if P0 == nil then
+		P0 = Binesh.Genesis3("İÔÇÑ ÇØÑÇİ ãÇíÚ", "P0", "", "", 1, "atm", "ÇÊãÓİÑ");
+		if P0 == nil then
+			P0 = Binesh.Genesis3("İÔÇÑ ÇØÑÇİ ãÇíÚ", "P0", "", "", 1, "Pa", "ÇÓ˜Çá");
+		end
+	end
+	
+	-- 61
+	if F1 == nil then
+		F1 = Binesh.Genesis3("Çæáíä äíÑæ", "F1", "", "", 1, "N", "äíæÊæä");
+		if F1 == nil then
+			F1 = Binesh.Genesis3("äíÑæ Çæáíä", "F1", "", "", 1, "N", "äíæÊæä");
+		end
+	end
+	if F2 == nil then 
+		F2 = Binesh.Genesis3("Ïæãíä äíÑæ", "F2", "", "", 1, "N", "äíæÊæä");
+		if F2 == nil then
+			F2 = Binesh.Genesis3("äíÑæ Ïæãíä", "F2", "", "", 1, "N", "äíæÊæä");
+		end
+	end
+	if A1 == nil then
+		A1 = Binesh.Genesis3("Çæáíä ÓØÍ", "A1", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+		if A1 == nil then
+			A1 = Binesh.Genesis3("ÓØÍ Çæáíä", "A1", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+		end
+	end
+	if A2 == nil then
+		A2 = Binesh.Genesis3("Ïæãíä ÓØÍ", "A2", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+		if A2 == nil then
+			A2 = Binesh.Genesis3("ÓØÍ Ïæãíä", "A2", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+		end
+	end
+	
+	-- 64
+	if L_F == nil then
+		L_F = Binesh.Genesis3("ĞæÈ", "LF", "K", "˜íáæ", 1, "J/Kg", "æá ÈÑ ˜íáæ Ñã");
+		if L_F == nil then
+			L_F = Binesh.Genesis3("ÇäÌãÇÏ", "LF", "K", "˜íáæ", 1, "J/Kg", "æá ÈÑ ˜íáæ Ñã");
+		end
+	end
+	
+	-- 65
+	if LV == nil then
+		LV = Binesh.Genesis3("ÊÈÎíÑ", "LV", "k", "˜íáæ", 1, "J/Kg", "æá ÈÑ ˜íáæ Ñã");
+		if LV == nil then
+			LV = Binesh.Genesis3("ãíÚÇä", "LV", "k", "˜íáæ", 1, "J/Kg", "æá ÈÑ ˜íáæ Ñã");
+		end
+	end
+	
+	-- 66
+	if Alpha_Length == nil then
+		Alpha_Length = Binesh.Genesis3("ÖÑíÈ ÇäÈÓÇØ Øæá", "Alpha", "", "", 1, "1/C", "ÈÑ ÓáÓíæÓ");
+		if Alpha_Length == nil then
+			Alpha_Length = Binesh.Genesis3("ÖÑíÈ ÇäÈÓÇØ Øæá", "Alpha", "", "", 1, "1/K", "ÈÑ ˜áæíä");
+		end
+	end
+	
+	-- 69
+	if Beta_Length == nil then
+		Beta_Length = Binesh.Genesis3("ÖÑíÈ ÇäÈÓÇØ ÍÌã", "Beta", "", "", 1, "1/C", "ÈÑ ÓáÓíæÓ");
+		if Beta_Length == nil then
+			Beta_Length = Binesh.Genesis3("ÖÑíÈ ÇäÈÓÇØ ÍÌã", "Beta", "", "", 1, "1/K", "ÈÑ ˜áæíä");
+		end
+	end
+	
+	-- 71
+	if K_71 == nil then
+		K_71 = Binesh.Genesis3("ÑÓÇääÏí ÓØÍ", "K", "", "", 1, "J/msC", "æá ÈÑ ãÊÑ ËÇäíå ÓáÓíæÓ");
+	end
+	
+	-- 73
+	if n == nil then
+		n = Binesh.Genesis3("ãæá", "n", "", "", 1, "mol", "ãæá");
+	end
+	if T == nil and TC == nil and TF == nil then
+		T = Binesh.Genesis3("ÏãÇ", "T", "", "", 1, "K", "˜áæíä");
+		if T == nil then
+			TC = Binesh.Genesis3("ÏãÇ", "Teta", "", "", 1, "C", "ÓáÓíæÓ");
+			if TC == nil then
+				TF = Binesh.Genesis3("ÏãÇ", "Teta", "", "", 1, "F", "İÇÑäåÇíÊ");
+			end
+		end
+	end
+	if M == nil then
+		M = Binesh.Genesis3("ÌÑã ãæáí", "M", "", "", 1, "g/mol", "Ñã ÈÑ ãæá");
+	end
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "ÔÑÇíØ ãÊÚÇÑİ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "STP") ~= -1 then
+		T = 25+273
+	end
+	
+	-- 74
+	
+	-- 76
+	if C_V == nil then
+		if c == nil then
+			C_V = Binesh.Genesis3("ÙÑİíÊ ÑãÇ", "CV", "", "", 1, "J/molK", "æá ÈÑ ãæá ˜áæíä");
+		else
+			C_V = c
+		end
+	end
+	
+	-- 77
+	
+	-- 78
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "åã İÔÇÑ") ~= -1 then
+		if CP == nil then
+			if c == nil and C_V == nil then
+				CP = Binesh.Genesis3("ÙÑİíÊ ÑãÇ", "CP", "", "", 1, "J/molK", "æá ÈÑ ãæá ˜áæíä");
+			elseif c ~= nil then
+				CP = c
+			elseif C_V ~= nil then
+				CP = C_V
+			end
+		end
+	end
+	
+	-- 79
+	
+	-- 84
+	
+	-- 85
+	
+	-- 86
+	if q1 == nil then
+		if q == nil then
+			q1 = Binesh.Genesis3("Çæáíä ĞÑå", "q1", "", "", 1, "C", "˜æáä");
+			if q1 == nil then
+				q1 = Binesh.Genesis3("ĞÑå Çæáíä", "q1", "", "", 1, "C", "˜æáä");
+			end
+		else
+			q1 = q
+		end
+	end
+	if q1 ~= nil then
+		_q1 = q1
+	end
+	if q2 == nil then
+		q2 = Binesh.Genesis3("Ïæãíä ĞÑå", "q2", "", "", 1, "C", "˜æáä");
+		if q2 == nil then
+			q2 = Binesh.Genesis3("ĞÑå Ïæãíä", "q2", "", "", 1, "C", "˜æáä");
+		end
+	end
+	if q2 ~= nil then
+		_q2 = q2
+	end
+	if r == nil then
+		r = Binesh.Genesis3("İÇÕáå", "r", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+	end
+	
+	-- 87
+	if E_Electric == nil then
+		E_Electric = Binesh.Genesis3("ãíÏÇä", "E", "", "", 1, "N/C", "äíæÊæä ÈÑ ˜æáä");
+		if E_Electric == nil then
+			E_Electric = Binesh.Genesis3("ãíÏÇä", "E", "", "", 1, "C/m^2", "˜æáä ÈÑ ãÊÑ ãÑÈÚ");
+		end
+	end
+	if q_0_87 == nil then
+		if q1 == nil then
+			q_0_87 = Binesh.Genesis3("ĞÑå ÂÒãæä", "q0", "", "", 1, "C", "˜æáä");
+			if q_0_87 ~= nil then
+				q1 = q_0_87
+			end
+		else
+			q_0_87 = q1
+		end
+	end	
+	
+	-- 88
+	
+	-- 90
+	if SSigma == nil then
+		SSigma = Binesh.Genesis3("Çáí ÓØÍ", "SSigma", "", "", 1, "C/m^2", "˜æáä ÈÑ ãÊÑ ãÑÈÚ");
+	end
+	
+	-- 93
+	if d_Distance == nil then
+		d_Distance = Binesh.Genesis3("İÇÕáå", "d", "", "", 1, "m", "ãÊÑ");
+	end
+	if d_Distance ~= nil then
+		r_3 = d_Distance
+		d = d_Distance
+	end
+	
+	-- 94
+	if W_Out == nil then
+		W_Out = Binesh.Genesis3("˜ÇÑ ÎÇÑÌí", "W", "", "", 1, "J", "æá");
+	end
+	if WE == nil then
+		if W == nil then
+			WE = Binesh.Genesis3("˜ÇÑ", "W", "", "", 1, "J", "æá");
+			if WE ~= nil then
+				W = WE
+			end
+		else
+			WE = W
+		end
+	end
+	
+	-- 95
+	if C_Condenser == nil then
+		C_Condenser = Binesh.Genesis3("ÙÑİíÊ", "C", "", "", 1, "F", "İÇÑÇÏ");
+		if C_Condenser == nil then
+			C_Condenser = Binesh.Genesis3("ÎÇÒä", "C", "", "", 1, "F", "İÇÑÇÏ");
+		end
+	end
+	
+	-- 97
+	
+	-- 102
+	if V1_Electric == nil then
+		V1_Electric = Binesh.Genesis3("Çæáíä æáÊÇ", "V1", "", "", 1, "V", "æáÊ");
+		if V1_Electric == nil then
+			V1_Electric = Binesh.Genesis3("æáÊÇ Çæáíä", "V1", "", "", 1, "V", "æáÊ");
+		end
+	end
+	if V2_Electric == nil then
+		V2_Electric = Binesh.Genesis3("Ïæãíä æáÊÇ", "V2", "", "", 1, "V", "æáÊ");
+		if V2_Electric == nil then
+			V2_Electric = Binesh.Genesis3("æáÊÇ Ïæãíä", "V2", "", "", 1, "V", "æáÊ");
+		end
+	end
+	if C1 == nil then
+		C1 = Binesh.Genesis3("Çæáíä ÙÑİíÊ", "C1", "", "", 1, "F", "İÇÑÇÏ");
+		if C1 == nil then
+			C1 = Binesh.Genesis3("ÙÑİíÊ Çæáíä", "C1", "", "", 1, "F", "İÇÑÇÏ");
+		end
+	end
+	if C2 == nil then
+		C2 = Binesh.Genesis3("Ïæãíä ÎÇÒä", "C2", "", "", 1, "F", "İÇÑÇÏ");
+		if C2 == nil then
+			C2 = Binesh.Genesis3("ÎÇÒä Ïæãíä", "C2", "", "", 1, "F", "İÇÑÇÏ");
+		end
+	end
+	
+	-- 109
+	if I == nil then
+		if IBar == nil then
+			IBar = Binesh.Genesis3("ÌÑíÇä ãÊæÓØ", "IBar", "", "", 1, "A", "ÂãÑ");
+		end
+	else
+		IBar = I
+	end
+	
+	-- 111
+	if Ru_Resistor == nil then
+		Ru_Resistor = Binesh.Genesis3("ãŞÇæãÊ æíå", "Ru", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+	end
+	
+	-- 112
+	if Alpha_112 == nil then
+		Alpha_112 = Binesh.Genesis3("ÖÑíÈ ÏãÇ", "Alpha", "", "", 1, "1/C", "í˜ ÈÑ ÓáÓíæÓ");
+		if Alpha_112 == nil then
+			Alpha_112_K = Binesh.Genesis3("ÖÑíÈ ÏãÇ", "Alpha", "", "", 1, "1/K", "í˜ ÈÑ ˜áæíä");
+			if Alpha_112_K == nil then
+				Alpha_112 = Alpha_112_K
+			end
+		end
+	end
+	
+	-- 114
+	U_Output = Binesh.Genesis3("ÇäÑí ãÕÑİí", "U", "", "", 1, "J", "æá");
+	
+	-- 118
+	if RT == nil then
+		RT = Binesh.Genesis3("ãŞÇæãÊ ãÚÇÏá", "RT", "", "", 1, "Ohm", "Çåã");
+	end
+	if VT_Electric == nil then
+		VT_Electric = Binesh.Genesis3("æáÊÇ ãÚÇÏá", "VT", "", "", 1, "V", "æáÊ");
+	end
+	if R1 == nil then
+		R1 = Binesh.Genesis3("Çæáíä ãŞÇæãÊ", "R1", "", "", 1, "Ohm", "Çåã");
+		if R1 == nil then
+			R1 = Binesh.Genesis3("ãŞÇæãÊ Çæáíä", "R1", "", "", 1, "Ohm", "Çåã");
+		end
+	end
+	if R2 == nil then
+		R2 = Binesh.Genesis3("Ïæãíä ãŞÇæãÊ", "R2", "", "", 1, "Ohm", "Çåã");
+		if R2 == nil then
+			R2 = Binesh.Genesis3("ãŞÇæãÊ Ïæãíä", "R2", "", "", 1, "Ohm", "Çåã");
+		end
+	end
+	
+	-- 123
+	if I2 == nil then
+		I2 = Binesh.Genesis3("Ïæãíä ÌÑíÇä", "I2", "", "", 1, "A", "ÂãÑ");
+		if I2 == nil then
+			I2 = Binesh.Genesis3("ÌÑíÇä Ïæãíä", "I2", "", "", 1, "A", "ÂãÑ");
+		end
+	end
+	
+	-- 126
+	if Epsilon == nil then
+		Epsilon = Binesh.Genesis3("äíÑæ ãÍÑ˜å", "Epsilon", "", "", 1, "V", "æáÊ");
+	end
+	if r_Resistor == nil then
+		if R == nil then
+			r_Resistor = Binesh.Genesis3("ãŞÇæãÊ", "r", "", "", 1, "Ohm", "Çåã");
+		else
+			r_Resistor = R
+		end
+	end
+	
+	-- 128
+	if B == nil then
+		B = Binesh.Genesis3("ãíÏÇä", "B", "", "", 1, "T", "ÊÓáÇ");
+	end
+	if l == nil then
+		if L == nil then
+			l = Binesh.Genesis3("Øæá", "l", "", "", 1, "m", "ãÊÑ");
+		else
+			l = L
+		end
+		if l ~= nil then
+			L = l
+		end
+	end
+	
+	-- 129
+	
+	-- 130
+	
+	-- 131
+	
+	-- 132
+	
+	-- 133
+	if I1 == nil then
+		I1 = Binesh.Genesis3("Çæáíä ÌÑíÇä", "I1", "", "", 1, "A", "ÂãÑ");
+		if I1 == nil then
+			I1 = Binesh.Genesis3("ÌÑíÇä Çæáíä", "I1", "", "", 1, "A", "ÂãÑ");
+		end
+	end
+	if I2 == nil then
+		I2 = Binesh.Genesis3("Ïæãíä ÌÑíÇä", "I2", "", "", 1, "A", "ÂãÑ");
+		if I2 == nil then
+			I2 = Binesh.Genesis3("ÌÑíÇä Ïæãíä", "I2", "", "", 1, "A", "ÂãÑ");
+		end
+	end
+	
+	-- 134
+	if Fi == nil then
+		Fi = Binesh.Genesis3("ÔÇÑ", "Fi", "", "", 1, "æÈÑ", "Wb");
+	end
+	
+	-- 137
+	
+	-- 138
+	if L_Self == nil then
+		L_Self = Binesh.Genesis3("ÖÑíÈ ÎæÏÇáŞÇíí", "L", "", "", 1, "H", "åÇäÑí");
+	end
+	
+	-- 139
+	
+	-- 140
+	
+	-- 141
+	if T_141 == nil then
+		T_141 = Binesh.Genesis3("ÏæÑÇä", "T", "", "", 1, "s", "ËÇäíå");
+		if T_141 == nil then
+			T_141 = Binesh.Genesis3("ÏæÑ", "T", "", "", 1, "s", "ËÇäíå");
+			if T_141 == nil then
+				T_141 = Binesh.Genesis3("ÏæÑå", "T", "", "", 1, "s", "ËÇäíå");
+			end
+		end
+	end
+	
+	-- 142
+	if Omega == nil then
+		Omega = Binesh.Genesis3("ÓÑÚÊ ÒÇæíå", "Omega", "", "", 1, "rad/s", "ÑÇÏíÇä Èå ËÇäíå");
+	end
+	if f_Hz == nil then
+		f_Hz = Binesh.Genesis3("İÑ˜ÇäÓ", "f", "", "", 1, "Hz", "İÑ˜ÇäÓ");
+		if f_Hz == nil then
+			f_Hz = Binesh.Genesis3("ÈÓÇãÏ", "f", "", "", 1, "Hz", "İÑ˜ÇäÓ");
+		end
+	end
+	
+	-- 146
+	if M_Injection == nil then
+		M_Injection = Binesh.Genesis3("ÖÑíÈ ÇáŞÇí ãÊŞÇÈá", "M", "", "", 1, "s", "ËÇäíå");
+	end
+	if L1 == nil then
+		L1 = Binesh.Genesis3("Çæáíä Øæá", "L1", "", "", 1, "m", "ãÊÑ");
+		if L1 == nil then
+			L1 = Binesh.Genesis3("Øæá Çæáíä", "L1", "", "", 1, "m", "ãÊÑ");
+		end
+	end
+	if L2 == nil then
+		L2 = Binesh.Genesis3("Ïæãíä Øæá", "L2", "", "", 1, "m", "ãÊÑ");
+		if L2 == nil then
+			L2 = Binesh.Genesis3("Øæá Ïæãíä", "L2", "", "", 1, "m", "ãÊÑ");
+		end
+	end
+	
+	-- 147
+	
+	-- 36
+	if t0 == nil and t0_Min == nil and t0_Hour == nil then
+		if t ~= nil then
+			t0 = t
+		elseif t_Min ~= nil then
+			t0_Min = t_Min
+		elseif t_Hour ~= nil then
+			t0_Hour = t_Hour
+		end
+	end
+	
+	-- Deltas:
+	-- 4
+	if _DeltaT == nil and _DeltaTeta == nil and _DeltaTF == nil then
+		_DeltaT = Binesh.Genesis3("ÊÛííÑ ÏãÇ", "DeltaT", "", "", 1, "K", "˜áæíä");
+		if _DeltaT == nil then
+			_DeltaT = Binesh.Genesis3("ÏãÇ ÊÛííÑ", "DeltaT", "", "", 1, "K", "˜áæíä");
+			if _DeltaT == nil then
+				_DeltaTeta = Binesh.Genesis3("ÊÛííÑ ÏãÇ", "DeltaTeta", "", "", 1, "C", "ÓáÓíæÓ");
+				if _DeltaTeta == nil then
+					_DeltaTeta = Binesh.Genesis3("ÏãÇ ÊÛííÑ", "DeltaTeta", "", "", 1, "C", "ÓáÓíæÓ");
+					if _DeltaTeta == nil then
+						_DeltaTF = Binesh.Genesis3("ÊÛííÑ ÏãÇ", "DeltaT", "", "", 1, "F", "İÇÑäåÇíÊ");
+						if _DeltaTF == nil then
+							_DeltaTF = Binesh.Genesis3("ÏãÇ ÊÛííÑ", "DeltaT", "", "", 1, "F", "İÇÑäåÇíÊ");
+						end
+					end
+				end
+			end
+		end
+	end
+	if _T1 == nil and _Teta1 == nil and _TF1 == nil then
+		_T1 = Binesh.Genesis3("Çæáíä ÏãÇ", "T1", "", "", 1, "K", "˜áæíä");
+		if _T1 == nil then
+			_T1 = Binesh.Genesis3("ÏãÇ Çæáíä", "T1", "", "", 1, "K", "˜áæíä");
+			if _T1 == nil then
+				_Teta1 = Binesh.Genesis3("Çæáíä ÏãÇ", "Teta1", "", "", 1, "C", "ÓáÓíæÓ");
+				if _Teta1 == nil then
+					_Teta1 = Binesh.Genesis3("ÏãÇ Çæáíä", "Teta1", "", "", 1, "C", "ÓáÓíæÓ");
+					if _Teta1 == nil then
+						_TF1 = Binesh.Genesis3("Çæáíä ÏãÇ", "T1", "", "", 1, "F", "İÇÑäåÇíÊ");
+						if _TF1 == nil then
+							_TF1 = Binesh.Genesis3("ÏãÇ Çæáíä", "T1", "", "", 1, "F", "İÇÑäåÇíÊ");
+						end
+					end
+				end
+			end
+		end
+	end
+	if _T2 == nil and _Teta2 == nil and _TF2 == nil then
+		_T2 = Binesh.Genesis3("Ïæãíä ÏãÇ", "T2", "", "", 1, "K", "˜áæíä");
+		if _T2 == nil then
+			_T2 = Binesh.Genesis3("ÏãÇ Ïæãíä", "T2", "", "", 1, "K", "˜áæíä");
+			if _T2 == nil then
+				_Teta2 = Binesh.Genesis3("Ïæãíä ÏãÇ", "Teta2", "", "", 1, "C", "ÓáÓíæÓ");
+				if _Teta2 == nil then
+					_Teta2 = Binesh.Genesis3("ÏãÇ Ïæãíä", "Teta2", "", "", 1, "C", "ÓáÓíæÓ");
+					if _Teta2 == nil then
+						_TF2 = Binesh.Genesis3("Ïæãíä ÏãÇ", "T2", "", "", 1, "F", "İÇÑäåÇíÊ");
+						if _TF2 == nil then
+							_TF2 = Binesh.Genesis3("ÏãÇ Ïæãíä", "T2", "", "", 1, "F", "İÇÑäåÇíÊ");
+						end
+					end
+				end
+			end
+		end
+	end
+	
+	-- 32
+	if _Deltax == nil then
+		_Deltax = Binesh.Genesis3("ÊÛííÑ İÇÕáå", "Deltax", "", "", 1, "m", "ãÊÑ");
+		if _Deltax == nil then
+			_Deltax = Binesh.Genesis3("İÇÕáå ÊÛííÑ", "Deltax", "", "", 1, "m", "ãÊÑ");
+		end
+	end
+	if _Deltat == nil then
+		_Deltat = Binesh.Genesis3("ÊÛííÑ ÒãÇä", "Deltat", "", "", 1, "s", "ËÇäíå");
+		if _Deltat == nil then
+			_Deltat = Binesh.Genesis3("ÒãÇä ÊÛííÑ", "Deltat", "", "", 1, "s", "ËÇäíå");
+		end
+	end
+	if _t1 == nil then
+		_t1 = Binesh.Genesis3("Çæáíä ÒãÇä", "t1", "", "", 1, "s", "ËÇäíå");
+		if _t1 == nil then
+			_t1 = Binesh.Genesis3("ÒãÇä Çæáíä", "t1", "", "", 1, "s", "ËÇäíå");
+		end
+		if _t1 ~= nil then
+			t0, t1 = _t1, _t1
+		end
+	end
+	if _t2 == nil then
+		_t2 = Binesh.Genesis3("Ïæãíä ÒãÇä", "t2", "", "", 1, "s", "ËÇäíå");
+		if _t2 == nil then
+			_t2 = Binesh.Genesis3("ÒãÇä Ïæãíä", "t2", "", "", 1, "s", "ËÇäíå");
+		end
+		if _t2 ~= nil then
+			t, t2 = _t2, _t2
+		end
+	end
+	
+	-- 66
+	if _DeltaL == nil then
+		_DeltaL = Binesh.Genesis3("ÊÛííÑ Øæá", "DeltaL", "", "", 1, "m", "ãÊÑ");
+		if _DeltaL == nil then
+			_DeltaL = Binesh.Genesis3("Øæá ÊÛííÑ", "DeltaL", "", "", 1, "m", "ãÊÑ");
+		end
+	end
+	if _L1 == nil then
+		_L1 = Binesh.Genesis3("Çæáíä Øæá", "L1", "", "", 1, "m", "ãÊÑ");
+		if _L1 == nil then
+			_L1 = Binesh.Genesis3("Øæá Çæáíä", "L1", "", "", 1, "m", "ãÊÑ");
+		end
+		if _L1 ~= nil then
+			L0, L1 = _L1, _L1
+		end
+	end
+	if _L2 == nil then
+		_L2 = Binesh.Genesis3("Ïæãíä Øæá", "L2", "", "", 1, "m", "ãÊÑ");
+		if _L2 == nil then
+			_L2 = Binesh.Genesis3("Øæá Ïæãíä", "L2", "", "", 1, "m", "ãÊÑ");
+		end
+		if _L2 ~= nil then
+			L, L2 = _L2, _L2
+		end
+	end
+	
+	
+	-- 69
+	if _DeltaV == nil and _DeltaVL == nil then
+		_DeltaV = Binesh.Genesis3("ÊÛííÑ ÍÌã", "DeltaV", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ");
+		if _DeltaV == nil then
+			_DeltaV = Binesh.Genesis3("ÍÌã ÊÛííÑ", "DeltaV", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ");
+			if _DeltaV == nil then
+				_DeltaVL = Binesh.Genesis3("ÊÛííÑ ÍÌã", "DeltaV", "", "", 1, "L", "áíÊÑ");
+				if _DeltaVL == nil then
+					_DeltaVL = Binesh.Genesis3("ÍÌã ÊÛííÑ", "DeltaV", "", "", 1, "L", "áíÊÑ");
+				end
+			end
+		end
+	end
+	if _V1 == nil and _V2 == nil then
+		_V1 = Binesh.Genesis3("Çæáíä ÍÌã", "V1", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ");
+		if _V1 == nil then
+			_V1 = Binesh.Genesis3("ÍÌã Çæáíä", "V1", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ");
+			if _V1 == nil then
+				_V1L = Binesh.Genesis3("Çæáíä ÍÌã", "V1", "", "", 1, "L", "áíÊÑ");
+				if _V1L == nil then
+					_V1L = Binesh.Genesis3("ÍÌã Çæáíä", "V1", "", "", 1, "L", "áíÊÑ");
+				end
+			end
+		end
+	end
+	if _V2 == nil and _V2 == nil then
+		_V2 = Binesh.Genesis3("Ïæãíä ÍÌã", "V2", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ");
+		if _V2 == nil then
+			_V2 = Binesh.Genesis3("ÍÌã Ïæãíä", "V2", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ");
+			if _V2 == nil then
+				_V2L = Binesh.Genesis3("Ïæãíä ÍÌã", "V2", "", "", 1, "L", "áíÊÑ");
+				if _V2L == nil then
+					_V2L = Binesh.Genesis3("ÍÌã Ïæãíä", "V2", "", "", 1, "L", "áíÊÑ");
+				end
+			end
+		end
+	end
+	
+	
+	-- 75
+	if _DeltaU_In == nil then
+		_DeltaU_In = Binesh.Genesis3("ÊÛííÑ ÇäÑí ÏÑæäí", "DeltaU", "", "", 1, "J", "æá");
+		if _DeltaU_In == nil then
+			_DeltaU_In = Binesh.Genesis3("ÇäÑí ÏÑæäí ÊÛííÑ", "DeltaU", "", "", 1, "J", "æá");
+		end
+	end
+	if _U1_In == nil then
+		_U1_In = Binesh.Genesis3("Çæáíä ÇäÑí ÏÑæäí", "U1", "", "", 1, "J", "æá");
+		if _U1_In == nil then
+			_U1_In = Binesh.Genesis3("ÇäÑí ÏÑæäí Çæáíä", "U1", "", "", 1, "J", "æá");
+		end
+	end
+	if _U2_In == nil then
+		_U2_In = Binesh.Genesis3("Ïæãíä ÇäÑí ÏÑæäí", "U2", "", "", 1, "J", "æá");
+		if _U2_In == nil then
+			_U2_In = Binesh.Genesis3("ÇäÑí ÏÑæäí Ïæãíä", "U2", "", "", 1, "J", "æá");
+		end
+	end
+	
+	-- 91
+	if _DeltaU == nil then
+		_DeltaU =  Binesh.Genesis3("ÊÛííÑ ÇäÑí ÊÇäÓíá", "DeltaU", "", "", 1, "J", "æá");
+		if _DeltaU == nil then
+			_DeltaU =  Binesh.Genesis3("ÇäÑí ÊÇäÓíá ÊÛííÑ", "DeltaU", "", "", 1, "J", "æá");
+		end
+	end
+	if _U1 == nil then
+		_U1 =  Binesh.Genesis3("Çæáíä ÇäÑí ÊÇäÓíá", "U1", "", "", 1, "J", "æá");
+		if _U1 == nil then
+			_U1 =  Binesh.Genesis3("ÇäÑí ÊÇäÓíá Çæáíä", "U1", "", "", 1, "J", "æá");
+		end
+	end
+	if _U2 == nil then
+		_U2 =  Binesh.Genesis3("Ïæãíä ÇäÑí ÊÇäÓíá", "U2", "", "", 1, "J", "æá");
+		if _U2 == nil then
+			_U2 =  Binesh.Genesis3("ÇäÑí ÊÇäÓíá Ïæãíä", "U2", "", "", 1, "J", "æá");
+		end
+	end
+	
+	-- 92
+	if _DeltaV_Electric == nil then
+		if V0_Electric == nil then
+			_DeltaV_Electric =  Binesh.Genesis3("ÊÛííÑ æáÊÇ", "DeltaV", "", "", 1, "V", "æáÊ");
+			if _DeltaV_Electric == nil then
+				_DeltaV_Electric =  Binesh.Genesis3("æáÊÇ ÊÛííÑ", "DeltaV", "", "", 1, "V", "æáÊ");
+			end
+		elseif V0_Electric ~= nil then
+			_DeltaV_Electric = V0_Electric
+		elseif V1_Electric ~= nil then
+			_DeltaV_Electric = V1_Electric
+		elseif V_Electric ~= nil then
+			_DeltaV_Electric = V_Electric
+		end
+	end
+	
+	if _V1_Electric == nil then
+		_V1_Electric =  Binesh.Genesis3("Çæáíä æáÊÇ", "V1", "", "", 1, "V", "æáÊ");
+		if _V1_Electric == nil then
+			_V1_Electric =  Binesh.Genesis3("æáÊÇ Çæáíä", "V1", "", "", 1, "V", "æáÊ");
+		end
+	end
+	if _V2_Electric == nil then
+		_V2_Electric =  Binesh.Genesis3("Ïæãíä æáÊÇ", "V2", "", "", 1, "V", "æáÊ");
+		if _V2_Electric == nil then
+			_V2_Electric =  Binesh.Genesis3("æáÊÇ Ïæãíä", "V2", "", "", 1, "V", "æáÊ");
+		end
+	end
+	
+	-- 94
+	if ListBox.FindItem('Words', -1, LB_BYTEXT, "ÓÑÚÊ ãÊæÓØ") == -1 and ListBox.FindItem('Words', -1, LB_BYTEXT, "VBar") == -1 then
+		if _DeltaV_Speed == nil then
+			_DeltaV_Speed =  Binesh.Genesis3("ÊÛííÑ ÓÑÚÊ", "DeltaV", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+			if _DeltaV_Speed == nil then
+				_DeltaV_Speed =  Binesh.Genesis3("ÓÑÚÊ ÊÛííÑ", "DeltaV", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+			end
+		end
+		if _V1_Speed == nil then
+			_V1_Speed =  Binesh.Genesis3("Çæáíä ÓÑÚÊ", "V1", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+			if _V1_Speed == nil then
+				_V1_Speed =  Binesh.Genesis3("ÓÑÚÊ Çæáíä", "V1", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+			end
+		end
+		if _V2_Speed == nil then
+			_V2_Speed =  Binesh.Genesis3("Ïæãíä ÓÑÚÊ", "V2", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+			if _V2_Speed == nil then
+				_V2_Speed =  Binesh.Genesis3("ÓÑÚÊ Ïæãíä", "V2", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+			end
+		end
+	end
+	
+	-- 112
+	if _DeltaRu_Resistor == nil then
+		_DeltaRu_Resistor =  Binesh.Genesis3("ÊÛííÑ ãŞÇæãÊ æíå", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		if _DeltaRu_Resistor == nil then
+			_DeltaRu_Resistor =  Binesh.Genesis3("ãŞÇæãÊ æíå ÊÛííÑ", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		end
+	end
+	if _Ru_Resistor1 == nil then
+		_Ru_Resistor1 =  Binesh.Genesis3("Çæáíä ãŞÇæãÊ æíå", "Ru1", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		if _Ru_Resistor1 == nil then
+			_Ru_Resistor1 =  Binesh.Genesis3("ãŞÇæãÊ æíå Çæáíä", "Ru1", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		end
+	end
+	if _Ru_Resistor2 == nil then
+		_Ru_Resistor2 =  Binesh.Genesis3("Ïæãíä ãŞÇæãÊ æíå", "Ru2", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		if _Ru_Resistor2 == nil then
+			_Ru_Resistor2 =  Binesh.Genesis3("ãŞÇæãÊ æíå Ïæãíä", "Ru2", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		end
+	end
+	
+	-- 135
+	if _DeltaFi == nil then
+		_DeltaFi =  Binesh.Genesis3("ÊÛííÑ ÔÇÑ", "DeltaFi", "", "", 1, "Wb", "æÈÑ");
+		if _DeltaFi == nil then
+			_DeltaFi =  Binesh.Genesis3("ÔÇÑ ÊÛííÑ", "DeltaFi", "", "", 1, "Wb", "æÈÑ");
+		end
+	end
+	if _Fi1 == nil then
+		_Fi1 =  Binesh.Genesis3("Çæáíä ÔÇÑ", "Fi1", "", "", 1, "Wb", "æÈÑ");
+		if _Fi1 == nil then
+			_Fi1 =  Binesh.Genesis3("ÔÇÑ Çæáíä", "Fi1", "", "", 1, "Wb", "æÈÑ");
+		end
+	end
+	if _Fi2 == nil then
+		_Fi2 =  Binesh.Genesis3("Ïæãíä ÔÇÑ", "Fi2", "", "", 1, "Wb", "æÈÑ");
+		if _Fi2 == nil then
+			_Fi2 =  Binesh.Genesis3("ÔÇÑ Ïæãíä", "Fi2", "", "", 1, "Wb", "æÈÑ");
+		end
+	end
+	
+	-- 136
+	if _Deltaq == nil then
+		_Deltaq =  Binesh.Genesis3("ÊÛííÑ ĞÑå", "Deltaq", "", "", 1, "C", "˜æáä");
+		if _Deltaq == nil then
+			_Deltaq =  Binesh.Genesis3("ĞÑå ÊÛííÑ", "Deltaq", "", "", 1, "C", "˜æáä");
+		end
+	end
+	if _q1 == nil then
+		_q1 =  Binesh.Genesis3("Çæáíä ĞÑå", "q1", "", "", 1, "C", "˜æáä");
+		if _q1 == nil then
+			_q1 =  Binesh.Genesis3("ĞÑå Çæáíä", "q1", "", "", 1, "C", "˜æáä");
+		end
+	end
+	if _q2 == nil then
+		_q2 =  Binesh.Genesis3("Ïæãíä ĞÑå", "q2", "", "", 1, "C", "˜æáä");
+		if _q2 == nil then
+			_q2 =  Binesh.Genesis3("ĞÑå Ïæãíä", "q2", "", "", 1, "C", "˜æáä");
+		end
+	end
+	
+	-- 138
+	
+	
+	----------- *** -------
+	-- 4
+	if c == nil then
+		c = Binesh.Genesis3("ÙÑİíÊ ÑãÇ", "c", "", "", 1, "", "", false);
+	end
+	
+	-- 5
+	if n_e == nil and n_p == nil then
+		n_e = Binesh.Genesis3("ÊÚÏÇÏ Çá˜ÊÑæä", "n", "", "", 1, "", "", false);
+		if n_e == nil then
+			n_p = Binesh.Genesis3("ÊÚÏÇÏ ÑæÊæä", "n", "", "", 1, "", "", false);
+		end
+	end
+	
+	-- 16
+	if i == nil and i_Radian == nil then
+		i = Binesh.Genesis3("ÒÇæíå ÊÇÈÔ", "i", "m", "", 1, "", "ÏÑÌå");
+		if i == nil then
+			i_Radian = Binesh.Genesis3("ÒÇæíå ÊÇÈÔ", "i", "m", "", 1, "", "ÑÇÏíÇä");
+		end
+	end
+	if r_Glass == nil and r_Glass_Radian == nil then
+		r_Glass = Binesh.Genesis3("ÒÇæíå Ô˜ÓÊ", "r", "m", "", 1, "", "ÏÑÌå");
+		if r_Glass == nil then
+			r_Glass_Radian = Binesh.Genesis3("ÒÇæíå Ô˜ÓÊ", "r", "m", "", 1, "", "ÑÇÏíÇä");
+		end
+	end
+	if n2_Glass == nil then
+		n2_Glass = Binesh.Genesis3("Ïæãíä ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n2", "", "", 1, "", "", false);
+		if n2_Glass == nil then
+			n2_Glass = Binesh.Genesis3("ÖÑíÈ Ô˜ÓÊ ãÍíØ Ïæãíä", "n2", "", "", 1, "", "", false);
+		end
+	end
+	if n1_Glass == nil then
+		n1_Glass = Binesh.Genesis3("Çæáíä ÖÑíÈ Ô˜ÓÊ ãÍíØ", "n1", "", "", 1, "", "", false);
+		if n1_Glass == nil then
+			n1_Glass = Binesh.Genesis3("ÖÑíÈ Ô˜ÓÊ ãÍíØ Çæáíä", "n1", "", "", 1, "", "", false);
+		end
+	end
+		
+	-- 17
+	if n_Glass == nil then
+		n_Glass = Binesh.Genesis3("ÖÑíÈ Ô˜ÓÊ", "n", "", "", 1, "", "", false);
+	end
+	
+	-- 20
+	if C == nil and C_Radian == nil then
+		C = Binesh.Genesis3("ÒÇæíå ÍÏ", "C", "", "", 1, "", "ÏÑÌå");	
+		if C == nil then
+			C_Radian = Binesh.Genesis3("ÒÇæíå ÍÏ", "C", "", "", 1, "", "ÑÇÏíÇä");
+		end
+	end
+	
+	-- 22
+	if m_Zoom == nil then
+		m_Zoom = Binesh.Genesis3("ÈÒÑ äãÇíí", "m", "", "", 1, "", "", false);
+	end
+	
+	-- 47
+	if Muk == nil then
+		Muk = Binesh.Genesis3("ÖÑíÈ ÇÕØ˜Ç˜ ÌäÈÔí", "Muk", "", "", 1, "", "", false);
+	end
+	if Mus == nil then
+		Mus = Binesh.Genesis3("ÖÑíÈ ÇÕØ˜Ç˜ ÇíÓÊÇíí", "Mus", "", "", 1, "", "", false);
+	end
+	
+	-- 49
+	if Teta == nil and Teta_Radian == nil then
+		Teta = Binesh.Genesis3("ÒÇæíå", "Teta", "", "", 1, "", "ÏÑÌå");
+		if Teta == nil then
+			Teta_Radian = Binesh.Genesis3("ÒÇæíå", "Teta", "", "", 1, "", "ÑÇÏíÇä");
+		end
+		if Teta ~= nil then
+			Alpha = Teta
+		end
+		if Teta_Radian ~= nil then
+			Alpha_Radian = Teta_Radian
+		end
+	end
+	
+	-- 82
+	if Eta == nil then
+		if R_Output == nil then
+			Eta = Binesh.Genesis3("ÈÇÒÏå", "Eta", "", "", 1, "", "", false);
+		else
+			Eta = R_Output
+		end
+	end
+	
+	-- 83
+	if EtaK == nil then
+		EtaK = Binesh.Genesis3("ÈÇÒÏå ˜ÇÑäæ", "Eta_max", "", "", 1, "", "", false);
+	end
+	
+	-- 85
+	if K_Ice == nil then
+		K_Ice = Binesh.Genesis3("ÖÑíÈ Úãá˜ÑÏ", "K", "", "", 1, "", "", false);
+	end
+	
+	-- 96
+	if Kapa == nil then
+		Kapa = Binesh.Genesis3("ÖÑíÈ Ïí Çá˜ÊÑí˜", "Kapa", "", "", 1, "", "", false);
+	end
+	
+	-- 131
+	if N_Ring == nil then
+		N_Ring = Binesh.Genesis3("ÍáŞå", "N", "", "", 1, "", "ÏæÑ");
+		if N_Ring == nil then
+			n_Ring = Binesh.Genesis3("ÍáŞå", "n", "", "", 1, "", "ÏæÑ");
+			if n_Ring ~= nil then
+				n_Ring = N_Ring
+			end
+		end
+	end
+	if N_Ring ~= nil then
+		N_Round = N_Ring
+	end
+	
+	-- 135
+	if N_Round == nil then
+		N_Round = Binesh.Genesis3("ÏæÑ", "N", "", "", 1, "", "");
+	end
+	
+	-- 139
+	if k_Self == nil then
+		k_Self = Binesh.Genesis3("åÓÊå", "k", "", "", 1, "", "", false);
+	end
+	
+	-- 147
+	if N1 == nil then
+		N1 = Binesh.Genesis3("Çæáíä ÏæÑ", "N1", "", "", 1, "", "ÏæÑ");
+		if N1 == nil then
+			N1 = Binesh.Genesis3("ÏæÑ Çæáíä", "N1", "", "", 1, "", "ÏæÑ");
+		end
+	end
+	if N2 == nil then
+		N2 = Binesh.Genesis3("Ïæãíä ÏæÑ", "N2", "", "", 1, "", "ÏæÑ");
+		if N2 == nil then
+			N2 = Binesh.Genesis3("ÏæÑ Ïæãíä", "N2", "", "", 1, "", "ÏæÑ");
+		end
+	end</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>2</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Right-Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Hyperlink</Name>
+<Args>string e_Hyperlink</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<Options>
+<Text>Genesis3</Text>
 <TextColor format="hex">000000</TextColor>
 <EnableMarkup>0</EnableMarkup>
 <ButtonImage/>
