@@ -5,10 +5,10 @@ function Binesh.F141()
 			
 			Teta = 2*Zarib.Pi*t/T_141
 			
-			Binesh.AddToHTML("Teta = <span>2*"..Zarib.Pi.."/"..T_141.."</span>*"..t.." &#8658; Teta = "..Teta)
+			Binesh.AddToHTML("Teta = <span>2*"..Binesh.Convert_e(Zarib.Pi).."/"..Binesh.Convert_e(T_141).."</span>*"..Binesh.Convert_e(t).." &#8658; Teta = "..Binesh.Convert_e(Teta))
 			
-			Binesh.AddToHTML("t: "..t.." s", "V")
-			Binesh.AddToHTML("T: "..T_141.." s", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
+			Binesh.AddToHTML("T: "..Binesh.Convert_e(T_141).." s", "V")
 			Binesh.AddToHTML("Teta: ?", "V")
 		end
 	end
@@ -19,10 +19,10 @@ function Binesh.F141()
 			
 			T_141 = 2*Zarib.Pi*t/Math.Rad(Teta)
 			
-			Binesh.AddToHTML("T = <span>2*"..Zarib.Pi.."/"..Teta.."</span>*"..t.." &#8658; T = "..T_141.."s")
+			Binesh.AddToHTML("T = <span>2*"..Binesh.Convert_e(Zarib.Pi).."/"..Binesh.Convert_e(Teta).."</span>*"..Binesh.Convert_e(t).." &#8658; T = "..Binesh.Convert_e(T_141).."s")
 			
-			Binesh.AddToHTML("t: "..t.." s", "V")
-			Binesh.AddToHTML("Teta: "..Teta, "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
+			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
 			Binesh.AddToHTML("T: ?", "V")
 		end
 	end
@@ -33,10 +33,10 @@ function Binesh.F141()
 			
 			t = Math.Rad(Teta)*T_141/(2*Zarib.Pi)
 			
-			Binesh.AddToHTML("t = <span>"..Teta.."/2*"..Zarib.Pi.."</span>*"..T_141.." &#8658; t = "..t.." s")
+			Binesh.AddToHTML("t = <span>"..Binesh.Convert_e(Teta).."/2*"..Binesh.Convert_e(Zarib.Pi).."</span>*"..Binesh.Convert_e(T_141).." &#8658; t = "..Binesh.Convert_e(t).." s")
 			
-			Binesh.AddToHTML("Teta: "..Teta, "V")
-			Binesh.AddToHTML("T: "..T_141.." s", "V")
+			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
+			Binesh.AddToHTML("T: "..Binesh.Convert_e(T_141).." s", "V")
 			Binesh.AddToHTML("t: ?", "V")
 		end
 	end

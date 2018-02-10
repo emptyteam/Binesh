@@ -5,10 +5,10 @@ function Binesh.F82_1()
 			
 			Eta = Math.Abs(W)/QH
 			
-			Binesh.AddToHTML("Eta = <span>|"..W.."|/"..QH.."</span> &#8658; Eta = "..Eta)
+			Binesh.AddToHTML("Eta = <span>|"..Binesh.Convert_e(W).."|/"..Binesh.Convert_e(QH).."</span> &#8658; Eta = "..Binesh.Convert_e(Eta))
 			
-			Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
-			Binesh.AddToHTML("W: "..W.." J", "V")
+			Binesh.AddToHTML("Q<sub>H</sub>: "..Binesh.Convert_e(QH).." J", "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
 			Binesh.AddToHTML("Eta: ?", "V")
 		end
 	end
@@ -18,10 +18,10 @@ function Binesh.F82_1()
 			Binesh.CreateHTMLFile("Eta = <span>|W|/Q<sub>H</sub></span>", "Q<sub>H</sub> = <span>|W|/Eta</span>")
 			QH = Math.Abs(W)/Eta
 					
-			Binesh.AddToHTML("Q<sub>H</sub> = <span>|"..W.."|/"..Eta.."</span> &#8658; Q<sub>H</sub> = "..QH.." J")
+			Binesh.AddToHTML("Q<sub>H</sub> = <span>|"..Binesh.Convert_e(W).."|/"..Binesh.Convert_e(Eta).."</span> &#8658; Q<sub>H</sub> = "..Binesh.Convert_e(QH).." J")
 			
-			Binesh.AddToHTML("Eta: "..Eta, "V")
-			Binesh.AddToHTML("W: "..W.." J", "V")
+			Binesh.AddToHTML("Eta: "..Binesh.Convert_e(Eta), "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
 			Binesh.AddToHTML("Q<sub>H</sub>: ?", "V")
 		end
 	end
@@ -31,10 +31,10 @@ function Binesh.F82_1()
 			Binesh.CreateHTMLFile("Eta = <span>|W|/Q<sub>H</sub></span>", "W = |EtaQ<sub>H</sub>|")
 			W = Math.Abs(Eta*QH)
 			
-			Binesh.AddToHTML("W = |"..Eta.."*"..QH.."| &#8658; |W| = "..W.." J")
+			Binesh.AddToHTML("W = |"..Binesh.Convert_e(Eta).."*"..Binesh.Convert_e(QH).."| &#8658; |W| = "..Binesh.Convert_e(W).." J")
 			
-			Binesh.AddToHTML("Eta: "..Eta, "V")
-			Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
+			Binesh.AddToHTML("Eta: "..Binesh.Convert_e(Eta), "V")
+			Binesh.AddToHTML("Q<sub>H</sub>: "..Binesh.Convert_e(QH).." J", "V")
 			Binesh.AddToHTML("W: ?", "V")
 		end
 	end

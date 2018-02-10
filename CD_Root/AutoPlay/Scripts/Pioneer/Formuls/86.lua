@@ -4,11 +4,11 @@ function Binesh.F86()
 			F = 9*10^9 * (Math.Abs(q1)* Math.Abs(q2) / (r_3^2))
 			
 			Binesh.CreateHTMLFile("F = k<span>|q<sub>1</sub>||q<sub>2</sub>|/r<sup>2</sup></span>")
-			Binesh.AddToHTML("F = 9*10^9*<span>"..Math.Abs(q1).."*"..Math.Abs(q2).."/"..r_3.."<sup>2</sup></span> &#8658; F = "..F.." N")
+			Binesh.AddToHTML("F = 9*10^9*<span>"..Binesh.Convert_e(Math.Abs(q1)).."*"..Binesh.Convert_e(Math.Abs(q2)).."/"..Binesh.Convert_e(r_3).."<sup>2</sup></span> &#8658; F = "..Binesh.Convert_e(F).." N")
 			
-			Binesh.AddToHTML("q<sub>1</sub>: "..q1.." C", "V")
-			Binesh.AddToHTML("q<sub>2</sub>: "..q2.." C", "V")
-			Binesh.AddToHTML("r: "..r_3.." m", "V")
+			Binesh.AddToHTML("q<sub>1</sub>: "..Binesh.Convert_e(q1).." C", "V")
+			Binesh.AddToHTML("q<sub>2</sub>: "..Binesh.Convert_e(q2).." C", "V")
+			Binesh.AddToHTML("r: "..Binesh.Convert_e(r_3).." m", "V")
 			Binesh.AddToHTML("F: ?", "V")
 		end
 	end
@@ -18,11 +18,11 @@ function Binesh.F86()
 			q1 = F*r_3^2/(9*10^9*Math.Abs(q2))
 			
 			Binesh.CreateHTMLFile("F = k<span>|q<sub>1</sub>||q<sub>2</sub>|/r<sup>2</sup></span>", "|q<sub>1</sub>| = <span>Fr<sup>2</sup>/k|q<sub>2</sub>|</span>")
-			Binesh.AddToHTML("|q<sub>1</sub>| = <span>"..F.."*"..r_3.."<sup>2</sup>/9*10^9*"..Math.Abs(q2).."</span> &#8658; q<sub>1</sub> = "..Math.Abs(q1).." C")
+			Binesh.AddToHTML("|q<sub>1</sub>| = <span>"..Binesh.Convert_e(F).."*"..Binesh.Convert_e(r_3).."<sup>2</sup>/9*10^9*"..Binesh.Convert_e(Math.Abs(q2)).."</span> &#8658; q<sub>1</sub> = "..Binesh.Convert_e(Math.Abs(q1)).." C")
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("q<sub>2</sub>: "..q2.." C", "V")
-			Binesh.AddToHTML("r: "..r_3.." m", "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("q<sub>2</sub>: "..Binesh.Convert_e(q2).." C", "V")
+			Binesh.AddToHTML("r: "..Binesh.Convert_e(r_3).." m", "V")
 			Binesh.AddToHTML("q<sub>1</sub>: ?", "V")
 		end
 	end
@@ -32,11 +32,11 @@ function Binesh.F86()
 			q2 = F*r_3^2/(9*10^9*Math.Abs(q1))
 			
 			Binesh.CreateHTMLFile("F = k<span>|q<sub>1</sub>||q<sub>2</sub>|/r<sup>2</sup></span>", "|q<sub>2</sub>| = <span>Fr<sup>2</sup>/k|q<sub>1</sub>|</span>")
-			Binesh.AddToHTML("|q<sub>2</sub>| = <span>"..F.."*"..r_3.."<sup>2</sup>/9*10^9*"..Math.Abs(q1).."</span> &#8658; q<sub>2</sub> = "..Math.Abs(q2).." C")
+			Binesh.AddToHTML("|q<sub>2</sub>| = <span>"..Binesh.Convert_e(F).."*"..Binesh.Convert_e(r_3).."<sup>2</sup>/9*10^9*"..Binesh.Convert_e(Math.Abs(q1)).."</span> &#8658; q<sub>2</sub> = "..Binesh.Convert_e(Math.Abs(q2)).." C")
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("q<sub>1</sub>: "..q1.." C", "V")
-			Binesh.AddToHTML("r: "..r_3.." m", "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("q<sub>1</sub>: "..Binesh.Convert_e(q1).." C", "V")
+			Binesh.AddToHTML("r: "..Binesh.Convert_e(r_3).." m", "V")
 			Binesh.AddToHTML("q<sub>2</sub>: ?", "V")
 		end
 	end
@@ -46,11 +46,11 @@ function Binesh.F86()
 			r_3 = Math.Sqrt(9*10^9*Math.Abs(q1)*Math.Abs(q2)/F)
 			
 			Binesh.CreateHTMLFile("F = k<span>|q<sub>1</sub>||q<sub>2</sub>|/r<sup>2</sup></span>", "r = Sqrt(<span>k|q<sub>1</sub>||q<sub>2</sub>|/F</span>)")
-			Binesh.AddToHTML("r = Sqrt(<span>9*10^9*"..Math.Abs(q1).."*"..Math.Abs(q2).."/"..F.."</span>) &#8658; r = "..r_3.." m")
+			Binesh.AddToHTML("r = Sqrt(<span>9*10^9*"..Binesh.Convert_e(Math.Abs(q1)).."*"..Binesh.Convert_e(Math.Abs(q2)).."/"..Binesh.Convert_e(F).."</span>) &#8658; r = "..Binesh.Convert_e(r_3).." m")
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("q<sub>1</sub>: "..q1.." C", "V")
-			Binesh.AddToHTML("q<sub>2</sub>: "..q2.." C", "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("q<sub>1</sub>: "..Binesh.Convert_e(q1).." C", "V")
+			Binesh.AddToHTML("q<sub>2</sub>: "..Binesh.Convert_e(q2).." C", "V")
 			Binesh.AddToHTML("r: ?", "V")
 		end
 	end

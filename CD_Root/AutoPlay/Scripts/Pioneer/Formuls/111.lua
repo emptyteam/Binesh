@@ -4,11 +4,11 @@ function Binesh.F111()
 			R =  Ru_Resistor * L / A
 			
 			Binesh.CreateHTMLFile("R =  Ru*<span>L/A</span>")
-			Binesh.AddToHTML("R = "..Ru_Resistor.."*<span>"..L.."/"..A.."</span> &#8658; R = "..R.." Ohm")
+			Binesh.AddToHTML("R = "..Binesh.Convert_e(Ru_Resistor).."*<span>"..Binesh.Convert_e(L).."/"..Binesh.Convert_e(A).."</span> &#8658; R = "..Binesh.Convert_e(R).." Ohm")
 			
-			Binesh.AddToHTML("Ru: "..Ru_Resistor.." Ohm.m", "V")
-			Binesh.AddToHTML("L: "..L.." m", "V")
-			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("Ru: "..Binesh.Convert_e(Ru_Resistor).." Ohm.m", "V")
+			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
+			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
 			Binesh.AddToHTML("R: ?", "V")
 		end
 	end
@@ -18,11 +18,11 @@ function Binesh.F111()
 			Ru_Resistor = R*A/L
 			
 			Binesh.CreateHTMLFile("R =  Ru<span>L/A</span>", "Ru = <span>RA/L</span>")
-			Binesh.AddToHTML("Ru = <span>"..R.."*"..A.."/"..L.."</span> &#8658; Ru = "..Ru_Resistor.." Ohm.m")
+			Binesh.AddToHTML("Ru = <span>"..Binesh.Convert_e(R).."*"..Binesh.Convert_e(A).."/"..Binesh.Convert_e(L).."</span> &#8658; Ru = "..Binesh.Convert_e(Ru_Resistor).." Ohm.m")
 			
-			Binesh.AddToHTML("R: "..R.." Ohm", "V")
-			Binesh.AddToHTML("L: "..L.." m", "V")
-			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).." Ohm", "V")
+			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
+			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
 			Binesh.AddToHTML("Ru: ?", "V")
 		end
 	end
@@ -32,11 +32,11 @@ function Binesh.F111()
 			A = Ru_Resistor*L/R
 			
 			Binesh.CreateHTMLFile("R =  Ru<span>L/A</span>", "A = <span>RuL/R</span>")
-			Binesh.AddToHTML("A = <span>"..Ru_Resistor.."*"..L.."/"..R.."</span> &#8658; A = "..A.." m<sup>2</sup>")
+			Binesh.AddToHTML("A = <span>"..Binesh.Convert_e(Ru_Resistor).."*"..Binesh.Convert_e(L).."/"..Binesh.Convert_e(R).."</span> &#8658; A = "..Binesh.Convert_e(A).." m<sup>2</sup>")
 			
-			Binesh.AddToHTML("R: "..R.." Ohm", "V")
-			Binesh.AddToHTML("Ru: "..Ru_Resistor.." Ohm.m", "V")
-			Binesh.AddToHTML("L: "..L.." m", "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).." Ohm", "V")
+			Binesh.AddToHTML("Ru: "..Binesh.Convert_e(Ru_Resistor).." Ohm.m", "V")
+			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
 			Binesh.AddToHTML("A: ?", "V")
 		end
 	end
@@ -46,11 +46,11 @@ function Binesh.F111()
 			L = R*A/Ru_Resistor
 			
 			Binesh.CreateHTMLFile("R =  Ru<span>L/A</span>", "L = <span>RA/Ru</span>")
-			Binesh.AddToHTML("L = <span>"..R.."*"..A.."/"..Ru_Resistor.."</span> &#8658; L = "..L.." m")
+			Binesh.AddToHTML("L = <span>"..Binesh.Convert_e(R).."*"..Binesh.Convert_e(A).."/"..Binesh.Convert_e(Ru_Resistor).."</span> &#8658; L = "..Binesh.Convert_e(L).." m")
 			
-			Binesh.AddToHTML("R: "..R.." Ohm", "V")
-			Binesh.AddToHTML("Ru: "..Ru_Resistor.." Ohm.m", "V")
-			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).." Ohm", "V")
+			Binesh.AddToHTML("Ru: "..Binesh.Convert_e(Ru_Resistor).." Ohm.m", "V")
+			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
 			Binesh.AddToHTML("L: ?", "V")
 		end
 	end

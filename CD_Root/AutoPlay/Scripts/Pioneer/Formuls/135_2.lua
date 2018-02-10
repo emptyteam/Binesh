@@ -6,12 +6,12 @@ function Binesh.F135_2()
 			
 			_Fi1 = _Fi2+(Epsilon*_Deltat/N_Round)
 			
-			Binesh.AddToHTML("Fi<sub>1</sub> = ".._Fi2.."+ <span>"..Epsilon.."*".._Deltat.."/"..N_Round.."</span> &#8658; Fi<sub>1</sub> = ".._Fi1.." Wb")
+			Binesh.AddToHTML("Fi<sub>1</sub> = "..Binesh.Convert_e(_Fi2).."+ <span>"..Binesh.Convert_e(Epsilon).."*"..Binesh.Convert_e(_Deltat).."/"..Binesh.Convert_e(N_Round).."</span> &#8658; Fi<sub>1</sub> = "..Binesh.Convert_e(_Fi1).." Wb")
 			
-			Binesh.AddToHTML("Fi<sub>2</sub>: ".._Fi2.." Wb", "V")
-			Binesh.AddToHTML("Epsilon: "..Epsilon.." V", "V")
-			Binesh.AddToHTML("Deltat: ".._Deltat.." s", "V")
-			Binesh.AddToHTML("N: "..N_Round, "V")
+			Binesh.AddToHTML("Fi<sub>2</sub>: "..Binesh.Convert_e(_Fi2).." Wb", "V")
+			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
+			Binesh.AddToHTML("Deltat: "..Binesh.Convert_e(_Deltat).." s", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N_Round), "V")
 			Binesh.AddToHTML("Fi<sub>1</sub>: ?", "V")
 		end
 	end
@@ -23,12 +23,12 @@ function Binesh.F135_2()
 			
 			_Fi2 = _Fi1+(Epsilon*_Deltat/(-N_Round))
 			
-			Binesh.AddToHTML("Fi<sub>2</sub> = ".._Fi1.."+ <span>"..Epsilon.."*".._Deltat.."/-("..N_Round..")</span> &#8658; Fi<sub>2</sub> = ".._Fi2.." Wb")
+			Binesh.AddToHTML("Fi<sub>2</sub> = "..Binesh.Convert_e(_Fi1).."+ <span>"..Binesh.Convert_e(Epsilon).."*"..Binesh.Convert_e(_Deltat).."/-("..Binesh.Convert_e(N_Round)..")</span> &#8658; Fi<sub>2</sub> = "..Binesh.Convert_e(_Fi2).." Wb")
 			
-			Binesh.AddToHTML("Fi<sub>1</sub>: ".._Fi1.." Wb", "V")
-			Binesh.AddToHTML("Epsilon: "..Epsilon.." V", "V")
-			Binesh.AddToHTML("Deltat: ".._Deltat.." s", "V")
-			Binesh.AddToHTML("N: "..N_Round, "V")
+			Binesh.AddToHTML("Fi<sub>1</sub>: "..Binesh.Convert_e(_Fi1).." Wb", "V")
+			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
+			Binesh.AddToHTML("Deltat: "..Binesh.Convert_e(_Deltat).." s", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N_Round), "V")
 			Binesh.AddToHTML("Fi<sub>2</sub>: ?", "V")
 		end
 	end

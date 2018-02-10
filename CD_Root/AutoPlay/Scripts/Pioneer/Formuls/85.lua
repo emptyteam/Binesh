@@ -4,10 +4,10 @@ function Binesh.F85()
 			K_Ice = QC / W
 			
 			Binesh.CreateHTMLFile("K = <span>Q<sub>C</sub>/W</span>")
-			Binesh.AddToHTML("K = <span>"..QC.."/"..W.."</span> &#8658; K = "..K_Ice)
+			Binesh.AddToHTML("K = <span>"..Binesh.Convert_e(QC).."/"..Binesh.Convert_e(W).."</span> &#8658; K = "..Binesh.Convert_e(K_Ice))
 			
-			Binesh.AddToHTML("Q<sub>C</sub> = "..QC.." J", "V")
-			Binesh.AddToHTML("W = "..W.." J", "V")
+			Binesh.AddToHTML("Q<sub>C</sub> = "..Binesh.Convert_e(QC).." J", "V")
+			Binesh.AddToHTML("W = "..Binesh.Convert_e(W).." J", "V")
 			Binesh.AddToHTML("K = ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F85()
 			QC = K_Ice*W
 			
 			Binesh.CreateHTMLFile("K = <span>Q<sub>C</sub>/W</span>", "Q<sub>C</sub> = KW")
-			Binesh.AddToHTML("Q<sub>C</sub> = "..K_Ice.."*"..W.." &#8658; Q<sub>C</sub> = "..QC.." J")
+			Binesh.AddToHTML("Q<sub>C</sub> = "..Binesh.Convert_e(K_Ice).."*"..Binesh.Convert_e(W).." &#8658; Q<sub>C</sub> = "..Binesh.Convert_e(QC).." J")
 			
-			Binesh.AddToHTML("K = "..K_Ice ,"V")
-			Binesh.AddToHTML("W = "..W.." J" ,"V")
+			Binesh.AddToHTML("K = "..Binesh.Convert_e(K_Ice) ,"V")
+			Binesh.AddToHTML("W = "..Binesh.Convert_e(W).." J" ,"V")
 			Binesh.AddToHTML("Q<sub>C</sub> = ?" ,"V")
 		end
 	end
@@ -29,10 +29,10 @@ function Binesh.F85()
 		if K_Ice ~= nil and QC ~= nil then
 			W = QC/K_Ice
 			Binesh.CreateHTMLFile("K = <span>Q<sub>C</sub>/W</span>", "W = <span>Q<sub>C</sub>/K</span>")
-			Binesh.AddToHTML("W = <span>"..QC.."/"..K_Ice.."</span> &#8658; W = "..W.." J")
+			Binesh.AddToHTML("W = <span>"..Binesh.Convert_e(QC).."/"..Binesh.Convert_e(K_Ice).."</span> &#8658; W = "..Binesh.Convert_e(W).." J")
 			
-			Binesh.AddToHTML("Q<sub>C</sub> = "..QC.." J" ,"V")
-			Binesh.AddToHTML("K = "..K_Ice ,"V")
+			Binesh.AddToHTML("Q<sub>C</sub> = "..Binesh.Convert_e(QC).." J" ,"V")
+			Binesh.AddToHTML("K = "..Binesh.Convert_e(K_Ice) ,"V")
 			Binesh.AddToHTML("W = ?" ,"V")
 		end
 	end

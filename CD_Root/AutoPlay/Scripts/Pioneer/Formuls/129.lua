@@ -10,13 +10,13 @@ function Binesh.F129()
 			Binesh.CreateHTMLFile("F = qVBsinTeta")
 			F = q*V_Speed*B*Math.Sin(Math.Rad(Teta))
 			
-			Binesh.AddToHTML("q: "..q.." C", "V")
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
-			Binesh.AddToHTML("B: "..B.." T", "V")
-			Binesh.AddToHTML("Teta: "..Teta, "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
+			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
 			Binesh.AddToHTML("F: ?", "V")
 			
-			Binesh.AddToHTML("F = "..q.."*"..V_Speed.."*"..B.."*sin"..Teta.." &#8658; F = "..F.." N")
+			Binesh.AddToHTML("F = "..Binesh.Convert_e(q).."*"..Binesh.Convert_e(V_Speed).."*"..Binesh.Convert_e(B).."*sin"..Binesh.Convert_e(Teta).." &#8658; F = "..Binesh.Convert_e(F).." N")
 		end
 	end
 	
@@ -25,13 +25,13 @@ function Binesh.F129()
 			Binesh.CreateHTMLFile("F = qVBsinTeta", "q = <span>F/VBsinTeta</span>")
 			q = F/(V_Speed*B*Math.Sin(Math.Rad(Teta)))
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
-			Binesh.AddToHTML("B: "..B.." T", "V")
-			Binesh.AddToHTML("Teta: "..Teta, "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
+			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
 			Binesh.AddToHTML("q: ?", "V")
 			
-			Binesh.AddToHTML("q = <span>"..F.."/"..V_Speed.."*"..B.."*sin"..Teta.."</span> &#8658; q = "..q.." C")
+			Binesh.AddToHTML("q = <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(V_Speed).."*"..Binesh.Convert_e(B).."*sin"..Binesh.Convert_e(Teta).."</span> &#8658; q = "..Binesh.Convert_e(q).." C")
 		end
 	end
 	
@@ -40,13 +40,13 @@ function Binesh.F129()
 			Binesh.CreateHTMLFile("F = qVBsinTeta", "V = <span>F/qBsinTeta</span>")
 			V_Speed = F/(q*B*Math.Sin(Math.Rad(Teta)))
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("q: "..q.." C", "V")
-			Binesh.AddToHTML("B: "..B.." T", "V")
-			Binesh.AddToHTML("Teta: "..Teta, "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
+			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
 			Binesh.AddToHTML("V: ?", "V")
 			
-			Binesh.AddToHTML("V = <span>"..F.."/"..q.."*"..B.."*sin"..Teta.."</span> &#8658; V = "..V_Speed.." m/s")
+			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(q).."*"..Binesh.Convert_e(B).."*sin"..Binesh.Convert_e(Teta).."</span> &#8658; V = "..Binesh.Convert_e(V_Speed).." m/s")
 		end
 	end
 	
@@ -56,13 +56,13 @@ function Binesh.F129()
 			
 			B = F/(q*V_Speed*Math.Sin(Math.Rad(Teta)))
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("q: "..q.." C", "V")
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
-			Binesh.AddToHTML("Teta: "..Teta, "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
 			Binesh.AddToHTML("B: ?", "V")
 			
-			Binesh.AddToHTML("B = <span>"..F.."/"..q.."*"..V_Speed.."*sin"..Teta.."</span> &#8658; B = "..B.." T")
+			Binesh.AddToHTML("B = <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(q).."*"..Binesh.Convert_e(V_Speed).."*sin"..Binesh.Convert_e(Teta).."</span> &#8658; B = "..Binesh.Convert_e(B).." T")
 		end
 	end
 	
@@ -74,13 +74,13 @@ function Binesh.F129()
 			Teta_Radian = Math.Asin(Math.Asin(Math.Sin(SinTeta)))
 			Teta = Math.RadToDeg(Teta_Radian)
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("q: "..q.." C", "V")
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
-			Binesh.AddToHTML("B: "..B.." T", "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
 			Binesh.AddToHTML("Teta: ?", "V")
 			
-			Binesh.AddToHTML("sinTeta = <span>"..F.."/"..q.."*"..V_Speed.."*"..B.."</span> &#8658; sinTeta = "..SinTeta.." &#8658; Teta<sub>Radian</sub> = "..Teta_Radian.." &#8658; Teta = "..Teta.."<sup>o</sup>")
+			Binesh.AddToHTML("sinTeta = <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(q).."*"..Binesh.Convert_e(V_Speed).."*"..Binesh.Convert_e(B).."</span> &#8658; sinTeta = "..Binesh.Convert_e(SinTeta).." &#8658; Teta<sub>Radian</sub> = "..Binesh.Convert_e(Teta_Radian).." &#8658; Teta = "..Binesh.Convert_e(Teta).."<sup>o</sup>")
 		end
 	end
 end

@@ -4,11 +4,11 @@ function Binesh.F137()
 			Binesh.CreateHTMLFile("Epsilon = BlV")
 			Epsilon = B*l*V_Speed
 			
-			Binesh.AddToHTML("Epsilon = "..B.."*"..l.."*"..V_Speed.." &#8658; Epsilon = "..Epsilon.." V")
+			Binesh.AddToHTML("Epsilon = "..Binesh.Convert_e(B).."*"..Binesh.Convert_e(l).."*"..Binesh.Convert_e(V_Speed).." &#8658; Epsilon = "..Binesh.Convert_e(Epsilon).." V")
 			
-			Binesh.AddToHTML("B: "..B.." T", "V")
-			Binesh.AddToHTML("l: "..l.." m", "V")
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
+			Binesh.AddToHTML("l: "..Binesh.Convert_e(l).." m", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
 			Binesh.AddToHTML("Epsilon : ?", "V")
 		end
 	end
@@ -18,11 +18,11 @@ function Binesh.F137()
 			Binesh.CreateHTMLFile("Epsilon = BlV","B = <span>Epsilon/lV</span>")
 			B = Epsilon/(l*V_Speed)
 			
-			Binesh.AddToHTML("B = <span>"..Epsilon.."/"..l.."*"..V_Speed.."</span> &#8658; B = "..B.."T")
+			Binesh.AddToHTML("B = <span>"..Binesh.Convert_e(Epsilon).."/"..Binesh.Convert_e(l).."*"..Binesh.Convert_e(V_Speed).."</span> &#8658; B = "..Binesh.Convert_e(B).."T")
 			
-			Binesh.AddToHTML("Epsilon: "..Epsilon.." V", "V")
-			Binesh.AddToHTML("l: "..l.." m", "V")
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
+			Binesh.AddToHTML("l: "..Binesh.Convert_e(l).." m", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
 			Binesh.AddToHTML("B : ?", "V")
 		end
 	end
@@ -32,11 +32,11 @@ function Binesh.F137()
 			Binesh.CreateHTMLFile("Epsilon = BlV","l = <span>Epsilon/BV</span>")
 			l = Epsilon/(B*V_Speed)
 			
-			Binesh.AddToHTML("l = <span>"..Epsilon.."/"..B.."*"..V_Speed.."</span> &#8658; l = "..l.." m")
+			Binesh.AddToHTML("l = <span>"..Binesh.Convert_e(Epsilon).."/"..Binesh.Convert_e(B).."*"..Binesh.Convert_e(V_Speed).."</span> &#8658; l = "..Binesh.Convert_e(l).." m")
 			
-			Binesh.AddToHTML("Epsilon: "..Epsilon.." V", "V")
-			Binesh.AddToHTML("B: "..B.." T", "V")
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
 			Binesh.AddToHTML("l : ?", "V")
 		end
 	end
@@ -46,11 +46,11 @@ function Binesh.F137()
 			Binesh.CreateHTMLFile("Epsilon = BlV","V = <span>Epsilon/lB</span>")
 			V_Speed = Epsilon/B*l
 			
-			Binesh.AddToHTML("V = <span>"..Epsilon.."/"..B.."*"..l.."</span> &#8658; V = "..V_Speed.." m/s")
+			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(Epsilon).."/"..Binesh.Convert_e(B).."*"..Binesh.Convert_e(l).."</span> &#8658; V = "..Binesh.Convert_e(V_Speed).." m/s")
 			
-			Binesh.AddToHTML("Epsilon: "..Epsilon.." V", "V")
-			Binesh.AddToHTML("B: "..B.." T", "V")
-			Binesh.AddToHTML("l: "..l.." m", "V")
+			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
+			Binesh.AddToHTML("l: "..Binesh.Convert_e(l).." m", "V")
 			Binesh.AddToHTML("V : ?", "V")
 		end
 	end

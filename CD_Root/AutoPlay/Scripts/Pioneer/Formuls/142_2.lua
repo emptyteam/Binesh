@@ -5,9 +5,9 @@ function Binesh.F142_2()
 			
 			Omega = 2*Zarib.Pi*f_Hz
 			
-			Binesh.AddToHTML("Omega = 2*"..Zarib.Pi.."*"..f_Hz.." &#8658; Omega = "..Omega.." rad/s")
+			Binesh.AddToHTML("Omega = 2*"..Binesh.Convert_e(Zarib.Pi).."*"..Binesh.Convert_e(f_Hz).." &#8658; Omega = "..Binesh.Convert_e(Omega).." rad/s")
 			
-			Binesh.AddToHTML("f: "..f_Hz.." Hz", "V")
+			Binesh.AddToHTML("f: "..Binesh.Convert_e(f_Hz).." Hz", "V")
 			Binesh.AddToHTML("Omega: ?", "V")
 		end
 	end
@@ -18,9 +18,9 @@ function Binesh.F142_2()
 			
 			f_Hz = 2*Zarib.Pi/Omega
 			
-			Binesh.AddToHTML("f = <span>2*"..Zarib.Pi.."/"..Omega.."</span> &#8658; f = "..f_Hz.." Hz")
+			Binesh.AddToHTML("f = <span>2*"..Binesh.Convert_e(Zarib.Pi).."/"..Binesh.Convert_e(Omega).."</span> &#8658; f = "..Binesh.Convert_e(f_Hz).." Hz")
 			
-			Binesh.AddToHTML("Omega: "..Omega.." rad/s", "V")
+			Binesh.AddToHTML("Omega: "..Binesh.Convert_e(Omega).." rad/s", "V")
 			Binesh.AddToHTML("f: ?", "V")
 		end
 	end

@@ -4,10 +4,10 @@ function Binesh.F87()
 			E_Electric = F/q_0_87
 			
 			Binesh.CreateHTMLFile("E = <span>F/q<sub>0</sub></span>")
-			Binesh.AddToHTML("E = <span>"..F.."/"..q_0_87.."</span> &#8658; E = "..E_Electric.." N/C")
+			Binesh.AddToHTML("E = <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(q_0_87).."</span> &#8658; E = "..Binesh.Convert_e(E_Electric).." N/C")
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("q<sub>0</sub>: "..q_0_87.." C", "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("q<sub>0</sub>: "..Binesh.Convert_e(q_0_87).." C", "V")
 			Binesh.AddToHTML("E: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F87()
 			F = E_Electric*q_0_87
 			
 			Binesh.CreateHTMLFile("E = <span>F/q<sub>0</sub></span>", "F = Eq<sub>0</sub>")
-			Binesh.AddToHTML("F = "..E_Electric.."*"..q_0_87.." &#8658; F = "..F.." N")
+			Binesh.AddToHTML("F = "..Binesh.Convert_e(E_Electric).."*"..Binesh.Convert_e(q_0_87).." &#8658; F = "..Binesh.Convert_e(F).." N")
 			
-			Binesh.AddToHTML("q<sub>0</sub>: "..q_0_87.." C", "V")
-			Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+			Binesh.AddToHTML("q<sub>0</sub>: "..Binesh.Convert_e(q_0_87).." C", "V")
+			Binesh.AddToHTML("E: "..Binesh.Convert_e(E_Electric).." N/C", "V")
 			Binesh.AddToHTML("F: ?", "V")
 		end
 	end
@@ -30,11 +30,11 @@ function Binesh.F87()
 			q_0_87 = F/E_Electric
 			
 			Binesh.CreateHTMLFile("E = <span>F/q<sub>0</sub></span>", "q<sub>0</sub> = <span>F/E</span>")
-			Binesh.AddToHTML("q<sub>0</sub> = <span>"..F.."/"..E_Electric.."</span> &#8658; q<sub>0</sub> = "..q_0_87.." C")
+			Binesh.AddToHTML("q<sub>0</sub> = <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(E_Electric).."</span> &#8658; q<sub>0</sub> = "..Binesh.Convert_e(q_0_87).." C")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("E: "..E_Electric.." N/C", "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("E: "..Binesh.Convert_e(E_Electric).." N/C", "V")
 			Binesh.AddToHTML("q<sub>0</sub>: ?", "V")
 		end
 	end

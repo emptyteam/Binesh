@@ -4,9 +4,9 @@ function Binesh.F94_1()
 			Binesh.CreateHTMLFile("W = -W<sub>E</sub>")
 			W_Out = -WE
 			
-			Binesh.AddToHTML("W = -"..WE.." &#8658; W = "..W_Out.."J")
+			Binesh.AddToHTML("W = -"..Binesh.Convert_e(WE).." &#8658; W = "..Binesh.Convert_e(W_Out).."J")
 			
-			Binesh.AddToHTML("W<sub>E</sub>: "..WE.." J", "V")
+			Binesh.AddToHTML("W<sub>E</sub>: "..Binesh.Convert_e(WE).." J", "V")
 			Binesh.AddToHTML("W: ?", "V")
 		end
 	end
@@ -16,9 +16,9 @@ function Binesh.F94_1()
 			Binesh.CreateHTMLFile("W = -W<sub>E</sub>", "W<sub>E</sub> = -W")
 			WE = -W_Out
 			
-			Binesh.AddToHTML("WE = -"..W_Out.." &#8658; WE = "..WE.."J")
+			Binesh.AddToHTML("WE = -"..Binesh.Convert_e(W_Out).." &#8658; WE = "..Binesh.Convert_e(WE).."J")
 			
-			Binesh.AddToHTML("W: "..W_Out.." J", "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W_Out).." J", "V")
 			Binesh.AddToHTML("W<sub>E</sub>: ?", "V")
 		end
 	end

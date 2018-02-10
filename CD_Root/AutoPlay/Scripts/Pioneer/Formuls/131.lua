@@ -4,11 +4,11 @@ function Binesh.F131()
 			Binesh.CreateHTMLFile("B = <span>NMu<sub>0</sub>I/2R</span>")
 			B = N_Ring * 4*3.14*10^(-7) * I /(2*R_Radius)
 			
-			Binesh.AddToHTML("B = <span>"..N_Ring.."*4*3.14*10<sup>-7</sup>*"..I.."/2*"..R_Radius.."</span> &#8658; B = "..B.." T")
+			Binesh.AddToHTML("B = <span>"..Binesh.Convert_e(N_Ring).."*4*3.14*10<sup>-7</sup>*"..Binesh.Convert_e(I).."/2*"..Binesh.Convert_e(R_Radius).."</span> &#8658; B = "..Binesh.Convert_e(B).." T")
 			
-			Binesh.AddToHTML("R: "..R_Radius.." m", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
-			Binesh.AddToHTML("N: "..N_Ring , "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R_Radius).." m", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N_Ring), "V")
 			Binesh.AddToHTML("B: ?", "V")
 		end
 	end
@@ -18,11 +18,11 @@ function Binesh.F131()
 			Binesh.CreateHTMLFile("B = <span>NMu<sub>0</sub>I/2R</span>", "R = <span>NMu<sub>0</sub>I/2B</span>")
 			R_Radius = N_Ring * 4*Zarib.Pi*10^(-7) * I /(2*B)
 			
-			Binesh.AddToHTML("R = <span>"..N_Ring.."*4*"..Zarib.Pi.."*10<sup>-7</sup>*"..I.."/2*"..B.."</span> &#8658; R = "..R_Radius.." m")
+			Binesh.AddToHTML("R = <span>"..Binesh.Convert_e(N_Ring).."*4*"..Binesh.Convert_e(Zarib.Pi).."*10<sup>-7</sup>*"..Binesh.Convert_e(I).."/2*"..Binesh.Convert_e(B).."</span> &#8658; R = "..Binesh.Convert_e(R_Radius).." m")
 			
-			Binesh.AddToHTML("B: "..B.." T", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
-			Binesh.AddToHTML("N: "..N_Ring , "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N_Ring), "V")
 			Binesh.AddToHTML("R: ?", "V")
 		end
 	end
@@ -32,11 +32,11 @@ function Binesh.F131()
 			Binesh.CreateHTMLFile("B = <span>NMu<sub>0</sub>I/2R</span>", "N = <span>2BR/Mu<sub>0</sub>I</span>")
 			N_Ring = 2*B*R_Radius/(4*Zarib.Pi*10^(-7)*I)
 			
-			Binesh.AddToHTML("N = <span>2*"..B.."*"..R_Radius.."/4*"..Zarib.Pi.."*10<sup>-7</sup>*"..I.."</span> &#8658; N = "..N_Ring)
+			Binesh.AddToHTML("N = <span>2*"..Binesh.Convert_e(B).."*"..Binesh.Convert_e(R_Radius).."/4*"..Binesh.Convert_e(Zarib.Pi).."*10<sup>-7</sup>*"..Binesh.Convert_e(I).."</span> &#8658; N = "..Binesh.Convert_e(N_Ring) )
 			
-			Binesh.AddToHTML("R: "..R_Radius.." m", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
-			Binesh.AddToHTML("B: "..B.." T" , "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R_Radius).." m", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T" , "V")
 			Binesh.AddToHTML("N: ?", "V")
 		end
 	end
@@ -46,11 +46,11 @@ function Binesh.F131()
 			Binesh.CreateHTMLFile("B = <span>NMu<sub>0</sub>I/2R</span>", "I = <span>2BR/Mu<sub>0</sub>N</span>")
 			I = 2*B*R_Radius/(4*Zarib.Pi*10^(-7)*N_Ring)
 			
-			Binesh.AddToHTML("I = <span>2*"..B.."*"..R_Radius.."/4*"..Zarib.Pi.."*10<sup>-7</sup>*"..N_Ring.."</span> &#8658; I = "..I.." A")
+			Binesh.AddToHTML("I = <span>2*"..Binesh.Convert_e(B).."*"..Binesh.Convert_e(R_Radius).."/4*"..Binesh.Convert_e(Zarib.Pi).."*10<sup>-7</sup>*"..Binesh.Convert_e(N_Ring).."</span> &#8658; I = "..Binesh.Convert_e(I).." A")
 			
-			Binesh.AddToHTML("R: "..R_Radius.." m", "V")
-			Binesh.AddToHTML("B: "..B.." T", "V")
-			Binesh.AddToHTML("N: "..N_Ring , "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R_Radius).." m", "V")
+			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N_Ring), "V")
 			Binesh.AddToHTML("I: ?", "V")
 		end
 	end	

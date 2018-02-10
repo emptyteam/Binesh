@@ -4,10 +4,10 @@ function Binesh.F90()
 			Binesh.CreateHTMLFile("SSigma = <span>q/A</span>")
 			SSigma = q/A
 		
-			Binesh.AddToHTML("SSigma = <span>"..q.."/"..A.."</span> &#8658; SSigma = "..SSigma.." C/m<sup>2</sup>")
+			Binesh.AddToHTML("SSigma = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(A).."</span> &#8658; SSigma = "..Binesh.Convert_e(SSigma).." C/m<sup>2</sup>")
 			
-			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
-			Binesh.AddToHTML("q: "..q.." C", "V")
+			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
 			Binesh.AddToHTML("SSigma: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F90()
 			Binesh.CreateHTMLFile("SSigma = <span>q/A</span>", "q = SSigmaA")
 			q = SSigma*A
 			
-			Binesh.AddToHTML("q = "..SSigma.."*"..A.." &#8658; q = "..q.." C");
+			Binesh.AddToHTML("q = "..Binesh.Convert_e(SSigma).."*"..Binesh.Convert_e(A).." &#8658; q = "..Binesh.Convert_e(q).." C");
 			
-			Binesh.AddToHTML("SSigma: "..SSigma.." C/m<sup>2</sup>", "V")
-			Binesh.AddToHTML("q: "..q.." C", "V")
+			Binesh.AddToHTML("SSigma: "..Binesh.Convert_e(SSigma).." C/m<sup>2</sup>", "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
 			Binesh.AddToHTML("A: ?", "V")
 		end
 	end
@@ -31,10 +31,10 @@ function Binesh.F90()
 			
 			A = q/SSigma
 			
-			Binesh.AddToHTML("A = <span>"..q.."/"..SSigma.."</span> &#8658; A = "..A.." m<sup>2</sup>")
+			Binesh.AddToHTML("A = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(SSigma).."</span> &#8658; A = "..Binesh.Convert_e(A).." m<sup>2</sup>")
 			
-			Binesh.AddToHTML("SSigma: "..SSigma.." C/m<sup>2</sup>", "V")
-			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("SSigma: "..Binesh.Convert_e(SSigma).." C/m<sup>2</sup>", "V")
+			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
 			Binesh.AddToHTML("q: ?", "V")
 		end
 	end

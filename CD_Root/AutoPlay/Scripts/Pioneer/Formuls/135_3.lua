@@ -5,12 +5,12 @@ function Binesh.F135_3()
 			Binesh.AddToHTML("t<sub>1</sub> = t<sub>2</sub>+N<span>DeltaFi/Epsilon</span> &#8658; ")
 			_t1 = _t2+(N_Round*(_DeltaFi/Epsilon))
 			
-			Binesh.AddToHTML("t<sub>1</sub> = ".._t2.."+"..N_Round.."<span>".._DeltaFi.."/"..Epsilon.."</span> &#8658; t<sub>1</sub> = ".._t1.." s")
+			Binesh.AddToHTML("t<sub>1</sub> = "..Binesh.Convert_e(_t2).."+"..Binesh.Convert_e(N_Round).."<span>"..Binesh.Convert_e(_DeltaFi).."/"..Binesh.Convert_e(Epsilon).."</span> &#8658; t<sub>1</sub> = "..Binesh.Convert_e(_t1).." s")
 			
-			Binesh.AddToHTML("t<sub>2</sub>: ".._t2.." s", "V")
-			Binesh.AddToHTML("N: "..N_Round, "V")
-			Binesh.AddToHTML("DeltaFi: ".._DeltaFi.." Wb", "V")
-			Binesh.AddToHTML("Epsilon: "..Epsilon.." V", "V")
+			Binesh.AddToHTML("t<sub>2</sub>: "..Binesh.Convert_e(_t2).." s", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N_Round), "V")
+			Binesh.AddToHTML("DeltaFi: "..Binesh.Convert_e(_DeltaFi).." Wb", "V")
+			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
 			Binesh.AddToHTML("t<sub>1</sub>: ?", "V")
 		end
 	end
@@ -21,12 +21,12 @@ function Binesh.F135_3()
 			Binesh.AddToHTML("t<sub>2</sub> = t<sub>1</sub>-N<span>DeltaFi/Epsilon</span> &#8658; ")
 			_t2 = _t1-(N_Round*(_DeltaFi/Epsilon))
 			
-			Binesh.AddToHTML("t<sub>2</sub> = ".._t1.."-"..N_Round.."<span>".._DeltaFi.."/"..Epsilon.."</span> &#8658; t<sub>2</sub> = ".._t2.." s")
+			Binesh.AddToHTML("t<sub>2</sub> = "..Binesh.Convert_e(_t1).."-"..Binesh.Convert_e(N_Round).."<span>"..Binesh.Convert_e(_DeltaFi).."/"..Binesh.Convert_e(Epsilon).."</span> &#8658; t<sub>2</sub> = "..Binesh.Convert_e(_t2).." s")
 			
-			Binesh.AddToHTML("t<sub>1</sub>: ".._t1.." s", "V")
-			Binesh.AddToHTML("N: "..N_Round, "V")
-			Binesh.AddToHTML("DeltaFi: ".._DeltaFi.." Wb", "V")
-			Binesh.AddToHTML("Epsilon: "..Epsilon.." V", "V")
+			Binesh.AddToHTML("t<sub>1</sub>: "..Binesh.Convert_e(_t1).." s", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N_Round), "V")
+			Binesh.AddToHTML("DeltaFi: "..Binesh.Convert_e(_DeltaFi).." Wb", "V")
+			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
 			Binesh.AddToHTML("t<sub>2</sub>: ?", "V")
 		end
 	end

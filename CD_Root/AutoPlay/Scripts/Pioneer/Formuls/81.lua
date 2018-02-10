@@ -5,10 +5,10 @@ function Binesh.F81()
 			
 			QH = Math.Abs(W) + Math.Abs(QC)
 					
-			Binesh.AddToHTML("Q<sub>H</sub> = |"..W.."|+|"..QC.."| &#8658; Q<sub>H</sub> = "..QH.." J")
+			Binesh.AddToHTML("Q<sub>H</sub> = |"..Binesh.Convert_e(W).."|+|"..Binesh.Convert_e(QC).."| &#8658; Q<sub>H</sub> = "..Binesh.Convert_e(QH).." J")
 			
-			Binesh.AddToHTML("W: "..W.." J", "V")
-			Binesh.AddToHTML("Q<sub>C</sub>: "..QC.." J", "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
+			Binesh.AddToHTML("Q<sub>C</sub>: "..Binesh.Convert_e(QC).." J", "V")
 			Binesh.AddToHTML("Q<sub>H</sub>: ?", "V")
 		end
 	end
@@ -19,10 +19,10 @@ function Binesh.F81()
 			
 			W = Math.Abs(QH-Math.Abs(QC))
 			
-			Binesh.AddToHTML("|W| = "..QH.."-|"..QC.."| &#8658; |W| = "..W.." J")
+			Binesh.AddToHTML("|W| = "..Binesh.Convert_e(QH).."-|"..Binesh.Convert_e(QC).."| &#8658; |W| = "..Binesh.Convert_e(W).." J")
 			
-			Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
-			Binesh.AddToHTML("Q<sub>C</sub>: "..QC.." J", "V")
+			Binesh.AddToHTML("Q<sub>H</sub>: "..Binesh.Convert_e(QH).." J", "V")
+			Binesh.AddToHTML("Q<sub>C</sub>: "..Binesh.Convert_e(QC).." J", "V")
 			Binesh.AddToHTML("W: ?", "V")
 		end
 	end
@@ -33,10 +33,10 @@ function Binesh.F81()
 			
 			QC = Math.Abs(QH-Math.Abs(W))
 			
-			Binesh.AddToHTML("|Q<sub>C</sub>| = "..QH.."-|"..W.."| &#8658; Q<sub>C</sub> = "..QC.." J")
+			Binesh.AddToHTML("|Q<sub>C</sub>| = "..Binesh.Convert_e(QH).."-|"..Binesh.Convert_e(W).."| &#8658; Q<sub>C</sub> = "..Binesh.Convert_e(QC).." J")
 			
-			Binesh.AddToHTML("Q<sub>H</sub>: "..QH.." J", "V")
-			Binesh.AddToHTML("W: "..W.." J", "V")
+			Binesh.AddToHTML("Q<sub>H</sub>: "..Binesh.Convert_e(QH).." J", "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
 			Binesh.AddToHTML("Q<sub>C</sub>: ?", "V")
 		end
 	end

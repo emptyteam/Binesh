@@ -5,10 +5,10 @@ function Binesh.F142_3()
 			
 			Teta = Omega*t
 			
-			Binesh.AddToHTML("Teta = "..Omega.."*"..t.." &#8658; Teta = "..Teta)
+			Binesh.AddToHTML("Teta = "..Binesh.Convert_e(Omega).."*"..Binesh.Convert_e(t).." &#8658; Teta = "..Binesh.Convert_e(Teta))
 			
-			Binesh.AddToHTML("Omega: "..Omega.." rad/s", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
+			Binesh.AddToHTML("Omega: "..Binesh.Convert_e(Omega).." rad/s", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
 			Binesh.AddToHTML("Teta: ?", "V")
 		end
 	end
@@ -19,10 +19,10 @@ function Binesh.F142_3()
 			
 			Omega = Teta/t
 			
-			Binesh.AddToHTML("Omega = <span>"..Omega.."/"..t.."</span> &#8658; Omega = "..Omega.." rad/s")
+			Binesh.AddToHTML("Omega = <span>"..Binesh.Convert_e(Omega).."/"..Binesh.Convert_e(t).."</span> &#8658; Omega = "..Binesh.Convert_e(Omega).." rad/s")
 			
-			Binesh.AddToHTML("Teta: "..Teta, "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
+			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
 			Binesh.AddToHTML("Omega: ?", "V")
 		end
 	end
@@ -33,10 +33,10 @@ function Binesh.F142_3()
 			
 			t = Teta/Omega
 			
-			Binesh.AddToHTML("t = "..Teta.."/"..Omega.." &#8658; t = "..t.." s")
+			Binesh.AddToHTML("t = "..Binesh.Convert_e(Teta).."/"..Binesh.Convert_e(Omega).." &#8658; t = "..Binesh.Convert_e(t).." s")
 			
-			Binesh.AddToHTML("Teta: "..Teta, "V")
-			Binesh.AddToHTML("Omega: "..Omega.." rad/s", "V")
+			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
+			Binesh.AddToHTML("Omega: "..Binesh.Convert_e(Omega).." rad/s", "V")
 			Binesh.AddToHTML("t: ?", "V")
 		end
 	end

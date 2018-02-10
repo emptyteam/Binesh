@@ -4,10 +4,10 @@ function Binesh.F95()
 			C_Condenser = q/V_Electric
 			
 			Binesh.CreateHTMLFile("C = <span>q/V</span>")
-			Binesh.AddToHTML("C = <span>"..q.."/"..V_Electric.."</span> &#8658; C = "..C_Condenser.." F")
+			Binesh.AddToHTML("C = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(V_Electric).."</span> &#8658; C = "..Binesh.Convert_e(C_Condenser).." F")
 			
-			Binesh.AddToHTML("q: "..q.." C", "V")
-			Binesh.AddToHTML("V: "..V_Electric.." V", "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
 			Binesh.AddToHTML("C: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F95()
 			q = C_Condenser*V_Electric
 			
 			Binesh.CreateHTMLFile("C = <span>q/V</span>", "q =  CV")
-			Binesh.AddToHTML("q = "..C_Condenser.."*"..V_Electric.."&#8658; q = "..q.." C")
+			Binesh.AddToHTML("q = "..Binesh.Convert_e(C_Condenser).."*"..Binesh.Convert_e(V_Electric).."&#8658; q = "..Binesh.Convert_e(q).." C")
 			
-			Binesh.AddToHTML("C: "..C_Condenser.." F", "V")
-			Binesh.AddToHTML("V: "..V_Electric.." V", "V")
+			Binesh.AddToHTML("C: "..Binesh.Convert_e(C_Condenser).." F", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
 			Binesh.AddToHTML("q: ?", "V")
 		end
 	end
@@ -30,10 +30,10 @@ function Binesh.F95()
 			V_Electric = q/C_Condenser
 			
 			Binesh.CreateHTMLFile("C = <span>q/V</span>", "V = <span>q/C</span>")
-			Binesh.AddToHTML("V = <span>"..q.."/"..C_Condenser.."</span> &#8658; V = "..V_Electric.." V")
+			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(C_Condenser).."</span> &#8658; V = "..Binesh.Convert_e(V_Electric).." V")
 			
-			Binesh.AddToHTML("q: "..q.." C", "V")
-			Binesh.AddToHTML("C: "..C_Condenser.." F", "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
+			Binesh.AddToHTML("C: "..Binesh.Convert_e(C_Condenser).." F", "V")
 			Binesh.AddToHTML("V: ?", "V")
 		end
 	end

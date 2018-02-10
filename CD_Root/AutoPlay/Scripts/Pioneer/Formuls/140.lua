@@ -4,10 +4,10 @@ function Binesh.F140()
 			Binesh.CreateHTMLFile("U = <span>1/2</span>LI<sup>2</sup>")
 			U_PipeWire = 0.5*L_Self*(I^2)
 			
-			Binesh.AddToHTML("U = <span>1/2</span>*"..L_Self.."*"..I.."<sup>2</sup> &#8658; U = "..U_PipeWire.." J")
+			Binesh.AddToHTML("U = <span>1/2</span>*"..Binesh.Convert_e(L_Self).."*"..Binesh.Convert_e(I).."<sup>2</sup> &#8658; U = "..Binesh.Convert_e(U_PipeWire).." J")
 			
-			Binesh.AddToHTML("L: "..L_Self.." m", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
+			Binesh.AddToHTML("L: "..Binesh.Convert_e(L_Self).." m", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
 			Binesh.AddToHTML("U: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F140()
 			Binesh.CreateHTMLFile("U = <span>1/2</span>LI<sup>2</sup>", "L = 2U/I<sup>2</sup>")
 			L_Self = 2*U_PipeWire/(I^2)
 			
-			Binesh.AddToHTML("L = 2*"..U_PipeWire.."/"..I.."<sup>2</sup> &#8658; L = "..L_Self.." m")
+			Binesh.AddToHTML("L = 2*"..Binesh.Convert_e(U_PipeWire).."/"..Binesh.Convert_e(I).."<sup>2</sup> &#8658; L = "..Binesh.Convert_e(L_Self).." H")
 			
-			Binesh.AddToHTML("U: "..U_PipeWire.." J", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
+			Binesh.AddToHTML("U: "..Binesh.Convert_e(U_PipeWire).." J", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
 			Binesh.AddToHTML("L: ?", "V")
 		end
 	end
@@ -30,10 +30,10 @@ function Binesh.F140()
 			Binesh.CreateHTMLFile("U = <span>1/2</span>LI<sup>2</sup>", "I = Sqrt(2U/L)")
 			I = Math.Sqrt(2*U_PipeWire/L_Self)
 			
-			Binesh.AddToHTML("I = Sqrt(2*"..U_PipeWire.."/"..L_Self..") &#8658; I = "..I.." A")
+			Binesh.AddToHTML("I = Sqrt(2*"..Binesh.Convert_e(U_PipeWire).."/"..Binesh.Convert_e(L_Self)..") &#8658; I = "..Binesh.Convert_e(I).." A")
 			
-			Binesh.AddToHTML("U: "..U_PipeWire.." J", "V")
-			Binesh.AddToHTML("L: "..L_Self.." m", "V")
+			Binesh.AddToHTML("U: "..Binesh.Convert_e(U_PipeWire).." J", "V")
+			Binesh.AddToHTML("L: "..Binesh.Convert_e(L_Self).." m", "V")
 			Binesh.AddToHTML("I: ?", "V")
 		end
 	end

@@ -4,11 +4,11 @@ function Binesh.F102()
 			Binesh.CreateHTMLFile("V<sub>1</sub> = <span>V<sub>2</sub>C<sub>2</sub>/C<sub>1</sub></span>")
 			V1_Electric = (V2_Electric*C2)/C1
 		
-			Binesh.AddToHTML("V<sub>1</sub> = <span>"..V2_Electric.."*"..C2.."/"..C1.."</span> &#8658; V<sub>1</sub> = "..V1_Electric.." V")
+			Binesh.AddToHTML("V<sub>1</sub> = <span>"..Binesh.Convert_e(V2_Electric).."*"..Binesh.Convert_e(C2).."/"..Binesh.Convert_e(C1).."</span> &#8658; V<sub>1</sub> = "..Binesh.Convert_e(V1_Electric).." V")
 			
-			Binesh.AddToHTML("C<sub>1</sub>: "..C1.." F", "V")
-			Binesh.AddToHTML("C<sub>2</sub>: "..C2.." F", "V")
-			Binesh.AddToHTML("V<sub>2</sub>: "..V2_Electric.." V", "V")
+			Binesh.AddToHTML("C<sub>1</sub>: "..Binesh.Convert_e(C1).." F", "V")
+			Binesh.AddToHTML("C<sub>2</sub>: "..Binesh.Convert_e(C2).." F", "V")
+			Binesh.AddToHTML("V<sub>2</sub>: "..Binesh.Convert_e(V2_Electric).." V", "V")
 			Binesh.AddToHTML("V<sub>1</sub>: ?", "V")
 		end
 	end
@@ -19,11 +19,11 @@ function Binesh.F102()
 			
 			V2_Electric = (V1_Electric*C1)/C2
 			
-			Binesh.AddToHTML("V<sub>2</sub> = <span>"..V1_Electric.."*"..C1.."/"..C2.."</span> &#8658; V<sub>2</sub> = "..V2_Electric.." V")
+			Binesh.AddToHTML("V<sub>2</sub> = <span>"..Binesh.Convert_e(V1_Electric).."*"..Binesh.Convert_e(C1).."/"..Binesh.Convert_e(C2).."</span> &#8658; V<sub>2</sub> = "..Binesh.Convert_e(V2_Electric).." V")
 			
-			Binesh.AddToHTML("C<sub>1</sub>: "..C1.." F", "V")
-			Binesh.AddToHTML("C<sub>2</sub>: "..C2.." F", "V")
-			Binesh.AddToHTML("V<sub>1</sub>: "..V1_Electric.." V", "V")
+			Binesh.AddToHTML("C<sub>1</sub>: "..Binesh.Convert_e(C1).." F", "V")
+			Binesh.AddToHTML("C<sub>2</sub>: "..Binesh.Convert_e(C2).." F", "V")
+			Binesh.AddToHTML("V<sub>1</sub>: "..Binesh.Convert_e(V1_Electric).." V", "V")
 			Binesh.AddToHTML("V<sub>2</sub>: ?", "V")
 		end
 	end
@@ -33,11 +33,11 @@ function Binesh.F102()
 			Binesh.CreateHTMLFile("V<sub>1</sub> = <span>V<sub>2</sub>C<sub>2</sub>/C<sub>1</sub></span>","C<sub>1</sub> = <span>V<sub>2</sub>C<sub>2</sub>/V<sub>1</sub></span>")
 			C1 = (V2_Electric*C2)/V1_Electric
 		
-			Binesh.AddToHTML("C<sub>1</sub> = <span>"..V2_Electric.."*"..C2.."/"..V1_Electric.."</span> &#8658; C<sub>1</sub> = "..C1.." F")
+			Binesh.AddToHTML("C<sub>1</sub> = <span>"..Binesh.Convert_e(V2_Electric).."*"..Binesh.Convert_e(C2).."/"..Binesh.Convert_e(V1_Electric).."</span> &#8658; C<sub>1</sub> = "..Binesh.Convert_e(C1).." F")
 			
-			Binesh.AddToHTML("C<sub>2</sub>: "..C1.." F", "V")
-			Binesh.AddToHTML("V<sub>2</sub>: "..V2_Electric.." V", "V")
-			Binesh.AddToHTML("V<sub>1</sub>: "..V1_Electric.." V", "V")
+			Binesh.AddToHTML("C<sub>2</sub>: "..Binesh.Convert_e(C1).." F", "V")
+			Binesh.AddToHTML("V<sub>2</sub>: "..Binesh.Convert_e(V2_Electric).." V", "V")
+			Binesh.AddToHTML("V<sub>1</sub>: "..Binesh.Convert_e(V1_Electric).." V", "V")
 			Binesh.AddToHTML("C<sub>1</sub>: ?", "V")
 		end
 	end
@@ -48,12 +48,12 @@ function Binesh.F102()
 			
 			C2 = (V1_Electric*C1)/V2_Electric
 			
-			Binesh.AddToHTML("C<sub>2</sub> = <span>"..V1_Electric.."*"..C1.."/"..V2_Electric.."</span> &#8658; C<sub>2</sub> = "..C2.." F")
+			Binesh.AddToHTML("C<sub>2</sub> = <span>"..Binesh.Convert_e(V1_Electric).."*"..Binesh.Convert_e(C1).."/"..Binesh.Convert_e(V2_Electric).."</span> &#8658; C<sub>2</sub> = "..Binesh.Convert_e(C2).." F")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("C<sub>1</sub>: "..C1.." F", "V")
-			Binesh.AddToHTML("V<sub>2</sub>: "..V2_Electric.." V", "V")
-			Binesh.AddToHTML("V<sub>1</sub>: "..V1_Electric.." V", "V")
+			Binesh.AddToHTML("C<sub>1</sub>: "..Binesh.Convert_e(C1).." F", "V")
+			Binesh.AddToHTML("V<sub>2</sub>: "..Binesh.Convert_e(V2_Electric).." V", "V")
+			Binesh.AddToHTML("V<sub>1</sub>: "..Binesh.Convert_e(V1_Electric).." V", "V")
 			Binesh.AddToHTML("C<sub>2</sub>: ?", "V")
 		end
 	end

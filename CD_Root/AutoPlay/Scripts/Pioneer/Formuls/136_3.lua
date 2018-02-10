@@ -6,12 +6,12 @@ function Binesh.F136_3()
 			
 			_Fi1 = _Fi2-(_Deltaq*R)/N_Round
 			
-			Binesh.AddToHTML("Fi<sub>1</sub> = ".._Fi2.."- <span>".._Deltaq.."*"..R.."/"..N_Round.."</span> &#8658; Fi<sub>1</sub> = ".._Fi1.." Wb")
+			Binesh.AddToHTML("Fi<sub>1</sub> = "..Binesh.Convert_e(_Fi2).."- <span>"..Binesh.Convert_e(_Deltaq).."*"..Binesh.Convert_e(R).."/"..Binesh.Convert_e(N_Round).."</span> &#8658; Fi<sub>1</sub> = "..Binesh.Convert_e(_Fi1).." Wb")
 			
-			Binesh.AddToHTML("Fi<sub>2</sub>: ".._Fi2.." Wb", "V")
-			Binesh.AddToHTML("Deltaq: ".._Deltaq.." C", "V")
-			Binesh.AddToHTML("R: "..R.." Ohm", "V")
-			Binesh.AddToHTML("N: "..N_Round, "V")
+			Binesh.AddToHTML("Fi<sub>2</sub>: "..Binesh.Convert_e(_Fi2).." Wb", "V")
+			Binesh.AddToHTML("Deltaq: "..Binesh.Convert_e(_Deltaq).." C", "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).." Ohm", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N_Round), "V")
 			Binesh.AddToHTML("Fi<sub>1</sub>: ?", "V")
 		end
 	end
@@ -23,12 +23,12 @@ function Binesh.F136_3()
 			
 			_Fi2 = _Fi1+(_Deltaq*R)/N_Round
 			
-			Binesh.AddToHTML("Fi<sub>2</sub> = ".._Fi1.."+ <span>".._Deltaq.."*"..R.."/"..N_Round.."</span> &#8658; Fi<sub>2</sub> = ".._Fi2.." Wb")
+			Binesh.AddToHTML("Fi<sub>2</sub> = "..Binesh.Convert_e(_Fi1).."+ <span>"..Binesh.Convert_e(_Deltaq).."*"..Binesh.Convert_e(R).."/"..Binesh.Convert_e(N_Round).."</span> &#8658; Fi<sub>2</sub> = "..Binesh.Convert_e(_Fi2).." Wb")
 			
-			Binesh.AddToHTML("Fi<sub>1</sub>: ".._Fi1.." Wb", "V")
-			Binesh.AddToHTML("Deltaq: ".._Deltaq.." C", "V")
-			Binesh.AddToHTML("R: "..R.." Ohm", "V")
-			Binesh.AddToHTML("N: "..N_Round, "V")
+			Binesh.AddToHTML("Fi<sub>1</sub>: "..Binesh.Convert_e(_Fi1).." Wb", "V")
+			Binesh.AddToHTML("Deltaq: "..Binesh.Convert_e(_Deltaq).." C", "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).." Ohm", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N_Round), "V")
 			Binesh.AddToHTML("Fi<sub>2</sub>: ?", "V")
 		end
 	end

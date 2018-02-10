@@ -4,10 +4,10 @@ function Binesh.F146()
 			Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>L<sub>2</sub>)")
 			M_Injection = math.sqrt(L1*L2)
 			
-			Binesh.AddToHTML("M = Sqrt("..L1.."*"..L2..") &#8658; M = "..M_Injection.." s")
+			Binesh.AddToHTML("M = Sqrt("..Binesh.Convert_e(L1).."*"..Binesh.Convert_e(L2)..") &#8658; M = "..Binesh.Convert_e(M_Injection).." s")
 			
-			Binesh.AddToHTML("L<sup>1</sup> "..L1.." m", "V")
-			Binesh.AddToHTML("L<sup>2</sup> "..L2.." m", "V")
+			Binesh.AddToHTML("L<sup>1</sup> "..Binesh.Convert_e(L1).." m", "V")
+			Binesh.AddToHTML("L<sup>2</sup> "..Binesh.Convert_e(L2).." m", "V")
 			Binesh.AddToHTML("M: ?", "V")
 		end
 	end
@@ -17,11 +17,11 @@ function Binesh.F146()
 			Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>*L<sub>2</sub>)", "L<sub>1</sub> = <span>M<sup>2</sup>/L<sub>2</sub></span>")
 			L1 = (M^2)/L2
 			
-			Binesh.AddToHTML("L1 = <span>"..M.."<sup>2</sup>/"..L2.."</span> &#8658; L<sub>1</sub> = "..L1.." m")
+			Binesh.AddToHTML("L1 = <span>"..Binesh.Convert_e(M).."<sup>2</sup>/"..Binesh.Convert_e(L2).."</span> &#8658; L<sub>1</sub> = "..Binesh.Convert_e(L1).." m")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("M: "..M_Injection.." s", "V")
-			Binesh.AddToHTML("L<sup>2</sup> "..L2.." m", "V")
+			Binesh.AddToHTML("M: "..Binesh.Convert_e(M_Injection).." s", "V")
+			Binesh.AddToHTML("L<sup>2</sup> "..Binesh.Convert_e(L2).." m", "V")
 			Binesh.AddToHTML("L<sup>1</sup> ?", "V")
 		end
 	end
@@ -31,11 +31,11 @@ function Binesh.F146()
 			Binesh.CreateHTMLFile("M = sqrt(L<sub>1</sub>*L<sub>2</sub>)", "L<sub>2</sub> = <span>M<sup>2</sup>/L<sub>1</sub></span>")
 			L2 = (M^2)/L1
 			
-			Binesh.AddToHTML("L2 = <span>"..M.."<sup>2</sup>/"..L1.."</span> &#8658; L<sub>2</sub> = "..L2.." m")
+			Binesh.AddToHTML("L2 = <span>"..Binesh.Convert_e(M).."<sup>2</sup>/"..Binesh.Convert_e(L1).."</span> &#8658; L<sub>2</sub> = "..Binesh.Convert_e(L2).." m")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("M: "..M_Injection.." s", "V")
-			Binesh.AddToHTML("L<sup>1</sup> "..L1.." m", "V")
+			Binesh.AddToHTML("M: "..Binesh.Convert_e(M_Injection).." s", "V")
+			Binesh.AddToHTML("L<sup>1</sup> "..Binesh.Convert_e(L1).." m", "V")
 			Binesh.AddToHTML("L<sup>2</sup> ?", "V")
 		end
 	end
