@@ -6,7 +6,7 @@ function Binesh.F4_2()
 			
 			_Teta1 = (-Q/(m*c)) + _Teta2
 			
-			Binesh.AddToHTML("Teta<sub>1</sub> = ".._Teta2.."- <span>"..Q.."/"..m.."*"..c.."</span> &#8658; Teta<sub>1</sub> = ".._Teta1.."<sup>o</sup>C")
+			Binesh.AddToHTML("Teta<sub>1</sub> = "..Binesh.Convert_e(_Teta2).."- <span>"..Binesh.Convert_e(Q).."/"..Binesh.Convert_e(m).."*"..Binesh.Convert_e(c).."</span> &#8658; Teta<sub>1</sub> = "..Binesh.Convert_e(_Teta1).."<sup>o</sup>C")
 		end
 	end
 	
@@ -17,7 +17,7 @@ function Binesh.F4_2()
 			
 			_Teta2 = (-Q/(m*c)) + _Teta1
 			
-			Binesh.AddToHTML("Teta<sub>2</sub> = ".._Teta1.."+ <span>"..Q.."/"..m.."*"..c.."</span> &#8658; Teta<sub>2</sub> = ".._Teta2.."<sup>o</sup>C")
+			Binesh.AddToHTML("Teta<sub>2</sub> = "..Binesh.Convert_e(_Teta1).."+ <span>"..Binesh.Convert_e(Q).."/"..Binesh.Convert_e(m).."*"..Binesh.Convert_e(c).."</span> &#8658; Teta<sub>2</sub> = "..Binesh.Convert_e(_Teta2).."<sup>o</sup>C")
 		end
 	end
 end

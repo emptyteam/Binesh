@@ -4,11 +4,11 @@ function Binesh.F78_2_1()
 			Binesh.CreateHTMLFile("Q = <span>C<sub>p</sub>/R</span>PDeltaV")
 			Q = (CP/Zarib.R)*P*_DeltaV
 			
-			Binesh.AddToHTML("Q = <span>"..CP.."/"..Zarib.R.."</span>*"..P.."*".._DeltaV.." &#8658; Q = "..Q.." J")
+			Binesh.AddToHTML("Q = <span>"..Binesh.Convert_e(CP).."/"..Binesh.Convert_e(Zarib.R).."</span>*"..Binesh.Convert_e(P).."*"..Binesh.Convert_e(_DeltaV).." &#8658; Q = "..Binesh.Convert_e(Q).." J")
 			
-			Binesh.AddToHTML("P: "..P.." Pa", "V")
-			Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
-			Binesh.AddToHTML("DeltaV: ".._DeltaV.." m<sup>3</sup>", "V")
+			Binesh.AddToHTML("P: "..Binesh.Convert_e(P).." Pa", "V")
+			Binesh.AddToHTML("C<sub>P</sub>: "..Binesh.Convert_e(CP).." J/mol.K", "V")
+			Binesh.AddToHTML("DeltaV: "..Binesh.Convert_e(_DeltaV).." m<sup>3</sup>", "V")
 			Binesh.AddToHTML("Q: ?", "V")
 		end
 	end
@@ -18,11 +18,11 @@ function Binesh.F78_2_1()
 			Binesh.CreateHTMLFile("Q = <span>C<sub>p</sub>/R</span>PDeltaV", "P = <span>QR/C<sub>P</sub>DeltaV</span>")
 			P = (Q*Zarib.R)/(CP*_DeltaV)
 			
-			Binesh.AddToHTML("P = <span>"..Q.."*"..Zarib.R.."/"..CP.."*".._DeltaV.."</span> &#8658; P = "..P.." Pa")
+			Binesh.AddToHTML("P = <span>"..Binesh.Convert_e(Q).."*"..Binesh.Convert_e(Zarib.R).."/"..Binesh.Convert_e(CP).."*"..Binesh.Convert_e(_DeltaV).."</span> &#8658; P = "..Binesh.Convert_e(P).." Pa")
 			
-			Binesh.AddToHTML("Q: "..Q.." J", "V")
-			Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
-			Binesh.AddToHTML("DeltaV: ".._DeltaV.." m<sup>3</sup>", "V")
+			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+			Binesh.AddToHTML("C<sub>P</sub>: "..Binesh.Convert_e(CP).." J/mol.K", "V")
+			Binesh.AddToHTML("DeltaV: "..Binesh.Convert_e(_DeltaV).." m<sup>3</sup>", "V")
 			Binesh.AddToHTML("P: ?", "V")
 		end
 	end
@@ -32,11 +32,11 @@ function Binesh.F78_2_1()
 			Binesh.CreateHTMLFile("Q = <span>C<sub>p</sub>/R</span>PDeltaV", "C<sub>P</sub> = <span>QR/PDeltaV</span>")
 			CP = (Q*Zarib.R)/(P*_DeltaV)
 			
-			Binesh.AddToHTML("C<sub>p</sub> = <span>"..Q.."*"..Zarib.R.."/"..P.."*".._DeltaV.."</span> &#8658; C<sub>p</sub> = "..CP.." J/mol.K")
+			Binesh.AddToHTML("C<sub>p</sub> = <span>"..Binesh.Convert_e(Q).."*"..Binesh.Convert_e(Zarib.R).."/"..Binesh.Convert_e(P).."*"..Binesh.Convert_e(_DeltaV).."</span> &#8658; C<sub>p</sub> = "..Binesh.Convert_e(CP).." J/mol.K")
 			
-			Binesh.AddToHTML("Q: "..Q.." J", "V")
-			Binesh.AddToHTML("P: "..P.." Pa", "V")
-			Binesh.AddToHTML("DeltaV: ".._DeltaV.." m<sup>3</sup>", "V")
+			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+			Binesh.AddToHTML("P: "..Binesh.Convert_e(P).." Pa", "V")
+			Binesh.AddToHTML("DeltaV: "..Binesh.Convert_e(_DeltaV).." m<sup>3</sup>", "V")
 			Binesh.AddToHTML("C<sub>P</sub>: ?", "V")
 		end
 	end
@@ -46,11 +46,11 @@ function Binesh.F78_2_1()
 			Binesh.CreateHTMLFile("Q = <span>C<sub>p</sub>/R</span>PDeltaV", "DeltaV = <span>QR/C<sub>p</sub>P</span>")
 			_DeltaV = (Q*R)/(CP*P)
 			
-			Binesh.AddToHTML("DeltaV = <span>("..Q.."*"..R..")/("..CP.."*"..P..")</span> &#8658; DeltaV = ".._DeltaV.." m<sup>3</sup>")
+			Binesh.AddToHTML("DeltaV = <span>("..Binesh.Convert_e(Q).."*"..Binesh.Convert_e(R)..")/("..Binesh.Convert_e(CP).."*"..Binesh.Convert_e(P)..")</span> &#8658; DeltaV = "..Binesh.Convert_e(_DeltaV).." m<sup>3</sup>")
 			
-			Binesh.AddToHTML("Q: "..Q.." J", "V")
-			Binesh.AddToHTML("P: "..P.." Pa", "V")
-			Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
+			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+			Binesh.AddToHTML("P: "..Binesh.Convert_e(P).." Pa", "V")
+			Binesh.AddToHTML("C<sub>P</sub>: "..Binesh.Convert_e(CP).." J/mol.K", "V")
 			Binesh.AddToHTML("DeltaV: ?", "V")
 		end
 	end

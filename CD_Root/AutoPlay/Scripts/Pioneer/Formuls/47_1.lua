@@ -4,10 +4,10 @@ function Binesh.F47_1()
 			Binesh.CreateHTMLFile("f<sub>s,max</sub> = Mu<sub>s</sub>N")
 			fs_max = Mus*N
 			
-			Binesh.AddToHTML("f<sub>s,max</sub> = "..Mus.."*"..N.." &#8658; f<sub>s,max</sub> = "..fs_max.." N")
+			Binesh.AddToHTML("f<sub>s,max</sub> = "..Binesh.Convert_e(Mus).."*"..Binesh.Convert_e(N).." &#8658; f<sub>s,max</sub> = "..Binesh.Convert_e(fs_max).." N")
 			
-			Binesh.AddToHTML("N: "..N.." N", "V")
-			Binesh.AddToHTML("Mu<sub>s</sub>: "..Mus, "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N).." N", "V")
+			Binesh.AddToHTML("Mu<sub>s</sub>: "..Binesh.Convert_e(Mus), "V")
 			Binesh.AddToHTML("f<sub>s,max</sub>: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F47_1()
 			Binesh.CreateHTMLFile("f<sub>s,max</sub> = Mu<sub>s</sub>N", "N = <span>f<sub>s,max</sub>/Mu<sub>s</sub></span>")
 			N = fs_max/Mus
 			
-			Binesh.AddToHTML("N = <span>"..fs_max.."/"..Mus.."</span> &#8658; N = "..N.." N")
+			Binesh.AddToHTML("N = <span>"..Binesh.Convert_e(fs_max).."/"..Binesh.Convert_e(Mus).."</span> &#8658; N = "..Binesh.Convert_e(N).." N")
 			
-			Binesh.AddToHTML("f<sub>s,max</sub>: "..fs_max.." N", "V")
-			Binesh.AddToHTML("Mu<sub>s</sub>: "..Mus, "V")
+			Binesh.AddToHTML("f<sub>s,max</sub>: "..Binesh.Convert_e(fs_max).." N", "V")
+			Binesh.AddToHTML("Mu<sub>s</sub>: "..Binesh.Convert_e(Mus), "V")
 			Binesh.AddToHTML("N: ?", "V")
 		end
 	end
@@ -30,10 +30,10 @@ function Binesh.F47_1()
 			Binesh.CreateHTMLFile("f<sub>s,max</sub> = Mu<sub>s</sub>N", "Mu<sub>s</sub> = <span>f<sub>s,max</sub>/N</span>")
 			Mus = fs_max/N
 			
-			Binesh.AddToHTML("Mu<sub>s</sub> = <span>"..fs_max.."/"..N.."</span> &#8658; Mu<sub>s</sub> = "..Mus)
+			Binesh.AddToHTML("Mu<sub>s</sub> = <span>"..Binesh.Convert_e(fs_max).."/"..Binesh.Convert_e(N).."</span> &#8658; Mu<sub>s</sub> = "..Binesh.Convert_e(Mus))
 			
-			Binesh.AddToHTML("f<sub>s,max</sub>: "..fs_max.." N", "V")
-			Binesh.AddToHTML("N: "..N.." N", "V")
+			Binesh.AddToHTML("f<sub>s,max</sub>: "..Binesh.Convert_e(fs_max).." N", "V")
+			Binesh.AddToHTML("N: "..Binesh.Convert_e(N).." N", "V")
 			Binesh.AddToHTML("Mu<sub>s</sub>: ?", "V")
 		end
 	end

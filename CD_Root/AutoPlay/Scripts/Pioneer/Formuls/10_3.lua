@@ -4,10 +4,10 @@ function Binesh.F10_3()
 			Binesh.CreateHTMLFile("P = <span>V<sup>2</sup>/R</span>")
 			P_Power = (V_Electric^2)/R
 			
-			Binesh.AddToHTML("P = <span>"..V_Electric.."<sup>2</sup>/"..I.."</span> &#8658; P = "..P_Power.." W")
+			Binesh.AddToHTML("P = <span>"..Binesh.Convert_e(V_Electric).."<sup>2</sup>/"..Binesh.Convert_e(I).."</span> &#8658; P = "..Binesh.Convert_e(P_Power).." W")
 			
-			Binesh.AddToHTML("V: "..V_Electric.."V", "V")
-			Binesh.AddToHTML("R: "..R.."Ohm", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).."V", "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).."Ohm", "V")
 			Binesh.AddToHTML("P: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F10_3()
 			Binesh.CreateHTMLFile("P = <span>V<sup>2</sup>/R</span>", "V = sqrt(P*R)")
 			V_Electric = math.sqrt(P_Power*R)
 			
-			Binesh.AddToHTML("V = sqrt("..P_Power.."*"..R..") &#8658; V = "..V_Electric.." V")
+			Binesh.AddToHTML("V = sqrt("..Binesh.Convert_e(P_Power).."*"..Binesh.Convert_e(R)..") &#8658; V = "..Binesh.Convert_e(V_Electric).." V")
 			
-			Binesh.AddToHTML("P: "..P_Power.."W", "V")
-			Binesh.AddToHTML("R: "..R.."Ohm", "V")
+			Binesh.AddToHTML("P: "..Binesh.Convert_e(P_Power).."W", "V")
+			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).."Ohm", "V")
 			Binesh.AddToHTML("V: ?", "V")
 		end
 	end
@@ -30,10 +30,10 @@ function Binesh.F10_3()
 			Binesh.CreateHTMLFile("P = <span>V<sup>2</sup>/R</span>", "R = <span>V<sup>2</sup>/P</span>")
 			R = (V_Electric^2)/P_Power
 			
-			Binesh.AddToHTML("R = <span>"..V_Electric.."<sup>2</sup>/"..P_Power.."</span> &#8658; R = "..R.." Ohm")
+			Binesh.AddToHTML("R = <span>"..Binesh.Convert_e(V_Electric).."<sup>2</sup>/"..Binesh.Convert_e(P_Power).."</span> &#8658; R = "..Binesh.Convert_e(R).." Ohm")
 			
-			Binesh.AddToHTML("P: "..P_Power.."W", "V")
-			Binesh.AddToHTML("V: "..V_Electric.."V", "V")
+			Binesh.AddToHTML("P: "..Binesh.Convert_e(P_Power).."W", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).."V", "V")
 			Binesh.AddToHTML("R: ?", "V")
 		end
 	end

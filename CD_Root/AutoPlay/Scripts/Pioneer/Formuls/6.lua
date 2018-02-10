@@ -1,13 +1,23 @@
 function Binesh.F6()
+	if t_Min ~= nil and t == nil then
+		t = t_Min*60
+		Binesh.AddToHTML("t = 60t<sub>Min</sub>", "t = 60*"..t_Min.." &#8658; t = "..t.." s")
+	end
+	
+	if t_Hour ~= nil and t == nil then
+		t = t_Hour*3600
+		Binesh.AddToHTML("t = 3600t<sub>Hour</sub>", "t = 3600*"..t_Hour.." &#8658; t = "..t.." s")
+	end
+	
 	if I == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1) then
 		if q ~= nil and t ~= nil then
 			Binesh.CreateHTMLFile("I = <span>q/t</span>")
 			I = (q)/(t)
 			
-			Binesh.AddToHTML("I = <span>"..q.."/"..t.."</span> &#8658; I = "..I.." A")
+			Binesh.AddToHTML("I = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(t).."</span> &#8658; I = "..Binesh.Convert_e(I).." A")
 			
-			Binesh.AddToHTML("t: "..t.." s", "V")
-			Binesh.AddToHTML("q: "..q.." C", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
 			Binesh.AddToHTML("I: ?", "V")
 		end
 	end
@@ -17,10 +27,10 @@ function Binesh.F6()
 			Binesh.CreateHTMLFile("I = <span>q/t</span>", "q = I*t")
 			q = (I)*(t)
 			
-			Binesh.AddToHTML("q = "..I.."*"..t.." &#8658; q = "..q.." C")
+			Binesh.AddToHTML("q = "..Binesh.Convert_e(I).."*"..Binesh.Convert_e(t).." &#8658; q = "..Binesh.Convert_e(q).." C")
 			
-			Binesh.AddToHTML("I: "..I.." A", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
 			Binesh.AddToHTML("q: ?", "V")
 		end
 	end
@@ -30,10 +40,10 @@ function Binesh.F6()
 			Binesh.CreateHTMLFile("I = <span>q/t</span>", "t = <span>q/I</span>")
 			t = (q)/(I)
 			
-			Binesh.AddToHTML("t = <span>"..q.."/"..I.."</span> &#8658; t = "..t.." s")
+			Binesh.AddToHTML("t = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(I).."</span> &#8658; t = "..Binesh.Convert_e(t).." s")
 			
-			Binesh.AddToHTML("I: "..I.." A", "V")
-			Binesh.AddToHTML("q: "..q.." C", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
+			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
 			Binesh.AddToHTML("t: ?", "V")
 		end
 	end

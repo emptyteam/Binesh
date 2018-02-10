@@ -4,10 +4,10 @@ function Binesh.F43_1()
 			Binesh.CreateHTMLFile("F = -kDeltax")
 			F = -k_Coil*_Deltax
 			
-			Binesh.AddToHTML("F = -"..k_Coil.."*".._Deltax.." &#8658; F = "..F.." N")
+			Binesh.AddToHTML("F = -"..Binesh.Convert_e(k_Coil).."*"..Binesh.Convert_e(_Deltax).." &#8658; F = "..Binesh.Convert_e(F).." N")
 			
-			Binesh.AddToHTML("k: "..k_Coil.." N/m", "V")
-			Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
+			Binesh.AddToHTML("k: "..Binesh.Convert_e(k_Coil).." N/m", "V")
+			Binesh.AddToHTML("Deltax: "..Binesh.Convert_e(_Deltax).." m", "V")
 			Binesh.AddToHTML("F: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F43_1()
 			Binesh.CreateHTMLFile("F = -kDeltax", "k = - <span>F/Deltax</span>")
 			k_Coil = -F/_Deltax
 			
-			Binesh.AddToHTML("k = - <span>"..F.."/".._Deltax.."</span> &#8658; k = "..k_Coil.." N/m")
+			Binesh.AddToHTML("k = - <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(_Deltax).."</span> &#8658; k = "..Binesh.Convert_e(k_Coil).." N/m")
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("Deltax: ".._Deltax.." m", "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("Deltax: "..Binesh.Convert_e(_Deltax).." m", "V")
 			Binesh.AddToHTML("k: ?", "V")
 		end
 	end
@@ -30,10 +30,10 @@ function Binesh.F43_1()
 			Binesh.CreateHTMLFile("F = -kDeltax", "Deltax = - <span>F/k</span>")
 			_Deltax = -F/k_Coil
 			
-			Binesh.AddToHTML("Deltax = - <span>"..F.."/"..k_Coil.."</span> &#8658; Deltax = ".._Deltax.." m")
+			Binesh.AddToHTML("Deltax = - <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(k_Coil).."</span> &#8658; Deltax = "..Binesh.Convert_e(_Deltax).." m")
 			
-			Binesh.AddToHTML("F: "..F.." N", "V")
-			Binesh.AddToHTML("k: "..k_Coil.." N/m", "V")
+			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
+			Binesh.AddToHTML("k: "..Binesh.Convert_e(k_Coil).." N/m", "V")
 			Binesh.AddToHTML("Deltax: ?", "V")
 		end
 	end

@@ -5,13 +5,13 @@ function Binesh.F78_1_2()
 			Binesh.AddToHTML("T<sub>1</sub> = T<sub>2</sub>- <span>Q/nC<sub>p</sub></span> &#8658; ")
 			_T1 = _T2+(-Q/(n*CP))
 			
-			Binesh.AddToHTML("T<sub>2</sub>: ".._T2.."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("Q: "..Q.." J", "V")
-			Binesh.AddToHTML("n: "..n.." mol", "V")
-			Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
+			Binesh.AddToHTML("T<sub>2</sub>: "..Binesh.Convert_e(_T2).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+			Binesh.AddToHTML("n: "..Binesh.Convert_e(n).." mol", "V")
+			Binesh.AddToHTML("C<sub>P</sub>: "..Binesh.Convert_e(CP).." J/mol.K", "V")
 			Binesh.AddToHTML("T<sub>1</sub>: ?", "V")
 			
-			Binesh.AddToHTML("T<sub>1</sub> = ".._T2.."- <span>"..Q.."/"..n.."*"..CP.."</span> &#8658; T<sub>1</sub> = ".._T1.."<sup>o</sup>K")
+			Binesh.AddToHTML("T<sub>1</sub> = "..Binesh.Convert_e(_T2).."- <span>"..Binesh.Convert_e(Q).."/"..Binesh.Convert_e(n).."*"..Binesh.Convert_e(CP).."</span> &#8658; T<sub>1</sub> = "..Binesh.Convert_e(_T1).."<sup>o</sup>K")
 		end
 	end
 	
@@ -21,13 +21,13 @@ function Binesh.F78_1_2()
 			Binesh.AddToHTML("T<sub>2</sub> = T<sub>1</sub>+ <span>Q/nC<sub>p</sub></span>")
 			_T2 = _T1+(Q/(n*CP))
 			
-			Binesh.AddToHTML("T<sub>1</sub>: ".._T1.."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("Q: "..Q.." J", "V")
-			Binesh.AddToHTML("n: "..n.." mol", "V")
-			Binesh.AddToHTML("C<sub>P</sub>: "..CP.." J/mol.K", "V")
+			Binesh.AddToHTML("T<sub>1</sub>: "..Binesh.Convert_e(_T1).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+			Binesh.AddToHTML("n: "..Binesh.Convert_e(n).." mol", "V")
+			Binesh.AddToHTML("C<sub>P</sub>: "..Binesh.Convert_e(CP).." J/mol.K", "V")
 			Binesh.AddToHTML("T<sub>2</sub>: ?", "V")
 			
-			Binesh.AddToHTML("T<sub>2</sub> = ".._T1.."- <span>"..Q.."/"..n.."*"..CP.."</span> &#8658; T<sub>1</sub> = ".._T2.."<sup>o</sup>K")
+			Binesh.AddToHTML("T<sub>2</sub> = "..Binesh.Convert_e(_T1).."- <span>"..Binesh.Convert_e(Q).."/"..Binesh.Convert_e(n).."*"..Binesh.Convert_e(CP).."</span> &#8658; T<sub>1</sub> = "..Binesh.Convert_e(_T2).."<sup>o</sup>K")
 		end
 	end
 end

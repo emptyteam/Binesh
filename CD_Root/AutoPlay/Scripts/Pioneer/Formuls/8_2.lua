@@ -4,11 +4,11 @@ function Binesh.F8_2()
 			Binesh.CreateHTMLFile("W = IVt")
 			W = V_Electric*I*t
 			
-			Binesh.AddToHTML("W = "..V_Electric.."*"..I.."*"..t.." &#8658; W = "..W.." J")
+			Binesh.AddToHTML("W = "..Binesh.Convert_e(V_Electric).."*"..Binesh.Convert_e(I).."*"..Binesh.Convert_e(t).." &#8658; W = "..Binesh.Convert_e(W).." J")
 			
-			Binesh.AddToHTML("V: "..V_Electric.." V", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
 			Binesh.AddToHTML("W: ?", "V")
 		end
 	end
@@ -18,11 +18,11 @@ function Binesh.F8_2()
 			Binesh.CreateHTMLFile("W = IVt", "V = <span>W/It</span>")
 			V_Electric = W/(I*t)
 			
-			Binesh.AddToHTML("V = <span>"..W.."/"..I.."*"..t.."</span> &#8658; V = "..V_Electric.." V")
+			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(W).."/"..Binesh.Convert_e(I).."*"..Binesh.Convert_e(t).."</span> &#8658; V = "..Binesh.Convert_e(V_Electric).." V")
 			
-			Binesh.AddToHTML("W: "..W.." J", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
 			Binesh.AddToHTML("V: ?", "V")
 		end
 	end
@@ -32,11 +32,11 @@ function Binesh.F8_2()
 			Binesh.CreateHTMLFile("W = IVt", "I = <span>W/Vt</span>")
 			I = W/(V*t)
 			
-			Binesh.AddToHTML("I = <span>"..W.."/"..V_Electric.."</span>*"..t.." &#8658; I = "..I.." A")
+			Binesh.AddToHTML("I = <span>"..Binesh.Convert_e(W).."/"..Binesh.Convert_e(V_Electric).."</span>*"..Binesh.Convert_e(t).." &#8658; I = "..Binesh.Convert_e(I).." A")
 			
-			Binesh.AddToHTML("W: "..W.." J", "V")
-			Binesh.AddToHTML("V: "..V_Electric.." V", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
 			Binesh.AddToHTML("I: ?", "V")
 		end
 	end
@@ -46,11 +46,11 @@ function Binesh.F8_2()
 			Binesh.CreateHTMLFile("W = IVt", "t = <span>W/VI</span>")
 			t = W/(V_Electric*I)
 			
-			Binesh.AddToHTML("t = <span>"..W.."/"..V_Electric.."*"..I.."<sup>2</sup></span> &#8658; t = "..t.." s")
+			Binesh.AddToHTML("t = <span>"..Binesh.Convert_e(W).."/"..Binesh.Convert_e(V_Electric).."*"..Binesh.Convert_e(I).."<sup>2</sup></span> &#8658; t = "..Binesh.Convert_e(t).." s")
 			
-			Binesh.AddToHTML("W: "..W.." J", "V")
-			Binesh.AddToHTML("V: "..V_Electric.." V", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
 			Binesh.AddToHTML("t: ?", "V")
 		end
 	end

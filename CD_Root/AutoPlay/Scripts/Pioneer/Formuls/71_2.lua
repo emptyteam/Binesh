@@ -5,15 +5,15 @@ function Binesh.F71_2()
 			Binesh.AddToHTML("Teta<sub>1</sub> = Teta<sub>2</sub>- <span>QL/tKA</span>")
 			_Teta1 = _Teta2-((Q*L)/(t*K_71*A))
 			
-			Binesh.AddToHTML("Teta<sub>2</sub>: ".._Teta2.."<sup>o</sup>C", "V")
-			Binesh.AddToHTML("Q: "..Q.." J", "V")
-			Binesh.AddToHTML("L: "..L.." m", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
-			Binesh.AddToHTML("K: "..K_71.." J/msC", "V")
-			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("Teta<sub>2</sub>: "..Binesh.Convert_e(_Teta2).."<sup>o</sup>C", "V")
+			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
+			Binesh.AddToHTML("K: "..Binesh.Convert_e(K_71).." J/msC", "V")
+			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
 			Binesh.AddToHTML("Teta<sub>1</sub>: ?", "V")
 			
-			Binesh.AddToHTML("Teta<sub>1</sub> = ".._Teta2.."- <span>"..Q.."*"..L.."/"..t.."*"..K_71.."*"..A.."</span> &#8658; Teta<sub>1</sub> = ".._Teta1.."<sup>o</sup>C")
+			Binesh.AddToHTML("Teta<sub>1</sub> = "..Binesh.Convert_e(_Teta2).."- <span>"..Binesh.Convert_e(Q).."*"..Binesh.Convert_e(L).."/"..Binesh.Convert_e(t).."*"..Binesh.Convert_e(K_71).."*"..Binesh.Convert_e(A).."</span> &#8658; Teta<sub>1</sub> = "..Binesh.Convert_e(_Teta1).."<sup>o</sup>C")
 		end
 	end
 	
@@ -23,15 +23,15 @@ function Binesh.F71_2()
 			Binesh.AddToHTML("Teta<sub>2</sub> = Teta<sub>1</sub>+ <span>QL/tKA</span>")
 			_Teta2 = _Teta1+((Q*L)/(t*K_71*A))
 			
-			Binesh.AddToHTML("Teta<sub>1</sub>: ".._Teta1.."<sup>o</sup>C", "V")
-			Binesh.AddToHTML("Q: "..Q.." J", "V")
-			Binesh.AddToHTML("L: "..L.." m", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
-			Binesh.AddToHTML("K: "..K_71.." J/msC", "V")
-			Binesh.AddToHTML("A: "..A.." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("Teta<sub>1</sub>: "..Binesh.Convert_e(_Teta1).."<sup>o</sup>C", "V")
+			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
+			Binesh.AddToHTML("K: "..Binesh.Convert_e(K_71).." J/msC", "V")
+			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
 			Binesh.AddToHTML("Teta<sub>2</sub>: ?", "V")
 			
-			Binesh.AddToHTML("Teta<sub>2</sub> = ".._Teta1.."- <span>"..Q.."*"..L.."/"..t.."*"..K_71.."*"..A.."</span> &#8658; Teta<sub>2</sub> = ".._Teta2.."<sup>o</sup>C")
+			Binesh.AddToHTML("Teta<sub>2</sub> = "..Binesh.Convert_e(_Teta1).."- <span>"..Binesh.Convert_e(Q).."*"..Binesh.Convert_e(L).."/"..Binesh.Convert_e(t).."*"..Binesh.Convert_e(K_71).."*"..Binesh.Convert_e(A).."</span> &#8658; Teta<sub>2</sub> = "..Binesh.Convert_e(_Teta2).."<sup>o</sup>C")
 		end
 	end
 end

@@ -5,10 +5,10 @@ function Binesh.F22_2()
 				Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>")
 				m_Zoom = ApBp/AB
 				
-				Binesh.AddToHTML("m = <span>"..ApBp.."/"..AB.."<span> &#8658; m = "..m_Zoom)
+				Binesh.AddToHTML("m = <span>"..Binesh.Convert_e(ApBp).."/"..Binesh.Convert_e(AB).."<span> &#8658; m = "..Binesh.Convert_e(m_Zoom))
 			
-				Binesh.AddToHTML("A`B`: "..ApBp.." m", "V")
-				Binesh.AddToHTML("AB: "..AB.." m", "V")
+				Binesh.AddToHTML("A`B`: "..Binesh.Convert_e(ApBp).." m", "V")
+				Binesh.AddToHTML("AB: "..Binesh.Convert_e(AB).." m", "V")
 				Binesh.AddToHTML("m: ?", "V")
 			end
 		end
@@ -18,10 +18,10 @@ function Binesh.F22_2()
 				Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>", "A`B` = m*AB")
 				ApBp = m_Zoom*AB
 				
-				Binesh.AddToHTML("A`B` = "..m_Zoom.."*"..AB.." &#8658; A`B` = "..ApBp.." m")
+				Binesh.AddToHTML("A`B` = "..Binesh.Convert_e(m_Zoom).."*"..Binesh.Convert_e(AB).." &#8658; A`B` = "..Binesh.Convert_e(ApBp).." m")
 				
-				Binesh.AddToHTML("m: "..m_Zoom, "V")
-				Binesh.AddToHTML("AB: "..AB.." m", "V")
+				Binesh.AddToHTML("m: "..Binesh.Convert_e(m_Zoom), "V")
+				Binesh.AddToHTML("AB: "..Binesh.Convert_e(AB).." m", "V")
 				Binesh.AddToHTML("A`B`: ?", "V")
 			end
 		end
@@ -31,10 +31,10 @@ function Binesh.F22_2()
 				Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>", "AB = <span>A`B`/m</span>")
 				AB = ApBp/m_Zoom
 				
-				Binesh.AddToHTML("AB = <span>"..ApBp.."/"..m_Zoom.."<span> &#8658; AB = "..AB.." m")
+				Binesh.AddToHTML("AB = <span>"..Binesh.Convert_e(ApBp).."/"..Binesh.Convert_e(m_Zoom).."<span> &#8658; AB = "..Binesh.Convert_e(AB).." m")
 				
-				Binesh.AddToHTML("m: "..m_Zoom, "V")
-				Binesh.AddToHTML("A`B`: "..ApBp.." m", "V")
+				Binesh.AddToHTML("m: "..Binesh.Convert_e(m_Zoom), "V")
+				Binesh.AddToHTML("A`B`: "..Binesh.Convert_e(ApBp).." m", "V")
 				Binesh.AddToHTML("AB: ?", "V")
 			end
 		end

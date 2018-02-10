@@ -5,10 +5,10 @@ function Binesh.F22_1()
 				Binesh.CreateHTMLFile("m = <span>q/p</span>")
 				m_Zoom = q_Lens/p_Lens
 				
-				Binesh.AddToHTML("m = <span>"..q_Lens.."/"..p_Lens.."<span> &#8658; m = "..m_Zoom)
+				Binesh.AddToHTML("m = <span>"..Binesh.Convert_e(q_Lens).."/"..Binesh.Convert_e(p_Lens).."<span> &#8658; m = "..Binesh.Convert_e(m_Zoom))
 				
-				Binesh.AddToHTML("p: "..p_Lens.." m", "V")
-				Binesh.AddToHTML("q: "..q_Lens.." m", "V")
+				Binesh.AddToHTML("p: "..Binesh.Convert_e(p_Lens).." m", "V")
+				Binesh.AddToHTML("q: "..Binesh.Convert_e(q_Lens).." m", "V")
 				Binesh.AddToHTML("m: ?", "V")
 			end
 		end
@@ -18,10 +18,10 @@ function Binesh.F22_1()
 				Binesh.CreateHTMLFile("m = <span>q/p</span>", "q = mp")
 				q_Lens = m_Zoom*p_Lens
 				
-				Binesh.AddToHTML("q = "..m_Zoom.."*"..p_Lens.." &#8658; q = "..q_Lens.." m")
+				Binesh.AddToHTML("q = "..Binesh.Convert_e(m_Zoom).."*"..Binesh.Convert_e(p_Lens).." &#8658; q = "..Binesh.Convert_e(q_Lens).." m")
 				
-				Binesh.AddToHTML("m: "..m_Zoom, "V")
-				Binesh.AddToHTML("q: "..q_Lens.." m", "V")
+				Binesh.AddToHTML("m: "..Binesh.Convert_e(m_Zoom), "V")
+				Binesh.AddToHTML("q: "..Binesh.Convert_e(q_Lens).." m", "V")
 				Binesh.AddToHTML("p: ?", "V")
 			end
 		end
@@ -31,10 +31,10 @@ function Binesh.F22_1()
 				Binesh.CreateHTMLFile("m = <span>q/p</span>", "p = <span>q/m</span>")
 				p_Lens = q_Lens/m_Zoom
 				
-				Binesh.AddToHTML("p = <span>"..q_Lens.."/"..m_Zoom.."<span> &#8658; p = "..p_Lens.." m")
+				Binesh.AddToHTML("p = <span>"..Binesh.Convert_e(q_Lens).."/"..Binesh.Convert_e(m_Zoom).."<span> &#8658; p = "..Binesh.Convert_e(p_Lens).." m")
 				
-				Binesh.AddToHTML("m: "..m_Zoom, "V")
-				Binesh.AddToHTML("p: "..p_Lens.." m", "V")
+				Binesh.AddToHTML("m: "..Binesh.Convert_e(m_Zoom), "V")
+				Binesh.AddToHTML("p: "..Binesh.Convert_e(p_Lens).." m", "V")
 				Binesh.AddToHTML("q: ?", "V")
 			end
 		end

@@ -4,10 +4,10 @@ function Binesh.F18()
 			Binesh.CreateHTMLFile("n = <span>C/V</span>")
 			n_Glass =  C_Speed_Glass/ V_Speed_Glass
 			
-			Binesh.AddToHTML("n = <span>".. C_Speed_Glass.."/"..V_Speed_Glass.."</span> &#8658; n = "..n_Glass)
+			Binesh.AddToHTML("n = <span>"..Binesh.Convert_e( C_Speed_Glass).."/"..Binesh.Convert_e(V_Speed_Glass).."</span> &#8658; n = "..Binesh.Convert_e(n_Glass))
 			
-			Binesh.AddToHTML("C: "..C_Speed_Glass.." m/s", "V")
-			Binesh.AddToHTML("V: "..V_Speed_Glass.." m/s", "V")
+			Binesh.AddToHTML("C: "..Binesh.Convert_e(C_Speed_Glass).." m/s", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed_Glass).." m/s", "V")
 			Binesh.AddToHTML("n: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F18()
 			Binesh.CreateHTMLFile("n = <span>C/V</span>", "C = n*V")
 			C_Speed_Glass = n_Glass*V_Speed_Glass
 			
-			Binesh.AddToHTML("C = "..n_Glass.."*"..V_Speed_Glass.." &#8658; C = "..C_Speed_Glass.."m/s")
+			Binesh.AddToHTML("C = "..Binesh.Convert_e(n_Glass).."*"..Binesh.Convert_e(V_Speed_Glass).." &#8658; C = "..Binesh.Convert_e(C_Speed_Glass).."m/s")
 			
-			Binesh.AddToHTML("n: "..n_Glass, "V")
-			Binesh.AddToHTML("V: "..V_Speed_Glass.." m/s", "V")
+			Binesh.AddToHTML("n: "..Binesh.Convert_e(n_Glass), "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed_Glass).." m/s", "V")
 			Binesh.AddToHTML("C: ?", "V")
 		end
 	end
@@ -30,10 +30,10 @@ function Binesh.F18()
 			Binesh.CreateHTMLFile("n = <span>C/V</span>", "V = <span>C/n</span>")
 			V_Speed_Glass = C_Speed_Glass/n_Glass
 			
-			Binesh.AddToHTML("V = "..C_Speed_Glass.."/"..n_Glass.." &#8658; V = "..V_Speed_Glass.."m/s")
+			Binesh.AddToHTML("V = "..Binesh.Convert_e(C_Speed_Glass).."/"..Binesh.Convert_e(n_Glass).." &#8658; V = "..Binesh.Convert_e(V_Speed_Glass).."m/s")
 			
-			Binesh.AddToHTML("n: "..n_Glass, "V")
-			Binesh.AddToHTML("C: "..C_Speed_Glass.." m/s", "V")
+			Binesh.AddToHTML("n: "..Binesh.Convert_e(n_Glass), "V")
+			Binesh.AddToHTML("C: "..Binesh.Convert_e(C_Speed_Glass).." m/s", "V")
 			Binesh.AddToHTML("V: ?", "V")
 		end
 	end

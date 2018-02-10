@@ -4,11 +4,11 @@ function Binesh.F34_2()
 			Binesh.CreateHTMLFile("a = <span>(V<sub>2</sub>-V<sub>1</sub>)/Deltat</span>", "V<sub>1</sub> = V<sub>2</sub>-aDeltat")
 			_V1_Speed = _V2_Speed+(-a*_Deltat)
 			
-			Binesh.AddToHTML("V<sub>1</sub> = ".._V2_Speed.."-"..a.."*".._Deltat.." &#8658; V<sub>1</sub> = ".._V1_Speed.." m/s")
+			Binesh.AddToHTML("V<sub>1</sub> = "..Binesh.Convert_e(_V2_Speed).."-"..Binesh.Convert_e(a).."*"..Binesh.Convert_e(_Deltat).." &#8658; V<sub>1</sub> = "..Binesh.Convert_e(_V1_Speed).." m/s")
 			
-			Binesh.AddToHTML("V<sub>2</sub>: ".._V2_Speed.." m/s", "V")
-			Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
-			Binesh.AddToHTML("Deltat: ".._Deltat.." s", "V")
+			Binesh.AddToHTML("V<sub>2</sub>: "..Binesh.Convert_e(_V2_Speed).." m/s", "V")
+			Binesh.AddToHTML("a: "..Binesh.Convert_e(a).." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("Deltat: "..Binesh.Convert_e(_Deltat).." s", "V")
 			Binesh.AddToHTML("V<sub>1</sub>: ?", "V")
 		end
 	end
@@ -18,11 +18,11 @@ function Binesh.F34_2()
 			Binesh.CreateHTMLFile("a = <span>(V<sub>2</sub>-V<sub>1</sub>)/Deltat</span>", "V<sub>2</sub> = V<sub>1</sub>+aDeltat")
 			_V2_Speed = _V1_Speed+a*_Deltat
 			
-			Binesh.AddToHTML("V<sub>2</sub> = ".._V1_Speed.."+"..a.."*".._Deltat.." &#8658; V<sub>2</sub> = ".._V2_Speed.." m/s")
+			Binesh.AddToHTML("V<sub>2</sub> = "..Binesh.Convert_e(_V1_Speed).."+"..Binesh.Convert_e(a).."*"..Binesh.Convert_e(_Deltat).." &#8658; V<sub>2</sub> = "..Binesh.Convert_e(_V2_Speed).." m/s")
 			
-			Binesh.AddToHTML("V<sub>1</sub>: ".._V1_Speed.." m/s", "V")
-			Binesh.AddToHTML("a: "..a.." m/s<sup>2</sup>", "V")
-			Binesh.AddToHTML("Deltat: ".._Deltat.." s", "V")
+			Binesh.AddToHTML("V<sub>1</sub>: "..Binesh.Convert_e(_V1_Speed).." m/s", "V")
+			Binesh.AddToHTML("a: "..Binesh.Convert_e(a).." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("Deltat: "..Binesh.Convert_e(_Deltat).." s", "V")
 			Binesh.AddToHTML("V<sub>2</sub>: ?", "V")
 		end
 	end

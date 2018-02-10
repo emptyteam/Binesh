@@ -5,10 +5,10 @@ function Binesh.F65_2()
 				Binesh.CreateHTMLFile("Q = -mL<sub>V</sub>")
 				Q = -m*LV
 				
-				Binesh.AddToHTML("Q = -"..m.."*"..LV.." &#8658; Q = "..Q.." J")
+				Binesh.AddToHTML("Q = -"..Binesh.Convert_e(m).."*"..Binesh.Convert_e(LV).." &#8658; Q = "..Binesh.Convert_e(Q).." J")
 				
-				Binesh.AddToHTML("m: "..m.." Kg", "V")
-				Binesh.AddToHTML("L<sub>V</sub>: "..LV.." <span>J/kg</span>", "V")
+				Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
+				Binesh.AddToHTML("L<sub>V</sub>: "..Binesh.Convert_e(LV).." <span>J/kg</span>", "V")
 				Binesh.AddToHTML("Q: ?", "V")
 			end
 		end
@@ -18,10 +18,10 @@ function Binesh.F65_2()
 				Binesh.CreateHTMLFile("Q = -mL<sub>V</sub>", "m = -(<span>Q/L<sub>V</sub></span>)")
 				m = -Q/LV
 				
-				Binesh.AddToHTML("m = -(<span>"..Q.."/"..LV.."</span>) &#8658; m = "..math.abs(m).." Kg")
+				Binesh.AddToHTML("m = -(<span>"..Binesh.Convert_e(Q).."/"..Binesh.Convert_e(LV).."</span>) &#8658; m = "..Binesh.Convert_e(math.abs(m)).." Kg")
 				
-				Binesh.AddToHTML("Q: "..Q.." J", "V")
-				Binesh.AddToHTML("L<sub>V</sub>: "..LV.." <span>J/kg</span>", "V")
+				Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+				Binesh.AddToHTML("L<sub>V</sub>: "..Binesh.Convert_e(LV).." <span>J/kg</span>", "V")
 				Binesh.AddToHTML("m: ?", "V")
 			end
 		end
@@ -31,10 +31,10 @@ function Binesh.F65_2()
 				Binesh.CreateHTMLFile("Q = -mL<sub>V</sub>", "L<sub>V</sub> = -(<span>Q/m</span>)")
 				LV = -Q/m
 				
-				Binesh.AddToHTML("L<sub>V</sub> = -(<span>"..Q.."/"..m.."</span>) &#8658; L<sub>V</sub> = "..LV.." J/kg")
+				Binesh.AddToHTML("L<sub>V</sub> = -(<span>"..Binesh.Convert_e(Q).."/"..Binesh.Convert_e(m).."</span>) &#8658; L<sub>V</sub> = "..Binesh.Convert_e(LV).." J/kg")
 				
-				Binesh.AddToHTML("Q: "..Q.." J", "V")
-				Binesh.AddToHTML("m: "..m.." Kg", "V")
+				Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+				Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
 				Binesh.AddToHTML("L<sub>V</sub>: ?", "V")
 			end
 		end

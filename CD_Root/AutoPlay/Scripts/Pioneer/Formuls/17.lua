@@ -4,10 +4,10 @@ function Binesh.F17()
 			Binesh.CreateHTMLFile("n = <span>sini/sinr</span>")
 			n_Glass = Math.Sin(i)/Math.Sin(r_Glass)
 			
-			Binesh.AddToHTML("n = <span>"..Math.Sin(i).."/"..Math.Sin(r_Glass).."</span> &#8658; n = "..math.abs(n_Glass))
+			Binesh.AddToHTML("n = <span>"..Binesh.Convert_e(Math.Sin(i)).."/"..Binesh.Convert_e(Math.Sin(r_Glass)).."</span> &#8658; n = "..Binesh.Convert_e(math.abs(n_Glass)))
 			
-			Binesh.AddToHTML("i: "..i.."<sup>o</sup>", "V")
-			Binesh.AddToHTML("r: "..r_Glass.."<sup>o</sup>", "V")
+			Binesh.AddToHTML("i: "..Binesh.Convert_e(i).."<sup>o</sup>", "V")
+			Binesh.AddToHTML("r: "..Binesh.Convert_e(r_Glass).."<sup>o</sup>", "V")
 			Binesh.AddToHTML("n: ?", "V")
 		end
 	end
@@ -19,10 +19,10 @@ function Binesh.F17()
 			i_Radian = Math.Asin(Math.Asin(Math.Sin(Sini)))
 			i = Math.RadToDeg(i_Radian)
 			
-			Binesh.AddToHTML("sini = "..n_Glass.."*sin"..r_Glass.." &#8658; sini = "..Sini.." &#8658; i<sub>Radian</sub> = "..i_Radian.." &#8658; i = "..i.."<sup>o</sup>")
+			Binesh.AddToHTML("sini = "..Binesh.Convert_e(n_Glass).."*sin"..Binesh.Convert_e(r_Glass).." &#8658; sini = "..Binesh.Convert_e(Sini).." &#8658; i<sub>Radian</sub> = "..Binesh.Convert_e(i_Radian).." &#8658; i = "..Binesh.Convert_e(i).."<sup>o</sup>")
 			
-			Binesh.AddToHTML("n: "..n_Glass, "V")
-			Binesh.AddToHTML("r: "..r_Glass.."<sup>o</sup>", "V")
+			Binesh.AddToHTML("n: "..Binesh.Convert_e(n_Glass), "V")
+			Binesh.AddToHTML("r: "..Binesh.Convert_e(r_Glass).."<sup>o</sup>", "V")
 			Binesh.AddToHTML("i: ?", "V")
 		end
 	end
@@ -34,10 +34,10 @@ function Binesh.F17()
 			r_Glass_Radian = Math.Asin(Math.Asin(Math.Sin(Sinr_Glass)))
 			r_Glass = Math.RadToDeg(r_Glass_Radian)
 			
-			Binesh.AddToHTML("sinr = <span>"..sini.."/"..n_Glass.." &#8658; sinr = "..Sinr_Glass.." &#8658; r<sub>Radian</sub> = "..r_Glass.." &#8658; r = "..r_Glass.."<sup>o</sup>")
+			Binesh.AddToHTML("sinr = <span>"..Binesh.Convert_e(sini).."/"..Binesh.Convert_e(n_Glass).." &#8658; sinr = "..Binesh.Convert_e(Sinr_Glass).." &#8658; r<sub>Radian</sub> = "..Binesh.Convert_e(r_Glass).." &#8658; r = "..Binesh.Convert_e(r_Glass).."<sup>o</sup>")
 			
-			Binesh.AddToHTML("n: "..n_Glass, "V")
-			Binesh.AddToHTML("i: "..i.."<sup>o</sup>", "V")
+			Binesh.AddToHTML("n: "..Binesh.Convert_e(n_Glass), "V")
+			Binesh.AddToHTML("i: "..Binesh.Convert_e(i).."<sup>o</sup>", "V")
 			Binesh.AddToHTML("r: ?", "V")
 		end
 	end

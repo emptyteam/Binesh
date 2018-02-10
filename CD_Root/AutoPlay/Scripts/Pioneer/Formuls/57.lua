@@ -4,10 +4,10 @@ function Binesh.F57()
 			Binesh.CreateHTMLFile("Ru = <span>m/V</span>")
 			Ru = m/V
 			
-			Binesh.AddToHTML("Ru = <span>"..m.."/"..V.."</span> &#8658; Ru = "..Ru.." Kg/m<sup>3</sup>")
+			Binesh.AddToHTML("Ru = <span>"..Binesh.Convert_e(m).."/"..Binesh.Convert_e(V).."</span> &#8658; Ru = "..Binesh.Convert_e(Ru).." Kg/m<sup>3</sup>")
 			
-			Binesh.AddToHTML("m: "..m.." Kg", "V")
-			Binesh.AddToHTML("V: "..V.." m<sup>3</sup>", "V")
+			Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V).." m<sup>3</sup>", "V")
 			Binesh.AddToHTML("Ru: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F57()
 			Binesh.CreateHTMLFile("Ru = <span>m/V</span>", "m = RuV")
 			m = Ru*V
 			
-			Binesh.AddToHTML("m = "..Ru.."*"..V.."</span> &#8658; m = "..math.abs(m).." Kg")
+			Binesh.AddToHTML("m = "..Binesh.Convert_e(Ru).."*"..Binesh.Convert_e(V).."</span> &#8658; m = "..Binesh.Convert_e(math.abs(m)).." Kg")
 			
-			Binesh.AddToHTML("Ru: "..Ru.." Kg/m<sup>3</sup>", "V")
-			Binesh.AddToHTML("V: "..V.." m<sup>3</sup>", "V")
+			Binesh.AddToHTML("Ru: "..Binesh.Convert_e(Ru).." Kg/m<sup>3</sup>", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V).." m<sup>3</sup>", "V")
 			Binesh.AddToHTML("m: ?", "V")
 		end
 	end
@@ -30,10 +30,10 @@ function Binesh.F57()
 			Binesh.CreateHTMLFile("Ru = <span>m/V</span>", "V = <span>m/Ru</span>")
 			V = m/Ru
 			
-			Binesh.AddToHTML("V = <span>"..m.."/"..Ru.."</span> &#8658; V = "..V.." m<sup>3</sup>")
+			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(m).."/"..Binesh.Convert_e(Ru).."</span> &#8658; V = "..Binesh.Convert_e(V).." m<sup>3</sup>")
 			
-			Binesh.AddToHTML("m: "..m.." Kg", "V")
-			Binesh.AddToHTML("Ru: "..Ru.." Kg/m<sup>3</sup>", "V")
+			Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
+			Binesh.AddToHTML("Ru: "..Binesh.Convert_e(Ru).." Kg/m<sup>3</sup>", "V")
 			Binesh.AddToHTML("V: ?", "V")
 		end
 	end

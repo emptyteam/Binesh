@@ -2,7 +2,7 @@ function Binesh.F20()
 	if C_Radian ~= nil then
 		Binesh.CreateHTMLFile("<span>R/Pi</span> = <span>D/180</span>", "D = <span>180R/Pi</span>")
 		C = Math.RadToDeg(C_Radian)
-		Binesh.AddToHTML("D<sub>C</sub> = <span>180*"..C_Radian.."/"..Zarib.Pi.."</span> &#8658; D<sub>C</sub> = "..C.."<sup>o</sup>")
+		Binesh.AddToHTML("D<sub>C</sub> = <span>180*"..Binesh.Convert_e(C_Radian).."/"..Binesh.Convert_e(Zarib.Pi).."</span> &#8658; D<sub>C</sub> = "..Binesh.Convert_e(C).."<sup>o</sup>")
 		Binesh.AddToHTML("<br>")
 	end
 	
@@ -13,9 +13,9 @@ function Binesh.F20()
 			C_Radian = Math.Asin(Math.Asin(Math.Sin(SinC)))
 			C = Math.RadToDeg(C_Radian)
 			
-			Binesh.AddToHTML("sinC = <span> 1/"..n_Glass.."</span> &#8658; sinC = "..SinC.." &#8658 C<sub>Radian</sub> = "..C_Radian.." &#8658 C = "..C.."<sup>o</sup>")
+			Binesh.AddToHTML("sinC = <span> 1/"..Binesh.Convert_e(n_Glass).."</span> &#8658; sinC = "..Binesh.Convert_e(SinC).." &#8658 C<sub>Radian</sub> = "..Binesh.Convert_e(C_Radian).." &#8658 C = "..Binesh.Convert_e(C).."<sup>o</sup>")
 			
-			Binesh.AddToHTML("n: "..n_Glass, "V")
+			Binesh.AddToHTML("n: "..Binesh.Convert_e(n_Glass), "V")
 			Binesh.AddToHTML("C: ?", "V")
 		end
 	end
@@ -25,9 +25,9 @@ function Binesh.F20()
 			Binesh.CreateHTMLFile("sinC = <span>1/n</span>", "n = <span>1/sinC</span>")
 			n_Glass = 1/Math.Sin(Math.Rad(C))
 			
-			Binesh.AddToHTML("n = <span>1/sin"..C.."</span> &#8658; n = "..n_Glass.." m")
+			Binesh.AddToHTML("n = <span>1/sin"..Binesh.Convert_e(C).."</span> &#8658; n = "..Binesh.Convert_e(n_Glass).." m")
 			
-			Binesh.AddToHTML("C: "..C.." <sup>o</sup>", "V")
+			Binesh.AddToHTML("C: "..Binesh.Convert_e(C).." <sup>o</sup>", "V")
 			Binesh.AddToHTML("n: ?", "V")
 		end
 	end

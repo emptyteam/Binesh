@@ -4,11 +4,11 @@ function Binesh.F33_1()
 			Binesh.CreateHTMLFile("x = Vt+x<sub>0</sub>")
 			x = V_Speed*t + x0
 			
-			Binesh.AddToHTML("x = "..V_Speed.."*"..t.."+"..x0.." &#8658; x = "..x.." m")
+			Binesh.AddToHTML("x = "..Binesh.Convert_e(V_Speed).."*"..Binesh.Convert_e(t).."+"..Binesh.Convert_e(x0).." &#8658; x = "..Binesh.Convert_e(x).." m")
 			
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
-			Binesh.AddToHTML("x<sub>0</sub>: "..x0.." m", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
+			Binesh.AddToHTML("x<sub>0</sub>: "..Binesh.Convert_e(x0).." m", "V")
 			Binesh.AddToHTML("x: ?" , "V")
 		end
 	end
@@ -18,11 +18,11 @@ function Binesh.F33_1()
 			Binesh.CreateHTMLFile("x = Vt+x<sub>0</sub>", "V = <span>x-x<sub>0</sub>/t</span>")
 			V_Speed = x-x0/t
 			
-			Binesh.AddToHTML("V = <span>"..x.."-"..x0.."/"..t.."</span> &#8658; V = "..V_Speed.." m/s")
+			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(x).."-"..Binesh.Convert_e(x0).."/"..Binesh.Convert_e(t).."</span> &#8658; V = "..Binesh.Convert_e(V_Speed).." m/s")
 			
-			Binesh.AddToHTML("x: "..x.." m" , "V")
-			Binesh.AddToHTML("x<sub>0</sub>: "..x0.." m", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
+			Binesh.AddToHTML("x: "..Binesh.Convert_e(x).." m" , "V")
+			Binesh.AddToHTML("x<sub>0</sub>: "..Binesh.Convert_e(x0).." m", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
 		end
 	end
 	
@@ -31,11 +31,11 @@ function Binesh.F33_1()
 			Binesh.CreateHTMLFile("x = Vt+x<sub>0</sub>", "t = <span>x-x<sub>0</sub>/V</span>")
 			t = x-x0/V_Speed
 			
-			Binesh.AddToHTML("t = <span>("..x.."-"..x0..")/"..V_Speed.."</span> &#8658; t = "..t.." s")
+			Binesh.AddToHTML("t = <span>("..Binesh.Convert_e(x).."-"..Binesh.Convert_e(x0)..")/"..Binesh.Convert_e(V_Speed).."</span> &#8658; t = "..Binesh.Convert_e(t).." s")
 			
-			Binesh.AddToHTML("x: "..x.." m" , "V")
-			Binesh.AddToHTML("x<sub>0</sub>: "..x0.." m", "V")
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
+			Binesh.AddToHTML("x: "..Binesh.Convert_e(x).." m" , "V")
+			Binesh.AddToHTML("x<sub>0</sub>: "..Binesh.Convert_e(x0).." m", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
 			Binesh.AddToHTML("t: ?", "V")
 		end
 	end
@@ -45,11 +45,11 @@ function Binesh.F33_1()
 			Binesh.CreateHTMLFile("x = Vt+x<sub>0</sub>", "x<sub>0</sub> = x-Vt")
 			x0 = x-V_Speed*t
 			
-			Binesh.AddToHTML("x<sub>0</sub> = "..x.."-"..V_Speed.."*"..t.." &#8658; x<sub>0</sub> = "..x0.." m")
+			Binesh.AddToHTML("x<sub>0</sub> = "..Binesh.Convert_e(x).."-"..Binesh.Convert_e(V_Speed).."*"..Binesh.Convert_e(t).." &#8658; x<sub>0</sub> = "..Binesh.Convert_e(x0).." m")
 			
-			Binesh.AddToHTML("x: "..x.." m" , "V")
-			Binesh.AddToHTML("V: "..V_Speed.." m/s", "V")
-			Binesh.AddToHTML("t: "..t.." s", "V")
+			Binesh.AddToHTML("x: "..Binesh.Convert_e(x).." m" , "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
 			Binesh.AddToHTML("x<sub>0</sub>: ?", "V")
 		end
 	end

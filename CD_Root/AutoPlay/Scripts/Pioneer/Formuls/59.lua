@@ -5,11 +5,11 @@ function Binesh.F59()
 				Binesh.CreateHTMLFile("P = Rugh")
 				P = Ru*Zarib.g*h
 				
-				Binesh.AddToHTML("Ru: "..Ru.." g/m<sup>3</sup>", "V")
-				Binesh.AddToHTML("h: "..h.." m", "V")
+				Binesh.AddToHTML("Ru: "..Binesh.Convert_e(Ru).." g/m<sup>3</sup>", "V")
+				Binesh.AddToHTML("h: "..Binesh.Convert_e(h).." m", "V")
 				Binesh.AddToHTML("P: ?", "V")
 				
-				Binesh.AddToHTML("P = "..Ru.."*"..Zarib.g.."*"..h.." &#8658; P = "..P.." Pa")
+				Binesh.AddToHTML("P = "..Binesh.Convert_e(Ru).."*"..Binesh.Convert_e(Zarib.g).."*"..Binesh.Convert_e(h).." &#8658; P = "..Binesh.Convert_e(P).." Pa")
 			end
 		end
 		
@@ -18,11 +18,11 @@ function Binesh.F59()
 				Binesh.CreateHTMLFile("P = Rugh", "Ru = <span>P/gh</span>")
 				Ru = P/(Zarib.g*h)
 				
-				Binesh.AddToHTML("P: "..P.." Pa", "V")
-				Binesh.AddToHTML("h: "..h.." m", "V")
+				Binesh.AddToHTML("P: "..Binesh.Convert_e(P).." Pa", "V")
+				Binesh.AddToHTML("h: "..Binesh.Convert_e(h).." m", "V")
 				Binesh.AddToHTML("Ru: ?", "V")
 				
-				Binesh.AddToHTML("Ru = <span>"..P.."/"..Zarib.g.."*"..h.."</span> &#8658; Ru = "..Ru.." g/m<sup>3</sup>")
+				Binesh.AddToHTML("Ru = <span>"..Binesh.Convert_e(P).."/"..Binesh.Convert_e(Zarib.g).."*"..Binesh.Convert_e(h).."</span> &#8658; Ru = "..Binesh.Convert_e(Ru).." g/m<sup>3</sup>")
 			end
 		end
 		
@@ -31,11 +31,11 @@ function Binesh.F59()
 				Binesh.CreateHTMLFile("P = Rugh", "h = <span>P/gRu</span>")
 				h = P/(Zarib.g*Ru)
 				
-				Binesh.AddToHTML("P: "..P.." Pa", "V")
-				Binesh.AddToHTML("Ru: "..Ru.." g/m<sup>3</sup>", "V")
+				Binesh.AddToHTML("P: "..Binesh.Convert_e(P).." Pa", "V")
+				Binesh.AddToHTML("Ru: "..Binesh.Convert_e(Ru).." g/m<sup>3</sup>", "V")
 				Binesh.AddToHTML("h: ?", "V")
 				
-				Binesh.AddToHTML("h = <span>"..P.."/"..Zarib.g.."*"..Ru.."</span> &#8658; h = "..h.." m")
+				Binesh.AddToHTML("h = <span>"..Binesh.Convert_e(P).."/"..Binesh.Convert_e(Zarib.g).."*"..Binesh.Convert_e(Ru).."</span> &#8658; h = "..Binesh.Convert_e(h).." m")
 			end
 		end
 	end

@@ -4,10 +4,10 @@ function Binesh.F50()
 			Binesh.CreateHTMLFile("W<sub>mg</sub> = m*g*h")
 			W = m*Zarib.g*h
 			
-			Binesh.AddToHTML("W<sub>mg</sub> = "..m.."*"..Zarib.g.."*"..h.." &#8658; W<sub>mg</sub> = "..W.." J")
+			Binesh.AddToHTML("W<sub>mg</sub> = "..Binesh.Convert_e(m).."*"..Binesh.Convert_e(Zarib.g).."*"..Binesh.Convert_e(h).." &#8658; W<sub>mg</sub> = "..Binesh.Convert_e(W).." J")
 			
-			Binesh.AddToHTML("h: "..h.." m", "V")
-			Binesh.AddToHTML("m: "..m.." Kg", "V")
+			Binesh.AddToHTML("h: "..Binesh.Convert_e(h).." m", "V")
+			Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
 			Binesh.AddToHTML("W: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F50()
 			Binesh.CreateHTMLFile("W<sub>mg</sub> = m*g*h", "h = <span>W<sub>mg</sub>/m*g</span>")
 			h = W/m*Zarib.g
 			
-			Binesh.AddToHTML("h = <span>"..W.."/"..m.."*"..Zarib.g.."</span> &#8658; h = "..h.." m")
+			Binesh.AddToHTML("h = <span>"..Binesh.Convert_e(W).."/"..Binesh.Convert_e(m).."*"..Binesh.Convert_e(Zarib.g).."</span> &#8658; h = "..Binesh.Convert_e(h).." m")
 			
-			Binesh.AddToHTML("W: "..W.." J", "V")
-			Binesh.AddToHTML("m: "..m.." Kg", "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
+			Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
 			Binesh.AddToHTML("h: ?", "V")
 		end
 	end
@@ -30,10 +30,10 @@ function Binesh.F50()
 			Binesh.CreateHTMLFile("W<sub>mg</sub> = m*g*h", "m = <span>W<sub>mg</sub>/h*g</span>")
 			m = W/h*Zarib.g
 			
-			Binesh.AddToHTML("m = <span>"..W.."/"..h.."*"..Zarib.g.."</span> &#8658; m = "..math.abs(m).." Kg")
+			Binesh.AddToHTML("m = <span>"..Binesh.Convert_e(W).."/"..Binesh.Convert_e(h).."*"..Binesh.Convert_e(Zarib.g).."</span> &#8658; m = "..Binesh.Convert_e(math.abs(m)).." Kg")
 			
-			Binesh.AddToHTML("W: "..W.." J", "V")
-			Binesh.AddToHTML("h: "..h.." m", "V")
+			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
+			Binesh.AddToHTML("h: "..Binesh.Convert_e(h).." m", "V")
 			Binesh.AddToHTML("m: ?", "V")
 		end
 	end

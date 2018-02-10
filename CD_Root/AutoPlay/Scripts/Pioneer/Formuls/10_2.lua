@@ -4,10 +4,10 @@ function Binesh.F10_2()
 			Binesh.CreateHTMLFile("P = IV")
 			P_Power = (V_Electric*I)
 			
-			Binesh.AddToHTML("P = "..V_Electric.."*"..I.." &#8658; P = "..P_Power.." W")
+			Binesh.AddToHTML("P = "..Binesh.Convert_e(V_Electric).."*"..Binesh.Convert_e(I).." &#8658; P = "..Binesh.Convert_e(P_Power).." W")
 			
-			Binesh.AddToHTML("V: "..V_Electric.." V", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
 			Binesh.AddToHTML("P: ?", "V")
 		end
 	end
@@ -17,10 +17,10 @@ function Binesh.F10_2()
 			Binesh.CreateHTMLFile("P = IV", "V = <span>P/I</span>")
 			V_Electric = P_Power/I
 			
-			Binesh.AddToHTML("V = <span>"..P_Power.."/"..I.."<sup>2</sup></span> &#8658; V = "..V_Electric.." V")
+			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(P_Power).."/"..Binesh.Convert_e(I).."<sup>2</sup></span> &#8658; V = "..Binesh.Convert_e(V_Electric).." V")
 			
-			Binesh.AddToHTML("P: "..P_Power.." W", "V")
-			Binesh.AddToHTML("I: "..I.." A", "V")
+			Binesh.AddToHTML("P: "..Binesh.Convert_e(P_Power).." W", "V")
+			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
 			Binesh.AddToHTML("V: ?", "V")
 		end
 	end
@@ -30,10 +30,10 @@ function Binesh.F10_2()
 			Binesh.CreateHTMLFile("P = IV", "I = <span>P/V</span>")
 			I = P_Power/V_Electric
 			
-			Binesh.AddToHTML("I = <span>"..P_Power.."/"..V_Electric.."</span> &#8658; I = "..I.." A")
+			Binesh.AddToHTML("I = <span>"..Binesh.Convert_e(P_Power).."/"..Binesh.Convert_e(V_Electric).."</span> &#8658; I = "..Binesh.Convert_e(I).." A")
 			
-			Binesh.AddToHTML("P: "..P_Power.." W", "V")
-			Binesh.AddToHTML("V: "..V_Electric.." V", "V")
+			Binesh.AddToHTML("P: "..Binesh.Convert_e(P_Power).." W", "V")
+			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
 			Binesh.AddToHTML("I: ?", "V")
 		end
 	end

@@ -8,7 +8,7 @@ function Binesh.F66_1()
 		if L ~= nil and _L2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaL = L<sub>2</sub>-L<sub>1</sub>")
 			_DeltaL = _L2 - L
-			Binesh.AddToHTML("DeltaL = ".._L2.."-"..L.." &#8658; DeltaL = ".._DeltaL.."m")
+			Binesh.AddToHTML("DeltaL = "..Binesh.Convert_e(_L2).."-"..Binesh.Convert_e(L).." &#8658; DeltaL = "..Binesh.Convert_e(_DeltaL).." m")
 		end
 	end
 	
@@ -16,7 +16,7 @@ function Binesh.F66_1()
 		if _DeltaL ~= nil and _L2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaL = L<sub>2</sub>-L<sub>1</sub>", "L<sub>1</sub> = L<sub>2</sub>-DeltaL")
 			L = _L2-_DeltaL
-			Binesh.AddToHTML("L<sub>1</sub> = ".._L2.."-".._DeltaL.." &#8658; L<sub>1</sub> = "..L.."m")
+			Binesh.AddToHTML("L<sub>1</sub> = "..Binesh.Convert_e(_L2).."-"..Binesh.Convert_e(_DeltaL).." &#8658; L<sub>1</sub> = "..Binesh.Convert_e(L).." m")
 		end
 	end
 	
@@ -24,7 +24,7 @@ function Binesh.F66_1()
 		if _DeltaL ~= nil and L ~= nil then
 			Binesh.CreateHTMLFile("DeltaL = L<sub>2</sub>-L<sub>1</sub>", "L<sub>2</sub> = DeltaL+L<sub>1</sub>")
 			_L2 = L+_DeltaL
-			Binesh.AddToHTML("L<sub>2</sub> = ".._DeltaL.."+"..L.." &#8658; L<sub>2</sub> = ".._L2.."m")
+			Binesh.AddToHTML("L<sub>2</sub> = "..Binesh.Convert_e(_DeltaL).."+"..Binesh.Convert_e(L).." &#8658; L<sub>2</sub> = "..Binesh.Convert_e(_L2).." m")
 		end
 	end
 	--------------------------END {DELTA}--------------------------
@@ -33,11 +33,11 @@ function Binesh.F66_1()
 			Binesh.CreateHTMLFile("DeltaL = L<sub>1</sub>AlphaDeltaTeta")
 			_DeltaL = L*Alpha_Length*_DeltaTeta
 			
-			Binesh.AddToHTML("DeltaL = "..L.."*"..Alpha_Length.."*".._DeltaTeta.." &#8658; DeltaL = ".._DeltaL.." m")
+			Binesh.AddToHTML("DeltaL = "..Binesh.Convert_e(L).."*"..Binesh.Convert_e(Alpha_Length).."*"..Binesh.Convert_e(_DeltaTeta).." &#8658; DeltaL = "..Binesh.Convert_e(_DeltaL).." m")
 			
-			Binesh.AddToHTML("L<sub>1</sub>: "..L.." m", "V")
-			Binesh.AddToHTML("DeltaTeta: ".._DeltaTeta.." <sup>o</sup>C", "V")
-			Binesh.AddToHTML("Alpha: "..Alpha_Length.." 1/C", "V")
+			Binesh.AddToHTML("L<sub>1</sub>: "..Binesh.Convert_e(L).." m", "V")
+			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).." <sup>o</sup>C", "V")
+			Binesh.AddToHTML("Alpha: "..Binesh.Convert_e(Alpha_Length).." 1/C", "V")
 			Binesh.AddToHTML("DeltaL: ?", "V")
 		end
 	end
@@ -47,11 +47,11 @@ function Binesh.F66_1()
 			Binesh.CreateHTMLFile("DeltaL = L<sub>1</sub>AlphaDeltaTeta", "L<sub>1</sub> = <span>DeltaL/AlphaDeltaTeta</span>")
 			L = _DeltaL/(Alpha_Length*_DeltaTeta)
 			
-			Binesh.AddToHTML("L<sub>1</sub> = <span>".._DeltaL.."/"..Alpha_Length.."*".._DeltaTeta.."</span> &#8658; L<sub>1</sub> = "..L.." m")
+			Binesh.AddToHTML("L<sub>1</sub> = <span>"..Binesh.Convert_e(_DeltaL).."/"..Binesh.Convert_e(Alpha_Length).."*"..Binesh.Convert_e(_DeltaTeta).."</span> &#8658; L<sub>1</sub> = "..Binesh.Convert_e(L).." m")
 			
-			Binesh.AddToHTML("DeltaL: ".._DeltaL.." m", "V")
-			Binesh.AddToHTML("DeltaTeta: ".._DeltaTeta.." <sup>o</sup>C", "V")
-			Binesh.AddToHTML("Alpha: "..Alpha_Length.." 1/C", "V")
+			Binesh.AddToHTML("DeltaL: "..Binesh.Convert_e(_DeltaL).." m", "V")
+			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).." <sup>o</sup>C", "V")
+			Binesh.AddToHTML("Alpha: "..Binesh.Convert_e(Alpha_Length).." 1/C", "V")
 			Binesh.AddToHTML("L<sub>1</sub>: ?", "V")
 		end
 	end
@@ -61,11 +61,11 @@ function Binesh.F66_1()
 			Binesh.CreateHTMLFile("DeltaL = L<sub>1</sub>AlphaDeltaTeta", "Alpha = <span>DeltaL/L<sub>1</sub>DeltaTeta</span>")
 			Alpha_Length = _DeltaL/(L*_DeltaTeta)
 			
-			Binesh.AddToHTML("Alpha = <span>".._DeltaL.."/"..L.."*".._DeltaTeta.."</span> &#8658; Alpha = "..Alpha_Length.." 1/C")
+			Binesh.AddToHTML("Alpha = <span>"..Binesh.Convert_e(_DeltaL).."/"..Binesh.Convert_e(L).."*"..Binesh.Convert_e(_DeltaTeta).."</span> &#8658; Alpha = "..Binesh.Convert_e(Alpha_Length).." 1/C")
 			
-			Binesh.AddToHTML("DeltaL: ".._DeltaL.." m", "V")
-			Binesh.AddToHTML("L<sub>1</sub>: "..L.." m", "V")
-			Binesh.AddToHTML("DeltaTeta: ".._DeltaTeta.." <sup>o</sup>C", "V")
+			Binesh.AddToHTML("DeltaL: "..Binesh.Convert_e(_DeltaL).." m", "V")
+			Binesh.AddToHTML("L<sub>1</sub>: "..Binesh.Convert_e(L).." m", "V")
+			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).." <sup>o</sup>C", "V")
 			Binesh.AddToHTML("Alpha: ?", "V")
 		end
 	end
@@ -75,11 +75,11 @@ function Binesh.F66_1()
 			Binesh.CreateHTMLFile("DeltaL = L<sub>1</sub>AlphaDeltaTeta", "DeltaTeta = <span>DeltaL/L<sub>1</sub>Alpha</span>")
 			_DeltaTeta = _DeltaL/(L*Alpha_Length)
 			
-			Binesh.AddToHTML("DeltaTeta = <span>".._DeltaL.."/"..L.."*"..Alpha_Length.."</span> &#8658; DeltaTeta = ".._DeltaTeta.."<sup>o</sup>C")
+			Binesh.AddToHTML("DeltaTeta = <span>"..Binesh.Convert_e(_DeltaL).."/"..Binesh.Convert_e(L).."*"..Binesh.Convert_e(Alpha_Length).."</span> &#8658; DeltaTeta = "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C")
 			
-			Binesh.AddToHTML("DeltaL: ".._DeltaL.." m", "V")
-			Binesh.AddToHTML("L<sub>1</sub>: "..L.." m", "V")
-			Binesh.AddToHTML("Alpha: "..Alpha_Length.." 1/C", "V")
+			Binesh.AddToHTML("DeltaL: "..Binesh.Convert_e(_DeltaL).." m", "V")
+			Binesh.AddToHTML("L<sub>1</sub>: "..Binesh.Convert_e(L).." m", "V")
+			Binesh.AddToHTML("Alpha: "..Binesh.Convert_e(Alpha_Length).." 1/C", "V")
 			Binesh.AddToHTML("DeltaTeta: ?", "V")
 		end
 	end

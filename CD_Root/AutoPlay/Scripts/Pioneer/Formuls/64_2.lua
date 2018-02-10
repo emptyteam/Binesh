@@ -5,10 +5,10 @@ function Binesh.F64_2()
 				Q =  -m*L_F
 				
 				Binesh.CreateHTMLFile("Q = -mL<sub>F</sub>")
-				Binesh.AddToHTML("Q = -"..m.."*"..L_F.." &#8658; Q = "..Q.." J")
+				Binesh.AddToHTML("Q = -"..Binesh.Convert_e(m).."*"..Binesh.Convert_e(L_F).." &#8658; Q = "..Binesh.Convert_e(Q).." J")
 				
-				Binesh.AddToHTML("m: "..m.." Kg", "V")
-				Binesh.AddToHTML("LF: "..L_F.." J/Kg", "V")
+				Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
+				Binesh.AddToHTML("LF: "..Binesh.Convert_e(L_F).." J/Kg", "V")
 				Binesh.AddToHTML("Q: ?", "V")
 			end
 		end
@@ -18,10 +18,10 @@ function Binesh.F64_2()
 				m = -Q/L_F
 				
 				Binesh.CreateHTMLFile("Q =  -mL<sub>F</sub>", "m = -(<span>Q/L<sub>F</sub></span>)")
-				Binesh.AddToHTML("m = -(<span>"..Q.."/"..L_F.."</span>) &#8658; m = "..math.abs(m).." Kg")
+				Binesh.AddToHTML("m = -(<span>"..Binesh.Convert_e(Q).."/"..Binesh.Convert_e(L_F).."</span>) &#8658; m = "..Binesh.Convert_e(math.abs(m)).." Kg")
 				
-				Binesh.AddToHTML("Q: "..Q.." J", "V")
-				Binesh.AddToHTML("LF: "..L_F.." J/Kg", "V")
+				Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+				Binesh.AddToHTML("LF: "..Binesh.Convert_e(L_F).." J/Kg", "V")
 				Binesh.AddToHTML("m: ?", "V")
 			end
 		end
@@ -31,10 +31,10 @@ function Binesh.F64_2()
 				L_F = -Q/m
 				
 				Binesh.CreateHTMLFile("Q =  -mL<sub>F</sub>", "L<sub>F</sub> = -(<span>Q/m</span>)")
-				Binesh.AddToHTML("L<sub>F</sub> = -(<span>"..Q.."/"..m.."</span>) &#8658; L<sub>F</sub>= "..L_F.." J/Kg")
+				Binesh.AddToHTML("L<sub>F</sub> = -(<span>"..Binesh.Convert_e(Q).."/"..Binesh.Convert_e(m).."</span>) &#8658; L<sub>F</sub>= "..Binesh.Convert_e(L_F).." J/Kg")
 				
-				Binesh.AddToHTML("Q: "..Q.." J", "V")
-				Binesh.AddToHTML("m: "..m.." Kg", "V")
+				Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
+				Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
 				Binesh.AddToHTML("LF: ?", "V")
 			end
 		end

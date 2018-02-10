@@ -4,11 +4,11 @@ function Binesh.F2()
 			Binesh.CreateHTMLFile("U = mgh")
 			U = m*9.8*h
 			
-			Binesh.AddToHTML("U = "..m.."*9.8*"..h.." &#8658; U = "..U.." J")
+			Binesh.AddToHTML("U = "..Binesh.Convert_e(m).."*9.8*"..Binesh.Convert_e(h).." &#8658; U = "..Binesh.Convert_e(U).." J")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("m: "..m.." Kg", "V")
-			Binesh.AddToHTML("h: "..h.." m", "V")
+			Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
+			Binesh.AddToHTML("h: "..Binesh.Convert_e(h).." m", "V")
 			Binesh.AddToHTML("U: ?", "V")
 		end
 	end
@@ -18,11 +18,11 @@ function Binesh.F2()
 			Binesh.CreateHTMLFile("U = mgh", "m = <span>U/gh</span>")
 			m = U/(9.8*h)
 			
-			Binesh.AddToHTML("m = <span>"..U.."/9.8*"..h.."</span> &#8658; m = "..math.abs(m).." Kg")
+			Binesh.AddToHTML("m = <span>"..Binesh.Convert_e(U).."/9.8*"..Binesh.Convert_e(h).."</span> &#8658; m = "..Binesh.Convert_e(math.abs(m)).." Kg")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("h: "..h.." m", "V")
-			Binesh.AddToHTML("U: "..U.." J", "V")
+			Binesh.AddToHTML("h: "..Binesh.Convert_e(h).." m", "V")
+			Binesh.AddToHTML("U: "..Binesh.Convert_e(U).." J", "V")
 			Binesh.AddToHTML("m: ?", "V")
 		end
 	end
@@ -32,11 +32,11 @@ function Binesh.F2()
 			Binesh.CreateHTMLFile("U = mgh", "h = <span>U/mg</span>")
 			h = U/(m*9.8)
 			
-			Binesh.AddToHTML("h = <span>"..U.."/"..m.."*9.8</span> &#8658; h = "..h.." m")
+			Binesh.AddToHTML("h = <span>"..Binesh.Convert_e(U).."/"..Binesh.Convert_e(m).."*9.8</span> &#8658; h = "..Binesh.Convert_e(h).." m")
 			Web.Refresh("Web1");
 			
-			Binesh.AddToHTML("m: "..m.." Kg", "V")
-			Binesh.AddToHTML("U: "..U.." J", "V")
+			Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
+			Binesh.AddToHTML("U: "..Binesh.Convert_e(U).." J", "V")
 			Binesh.AddToHTML("h: ?", "V")
 		end
 	end

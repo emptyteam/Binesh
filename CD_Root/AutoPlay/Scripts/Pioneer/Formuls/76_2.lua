@@ -4,13 +4,13 @@ function Binesh.F76_2()
 			Binesh.CreateHTMLFile("DeltaU = nC<sub>V</sub>(T<sub>2</sub>-T<sub>1</sub>)", "T<sub>1</sub> = T<sub>2</sub>- <span>DeltaU/nC<sub>V</sub></span>")
 			_T1 = _T2+(-_DeltaU_In/n*C_V)
 			
-			Binesh.AddToHTML("T<sub>2</sub>: ".._T2.."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("DeltaU: ".._DeltaU_In.." J", "V")
-			Binesh.AddToHTML("n: "..n.." mol", "V")
-			Binesh.AddToHTML("C<sub>V</sub>: "..C_V.." J/mol.K", "V")
+			Binesh.AddToHTML("T<sub>2</sub>: "..Binesh.Convert_e(_T2).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("DeltaU: "..Binesh.Convert_e(_DeltaU_In).." J", "V")
+			Binesh.AddToHTML("n: "..Binesh.Convert_e(n).." mol", "V")
+			Binesh.AddToHTML("C<sub>V</sub>: "..Binesh.Convert_e(C_V).." J/mol.K", "V")
 			Binesh.AddToHTML("T<sub>1</sub>: ?", "V")
 			
-			Binesh.AddToHTML("T<sub>1</sub> = ".._T2.."- <span>".._DeltaU_In.."/"..C_V.."*"..n.."</span> &#8658; T<sub>1</sub> = ".._T1.."<sup>o</sup>K")
+			Binesh.AddToHTML("T<sub>1</sub> = "..Binesh.Convert_e(_T2).."- <span>"..Binesh.Convert_e(_DeltaU_In).."/"..Binesh.Convert_e(C_V).."*"..Binesh.Convert_e(n).."</span> &#8658; T<sub>1</sub> = "..Binesh.Convert_e(_T1).."<sup>o</sup>K")
 		end
 	end
 	
@@ -19,13 +19,13 @@ function Binesh.F76_2()
 			Binesh.CreateHTMLFile("DeltaU = nC<sub>V</sub>(T<sub>2</sub>-T<sub>1</sub>)", "T<sub>1</sub> = T<sub>2</sub>- <span>DeltaU/nC<sub>V</sub></span>")
 			_T2 = _T1+(_DeltaU_In/n*C_V)
 			
-			Binesh.AddToHTML("T<sub>1</sub>: ".._T1.."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("DeltaU: ".._DeltaU_In.." J", "V")
-			Binesh.AddToHTML("n: "..n.." mol", "V")
-			Binesh.AddToHTML("C<sub>V</sub>: "..C_V.." J/mol.K", "V")
+			Binesh.AddToHTML("T<sub>1</sub>: "..Binesh.Convert_e(_T1).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("DeltaU: "..Binesh.Convert_e(_DeltaU_In).." J", "V")
+			Binesh.AddToHTML("n: "..Binesh.Convert_e(n).." mol", "V")
+			Binesh.AddToHTML("C<sub>V</sub>: "..Binesh.Convert_e(C_V).." J/mol.K", "V")
 			Binesh.AddToHTML("T<sub>2</sub>: ?", "V")
 			
-			Binesh.AddToHTML("T<sub>2</sub> = ".._T2.." <span>".._DeltaU_In.."/"..C_V.."*"..n.."</span> &#8658; T<sub>2</sub> = ".._T2.."<sup>o</sup>K")
+			Binesh.AddToHTML("T<sub>2</sub> = "..Binesh.Convert_e(_T2).." <span>"..Binesh.Convert_e(_DeltaU_In).."/"..Binesh.Convert_e(C_V).."*"..Binesh.Convert_e(n).."</span> &#8658; T<sub>2</sub> = "..Binesh.Convert_e(_T2).."<sup>o</sup>K")
 		end
 	end
 end
