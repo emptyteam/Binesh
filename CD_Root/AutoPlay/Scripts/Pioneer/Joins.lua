@@ -77,6 +77,7 @@ function Binesh.Joins()
 	Binesh.Join('÷—н» ѕн «бШ —нШ');
 	Binesh.Join(' ж«д г ж”Ў');
 	Binesh.Join('—”«ддѕРн ”ЎЌ');
+	Binesh.Join(' Џѕ«ѕ –—е');
 	
 	-- Delta:
 	Binesh.Join(' џнн— ѕг«');
@@ -183,6 +184,13 @@ function Binesh.Joins()
 	Binesh.Join('«д—Он «жбнд');
 	Binesh.Join('ѕжгнд «д—Он');
 	Binesh.Join('«д—Он ѕжгнд');
+	
+	Binesh.Join(' џнн— ѕж—');
+	Binesh.Join('ѕж—  џнн—');
+	Binesh.Join('«жбнд ѕж—');
+	Binesh.Join('ѕж— «жбнд');
+	Binesh.Join('ѕжгнд ѕж—');
+	Binesh.Join('ѕж— ѕжгнд');
 	
 	
 	-- DONT MOVE IT:

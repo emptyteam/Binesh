@@ -152,6 +152,13 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÈÏæä åÓÊå", "åÓÊå 1", false);
 		result = String.Replace(result, "ÒæÇíå", "ÒÇæíå", false);
 		result = String.Replace(result, "ãíÏÇäí", "ãíÏÇä", false);
+		result = String.Replace(result, "ÒÇæíå ŞÇÆã", "ÒÇæíå 90 ÏÑÌå", false);
+		result = String.Replace(result, "ÒÇæíå ÚãæÏ", "ÒÇæíå 90 ÏÑÌå", false);
+		result = String.Replace(result, "ÇİÒÇíÔ ÏãÇ ÊÇ", "ÊÛííÑ ÏãÇ", false);
+		result = String.Replace(result, "ãÊÑãÑÈÚ", "ãÊÑ ãÑÈÚ", false);
+		result = String.Replace(result, "ÍáŞå", "ÏæÑ", false);
+		result = String.Replace(result, "ÑÊä", "ÑæÊæä", false);
+		result = String.Replace(result, "ÑæÊä", "ÑæÊæä", false);
 		
 		result = String.Replace(result, "ÑãÇ äåÇä", "", false);
 		result = String.Replace(result, "ÑãÇ ÊÈÎíÑ", "ÊÈÎíÑ", false);
@@ -163,20 +170,6 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÏÑ åÑ ÏŞíŞå", "ÒãÇä 60 ËÇäíå", false);
 		result = String.Replace(result, "ÏÑ åÑ ÓÇÚÊ", "ÒãÇä 3600 ËÇäíå", false);
 		result = String.Replace(result, "ÏÑ åÑ ÑæÒ", "ÒãÇä 86400 ËÇäíå", false);
-		
-		result = String.Replace(result, "f s", "fs,max", false);
-		result = String.Replace(result, "fs ,max", "fs,max", false);
-		result = String.Replace(result, "fs , max", "fs,max", false);
-		result = String.Replace(result, "fs, max", "fs,max", false);
-		result = String.Replace(result, "Mu s", "Mus", false);
-		result = String.Replace(result, "f k", "fk", false);
-		result = String.Replace(result, "Mu k", "Muk", false);
-		result = String.Replace(result, "Ohm * m", "Ohm.m", false);
-		result = String.Replace(result, "Ohm . m", "Ohm.m", false);
-		result = String.Replace(result, "Rad", "rad", true);
-		result = String.Replace(result, "hz", "Hz", true);
-		result = String.Replace(result, "omega", "Omega", true);
-		result = String.Replace(result, "t0", "t", true);
 		
 		-- For Delta:
 		for indexDelta = 1, Table.Count(tbl.Delta.Words) do
@@ -197,23 +190,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "atmosphere", "atm", false);
 		result = String.Replace(result, "minute", "min", false);
 		result = String.Replace(result, "minutes", "min", false);
-		
-		result = String.Replace(result, "m", " m ", false);
-		result = String.Replace(result, "m /s", " m/s", false);
-		result = String.Replace(result, "m/s", " m/s", false);
-		result = String.Replace(result, "m/s^2", " m/s^2", false);
-		result = String.Replace(result, "J", " J", false);
-		result = String.Replace(result, "j", " J", true);
-		result = String.Replace(result, "m ^3", " m^3", true);
-		result = String.Replace(result, "m^3", " m^3", true);
-		result = String.Replace(result, "m ol", " mol", false);
-		result = String.Replace(result, "mol", " mol", false);
-		result = String.Replace(result, "K", " K", true);
-		result = String.Replace(result, "1/ K", "1/K", true);
-		result = String.Replace(result, "C", " C", true);
-		result = String.Replace(result, "1/ C", "1/C", true);
-		result = String.Replace(result, "g", " g", true);
-		result = String.Replace(result, "g/mol", " g/mol", true);
+		result = String.Replace(result, "j", "J", true);
 		
 		result = String.Replace(result, "=", " = ", false);
 		

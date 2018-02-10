@@ -55,7 +55,7 @@ function Binesh.ConvertToHTML(sFormule, WhatFile)
 	sFormule = String.Replace(sFormule, "Ru", "&rho;", true);
 	sFormule = String.Replace(sFormule, "Sigma", "&sigma;", true);
 	sFormule = String.Replace(sFormule, "Fi", "&Phi;", true);
-	sFormule = String.Replace(sFormule, "Ohm", "&Omega;", true);
+	sFormule = String.Replace(sFormule, "Ohm", "&ohm;", true);
 	sFormule = String.Replace(sFormule, "Omega", "&omega;", true);
 	sFormule = String.Replace(sFormule, "Mu", "&mu;", true);
 	
