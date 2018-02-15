@@ -159,6 +159,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "Õ·ﬁÂ", "œÊ—", false);
 		result = String.Replace(result, "Å— ‰", "Å—Ê Ê‰", false);
 		result = String.Replace(result, "Å—Ê ‰", "Å—Ê Ê‰", false);
+		result = String.Replace(result, "‘»«‰Â —Ê“", "—Ê“", false);
 		
 		result = String.Replace(result, "ê—„« ‰Â«‰", "", false);
 		result = String.Replace(result, "ê—„«  »ŒÌ—", " »ŒÌ—", false);
@@ -190,8 +191,25 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "atmosphere", "atm", false);
 		result = String.Replace(result, "minute", "min", false);
 		result = String.Replace(result, "minutes", "min", false);
+		result = String.Replace(result, "day", "day", false);
 		result = String.Replace(result, "j", "J", true);
-		
+		result = String.Replace(result, "eta", "Eta", false);
+		result = String.Replace(result, "teta", "Teta", false);
+		result = String.Replace(result, "deg", "œ—ÃÂ", true);
+		result = String.Replace(result, "	", " ", true);
+		result = String.Replace(result, "lv", "LV", false);
+		result = String.Replace(result, "ohm", "Ohm", true);
+		result = String.Replace(result, "fsmax", "fs,max", false);
+		result = String.Replace(result, "fs max", "fs,max", false);
+		result = String.Replace(result, "f smax", "fs,max", false);
+		result = String.Replace(result, "f s max", "fs,max", false);
+		result = String.Replace(result, "fsmaks", "fs,max", false);
+		result = String.Replace(result, "qc", "QC", false);
+		result = String.Replace(result, "muk", "Muk", false);
+		result = String.Replace(result, "mus", "Mus", false);
+		result = String.Replace(result, "fk", "fk", false);
+		result = String.Replace(result, "kg", "Kg", false);
+			
 		result = String.Replace(result, "=", " = ", false);
 		
 		result = String.Replace(result, "!", " ! ", false);

@@ -2,6 +2,7 @@ function Binesh.ClearData()
 	Binesh.ClearHTMLFile()
 	Binesh.ClearHTMLFile("V")	
 	l = nil
+	n = nil
 	U = nil
 	Alpha = nil
 	F = nil

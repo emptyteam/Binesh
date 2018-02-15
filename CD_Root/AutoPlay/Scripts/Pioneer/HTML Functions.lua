@@ -46,16 +46,15 @@ function Binesh.ConvertToHTML(sFormule, WhatFile)
 	
 	sFormule = String.Replace(sFormule, "Alpha", "&ùalpha;", true);
 	sFormule = String.Replace(sFormule, "Beta", "&beta;", true);
-	sFormule = String.Replace(sFormule, "Lambda", "&lambda;", true);
 	sFormule = String.Replace(sFormule, "Delta", "&Delta;", true);
 	sFormule = String.Replace(sFormule, "Epsilon", "&epsilon;", true);
 	sFormule = String.Replace(sFormule, "Eta", "&eta;", true);
 	sFormule = String.Replace(sFormule, "Teta", "&theta;", true);
-	sFormule = String.Replace(sFormule, "Pi", "&pi;", true);
+	sFormule = String.Replace(sFormule, "Pi", "&Pi;", true);
 	sFormule = String.Replace(sFormule, "Ru", "&rho;", true);
 	sFormule = String.Replace(sFormule, "Sigma", "&sigma;", true);
 	sFormule = String.Replace(sFormule, "Fi", "&Phi;", true);
-	sFormule = String.Replace(sFormule, "Ohm", "&ohm;", true);
+	sFormule = String.Replace(sFormule, "Ohm", "&Omega;", true);
 	sFormule = String.Replace(sFormule, "Omega", "&omega;", true);
 	sFormule = String.Replace(sFormule, "Mu", "&mu;", true);
 	
