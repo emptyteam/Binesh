@@ -1,39 +1,39 @@
 function Binesh.F4_1()
-	if _DeltaTF ~= nil or _TF1 ~= nil or _TF2 ~= nil then
+	if (_DeltaTF ~= nil or _TF1 ~= nil or _TF2 ~= nil) and (_DeltaTeta == nil and _Teta1 == nil and _Teta2 == nil) then
 		Binesh.CreateHTMLFile("F = <span>9/5</span>Teta+32", "Teta = <span>5/9</span>(F-32)")
 	end
 	
-	if _DeltaTF ~= nil then
+	if _DeltaTF ~= nil and _DeltaTeta == nil then
 		_DeltaTeta = 5/9*(_DeltaTF - 32)
 		Binesh.AddToHTML("DeltaTeta = <span>5/9</span>("..Binesh.Convert_e(_DeltaTF).."-32) &#8658; Teta = "..Binesh.Convert_e(_DeltaTeta).." C")
 
 	end
 	
-	if _TF1 ~= nil then
+	if _TF1 ~= nil and _Teta1 == nil then
 		_Teta1 = 5/9*(_TF1 - 32)
 		Binesh.AddToHTML("Teta<sub>1</sub> = <span>5/9</span>("..Binesh.Convert_e(_TF1).."-32) &#8658; Teta<sub>1</sub> = "..Binesh.Convert_e(_Teta1).." C")
 
 	end
 	
-	if _TF2 ~= nil then
+	if _TF2 ~= nil and _Teta2 == nil then
 		_Teta2 = 5/9*(_TF2 - 32)
 		Binesh.AddToHTML("Teta<sub>2</sub> = <span>5/9</span>("..Binesh.Convert_e(_TF2).."-32) &#8658; Teta<sub>2</sub> = "..Binesh.Convert_e(_Teta2).." C")
 
 	end
 	
-	if _DeltaT ~= nil or _T1 ~= nil or _T2 ~= nil then
+	if (_DeltaT ~= nil or _T1 ~= nil or _T2 ~= nil) and (_DeltaTeta == nil and _Teta1 == nil and _Teta2 == nil) then
 		Binesh.CreateHTMLFile("T = Teta+273", "Teta = T-273")
 	end
 	
-	if _DeltaT ~= nil then
+	if _DeltaT ~= nil and _DeltaTeta == nil then
 		_DeltaTeta = _DeltaT-273
 		Binesh.AddToHTML("DeltaTeta = "..Binesh.Convert_e(_DeltaT).."-273 &#8658; DeltaTeta = "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C")
 	end
-	if _T1 ~= nil then
+	if _T1 ~= nil and _Teta1 == nil then
 		_Teta1 = _T1-273
 		Binesh.AddToHTML("Teta<sub>1</sub> = "..Binesh.Convert_e(_T1).."-273 &#8658; Teta<sub>1</sub> = "..Binesh.Convert_e(_Teta1).."<sup>o</sup>C")
 	end
-	if _T2 ~= nil then
+	if _T2 ~= nil and _Teta2 == nil then
 		_Teta2 = _T2-273
 		Binesh.AddToHTML("Teta<sub>2</sub> = "..Binesh.Convert_e(_T2).."-273 &#8658; Teta<sub>2</sub> = "..Binesh.Convert_e(_Teta2).."<sup>o</sup>C")
 	end

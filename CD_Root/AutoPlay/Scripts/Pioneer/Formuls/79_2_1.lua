@@ -1,19 +1,19 @@
 function Binesh.F79_2_1()
-	if _DeltaPa ~= nil or _Pa1 ~= nil or _Pa2 ~= nil then
+	if (_DeltaPa ~= nil or _Pa1 ~= nil or _Pa2 ~= nil) and (_DeltaP == nil and _P1 == nil and _P2 == nil) then
 		Binesh.CreateHTMLFile("P<sub>Pascal</sub> = P<sub>atm</sub>*10<sup>5</sup>")
 	end
 	
-	if _DeltaPa ~= nil then
+	if _DeltaPa ~= nil and _DeltaP == nil then
 		_DeltaP = _DeltaPa*10^5
 		Binesh.AddToHTML("DeltaP<sub>Pascal</sub> = "..Binesh.Convert_e(_DeltaPa).."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = "..Binesh.Convert_e(_DeltaP).." Pa")
 	end
 	
-	if _Pa1 ~= nil then
+	if _Pa1 ~= nil and _P1 == nil then
 		_P1 = _Pa1*10^5
 		Binesh.AddToHTML("P<sub>Pascal</sub> = "..Binesh.Convert_e(_Pa1).."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = "..Binesh.Convert_e(_P1).." Pa")
 	end
 	
-	if _Pa2 ~= nil then
+	if _Pa2 ~= nil and _P2 == nil then
 		_P2 = _Pa2*10^5
 		Binesh.AddToHTML("P<sub>Pascal</sub> = "..Binesh.Convert_e(_Pa2).."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = "..Binesh.Convert_e(_P2).." Pa")
 	end

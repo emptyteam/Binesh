@@ -7,7 +7,7 @@ function Binesh.F66_1()
 	if _DeltaL == nil then
 		if L ~= nil and _L2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaL = L<sub>2</sub>-L<sub>1</sub>")
-			_DeltaL = _L2 - L
+			_DeltaL = math.abs(_L2 - L)
 			Binesh.AddToHTML("DeltaL = "..Binesh.Convert_e(_L2).."-"..Binesh.Convert_e(L).." &#8658; DeltaL = "..Binesh.Convert_e(_DeltaL).." m")
 		end
 	end
@@ -15,7 +15,7 @@ function Binesh.F66_1()
 	if L == nil then
 		if _DeltaL ~= nil and _L2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaL = L<sub>2</sub>-L<sub>1</sub>", "L<sub>1</sub> = L<sub>2</sub>-DeltaL")
-			L = _L2-_DeltaL
+			L = math.abs(_L2-_DeltaL)
 			Binesh.AddToHTML("L<sub>1</sub> = "..Binesh.Convert_e(_L2).."-"..Binesh.Convert_e(_DeltaL).." &#8658; L<sub>1</sub> = "..Binesh.Convert_e(L).." m")
 		end
 	end
@@ -23,7 +23,7 @@ function Binesh.F66_1()
 	if _L2 == nil then
 		if _DeltaL ~= nil and L ~= nil then
 			Binesh.CreateHTMLFile("DeltaL = L<sub>2</sub>-L<sub>1</sub>", "L<sub>2</sub> = DeltaL+L<sub>1</sub>")
-			_L2 = L+_DeltaL
+			_L2 = math.abs(L+_DeltaL)
 			Binesh.AddToHTML("L<sub>2</sub> = "..Binesh.Convert_e(_DeltaL).."+"..Binesh.Convert_e(L).." &#8658; L<sub>2</sub> = "..Binesh.Convert_e(_L2).." m")
 		end
 	end

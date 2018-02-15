@@ -1,6 +1,5 @@
 function Binesh.F37()
 	if VBar_Speed == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "”—⁄  „ Ê”ÿ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "VBar") ~= -1) then
-		
 		if V1_Speed ~= nil and V2_Speed ~= nil then
 			Binesh.CreateHTMLFile("VBar = <span>V<sub>1</sub>+V<sub>2</sub>/2</span>")
 			VBar_Speed = (V1_Speed+V2_Speed)/2

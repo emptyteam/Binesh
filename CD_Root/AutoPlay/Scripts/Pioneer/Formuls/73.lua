@@ -1,20 +1,20 @@
 function Binesh.F73()
-	if VL ~= nil then
+	if VL ~= nil and V == nil then
 		Binesh.CreateHTMLFile("V = V<sub>L</sub>*10<sup>-3</sup>")
 		V = VL*10^-3
 		Binesh.AddToHTML("V = "..Binesh.Convert_e(VL).."*10<sup>-3</sup> &#8658; V = "..Binesh.Convert_e(V).."m<sup>-3</sup>")
 	end
 	
-	if TF ~= nil then
+	if TF ~= nil and TC == nil then
 		Binesh.CreateHTMLFile("F = <span>9/5</span>Teta+32", "Teta = <span>5/9</span>(F-32)")
 		TC = 5/9*(TF-32)
 		Binesh.AddToHTML("Teta = <span>5/9</span>("..Binesh.Convert_e(TF).."-32) &#8658; Teta = "..Binesh.Convert_e(TC).." C")
 	end
 	
-	if TC ~= nil then
+	if TC ~= nil and T == nil then
 		Binesh.CreateHTMLFile("T = Teta+273")
 		T = TC+273
-		Binesh.AddToHTML("T = "..Binesh.Convert_e(TC).."+273 &#8658; T = "..Binesh.Convert_e(T).."K")
+		Binesh.AddToHTML("T = "..Binesh.Convert_e(TC).."+273 &#8658; T = "..Binesh.Convert_e(T).." K")
 	end
 	
 	if P == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ýิวั") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P") ~= -1) then

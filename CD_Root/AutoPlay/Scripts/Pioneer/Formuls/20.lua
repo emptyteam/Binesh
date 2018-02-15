@@ -1,5 +1,5 @@
 function Binesh.F20()
-	if C_Radian ~= nil then
+	if C_Radian ~= nil and C ==nil then
 		Binesh.CreateHTMLFile("<span>R/Pi</span> = <span>D/180</span>", "D = <span>180R/Pi</span>")
 		C = Math.RadToDeg(C_Radian)
 		Binesh.AddToHTML("D<sub>C</sub> = <span>180*"..Binesh.Convert_e(C_Radian).."/"..Binesh.Convert_e(Zarib.Pi).."</span> &#8658; D<sub>C</sub> = "..Binesh.Convert_e(C).."<sup>o</sup>")

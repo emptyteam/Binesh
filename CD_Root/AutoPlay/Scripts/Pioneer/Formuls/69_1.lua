@@ -6,22 +6,22 @@ function Binesh.F69_1()
 		VL = _L1L
 	end
 	
-	if _DeltaVL ~= nil or VL ~= nil or _V2L ~= nil then
+	if (_DeltaVL ~= nil or VL ~= nil or _V2L ~= nil) and (_DeltaV == nil and V == nil and _V2 == nil) then
 		Binesh.CreateHTMLFile("V = V<sub>L</sub>*10<sup>-3</sup>")
 	end
 	
-	if _DeltaVL ~= nil then
-		_DeltaV = _DeltaVL * 10^-3
+	if _DeltaVL ~= nil and _DeltaV == nil then
+		_DeltaV = math.abs(_DeltaVL * 10^-3)
 		Binesh.AddToHTML("DeltaV = "..Binesh.Convert_e(_DeltaVL).."*10<sup>-3</sup> &#8658; DeltaV = "..Binesh.Convert_e(_DeltaV).." m<sup>3</sup>")
 	end
 	
-	if VL ~= nil then
-		V = VL * 10^-3
+	if VL ~= nil and V == nil then
+		V = math.abs(VL * 10^-3)
 		Binesh.AddToHTML("V<sub>1</sub> = "..Binesh.Convert_e(VL).."*10<sup>-3</sup> &#8658; V<sub>1</sub> = "..Binesh.Convert_e(VL).." m<sup>3</sup>")
 	end
 	
-	if _V2L ~= nil then
-		_V2 = _V2L * 10^-3
+	if _V2L ~= nil and _V2 == nil then
+		_V2 = math.abs(_V2L * 10^-3)
 		Binesh.AddToHTML("V<sub>2</sub> = "..Binesh.Convert_e(_V2L).."*10<sup>-3</sup> &#8658; V<sub>2</sub> = "..Binesh.Convert_e(_V2L).." m<sup>3</sup>")
 	end
 	
@@ -29,7 +29,7 @@ function Binesh.F69_1()
 	if _DeltaV == nil then
 		if V ~= nil and _V2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>")
-			_DeltaV = _V2 - V
+			_DeltaV = math.abs(_V2 - V)
 			Binesh.AddToHTML("DeltaV = "..Binesh.Convert_e(_V2).."-"..Binesh.Convert_e(V).." &#8658; DeltaV = "..Binesh.Convert_e(_DeltaV).." m<sup>3</sup>")
 		end
 	end
@@ -37,7 +37,7 @@ function Binesh.F69_1()
 	if V == nil then
 		if _DeltaV ~= nil and _V2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>1</sub> = V<sub>2</sub>-DeltaV")
-			V = _V2-_DeltaV
+			V = math.abs(_V2-_DeltaV)
 			Binesh.AddToHTML("V<sub>1</sub> = "..Binesh.Convert_e(_V2).."-"..Binesh.Convert_e(_DeltaV).." &#8658; V<sub>1</sub> = "..Binesh.Convert_e(V).." m<sup>3</sup>")
 		end
 	end
@@ -45,7 +45,7 @@ function Binesh.F69_1()
 	if _V2 == nil then
 		if _DeltaV ~= nil and V ~= nil then
 			Binesh.CreateHTMLFile("DeltaV = V<sub>2</sub>-V<sub>1</sub>", "V<sub>2</sub> = DeltaV+V<sub>1</sub>")
-			_V2 = V+_DeltaV
+			_V2 = math.abs(V+_DeltaV)
 			Binesh.AddToHTML("V<sub>2</sub> = "..Binesh.Convert_e(_DeltaV).."+"..Binesh.Convert_e(V).." &#8658; V<sub>2</sub> = "..Binesh.Convert_e(_V2).." m<sup>3</sup>")
 		end
 	end

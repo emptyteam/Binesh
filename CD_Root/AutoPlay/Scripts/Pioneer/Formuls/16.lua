@@ -1,10 +1,10 @@
 function Binesh.F16()
-	if i_Radian ~= nil then
+	if i_Radian ~= nil and i == nil then
 		i = Math.RadToDeg(i_Radian)
 		Binesh.AddToHTML("D<sub>i</sub> = <span>180*"..Binesh.Convert_e(i_Radian).."/"..Binesh.Convert_e(Zarib.Pi).."</span> &#8658; D<sub>i</sub> = "..Binesh.Convert_e(i).."<sup>o</sup>")
 	end
 	
-	if r_Glass_Radian ~= nil then
+	if r_Glass_Radian ~= nil and r_Glass == nil then
 		r_Glass = Math.RadToDeg(r_Glass_Radian)
 		Binesh.AddToHTML("D<sub>r</sub> = <span>180*"..Binesh.Convert_e(r_Glass).."/"..Binesh.Convert_e(Zarib.Pi).."</span> &#8658; D<sub>r</sub> = "..Binesh.Convert_e(r_Glass).."<sup>o</sup>")
 	end

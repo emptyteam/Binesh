@@ -1,5 +1,5 @@
 function Binesh.F58()
-	if Pa ~= nil then
+	if Pa ~= nil and P == nil then
 		Binesh.CreateHTMLFile("P<sub>Pascal</sub> = P<sub>atm</sub>*10<sup>5</sup>")
 		P = Pa*10^5
 		Binesh.AddToHTML("P<sub>Pascal</sub> = "..Binesh.Convert_e(Pa).."*10<sup>5</sup> &#8658; P<sub>Pascal</sub> = "..Binesh.Convert_e(P).." Pa")

@@ -1,17 +1,17 @@
 function Binesh.F32_1()
-	if VBar_Speed_mh ~= nil  then
+	if VBar_Speed_mh ~= nil and VBar_Speed == nil then
 		VBar_Speed = VBar_Speed_mh/3600
 		Binesh.CreateHTMLFile("VBar<sub>m/s</sub> = <span>VBar<sub>m/h</sub>/3.6</span>", "VBar<sub>m/s</sub> = <span>"..Binesh.Convert_e(VBar_Speed_mh).."/3.6</span>")
 		Binesh.AddToHTML("VBar<sub>m/s</sub> = "..Binesh.Convert_e(VBar_Speed).."m/s");
 	end
 	
-	if VBar_Speed_miles ~= nil then
+	if VBar_Speed_miles ~= nil and VBar_Speed == nil then
 		VBar_Speed = VBar_Speed_miles*1609.3
 		Binesh.CreateHTMLFile("VBar<sub>m/s</sub> = VBar<sub>mile/s</sub>*1609.3", "VBar<sub>m/s</sub> = "..Binesh.Convert_e(VBar_Speed_miles).."*1609.3")
 		Binesh.AddToHTML("VBar<sub>m/s></sub> = "..Binesh.Convert_e(VBar_Speed).."m/s");
 	end
 	
-	if VBar_Speed_mileh ~= nil then
+	if VBar_Speed_mileh ~= nil and VBar_Speed == nil then
 		VBar_Speed = VBar_Speed_mileh*1609.3/3.6
 		Binesh.CreateHTMLFile("VBar<sub>m/s</sub> = VBar<sub>mile/h</sub>*<span>1609.3/3.6</span>", "VBar<sub>m/s</sub> = "..Binesh.Convert_e(VBar_Speed_miles).."*<span>1609.3/3.6</span>")
 		Binesh.AddToHTML("VBar<sub>m/s></sub> = "..Binesh.Convert_e(VBar_Speed).."m/s");
@@ -45,7 +45,7 @@ function Binesh.F32_1()
 	if _Deltat == nil then
 		if _t1 ~= nil and _t2 ~= nil then
 			Binesh.CreateHTMLFile("Deltat = t<sub>2</sub>-t<sub>1</sub>")
-			_Deltat = _t2 - _t1
+			_Deltat = math.abs(_t2 - _t1)
 			Binesh.AddToHTML("Deltat = "..Binesh.Convert_e(_t2).."-"..Binesh.Convert_e(_t1).." &#8658; Deltat = "..Binesh.Convert_e(_Deltat).." s")
 		end
 	end
@@ -53,7 +53,7 @@ function Binesh.F32_1()
 	if _t1 == nil then
 		if _Deltat ~= nil and _t2 ~= nil then
 			Binesh.CreateHTMLFile("Deltat = t<sub>2</sub>-t<sub>1</sub>", "t<sub>1</sub> = t<sub>2</sub>-Deltat")
-			_t1 = _t2-_Deltat
+			_t1 = math.abs(_t2-_Deltat)
 			Binesh.AddToHTML("t<sub>1</sub> = "..Binesh.Convert_e(_t2).."-"..Binesh.Convert_e(_Deltat).." &#8658; t<sub>1</sub> = "..Binesh.Convert_e(_t1).." s")
 		end
 	end
@@ -61,7 +61,7 @@ function Binesh.F32_1()
 	if _t2 == nil then
 		if _Deltat ~= nil and _t1 ~= nil then
 			Binesh.CreateHTMLFile("Deltat = t<sub>2</sub>-t<sub>1</sub>", "t<sub>2</sub> = Deltat+t<sub>1</sub>")
-			_t2 = _t1+_Deltat
+			_t2 = math.abs(_t1+_Deltat)
 			Binesh.AddToHTML("t<sub>2</sub> = "..Binesh.Convert_e(_Deltat).."+"..Binesh.Convert_e(_t1).." &#8658; t<sub>2</sub> = "..Binesh.Convert_e(_t2).." s")
 		end
 	end

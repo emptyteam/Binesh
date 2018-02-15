@@ -9,6 +9,11 @@ function Binesh.F6()
 		Binesh.AddToHTML("t = 3600t<sub>Hour</sub>", "t = 3600*"..t_Hour.." &#8658; t = "..t.." s")
 	end
 	
+	if t_Day ~= nil and t == nil then
+		t = t_Day*86400
+		Binesh.AddToHTML("t = 86400<sub>Day</sub>", "t = 86400*"..t_Day.." &#8658; t = "..t.." s")
+	end
+	
 	if I == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "Ã—Ì«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "I") ~= -1) then
 		if q ~= nil and t ~= nil then
 			Binesh.CreateHTMLFile("I = <span>q/t</span>")
