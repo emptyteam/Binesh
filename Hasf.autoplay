@@ -722,6 +722,13 @@ if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\HTML Functions.l
 	Binesh.Include("HTML Functions", false)
 end
 
+-- Include Add-ons
+Add_ons = File.Find(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Add-ons", "*.lua", false, false, nil, nil);
+if Add_ons ~= nil then
+	for indexAdd_ons = 1, Table.Count(Add_ons) do
+		Binesh.Include("Add-ons."..String.SplitPath(Add_ons[indexAdd_ons]).Filename, false)
+	end
+end
 
 Binesh.Include("Genesis1", false);
 Binesh.Include("Genesis2", false);
@@ -752,8 +759,8 @@ function FTPError()
 end</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>616</DesignCodeLine>
-<DesignCodeCol>73</DesignCodeCol>
+<DesignCodeLine>661</DesignCodeLine>
+<DesignCodeCol>10</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
@@ -9870,6 +9877,45 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		end
 	end
 	
+	function SetOhm(Variable)
+		if Variable ~= nil then
+			R			= Variable
+			RT			= Variable
+			r_Resistor	= Variable
+		end
+	end
+	
+	function Setm(Variable)
+		if Variable ~= nil then
+			h			= Variable
+			r_3			= Variable
+			p_Source	= Variable
+			p_Glass		= Variable
+			f			= Variable
+			R_Radius	= Variable
+			h_Glass		= Variable
+			d			= Variable
+			L			= Variable
+			d_Distance	= Variable
+			l			= Variable
+		end
+	end
+	
+	function SetVolt(Variable)
+		if Variable ~= nil then
+			V_Electric	= Variable
+			Epsilon		= Variable
+			VT_Electric	= Variable
+		end
+	end
+	
+	function SetJKg(Variable)
+		if Variable ~= nil then
+			L_F	= Variable
+			LV	= Variable
+		end
+	end
+	
 	for indexOfCalculate = 1, 5 do
 		Page.ClickObject("xButton2"); -- Genesis 1
 		Page.ClickObject("xButton3"); -- Genesis 2
@@ -9886,8 +9932,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>95</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>2</DesignCodeLine>
+<DesignCodeCol>150</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10192,7 +10238,6 @@ Binesh.F112_3();
 Binesh.F113_1();
 Binesh.F113_2();
 Binesh.F113_3();
-Binesh.F114_1();
 Binesh.F114_2();
 Binesh.F114_3();
 Binesh.F115_1();
@@ -10235,8 +10280,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>177</DesignCodeLine>
-<DesignCodeCol>14</DesignCodeCol>
+<DesignCodeLine>139</DesignCodeLine>
+<DesignCodeCol>16</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -10351,39 +10396,30 @@ Binesh.F147();</Script>
 <Event>
 <Name>On Click</Name>
 <Args/>
-<Script>
--- 81
+<Script>-- 81
 	if QH == nil then
 		QH = Binesh.Genesis1("ãäÈÚ Ñã", "QH", "", "", 1, "J", "æá");
-		SetJ(QH)
 	end
 	if QC == nil then
 		QC = Binesh.Genesis1("ãäÈÚ ÓÑÏ", "QC", "", "", 1, "J", "æá");
-		SetJ(QC)
 	end
 	
 	-- 83
 	if T_C == nil and T_CC == nil and T_CF == nil then
 		T_C = Binesh.Genesis1("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "K", "˜áæíä");
-		SetK(T_C)
 		if T_C == nil then
 			T_CC = Binesh.Genesis1("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "C", "ÓáÓíæÓ");
-			SetC(T_CC)
 			if T_CC == nil then
 				T_CF = Binesh.Genesis1("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "F", "İÇÑäåÇíÊ");
-				SetF(T_CF)
 			end
 		end
 	end
 	if T_H == nil and T_HC == nil and T_HF == nil then
 		T_H = Binesh.Genesis1("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "K", "˜áæíä");
-		SetK(T_H)
 		if T_H == nil then
 			T_HC = Binesh.Genesis1("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "C", "ÓáÓíæÓ");
-			SetC(T_HC)
 			if T_HC == nil then
 				T_HF = Binesh.Genesis1("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "F", "İÇÑäåÇíÊ");
-				SetF(T_HF)
 			end
 		end
 	end
@@ -10391,13 +10427,11 @@ Binesh.F147();</Script>
 	-- 49
 	if W == nil then
 		W = Binesh.Genesis1("˜ÇÑ", "W", "", "", 1, "J", "æá");
-		SetJ(W)
 	end
 	
 	-- 1
 	if K == nil then
 		K = Binesh.Genesis1("ÇäÑí", "K", "", "", 1, "J", "æá");
-		SetJ(K)
 	end
 	if m == nil then
 		m = Binesh.Genesis1("ÌÑã", "m", "˜íáæ", "K", 10^3, "g", "Ñã");
@@ -10410,7 +10444,6 @@ Binesh.F147();</Script>
 	end
 	if V_Speed == nil and V_Speed_mh == nil and V_Speed_miles == nil and V_Speed_mileh == nil then
 		V_Speed = Binesh.Genesis1("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
-		Setms(V_Speed)
 		if V_Speed == nil then
 			V_Speed_mh = Binesh.Genesis1("ÓÑÚÊ", "V", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
 			if V_Speed_mh == nil then
@@ -10434,7 +10467,6 @@ Binesh.F147();</Script>
 	-- 2
 	if U == nil then
 		U = Binesh.Genesis1("ÇäÑí", "U", "", "", 1, "J", "æá");
-		SetJ(U)
 	end
 	if h == nil then
 		h = Binesh.Genesis1("ÇÑÊİÇÚ", "h", "", "", 1, "m", "ãÊÑ");
@@ -10443,12 +10475,10 @@ Binesh.F147();</Script>
 	-- 4
 	if Q == nil then
 		Q = Binesh.Genesis1("ÑãÇ", "Q", "", "", 1, "J", "æá");
-		SetJ(Q)
 	end
 	if c == nil then
 		c = Binesh.Genesis1("ÙÑİíÊ ÑãÇ", "c", "", "", 1, "J/KgC", "æá ÈÑ ˜íáæ Ñã ÓáÓíæÓ");
 	end
-	
 	
 	-- 5
 	if q == nil then
@@ -10459,12 +10489,18 @@ Binesh.F147();</Script>
 	if I == nil then
 		I = Binesh.Genesis1("ÌÑíÇä", "I", "", "", 1, "A", "ÂãÑ");
 	end
-	if t == nil and t_Min == nil and t_Hour == nil then
+	if t == nil and t_Min == nil and t_Hour == nil and t_Day == nil then
 		t = Binesh.Genesis1("ÒãÇä", "t", "", "", 1, "s", "ËÇäíå");
 		if t == nil then
 			t_Min = Binesh.Genesis1("ÒãÇä", "t", "", "", 1, "min", "ÏŞíŞå");
 			if t_Min == nil then
 				t_Hour = Binesh.Genesis1("ÒãÇä", "t", "", "", 1, "hour", "ÓÇÚÊ");
+				if t_Hour == nil then
+					t_Day = Binesh.Genesis1("ÒãÇä", "t", "", "", 1, "d", "ÑæÒ");
+					if t_Day == nil then
+						t_Day = Binesh.Genesis1("ÒãÇä", "t", "", "", 1, "day", "ÑæÒ");
+					end
+				end
 			end
 		end
 	end
@@ -10543,6 +10579,9 @@ Binesh.F147();</Script>
 		R_Radius = Binesh.Genesis1("ÔÚÇÚ", "R", "", "", 1, "m", "ãÊÑ");
 		if R_Radius == nil then
 			R_Radius = Binesh.Genesis1("ÔÚÇÚ", "r", "", "", 1, "m", "ãÊÑ");
+			if R_Radius ~= nil then
+				r = R_Radius 
+			end
 		end
 	end
 	
@@ -10597,14 +10636,13 @@ Binesh.F147();</Script>
 	
 	-- 32
 	if VBar_Speed == nil and VBar_Speed_mh == nil and VBar_Speed_miles == nil and VBar_Speed_mileh == nil then
-		VBar_Speed = Binesh.Genesis1("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
-		Setms(VBar_Speed)
+		VBar_Speed = Binesh.Genesis1("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
 		if VBar_Speed == nil then
-			VBar_Speed_mh = Binesh.Genesis1("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
+			VBar_Speed_mh = Binesh.Genesis1("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
 			if VBar_Speed_mh == nil then
-				VBar_Speed_miles = Binesh.Genesis1("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå");
+				VBar_Speed_miles = Binesh.Genesis1("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå");
 				if VBar_Speed_miles == nil then
-					VBar_Speed_mileh = Binesh.Genesis1("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ");
+					VBar_Speed_mileh = Binesh.Genesis1("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ");
 				end
 			end
 		end
@@ -10692,7 +10730,7 @@ Binesh.F147();</Script>
 	if d == nil then
 		d = Binesh.Genesis1("İÇÕáå", "d", "", "", 1, "m", "ãÊÑ");
 		if d ~= nil then
-			d_Distance = d
+			r = d
 			x0, _Deltax = d, d
 		end
 	end
@@ -10702,7 +10740,6 @@ Binesh.F147();</Script>
 	-- 53
 	if E_53 == nil then
 		E_53 = Binesh.Genesis1("ÇäÑí", "E", "", "", 1, "J", "æá");
-		SetJ(E_53)
 	end
 	
 	-- 51
@@ -10839,13 +10876,10 @@ Binesh.F147();</Script>
 	end
 	if T == nil and TC == nil and TF == nil then
 		T = Binesh.Genesis1("ÏãÇ", "T", "", "", 1, "K", "˜áæíä");
-		SetK(T)
 		if T == nil then
 			TC = Binesh.Genesis1("ÏãÇ", "Teta", "", "", 1, "C", "ÓáÓíæÓ");
-			SetC(TC)
 			if TC == nil then
 				TF = Binesh.Genesis1("ÏãÇ", "Teta", "", "", 1, "F", "İÇÑäåÇíÊ");
-				SetF(TF)
 			end
 		end
 	end
@@ -10912,7 +10946,7 @@ Binesh.F147();</Script>
 		_q2 = q2
 	end
 	if r == nil then
-		r = Binesh.Genesis1("İÇÕáå", "r", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+		r = Binesh.Genesis1("İÇÕáå", "r", "", "", 1, "m", "ãÊÑ");
 	end
 	
 	-- 87
@@ -10941,13 +10975,6 @@ Binesh.F147();</Script>
 	end
 	
 	-- 93
-	if d_Distance == nil then
-		d_Distance = Binesh.Genesis1("İÇÕáå", "d", "", "", 1, "m", "ãÊÑ");
-	end
-	if d_Distance ~= nil then
-		r_3 = d_Distance
-		d = d_Distance
-	end
 	
 	-- 94
 	if W_Out == nil then
@@ -11027,7 +11054,6 @@ Binesh.F147();</Script>
 	
 	-- 114
 	U_Output = Binesh.Genesis1("ÇäÑí ãÕÑİí", "U", "", "", 1, "J", "æá");
-	SetJ(U_Output)
 	
 	-- 118
 	if RT == nil then
@@ -11238,6 +11264,24 @@ Binesh.F147();</Script>
 			_Deltax = Binesh.Genesis1("İÇÕáå ÊÛííÑ", "Deltax", "", "", 1, "m", "ãÊÑ");
 		end
 	end
+	if _x1 == nil then
+		_x1 = Binesh.Genesis1("Çæáíä İÇÕáå", "x1", "", "", 1, "m", "ãÊÑ");
+		if _x1 == nil then
+			_x1 = Binesh.Genesis1("İÇÕáå Çæáíä", "x1", "", "", 1, "m", "ãÊÑ");
+		end
+		if _x1 ~= nil then
+			x0 = _x1
+		end
+	end
+	if _x2 == nil then
+		_x2 = Binesh.Genesis1("Ïæãíä İÇÕáå", "x2", "", "", 1, "m", "ãÊÑ");
+		if _x2 == nil then
+			_x2 = Binesh.Genesis1("İÇÕáå Ïæãíä", "x2", "", "", 1, "m", "ãÊÑ");
+		end
+		if _x2 ~= nil then
+			x = _x2
+		end
+	end
 	if _Deltat == nil then
 		_Deltat = Binesh.Genesis1("ÊÛííÑ ÒãÇä", "Deltat", "", "", 1, "s", "ËÇäíå");
 		if _Deltat == nil then
@@ -11378,10 +11422,8 @@ Binesh.F147();</Script>
 	-- 91
 	if _DeltaU == nil then
 		_DeltaU =  Binesh.Genesis1("ÊÛííÑ ÇäÑí ÊÇäÓíá", "DeltaU", "", "", 1, "J", "æá");
-		SetJ(_DeltaU)
 		if _DeltaU == nil then
 			_DeltaU =  Binesh.Genesis1("ÇäÑí ÊÇäÓíá ÊÛííÑ", "DeltaU", "", "", 1, "J", "æá");
-			SetJ(_DeltaU)
 		end
 	end
 	if _U1 == nil then
@@ -11621,8 +11663,8 @@ Binesh.F147();</Script>
 	end
 	
 	-- 83
-	if EtaK == nil then
-		EtaK = Binesh.Genesis1("ÈÇÒÏå ˜ÇÑäæ", "Eta_max", "", "", 1, "", "", false);
+	if Eta == nil then
+		Eta = Binesh.Genesis1("ÈÇÒÏå ˜ÇÑäæ", "Eta", "", "", 1, "", "", false);
 	end
 	
 	-- 85
@@ -11677,8 +11719,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>61</DesignCodeLine>
-<DesignCodeCol>75</DesignCodeCol>
+<DesignCodeLine>100</DesignCodeLine>
+<DesignCodeCol>10</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11796,11 +11838,9 @@ Binesh.F147();</Script>
 <Script>-- 81
 	if QH == nil then
 		QH = Binesh.Genesis2("ãäÈÚ Ñã", "QH", "", "", 1, "J", "æá");
-		SetJ(QH)
 	end
 	if QC == nil then
 		QC = Binesh.Genesis2("ãäÈÚ ÓÑÏ", "QC", "", "", 1, "J", "æá");
-		SetJ(QC)
 	end
 	
 	-- 83
@@ -11826,13 +11866,11 @@ Binesh.F147();</Script>
 	-- 49
 	if W == nil then
 		W = Binesh.Genesis2("˜ÇÑ", "W", "", "", 1, "J", "æá");
-		SetJ(W)
 	end
 	
 	-- 1
 	if K == nil then
 		K = Binesh.Genesis2("ÇäÑí", "K", "", "", 1, "J", "æá");
-		SetJ(K)
 	end
 	if m == nil then
 		m = Binesh.Genesis2("ÌÑã", "m", "˜íáæ", "K", 10^3, "g", "Ñã");
@@ -11868,7 +11906,6 @@ Binesh.F147();</Script>
 	-- 2
 	if U == nil then
 		U = Binesh.Genesis2("ÇäÑí", "U", "", "", 1, "J", "æá");
-		SetJ(U)
 	end
 	if h == nil then
 		h = Binesh.Genesis2("ÇÑÊİÇÚ", "h", "", "", 1, "m", "ãÊÑ");
@@ -11877,12 +11914,10 @@ Binesh.F147();</Script>
 	-- 4
 	if Q == nil then
 		Q = Binesh.Genesis2("ÑãÇ", "Q", "", "", 1, "J", "æá");
-		SetJ(Q)
 	end
 	if c == nil then
 		c = Binesh.Genesis2("ÙÑİíÊ ÑãÇ", "c", "", "", 1, "J/KgC", "æá ÈÑ ˜íáæ Ñã ÓáÓíæÓ");
 	end
-	
 	
 	-- 5
 	if q == nil then
@@ -11893,12 +11928,18 @@ Binesh.F147();</Script>
 	if I == nil then
 		I = Binesh.Genesis2("ÌÑíÇä", "I", "", "", 1, "A", "ÂãÑ");
 	end
-	if t == nil and t_Min == nil and t_Hour == nil then
+	if t == nil and t_Min == nil and t_Hour == nil and t_Day == nil then
 		t = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "s", "ËÇäíå");
 		if t == nil then
 			t_Min = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "min", "ÏŞíŞå");
 			if t_Min == nil then
 				t_Hour = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "hour", "ÓÇÚÊ");
+				if t_Hour == nil then
+					t_Day = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "d", "ÑæÒ");
+					if t_Day == nil then
+						t_Day = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "day", "ÑæÒ");
+					end
+				end
 			end
 		end
 	end
@@ -11977,6 +12018,9 @@ Binesh.F147();</Script>
 		R_Radius = Binesh.Genesis2("ÔÚÇÚ", "R", "", "", 1, "m", "ãÊÑ");
 		if R_Radius == nil then
 			R_Radius = Binesh.Genesis2("ÔÚÇÚ", "r", "", "", 1, "m", "ãÊÑ");
+			if R_Radius ~= nil then
+				r = R_Radius 
+			end
 		end
 	end
 	
@@ -12031,13 +12075,13 @@ Binesh.F147();</Script>
 	
 	-- 32
 	if VBar_Speed == nil and VBar_Speed_mh == nil and VBar_Speed_miles == nil and VBar_Speed_mileh == nil then
-		VBar_Speed = Binesh.Genesis2("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		VBar_Speed = Binesh.Genesis2("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
 		if VBar_Speed == nil then
-			VBar_Speed_mh = Binesh.Genesis2("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
+			VBar_Speed_mh = Binesh.Genesis2("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
 			if VBar_Speed_mh == nil then
-			VBar_Speed_miles = Binesh.Genesis2("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå");
+				VBar_Speed_miles = Binesh.Genesis2("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå");
 				if VBar_Speed_miles == nil then
-					VBar_Speed_mileh = Binesh.Genesis2("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ");
+					VBar_Speed_mileh = Binesh.Genesis2("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ");
 				end
 			end
 		end
@@ -12125,7 +12169,7 @@ Binesh.F147();</Script>
 	if d == nil then
 		d = Binesh.Genesis2("İÇÕáå", "d", "", "", 1, "m", "ãÊÑ");
 		if d ~= nil then
-			d_Distance = d
+			r = d
 			x0, _Deltax = d, d
 		end
 	end
@@ -12135,7 +12179,6 @@ Binesh.F147();</Script>
 	-- 53
 	if E_53 == nil then
 		E_53 = Binesh.Genesis2("ÇäÑí", "E", "", "", 1, "J", "æá");
-		SetJ(E_53)
 	end
 	
 	-- 51
@@ -12342,7 +12385,7 @@ Binesh.F147();</Script>
 		_q2 = q2
 	end
 	if r == nil then
-		r = Binesh.Genesis2("İÇÕáå", "r", "", "", 1, "m^2", "ãÊÑ ãÑÈÚ");
+		r = Binesh.Genesis2("İÇÕáå", "r", "", "", 1, "m", "ãÊÑ");
 	end
 	
 	-- 87
@@ -12371,13 +12414,6 @@ Binesh.F147();</Script>
 	end
 	
 	-- 93
-	if d_Distance == nil then
-		d_Distance = Binesh.Genesis2("İÇÕáå", "d", "", "", 1, "m", "ãÊÑ");
-	end
-	if d_Distance ~= nil then
-		r_3 = d_Distance
-		d = d_Distance
-	end
 	
 	-- 94
 	if W_Out == nil then
@@ -12457,7 +12493,6 @@ Binesh.F147();</Script>
 	
 	-- 114
 	U_Output = Binesh.Genesis2("ÇäÑí ãÕÑİí", "U", "", "", 1, "J", "æá");
-	SetJ(U_Output)
 	
 	-- 118
 	if RT == nil then
@@ -12668,6 +12703,24 @@ Binesh.F147();</Script>
 			_Deltax = Binesh.Genesis2("İÇÕáå ÊÛííÑ", "Deltax", "", "", 1, "m", "ãÊÑ");
 		end
 	end
+	if _x1 == nil then
+		_x1 = Binesh.Genesis2("Çæáíä İÇÕáå", "x1", "", "", 1, "m", "ãÊÑ");
+		if _x1 == nil then
+			_x1 = Binesh.Genesis2("İÇÕáå Çæáíä", "x1", "", "", 1, "m", "ãÊÑ");
+		end
+		if _x1 ~= nil then
+			x0 = _x1
+		end
+	end
+	if _x2 == nil then
+		_x2 = Binesh.Genesis2("Ïæãíä İÇÕáå", "x2", "", "", 1, "m", "ãÊÑ");
+		if _x2 == nil then
+			_x2 = Binesh.Genesis2("İÇÕáå Ïæãíä", "x2", "", "", 1, "m", "ãÊÑ");
+		end
+		if _x2 ~= nil then
+			x = _x2
+		end
+	end
 	if _Deltat == nil then
 		_Deltat = Binesh.Genesis2("ÊÛííÑ ÒãÇä", "Deltat", "", "", 1, "s", "ËÇäíå");
 		if _Deltat == nil then
@@ -12808,10 +12861,8 @@ Binesh.F147();</Script>
 	-- 91
 	if _DeltaU == nil then
 		_DeltaU =  Binesh.Genesis2("ÊÛííÑ ÇäÑí ÊÇäÓíá", "DeltaU", "", "", 1, "J", "æá");
-		SetJ(_DeltaU)
 		if _DeltaU == nil then
 			_DeltaU =  Binesh.Genesis2("ÇäÑí ÊÇäÓíá ÊÛííÑ", "DeltaU", "", "", 1, "J", "æá");
-			SetJ(_DeltaU)
 		end
 	end
 	if _U1 == nil then
@@ -13051,8 +13102,8 @@ Binesh.F147();</Script>
 	end
 	
 	-- 83
-	if EtaK == nil then
-		EtaK = Binesh.Genesis2("ÈÇÒÏå ˜ÇÑäæ", "Eta_max", "", "", 1, "", "", false);
+	if Eta == nil then
+		Eta = Binesh.Genesis2("ÈÇÒÏå ˜ÇÑäæ", "Eta", "", "", 1, "", "", false);
 	end
 	
 	-- 85
@@ -13107,8 +13158,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>93</DesignCodeLine>
+<DesignCodeCol>1</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -13236,19 +13287,25 @@ Binesh.F147();</Script>
 	-- 83
 	if T_C == nil and T_CC == nil and T_CF == nil then
 		T_C = Binesh.Genesis3("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "K", "˜áæíä");
+		SetK(T_C)
 		if T_C == nil then
 			T_CC = Binesh.Genesis3("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "C", "ÓáÓíæÓ");
+			SetC(T_CC)
 			if T_CC == nil then
 				T_CF = Binesh.Genesis3("ÏãÇ ãäÈÚ ÓÑÏ", "TC", "", "", 1, "F", "İÇÑäåÇíÊ");
+				SetF(T_CF)
 			end
 		end
 	end
 	if T_H == nil and T_HC == nil and T_HF == nil then
 		T_H = Binesh.Genesis3("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "K", "˜áæíä");
+		SetK(T_H)
 		if T_H == nil then
 			T_HC = Binesh.Genesis3("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "C", "ÓáÓíæÓ");
+			SetC(T_HC)
 			if T_HC == nil then
 				T_HF = Binesh.Genesis3("ÏãÇ ãäÈÚ Ñã", "TH", "", "", 1, "F", "İÇÑäåÇíÊ");
+				SetF(T_HF)
 			end
 		end
 	end
@@ -13275,6 +13332,7 @@ Binesh.F147();</Script>
 	end
 	if V_Speed == nil and V_Speed_mh == nil and V_Speed_miles == nil and V_Speed_mileh == nil then
 		V_Speed = Binesh.Genesis3("ÓÑÚÊ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		Setms(V_Speed)
 		if V_Speed == nil then
 			V_Speed_mh = Binesh.Genesis3("ÓÑÚÊ", "V", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
 			if V_Speed_mh == nil then
@@ -13302,6 +13360,7 @@ Binesh.F147();</Script>
 	end
 	if h == nil then
 		h = Binesh.Genesis3("ÇÑÊİÇÚ", "h", "", "", 1, "m", "ãÊÑ");
+		Setm(h)
 	end
 	
 	-- 4
@@ -13323,12 +13382,18 @@ Binesh.F147();</Script>
 	if I == nil then
 		I = Binesh.Genesis3("ÌÑíÇä", "I", "", "", 1, "A", "ÂãÑ");
 	end
-	if t == nil and t_Min == nil and t_Hour == nil then
-		t = Binesh.Genesis3("ÒãÇä", "t", "", "", 1, "s", "ËÇäíå");
+	if t == nil and t_Min == nil and t_Hour == nil and t_Day == nil then
+		t = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "s", "ËÇäíå");
 		if t == nil then
-			t_Min = Binesh.Genesis3("ÒãÇä", "t", "", "", 1, "min", "ÏŞíŞå");
+			t_Min = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "min", "ÏŞíŞå");
 			if t_Min == nil then
-				t_Hour = Binesh.Genesis3("ÒãÇä", "t", "", "", 1, "hour", "ÓÇÚÊ");
+				t_Hour = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "hour", "ÓÇÚÊ");
+				if t_Hour == nil then
+					t_Day = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "d", "ÑæÒ");
+					if t_Day == nil then
+						t_Day = Binesh.Genesis2("ÒãÇä", "t", "", "", 1, "day", "ÑæÒ");
+					end
+				end
 			end
 		end
 	end
@@ -13336,9 +13401,11 @@ Binesh.F147();</Script>
 	-- 7
 	if R == nil then
 		R = Binesh.Genesis3("ãŞÇæãÊ", "R", "", "", 1, "Ohm", "Çåã");
+		SetOhm(R)
 	end
 	if V_Electric == nil then
 		V_Electric = Binesh.Genesis3("æáÊÇ", "V", "", "", 1, "V", "æáÊ");
+		SetVolt(V_Electric)
 	end
 	if V_Electric ~= nil then
 		Epsilon = V_Electric
@@ -13366,6 +13433,7 @@ Binesh.F147();</Script>
 	if p_Source == nil then
 		Binesh.PreparationSearchFirsts("ãäÈÚ äæÑ", "İÇÕáå", "ÌÓã");
 		p_Source = Binesh.Genesis3("İÇÕáå ãäÈÚ äæÑ ÌÓã", "p", "", "", 1, "m", "ãÊÑ");
+		Setm(p_Source)
 		if p_Source ~= nil then
 			p_Glass = p_Source
 		end
@@ -13385,6 +13453,7 @@ Binesh.F147();</Script>
 	if p_Glass == nil then
 		Binesh.PreparationSearchFirsts("ÌÓã", "İÇÕáå");
 		p_Glass = Binesh.Genesis3("İÇÕáå ÌÓã", " p", "", "", 1, "m", "ãÊÑ");
+		Setm(p_Glass)
 	end
 	if q_Glass == nil then
 		Binesh.PreparationSearchFirsts("ÓÇíå", "İÇÕáå");
@@ -13397,6 +13466,7 @@ Binesh.F147();</Script>
 	end
 	if f == nil then
 		f = Binesh.Genesis3("İÇÕáå ˜Çäæäí", "f", "", "", 1, "m", "ãÊÑ");
+		Setm(f)
 		if f ~= nil then
 			if ListBox.FindItem("Words", -1, LB_BYTEXT, "ãÍÏÈ") ~= -1 then
 				f = -f
@@ -13407,7 +13477,11 @@ Binesh.F147();</Script>
 		R_Radius = Binesh.Genesis3("ÔÚÇÚ", "R", "", "", 1, "m", "ãÊÑ");
 		if R_Radius == nil then
 			R_Radius = Binesh.Genesis3("ÔÚÇÚ", "r", "", "", 1, "m", "ãÊÑ");
+			if R_Radius ~= nil then
+				r = R_Radius
+			end
 		end
+		Setm(R_Radius)
 	end
 	
 	-- 13
@@ -13433,6 +13507,7 @@ Binesh.F147();</Script>
 	-- 19
 	if h_Glass == nil then
 		h_Glass = Binesh.Genesis3("ÚãŞ ÙÇåÑí", "h", "", "", 1, "m", "ãÊÑ");
+		Setm(h_Glass)
 	end
 	if H == nil then
 		H = Binesh.Genesis3("ÚãŞ æÇŞÚí", "H", "", "", 1, "m", "ãÊÑ");
@@ -13461,13 +13536,14 @@ Binesh.F147();</Script>
 	
 	-- 32
 	if VBar_Speed == nil and VBar_Speed_mh == nil and VBar_Speed_miles == nil and VBar_Speed_mileh == nil then
-		VBar_Speed = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		VBar_Speed = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
+		Setms(VBar_Speed)
 		if VBar_Speed == nil then
-			VBar_Speed_mh = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
+			VBar_Speed_mh = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "m/h", "ãÊÑ ÈÑ ÓÇÚÊ");
 			if VBar_Speed_mh == nil then
-			VBar_Speed_miles = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå");
+				VBar_Speed_miles = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "mile/s", "ãÇíá ÈÑ ËÇäíå");
 				if VBar_Speed_miles == nil then
-					VBar_Speed_mileh = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "V", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ");
+					VBar_Speed_mileh = Binesh.Genesis3("ÓÑÚÊ ãÊæÓØ", "VBar", "", "", 1, "mile/h", "ãÇíá ÈÑ ÓÇÚÊ");
 				end
 			end
 		end
@@ -13554,8 +13630,9 @@ Binesh.F147();</Script>
 	-- 49
 	if d == nil then
 		d = Binesh.Genesis3("İÇÕáå", "d", "", "", 1, "m", "ãÊÑ");
+		Setm(d)
 		if d ~= nil then
-			d_Distance = d
+			r = d
 			x0, _Deltax = d, d
 		end
 	end
@@ -13571,6 +13648,7 @@ Binesh.F147();</Script>
 	-- 51
 	if L == nil then
 		L = Binesh.Genesis3("Øæá", "L", "", "", 1, "m", "ãÊÑ");
+		Setm(L)
 	end
 	
 	 -- 55
@@ -13601,6 +13679,9 @@ Binesh.F147();</Script>
 		V = Binesh.Genesis3("ÍÌã", "V", "", "", 1, "m^3", "ãÊÑ ã˜ÚÈ");
 		if V == nil then
 			VL = Binesh.Genesis3("ÍÌã", "V", "", "", 1, "L", "áíÊÑ");
+			if VL ~= nil then
+				m = VL
+			end
 		end
 	end
 	if Ru == nil then
@@ -13665,6 +13746,7 @@ Binesh.F147();</Script>
 		if L_F == nil then
 			L_F = Binesh.Genesis3("ÇäÌãÇÏ", "LF", "K", "˜íáæ", 1, "J/Kg", "æá ÈÑ ˜íáæ Ñã");
 		end
+		SetJKg(L_F)
 	end
 	
 	-- 65
@@ -13673,6 +13755,7 @@ Binesh.F147();</Script>
 		if LV == nil then
 			LV = Binesh.Genesis3("ãíÚÇä", "LV", "K", "˜íáæ", 1, "J/Kg", "æá ÈÑ ˜íáæ Ñã");
 		end
+		SetJKg(LV)
 	end
 	
 	-- 66
@@ -13702,10 +13785,13 @@ Binesh.F147();</Script>
 	end
 	if T == nil and TC == nil and TF == nil then
 		T = Binesh.Genesis3("ÏãÇ", "T", "", "", 1, "K", "˜áæíä");
+		SetK(T)
 		if T == nil then
 			TC = Binesh.Genesis3("ÏãÇ", "Teta", "", "", 1, "C", "ÓáÓíæÓ");
+			SetC(TC)
 			if TC == nil then
 				TF = Binesh.Genesis3("ÏãÇ", "Teta", "", "", 1, "F", "İÇÑäåÇíÊ");
+				SetF(TF)
 			end
 		end
 	end
@@ -13801,13 +13887,6 @@ Binesh.F147();</Script>
 	end
 	
 	-- 93
-	if d_Distance == nil then
-		d_Distance = Binesh.Genesis3("İÇÕáå", "d", "", "", 1, "m", "ãÊÑ");
-	end
-	if d_Distance ~= nil then
-		r_3 = d_Distance
-		d = d_Distance
-	end
 	
 	-- 94
 	if W_Out == nil then
@@ -13892,9 +13971,11 @@ Binesh.F147();</Script>
 	-- 118
 	if RT == nil then
 		RT = Binesh.Genesis3("ãŞÇæãÊ ãÚÇÏá", "RT", "", "", 1, "Ohm", "Çåã");
+		SetOhm(RT)
 	end
 	if VT_Electric == nil then
 		VT_Electric = Binesh.Genesis3("æáÊÇ ãÚÇÏá", "VT", "", "", 1, "V", "æáÊ");
+		SetVolt(VT_Electric)
 	end
 	if R1 == nil then
 		R1 = Binesh.Genesis3("Çæáíä ãŞÇæãÊ", "R1", "", "", 1, "Ohm", "Çåã");
@@ -13920,10 +14001,12 @@ Binesh.F147();</Script>
 	-- 126
 	if Epsilon == nil then
 		Epsilon = Binesh.Genesis3("äíÑæ ãÍÑ˜å", "Epsilon", "", "", 1, "V", "æáÊ");
+		SetVolt(Epsilon)
 	end
 	if r_Resistor == nil then
 		if R == nil then
 			r_Resistor = Binesh.Genesis3("ãŞÇæãÊ", "r", "", "", 1, "Ohm", "Çåã");
+			SetOhm(r_Resistor)
 		else
 			r_Resistor = R
 		end
@@ -13936,6 +14019,7 @@ Binesh.F147();</Script>
 	if l == nil then
 		if L == nil then
 			l = Binesh.Genesis3("Øæá", "l", "", "", 1, "m", "ãÊÑ");
+			Setm(l)
 		else
 			l = L
 		end
@@ -14096,6 +14180,24 @@ Binesh.F147();</Script>
 		_Deltax = Binesh.Genesis3("ÊÛííÑ İÇÕáå", "Deltax", "", "", 1, "m", "ãÊÑ");
 		if _Deltax == nil then
 			_Deltax = Binesh.Genesis3("İÇÕáå ÊÛííÑ", "Deltax", "", "", 1, "m", "ãÊÑ");
+		end
+	end
+	if _x1 == nil then
+		_x1 = Binesh.Genesis3("Çæáíä İÇÕáå", "x1", "", "", 1, "m", "ãÊÑ");
+		if _x1 == nil then
+			_x1 = Binesh.Genesis3("İÇÕáå Çæáíä", "x1", "", "", 1, "m", "ãÊÑ");
+		end
+		if _x1 ~= nil then
+			x0 = _x1
+		end
+	end
+	if _x2 == nil then
+		_x2 = Binesh.Genesis3("Ïæãíä İÇÕáå", "x2", "", "", 1, "m", "ãÊÑ");
+		if _x2 == nil then
+			_x2 = Binesh.Genesis3("İÇÕáå Ïæãíä", "x2", "", "", 1, "m", "ãÊÑ");
+		end
+		if _x2 ~= nil then
+			x = _x2
 		end
 	end
 	if _Deltat == nil then
@@ -14481,8 +14583,8 @@ Binesh.F147();</Script>
 	end
 	
 	-- 83
-	if EtaK == nil then
-		EtaK = Binesh.Genesis3("ÈÇÒÏå ˜ÇÑäæ", "Eta_max", "", "", 1, "", "", false);
+	if Eta == nil then
+		Eta = Binesh.Genesis3("ÈÇÒÏå ˜ÇÑäæ", "Eta", "", "", 1, "", "", false);
 	end
 	
 	-- 85
@@ -14537,8 +14639,8 @@ Binesh.F147();</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>2</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>122</DesignCodeLine>
+<DesignCodeCol>4</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
