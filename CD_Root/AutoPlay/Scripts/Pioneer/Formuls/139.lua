@@ -1,29 +1,4 @@
 function Binesh.F139()
-	--------------------------{DELTA}--------------------------
-	if _DeltaI == nil then
-		if I1 ~= nil and I2 ~= nil then
-			Binesh.CreateHTMLFile("DeltaI = I<sub>2</sub>-I<sub>1</sub>")
-			_DeltaI = I2 - I1
-			Binesh.AddToHTML("DeltaI = "..Binesh.Convert_e(I2).."-"..Binesh.Convert_e(I1).." &#8658; DeltaI = "..Binesh.Convert_e(_DeltaI).." A")
-		end
-	end
-	
-	if I1 == nil then
-		if _DeltaI ~= nil and I2 ~= nil then
-			Binesh.CreateHTMLFile("DeltaI = I<sub>2</sub>-I<sub>1</sub>", "I<sub>1</sub> = I<sub>2</sub>-DeltaI")
-			I1 = I2-_DeltaI
-			Binesh.AddToHTML("I<sub>1</sub> = "..Binesh.Convert_e(I2).."-"..Binesh.Convert_e(_DeltaI).." &#8658; I<sub>1</sub> = "..Binesh.Convert_e(I1).." A")
-		end
-	end
-	
-	if I2 == nil then
-		if _DeltaI ~= nil and I1 ~= nil then
-			Binesh.CreateHTMLFile("DeltaI = I<sub>2</sub>-I<sub>1</sub>", "I<sub>2</sub> = DeltaI+I<sub>1</sub>")
-			I2 = I1+_DeltaI
-			Binesh.AddToHTML("I<sub>2</sub> = "..Binesh.Convert_e(_DeltaI).."+"..Binesh.Convert_e(I1).." &#8658; I<sub>2</sub> = "..Binesh.Convert_e(I2).." A")
-		end
-	end
-	--------------------------END {DELTA}--------------------------
 	if L_Self == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ŒÊœ«·ﬁ«ÌÌ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "L") ~= -1) then
 		if k_Self ~= nil and N_Ring ~= nil and A ~= nil and l ~= nil then
 			Binesh.CreateHTMLFile("L = kMu<sub>0</sub>N<sup>2</sup><span>A/I</span>")

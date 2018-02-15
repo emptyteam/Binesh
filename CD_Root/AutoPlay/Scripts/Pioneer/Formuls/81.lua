@@ -16,10 +16,11 @@ function Binesh.F81()
 	if W == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ò«—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "W") ~= -1) then
 		if QC ~= nil and QH ~= nil then
 			Binesh.CreateHTMLFile("Q<sub>H</sub> = |W|+|Q<sub>C</sub>|", "|W| = Q<sub>H</sub>-|Q<sub>C</sub>|")
+			Binesh.AddToHTML("W = Q<sub>H</sub>+|Q<sub>C</sub>| &#8658; ")
 			
-			W = Math.Abs(QH-Math.Abs(QC))
+			W = Math.Abs(QH+Math.Abs(QC))
 			
-			Binesh.AddToHTML("|W| = "..Binesh.Convert_e(QH).."-|"..Binesh.Convert_e(QC).."| &#8658; |W| = "..Binesh.Convert_e(W).." J")
+			Binesh.AddToHTML("W = "..Binesh.Convert_e(QH).."+|"..Binesh.Convert_e(QC).."| &#8658; |W| = "..Binesh.Convert_e(W).." J")
 			
 			Binesh.AddToHTML("Q<sub>H</sub>: "..Binesh.Convert_e(QH).." J", "V")
 			Binesh.AddToHTML("Q<sub>C</sub>: "..Binesh.Convert_e(QC).." J", "V")
@@ -30,10 +31,11 @@ function Binesh.F81()
 	if QC == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„‰»⁄ ”—œ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "QC") ~= -1) then
 		if QH ~= nil and W ~= nil then
 			Binesh.CreateHTMLFile("Q<sub>H</sub> = |W|+|Q<sub>C</sub>|", "|Q<sub>C</sub>| = Q<sub>H</sub>-|W|")
+			Binesh.AddToHTML("Q<sub>C</sub> = Q<sub>H</sub>+|W| &#8658; ")
 			
-			QC = Math.Abs(QH-Math.Abs(W))
+			QC = math.abs(QH+Math.Abs(W))
 			
-			Binesh.AddToHTML("|Q<sub>C</sub>| = "..Binesh.Convert_e(QH).."-|"..Binesh.Convert_e(W).."| &#8658; Q<sub>C</sub> = "..Binesh.Convert_e(QC).." J")
+			Binesh.AddToHTML("Q<sub>C</sub> = "..Binesh.Convert_e(QH).."+|"..Binesh.Convert_e(W).."| &#8658; Q<sub>C</sub> = "..Binesh.Convert_e(QC).." J")
 			
 			Binesh.AddToHTML("Q<sub>H</sub>: "..Binesh.Convert_e(QH).." J", "V")
 			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")

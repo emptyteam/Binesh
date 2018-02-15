@@ -34,8 +34,8 @@ function Binesh.F126()
 			
 			Binesh.AddToHTML("I = <span>"..Binesh.Convert_e(Epsilon).."-"..Binesh.Convert_e(V_Electric).."/"..Binesh.Convert_e(r_Resistor).."</span> &#8658; I = "..Binesh.Convert_e(math.abs(I)).." A")
 			
-			Binesh.AddToHTML("r: "..Binesh.Convert_e(r_Resistor).." m", "V")
-			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." Ohm", "V")
+			Binesh.AddToHTML("r: "..Binesh.Convert_e(r_Resistor).." Ohm", "V")
+			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
 			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
 			Binesh.AddToHTML("I: ?", "V")
 		end
@@ -49,7 +49,7 @@ function Binesh.F126()
 			Binesh.AddToHTML("r = <span>"..Binesh.Convert_e(Epsilon).."-"..Binesh.Convert_e(V_Electric).."/"..Binesh.Convert_e(I).."</span>&#8658; r = "..Binesh.Convert_e(r_Resistor).." Ohm")
 			
 			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." Ohm", "V")
+			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
 			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
 			Binesh.AddToHTML("r: ?", "V")
 			
