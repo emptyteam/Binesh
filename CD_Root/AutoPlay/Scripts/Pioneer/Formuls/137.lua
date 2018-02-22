@@ -4,12 +4,12 @@ function Binesh.F137()
 			Binesh.CreateHTMLFile("Epsilon = BlV")
 			Epsilon = B*l*V_Speed
 			
-			Binesh.AddToHTML("Epsilon = "..Binesh.Convert_e(B).."*"..Binesh.Convert_e(l).."*"..Binesh.Convert_e(V_Speed).." &#8658; Epsilon = "..Binesh.Convert_e(Epsilon).." V")
+			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(l).."*"..Binesh.ProgressNumber(V_Speed).." &#8658; Epsilon = "..Binesh.ProgressNumber(Epsilon).." V")
 			
-			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
-			Binesh.AddToHTML("l: "..Binesh.Convert_e(l).." m", "V")
-			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
-			Binesh.AddToHTML("Epsilon : ?", "V")
+			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
+			Binesh.AddToHTML("l = "..Binesh.ProgressNumber(l).." m", "V")
+			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("Epsilon = ?", "V")
 		end
 	end
 	
@@ -18,12 +18,12 @@ function Binesh.F137()
 			Binesh.CreateHTMLFile("Epsilon = BlV","B = <span>Epsilon/lV</span>")
 			B = Epsilon/(l*V_Speed)
 			
-			Binesh.AddToHTML("B = <span>"..Binesh.Convert_e(Epsilon).."/"..Binesh.Convert_e(l).."*"..Binesh.Convert_e(V_Speed).."</span> &#8658; B = "..Binesh.Convert_e(B).."T")
+			Binesh.AddToHTML("B = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(l).."*"..Binesh.ProgressNumber(V_Speed).."</span> &#8658; B = "..Binesh.ProgressNumber(B).."T")
 			
-			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
-			Binesh.AddToHTML("l: "..Binesh.Convert_e(l).." m", "V")
-			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
-			Binesh.AddToHTML("B : ?", "V")
+			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(Epsilon).." V", "V")
+			Binesh.AddToHTML("l = "..Binesh.ProgressNumber(l).." m", "V")
+			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("B = ?", "V")
 		end
 	end
 	
@@ -32,12 +32,12 @@ function Binesh.F137()
 			Binesh.CreateHTMLFile("Epsilon = BlV","l = <span>Epsilon/BV</span>")
 			l = Epsilon/(B*V_Speed)
 			
-			Binesh.AddToHTML("l = <span>"..Binesh.Convert_e(Epsilon).."/"..Binesh.Convert_e(B).."*"..Binesh.Convert_e(V_Speed).."</span> &#8658; l = "..Binesh.Convert_e(l).." m")
+			Binesh.AddToHTML("l = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(V_Speed).."</span> &#8658; l = "..Binesh.ProgressNumber(l).." m")
 			
-			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
-			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
-			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
-			Binesh.AddToHTML("l : ?", "V")
+			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(Epsilon).." V", "V")
+			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
+			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("l = ?", "V")
 		end
 	end
 	
@@ -46,12 +46,12 @@ function Binesh.F137()
 			Binesh.CreateHTMLFile("Epsilon = BlV","V = <span>Epsilon/lB</span>")
 			V_Speed = Epsilon/B*l
 			
-			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(Epsilon).."/"..Binesh.Convert_e(B).."*"..Binesh.Convert_e(l).."</span> &#8658; V = "..Binesh.Convert_e(V_Speed).." m/s")
+			Binesh.AddToHTML("V = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(l).."</span> &#8658; V = "..Binesh.ProgressNumber(V_Speed).." m/s")
 			
-			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
-			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
-			Binesh.AddToHTML("l: "..Binesh.Convert_e(l).." m", "V")
-			Binesh.AddToHTML("V : ?", "V")
+			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(Epsilon).." V", "V")
+			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
+			Binesh.AddToHTML("l = "..Binesh.ProgressNumber(l).." m", "V")
+			Binesh.AddToHTML("V = ?", "V")
 		end
 	end
 end

@@ -4,11 +4,11 @@ function Binesh.F130()
 			Binesh.CreateHTMLFile("B = <span>Mu<sub>0</sub>/2Pi</span>*<span>I/r</span>")
 			B = 2*10^-7*I/r
 			
-			Binesh.AddToHTML("B = <span>4*"..Binesh.Convert_e(Zarib.Pi).."*10<sup>-7</sup>/2*"..Binesh.Convert_e(Zarib.Pi).."</span>*<span>"..Binesh.Convert_e(I).."/"..Binesh.Convert_e(r).."</span> &#8658; B = "..Binesh.Convert_e(B).." T")
+			Binesh.AddToHTML("B = <span>4*"..Binesh.ProgressNumber(Settings.Zarib.Pi).."*10<sup>-7</sup>/2*"..Binesh.ProgressNumber(Settings.Zarib.Pi).."</span>*<span>"..Binesh.ProgressNumber(I).."/"..Binesh.ProgressNumber(r).."</span> &#8658; B = "..Binesh.ProgressNumber(B).." T")
 			
-			Binesh.AddToHTML("r: "..Binesh.Convert_e(r).." m", "V")
-			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("B: ?", "V")
+			Binesh.AddToHTML("r = "..Binesh.ProgressNumber(r).." m", "V")
+			Binesh.AddToHTML("I = "..Binesh.ProgressNumber(I).." A", "V")
+			Binesh.AddToHTML("B = ?", "V")
 		end
 	end
 	
@@ -17,11 +17,11 @@ function Binesh.F130()
 			Binesh.CreateHTMLFile("B = <span>Mu<sub>0</sub>/2Pi</span>*<span>I/r</span>", "I = <span>2PiBr/Mu<sub>0</sub></span>")
 			I = B*r/(2*10^-7)
 			
-			Binesh.AddToHTML("I = <span>2*"..Binesh.Convert_e(Zarib.Pi).."*"..Binesh.Convert_e(B).."*"..Binesh.Convert_e(r).."/4*"..Binesh.Convert_e(Zarib.Pi).."*10<sup>-7</sup></span> &#8658; I = "..Binesh.Convert_e(I).." A")
+			Binesh.AddToHTML("I = <span>2*"..Binesh.ProgressNumber(Settings.Zarib.Pi).."*"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(r).."/4*"..Binesh.ProgressNumber(Settings.Zarib.Pi).."*10<sup>-7</sup></span> &#8658; I = "..Binesh.ProgressNumber(I).." A")
 			
-			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
-			Binesh.AddToHTML("r: "..Binesh.Convert_e(r).." m", "V")
-			Binesh.AddToHTML("I: ?", "V")
+			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
+			Binesh.AddToHTML("r = "..Binesh.ProgressNumber(r).." m", "V")
+			Binesh.AddToHTML("I = ?", "V")
 		end
 	end
 	
@@ -30,11 +30,11 @@ function Binesh.F130()
 			Binesh.CreateHTMLFile("B = <span>Mu<sub>0</sub>/2Pi</span>*<span>I/r</span>", "r = <span>Mu<sub>0</sub>I/2PiB</span>")
 			r = 2*10^-7*I/B
 			
-			Binesh.AddToHTML("r = <span>4*"..Binesh.Convert_e(Zarib.Pi).."*10<sup>-7</sup>*"..Binesh.Convert_e(I).."/2*"..Binesh.Convert_e(Zarib.Pi).."*"..Binesh.Convert_e(B).."</span> &#8658; r = "..Binesh.Convert_e(r).." m")
+			Binesh.AddToHTML("r = <span>4*"..Binesh.ProgressNumber(Settings.Zarib.Pi).."*10<sup>-7</sup>*"..Binesh.ProgressNumber(I).."/2*"..Binesh.ProgressNumber(Settings.Zarib.Pi).."*"..Binesh.ProgressNumber(B).."</span> &#8658; r = "..Binesh.ProgressNumber(r).." m")
 			
-			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
-			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("r: ?", "V")
+			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
+			Binesh.AddToHTML("I = "..Binesh.ProgressNumber(I).." A", "V")
+			Binesh.AddToHTML("r = ?", "V")
 		end
 	end
 end

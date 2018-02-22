@@ -4,11 +4,11 @@ function Binesh.F97_2()
 			Binesh.CreateHTMLFile("U = <span>1/2</span><span>q<sup>2</sup>/C</span>")
 			U = 0.5*(q^2/C_Condenser)
 			
-			Binesh.AddToHTML("U = <span>1/2</span>*<span>"..Binesh.Convert_e(q).."<sup>2</sup>/"..Binesh.Convert_e(C_Condenser).."</span> &#8658; U = "..Binesh.Convert_e(U).." J")
+			Binesh.AddToHTML("U = <span>1/2</span>*<span>"..Binesh.ProgressNumber(q).."<sup>2</sup>/"..Binesh.ProgressNumber(C_Condenser).."</span> &#8658; U = "..Binesh.ProgressNumber(U).." J")
 			
-			Binesh.AddToHTML("C: "..Binesh.Convert_e(C_Condenser).." F", "V")
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("U: ?", "V")
+			Binesh.AddToHTML("C = "..Binesh.ProgressNumber(C_Condenser).." F", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("U = ?", "V")
 		end
 	end
 	
@@ -17,11 +17,11 @@ function Binesh.F97_2()
 			Binesh.CreateHTMLFile("U = <span>1/2</span><span>q<sup>2</sup>/C</span>", "C = <span>q<sup>2</sup>/2U</span>")
 			C_Condenser = (q^2)/(2*U)
 			
-			Binesh.AddToHTML("C = <span>"..Binesh.Convert_e(q).."<sup>2</sup>/2*"..Binesh.Convert_e(U).."</span> &#8658; C = "..Binesh.Convert_e(C_Condenser).." F")
+			Binesh.AddToHTML("C = <span>"..Binesh.ProgressNumber(q).."<sup>2</sup>/2*"..Binesh.ProgressNumber(U).."</span> &#8658; C = "..Binesh.ProgressNumber(C_Condenser).." F")
 			
-			Binesh.AddToHTML("U: "..Binesh.Convert_e(U).." J", "V")
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("C: ?", "V")
+			Binesh.AddToHTML("U = "..Binesh.ProgressNumber(U).." J", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("C = ?", "V")
 		end
 	end
 	
@@ -30,11 +30,11 @@ function Binesh.F97_2()
 			Binesh.CreateHTMLFile("U = <span>1/2</span><span>q<sup>2</sup>/C</span>", "q = Sqrt(2CU)")
 			q = Math.Sqrt(2*U*C_Condenser)
 			
-			Binesh.AddToHTML("q = Sqrt(2*"..Binesh.Convert_e(C_Condenser).."*"..Binesh.Convert_e(U)..") &#8658; q = "..Binesh.Convert_e(q).." C")
+			Binesh.AddToHTML("q = Sqrt(2*"..Binesh.ProgressNumber(C_Condenser).."*"..Binesh.ProgressNumber(U)..") &#8658; q = "..Binesh.ProgressNumber(q).." C")
 			
-			Binesh.AddToHTML("U: "..Binesh.Convert_e(U).." J", "V")
-			Binesh.AddToHTML("C: "..Binesh.Convert_e(C_Condenser).." F", "V")
-			Binesh.AddToHTML("q: ?", "V")
+			Binesh.AddToHTML("U = "..Binesh.ProgressNumber(U).." J", "V")
+			Binesh.AddToHTML("C = "..Binesh.ProgressNumber(C_Condenser).." F", "V")
+			Binesh.AddToHTML("q = ?", "V")
 		end
 	end
 end

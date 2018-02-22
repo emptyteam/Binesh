@@ -4,12 +4,12 @@ function Binesh.F147()
 			Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "V<sub>1</sub> = <span>V<sub>2</sub>N<sub>1</sub>/N<sub>2</sub></span>")
 			V1_Electric = (V2_Electric*N1)/(N2)
 			
-			Binesh.AddToHTML("V<sub>1</sub> = <span>"..Binesh.Convert_e(V2_Electric).."*"..Binesh.Convert_e(N1).."/"..Binesh.Convert_e(N2).."</span> &#8658; V<sub>1</sub> = "..Binesh.Convert_e(V1_Electric).." V")
+			Binesh.AddToHTML("V<sub>1</sub> = <span>"..Binesh.ProgressNumber(V2_Electric).."*"..Binesh.ProgressNumber(N1).."/"..Binesh.ProgressNumber(N2).."</span> &#8658; V<sub>1</sub> = "..Binesh.ProgressNumber(V1_Electric).." V")
 			
-			Binesh.AddToHTML("V<sub>2</sub>: "..Binesh.Convert_e(V2_Electric).." V", "V")
-			Binesh.AddToHTML("N<sub>1</sub>: "..Binesh.Convert_e(N1), "V")
-			Binesh.AddToHTML("N<sub>2</sub>: "..Binesh.Convert_e(N2), "V")
-			Binesh.AddToHTML("V<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("V<sub>2</sub> = "..Binesh.ProgressNumber(V2_Electric).." V", "V")
+			Binesh.AddToHTML("N<sub>1</sub> = "..Binesh.ProgressNumber(N1), "V")
+			Binesh.AddToHTML("N<sub>2</sub> = "..Binesh.ProgressNumber(N2), "V")
+			Binesh.AddToHTML("V<sub>1</sub> = ?", "V")
 		end
 	end
 	
@@ -18,12 +18,12 @@ function Binesh.F147()
 			Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "V<sub>2</sub> = <span>N<sub>2</sub>V<sub>1</sub>/N<sub>1</sub></span>")
 			V2_Electric = (N2*V1_Electric)/(N1)
 			
-			Binesh.AddToHTML("V<sub>2</sub> = <span>"..Binesh.Convert_e(N2).."*"..Binesh.Convert_e(V1_Electric).."/"..Binesh.Convert_e(N1).."</span> &#8658; V<sub>2</sub> = "..Binesh.Convert_e(V2_Electric).." V")
+			Binesh.AddToHTML("V<sub>2</sub> = <span>"..Binesh.ProgressNumber(N2).."*"..Binesh.ProgressNumber(V1_Electric).."/"..Binesh.ProgressNumber(N1).."</span> &#8658; V<sub>2</sub> = "..Binesh.ProgressNumber(V2_Electric).." V")
 			
-			Binesh.AddToHTML("V<sub>1</sub>: "..Binesh.Convert_e(V1_Electric).." V", "V")
-			Binesh.AddToHTML("N<sub>1</sub>: "..Binesh.Convert_e(N1), "V")
-			Binesh.AddToHTML("N<sub>2</sub>: "..Binesh.Convert_e(N2), "V")
-			Binesh.AddToHTML("V<sub>2</sub>: ?", "V")
+			Binesh.AddToHTML("V<sub>1</sub> = "..Binesh.ProgressNumber(V1_Electric).." V", "V")
+			Binesh.AddToHTML("N<sub>1</sub> = "..Binesh.ProgressNumber(N1), "V")
+			Binesh.AddToHTML("N<sub>2</sub> = "..Binesh.ProgressNumber(N2), "V")
+			Binesh.AddToHTML("V<sub>2</sub> = ?", "V")
 		end
 	end
 	
@@ -32,12 +32,12 @@ function Binesh.F147()
 			Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "N<sub>1</sub> = <span>N<sub>2</sub>V<sub>1</sub>/V<sub>2</sub></span>")
 			N1 = (N2*V1_Electric)/(V2_Electric)
 			
-			Binesh.AddToHTML("N<sub>1</sub> = <span>"..Binesh.Convert_e(N2).."*"..Binesh.Convert_e(V1_Electric).."/"..Binesh.Convert_e(V2_Electric).."</span> &#8658; N<sub>1</sub> = "..Binesh.Convert_e(N1))
+			Binesh.AddToHTML("N<sub>1</sub> = <span>"..Binesh.ProgressNumber(N2).."*"..Binesh.ProgressNumber(V1_Electric).."/"..Binesh.ProgressNumber(V2_Electric).."</span> &#8658; N<sub>1</sub> = "..Binesh.ProgressNumber(N1))
 			
-			Binesh.AddToHTML("V<sub>1</sub>: "..Binesh.Convert_e(V1_Electric).." V", "V")
-			Binesh.AddToHTML("V<sub>2</sub>: "..Binesh.Convert_e(V2_Electric).." V", "V")
-			Binesh.AddToHTML("N<sub>2</sub>: "..Binesh.Convert_e(N2), "V")
-			Binesh.AddToHTML("N<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("V<sub>1</sub> = "..Binesh.ProgressNumber(V1_Electric).." V", "V")
+			Binesh.AddToHTML("V<sub>2</sub> = "..Binesh.ProgressNumber(V2_Electric).." V", "V")
+			Binesh.AddToHTML("N<sub>2</sub> = "..Binesh.ProgressNumber(N2), "V")
+			Binesh.AddToHTML("N<sub>1</sub> = ?", "V")
 		end
 	end
 	
@@ -46,12 +46,12 @@ function Binesh.F147()
 			Binesh.CreateHTMLFile("<span>V<sub>2</sub>/V<sub>1</sub></span> = <span>N<sub>2</sub>/N<sub>1</sub></span>", "N<sub>2</sub> = <span>V<sub>2</sub>N<sub>1</sub>/V<sub>1</sub></span>")
 			N2 = (V2_Electric*N1)/(V1_Electric)
 			
-			Binesh.AddToHTML("N<sub>2</sub> = <span>"..Binesh.Convert_e(V2_Electric).."*"..Binesh.Convert_e(N1).."/"..Binesh.Convert_e(V1_Electric).."</span> &#8658; N<sub>2</sub> = "..Binesh.Convert_e(N2))
+			Binesh.AddToHTML("N<sub>2</sub> = <span>"..Binesh.ProgressNumber(V2_Electric).."*"..Binesh.ProgressNumber(N1).."/"..Binesh.ProgressNumber(V1_Electric).."</span> &#8658; N<sub>2</sub> = "..Binesh.ProgressNumber(N2))
 			
-			Binesh.AddToHTML("V<sub>1</sub>: "..Binesh.Convert_e(V1_Electric).." V", "V")
-			Binesh.AddToHTML("V<sub>2</sub>: "..Binesh.Convert_e(V2_Electric).." V", "V")
-			Binesh.AddToHTML("N<sub>1</sub>: "..Binesh.Convert_e(N1), "V")
-			Binesh.AddToHTML("N<sub>2</sub>: ?", "V")
+			Binesh.AddToHTML("V<sub>1</sub> = "..Binesh.ProgressNumber(V1_Electric).." V", "V")
+			Binesh.AddToHTML("V<sub>2</sub> = "..Binesh.ProgressNumber(V2_Electric).." V", "V")
+			Binesh.AddToHTML("N<sub>1</sub> = "..Binesh.ProgressNumber(N1), "V")
+			Binesh.AddToHTML("N<sub>2</sub> = ?", "V")
 		end
 	end
 end

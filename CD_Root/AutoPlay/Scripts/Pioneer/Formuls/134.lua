@@ -4,12 +4,12 @@ function Binesh.F134()
 			Binesh.CreateHTMLFile("Fi = ABcosTeta")
 			Fi = A*B*Math.Cos(Math.Rad(Teta))
 			
-			Binesh.AddToHTML("Fi = "..Binesh.Convert_e(A).."*"..Binesh.Convert_e(B).."*cos"..Binesh.Convert_e(Teta).." &#8658; Fi = "..Binesh.Convert_e(Fi).." Wb")
+			Binesh.AddToHTML("Fi = "..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."*cos"..Binesh.ProgressNumber(Teta).." &#8658; Fi = "..Binesh.ProgressNumber(Fi).." Wb")
 			
-			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
-			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
-			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
-			Binesh.AddToHTML("Fi: ?", "V")
+			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
+			Binesh.AddToHTML("Teta = "..Binesh.ProgressNumber(Teta), "V")
+			Binesh.AddToHTML("Fi = ?", "V")
 		end
 	end
 	
@@ -18,12 +18,12 @@ function Binesh.F134()
 			Binesh.CreateHTMLFile("Fi = ABcosTeta", "A = <span>Fi/BcosTeta</span>")
 			A = Fi/(B*Math.Cos(Math.Rad(Teta)))
 			
-			Binesh.AddToHTML("A = <span>"..Binesh.Convert_e(Fi).."/"..Binesh.Convert_e(B).."*cos"..Binesh.Convert_e(Teta).."</span> &#8658; A = "..Binesh.Convert_e(A).." m<sup>2</sup>")
+			Binesh.AddToHTML("A = <span>"..Binesh.ProgressNumber(Fi).."/"..Binesh.ProgressNumber(B).."*cos"..Binesh.ProgressNumber(Teta).."</span> &#8658; A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>")
 			
-			Binesh.AddToHTML("Fi: "..Binesh.Convert_e(Fi).." Wb", "V")
-			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
-			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
-			Binesh.AddToHTML("A: ?", "V")
+			Binesh.AddToHTML("Fi = "..Binesh.ProgressNumber(Fi).." Wb", "V")
+			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
+			Binesh.AddToHTML("Teta = "..Binesh.ProgressNumber(Teta), "V")
+			Binesh.AddToHTML("A = ?", "V")
 		end
 	end
 	
@@ -32,12 +32,12 @@ function Binesh.F134()
 			Binesh.CreateHTMLFile("Fi = ABcosTeta", "B = <span>Fi/AcosTeta</span>")
 			B = Fi/(A*Math.Cos(Math.Rad(Teta)))
 			
-			Binesh.AddToHTML("B = <span>"..Binesh.Convert_e(Fi).."/"..Binesh.Convert_e(A).."*cos"..Binesh.Convert_e(Teta).."</span> &#8658; B = "..Binesh.Convert_e(B).." T")
+			Binesh.AddToHTML("B = <span>"..Binesh.ProgressNumber(Fi).."/"..Binesh.ProgressNumber(A).."*cos"..Binesh.ProgressNumber(Teta).."</span> &#8658; B = "..Binesh.ProgressNumber(B).." T")
 			
-			Binesh.AddToHTML("Fi: "..Binesh.Convert_e(Fi).." Wb", "V")
-			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
-			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
-			Binesh.AddToHTML("B: ?", "V")
+			Binesh.AddToHTML("Fi = "..Binesh.ProgressNumber(Fi).." Wb", "V")
+			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("Teta = "..Binesh.ProgressNumber(Teta), "V")
+			Binesh.AddToHTML("B = ?", "V")
 		end
 	end
 	
@@ -49,12 +49,12 @@ function Binesh.F134()
 			Teta_Radian = Math.Acos(Math.Acos(Math.Cos(CosTeta)))
 			Teta = Math.RadToDeg(Teta_Radian)
 			
-			Binesh.AddToHTML("cosTeta = <span>"..Binesh.Convert_e(Fi).."/"..Binesh.Convert_e(A).."*"..Binesh.Convert_e(B).."</span> &#8658; cosTeta = "..Binesh.Convert_e(CosTeta).." &#8658; Teta<sub>Radian</sub> = "..Binesh.Convert_e(Teta_Radian).." &#8658; Teta = "..Binesh.Convert_e(Teta).."<sup>o</sup>")
+			Binesh.AddToHTML("cosTeta = <span>"..Binesh.ProgressNumber(Fi).."/"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."</span> &#8658; cosTeta = "..Binesh.ProgressNumber(CosTeta).." &#8658; Teta<sub>Radian</sub> = "..Binesh.ProgressNumber(Teta_Radian).." &#8658; Teta = "..Binesh.ProgressNumber(Teta).."<sup>o</sup>")
 			
-			Binesh.AddToHTML("Fi: "..Binesh.Convert_e(Fi).." Wb", "V")
-			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
-			Binesh.AddToHTML("B: "..Binesh.Convert_e(B).." T", "V")
-			Binesh.AddToHTML("Teta: ?", "V")
+			Binesh.AddToHTML("Fi = "..Binesh.ProgressNumber(Fi).." Wb", "V")
+			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
+			Binesh.AddToHTML("Teta = ?", "V")
 		end
 	end
 end

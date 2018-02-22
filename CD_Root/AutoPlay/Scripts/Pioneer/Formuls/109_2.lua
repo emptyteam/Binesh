@@ -5,12 +5,12 @@ function Binesh.F109_2()
 			Binesh.AddToHTML("q<sub>1</sub> = q<sub>2</sub>-IBarDeltat &#8658; ")
 			_q1 = _q2-IBar*_Deltat
 			
-			Binesh.AddToHTML("q<sub>1</sub> = "..Binesh.Convert_e(_q2).."-"..Binesh.Convert_e(IBar).."*"..Binesh.Convert_e(_Deltat).." &#8658; q<sub>1</sub> = "..Binesh.Convert_e(_q1).." C")
+			Binesh.AddToHTML("q<sub>1</sub> = "..Binesh.ProgressNumber(_q2).."-"..Binesh.ProgressNumber(IBar).."*"..Binesh.ProgressNumber(_Deltat).." &#8658; q<sub>1</sub> = "..Binesh.ProgressNumber(_q1).." C")
 			
-			Binesh.AddToHTML("q<sub>2</sub>: "..Binesh.Convert_e(_q2).." C", "V")
-			Binesh.AddToHTML("IBar: "..Binesh.Convert_e(IBar).." A", "V")
-			Binesh.AddToHTML("Deltat: "..Binesh.Convert_e(_Deltat).." s", "V")
-			Binesh.AddToHTML("q<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("q<sub>2</sub> = "..Binesh.ProgressNumber(_q2).." C", "V")
+			Binesh.AddToHTML("IBar = "..Binesh.ProgressNumber(IBar).." A", "V")
+			Binesh.AddToHTML("Deltat = "..Binesh.ProgressNumber(_Deltat).." s", "V")
+			Binesh.AddToHTML("q<sub>1</sub> = ?", "V")
 		end
 	end
 	
@@ -20,12 +20,12 @@ function Binesh.F109_2()
 			Binesh.AddToHTML("q<sub>2</sub> = q<sub>1</sub>+IBarDeltat &#8658; ")
 			_q2 = _q1+IBar*_Deltat
 			
-			Binesh.AddToHTML("q<sub>2</sub> = "..Binesh.Convert_e(_q1).."+"..Binesh.Convert_e(IBar).."*"..Binesh.Convert_e(_Deltat).." &#8658; q<sub>2</sub> = "..Binesh.Convert_e(_q2).." C")
+			Binesh.AddToHTML("q<sub>2</sub> = "..Binesh.ProgressNumber(_q1).."+"..Binesh.ProgressNumber(IBar).."*"..Binesh.ProgressNumber(_Deltat).." &#8658; q<sub>2</sub> = "..Binesh.ProgressNumber(_q2).." C")
 			
-			Binesh.AddToHTML("q<sub>1</sub>: "..Binesh.Convert_e(_q1).." C", "V")
-			Binesh.AddToHTML("IBar: "..Binesh.Convert_e(IBar).." A", "V")
-			Binesh.AddToHTML("Deltat: "..Binesh.Convert_e(_Deltat).." s", "V")
-			Binesh.AddToHTML("q<sub>2</sub>: ?", "V")
+			Binesh.AddToHTML("q<sub>1</sub> = "..Binesh.ProgressNumber(_q1).." C", "V")
+			Binesh.AddToHTML("IBar = "..Binesh.ProgressNumber(IBar).." A", "V")
+			Binesh.AddToHTML("Deltat = "..Binesh.ProgressNumber(_Deltat).." s", "V")
+			Binesh.AddToHTML("q<sub>2</sub> = ?", "V")
 		end
 	end
 end

@@ -3,11 +3,11 @@ function Binesh.F94_2_1()
 		if _DeltaV_Speed ~= nil and q ~= nil then
 			Binesh.CreateHTMLFile("W = qDeltaV")
 			W_Out = q*_DeltaV_Speed
-			Binesh.AddToHTML("W = "..Binesh.Convert_e(q).."*"..Binesh.Convert_e(_DeltaV_Speed).." &#8658; W = "..Binesh.Convert_e(W_Out).." J")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(q).."*"..Binesh.ProgressNumber(_DeltaV_Speed).." &#8658; W = "..Binesh.ProgressNumber(W_Out).." J")
 			
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("DeltaV: "..Binesh.Convert_e(_DeltaV_Speed).." V", "V")
-			Binesh.AddToHTML("W: ?", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("DeltaV = "..Binesh.ProgressNumber(_DeltaV_Speed).." V", "V")
+			Binesh.AddToHTML("W = ?", "V")
 		end
 	end
 	
@@ -15,11 +15,11 @@ function Binesh.F94_2_1()
 		if q ~= nil and W_Out ~= nil then
 			Binesh.CreateHTMLFile("W = qDeltaV", "DeltaV = <span>W/q</span>")
 			_DeltaV_Speed = W_Out/q
-			Binesh.AddToHTML("DeltaV = <span>"..Binesh.Convert_e(W_out).."/"..Binesh.Convert_e(q).."</span> &#8658; DeltaV = "..Binesh.Convert_e(_DeltaV_Speed).." m/s")
+			Binesh.AddToHTML("DeltaV = <span>"..Binesh.ProgressNumber(W_out).."/"..Binesh.ProgressNumber(q).."</span> &#8658; DeltaV = "..Binesh.ProgressNumber(_DeltaV_Speed).." m/s")
 			
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("W: "..Binesh.Convert_e(W_Out).." J", "V")
-			Binesh.AddToHTML("DeltaV: ?", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(W_Out).." J", "V")
+			Binesh.AddToHTML("DeltaV = ?", "V")
 		end
 	end
 	
@@ -27,11 +27,11 @@ function Binesh.F94_2_1()
 		if W_Out ~= nil and _DetlaV ~= nil then
 			Binesh.CreateHTMLFile("W = qDeltaV", "q = <span>W/DeltaV</span>")
 			q = W_Out/_DeltaV_Speed
-			Binesh.AddToHTML("q = <span>"..Binesh.Convert_e(W_out).."/"..Binesh.Convert_e(_DeltaV_Speed).."</span> &#8658; q = "..Binesh.Convert_e(q).." C")
+			Binesh.AddToHTML("q = <span>"..Binesh.ProgressNumber(W_out).."/"..Binesh.ProgressNumber(_DeltaV_Speed).."</span> &#8658; q = "..Binesh.ProgressNumber(q).." C")
 			
-			Binesh.AddToHTML("W: "..Binesh.Convert_e(W_Out).." J", "V")
-			Binesh.AddToHTML("DeltaV: "..Binesh.Convert_e(_DeltaV_Speed).." V", "V")
-			Binesh.AddToHTML("q: ?", "V")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(W_Out).." J", "V")
+			Binesh.AddToHTML("DeltaV = "..Binesh.ProgressNumber(_DeltaV_Speed).." V", "V")
+			Binesh.AddToHTML("q = ?", "V")
 		end
 	end
 end

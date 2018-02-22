@@ -4,12 +4,12 @@ function Binesh.F92_3()
 			Binesh.CreateHTMLFile("DeltaV = <span>U<sub>2</sub>-U<sub>1</sub>/q</span>", "U<sub>2</sub>-U<sub>1</sub> = DeltaVq")
 			Binesh.AddToHTML("U<sub>1</sub> = U<sub>2</sub>-DeltaVq &#8658; ")
 			_U1 = _U2-_DeltaV_Electric*q
-			Binesh.AddToHTML("U<sub>1</sub> = "..Binesh.Convert_e(_U2).."-"..Binesh.Convert_e(_DeltaV_Electric).."*"..Binesh.Convert_e(q).." &#8658; U<sub>1</sub> = "..Binesh.Convert_e(_U1).." J")
+			Binesh.AddToHTML("U<sub>1</sub> = "..Binesh.ProgressNumber(_U2).."-"..Binesh.ProgressNumber(_DeltaV_Electric).."*"..Binesh.ProgressNumber(q).." &#8658; U<sub>1</sub> = "..Binesh.ProgressNumber(_U1).." J")
 			
-			Binesh.AddToHTML("U<sub>2</sub>: "..Binesh.Convert_e(_U2).." J", "V")
-			Binesh.AddToHTML("DeltaV: "..Binesh.Convert_e(_DeltaV_Electric).." V", "V")
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("U<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("U<sub>2</sub> = "..Binesh.ProgressNumber(_U2).." J", "V")
+			Binesh.AddToHTML("DeltaV = "..Binesh.ProgressNumber(_DeltaV_Electric).." V", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("U<sub>1</sub> = ?", "V")
 		end
 	end
 	
@@ -18,12 +18,12 @@ function Binesh.F92_3()
 			Binesh.CreateHTMLFile("DeltaV = <span>U<sub>2</sub>-U<sub>1</sub>/q</span>", "U<sub>2</sub>-U<sub>1</sub> = DeltaVq")
 			Binesh.AddToHTML("U<sub>2</sub> = U<sub>1</sub>+DeltaVq &#8658; ")
 			_U2 = _U1+_DeltaV_Electric*q
-			Binesh.AddToHTML("U<sub>2</sub> = "..Binesh.Convert_e(_U1).."+"..Binesh.Convert_e(_DeltaV_Electric).."*"..Binesh.Convert_e(q).." &#8658; U<sub>2</sub> = "..Binesh.Convert_e(_U2).." J")
+			Binesh.AddToHTML("U<sub>2</sub> = "..Binesh.ProgressNumber(_U1).."+"..Binesh.ProgressNumber(_DeltaV_Electric).."*"..Binesh.ProgressNumber(q).." &#8658; U<sub>2</sub> = "..Binesh.ProgressNumber(_U2).." J")
 			
-			Binesh.AddToHTML("U<sub>1</sub>: "..Binesh.Convert_e(_U1).." J", "V")
-			Binesh.AddToHTML("DeltaV: "..Binesh.Convert_e(_DeltaV_Electric).." V", "V")
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("U<sub>2</sub>: ?", "V")
+			Binesh.AddToHTML("U<sub>1</sub> = "..Binesh.ProgressNumber(_U1).." J", "V")
+			Binesh.AddToHTML("DeltaV = "..Binesh.ProgressNumber(_DeltaV_Electric).." V", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("U<sub>2</sub> = ?", "V")
 		end
 	end
 end

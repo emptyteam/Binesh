@@ -5,12 +5,12 @@ function Binesh.F83_1()
 	
 	if T_CF ~= nil and T_CC == nil and TC == nil then
 		T_CC = 5/9*(T_CF-32)
-		Binesh.AddToHTML("Teta<sub>T<sub>C</sub></sub> = <span>5/9</span>("..Binesh.Convert_e(T_CF).."-32) &#8658; Teta = "..Binesh.Convert_e(T_CC).." C")
+		Binesh.AddToHTML("Teta<sub>T<sub>C</sub></sub> = <span>5/9</span>("..Binesh.ProgressNumber(T_CF).."-32) &#8658; Teta = "..Binesh.ProgressNumber(T_CC).." C")
 	end
 	
 	if T_HF ~= nil and T_HC == nil and TC == nil then
 		T_HC = 5/9*(T_HF-32)
-		Binesh.AddToHTML("Teta<sub>T<sub>H</sub></sub> = <span>5/9</span>("..Binesh.Convert_e(T_HF).."-32) &#8658; Teta = "..Binesh.Convert_e(T_HC).." C")
+		Binesh.AddToHTML("Teta<sub>T<sub>H</sub></sub> = <span>5/9</span>("..Binesh.ProgressNumber(T_HF).."-32) &#8658; Teta = "..Binesh.ProgressNumber(T_HC).." C")
 	end
 	
 	if (T_CC ~= nil or T_HC ~= nil) and TC == nil then
@@ -19,11 +19,11 @@ function Binesh.F83_1()
 	
 	if T_CC ~= nil and T_C == nil and TC == nil then
 		T_C = T_CC+273
-		Binesh.AddToHTML("T<sub>C</sub> = "..Binesh.Convert_e(T_CC).."+273 &#8658; T<sub>C</sub> = "..Binesh.Convert_e(T_C).." K")
+		Binesh.AddToHTML("T<sub>C</sub> = "..Binesh.ProgressNumber(T_CC).."+273 &#8658; T<sub>C</sub> = "..Binesh.ProgressNumber(T_C).." K")
 	end
 	if T_HC ~= nil and T_HC == nil and TC == nil then
 		T_H = T_HC+273
-		Binesh.AddToHTML("T<sub>H</sub> = "..Binesh.Convert_e(T_HC).."+273 &#8658; T<sub>H</sub> = "..Binesh.Convert_e(T_H).." K")
+		Binesh.AddToHTML("T<sub>H</sub> = "..Binesh.ProgressNumber(T_HC).."+273 &#8658; T<sub>H</sub> = "..Binesh.ProgressNumber(T_H).." K")
 	end
 	
 	if Eta == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "»«“œÂ ò«—‰Ê") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Eta") ~= -1) then
@@ -32,11 +32,11 @@ function Binesh.F83_1()
 			
 			Eta = 1-(T_C/T_H)
 			
-			Binesh.AddToHTML("T<sub>C</sub>: "..Binesh.Convert_e(T_C).."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("T<sub>H</sub>: "..Binesh.Convert_e(T_H).."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("Eta<sub>max</sub>: ?", "V")
+			Binesh.AddToHTML("T<sub>C</sub> = "..Binesh.ProgressNumber(T_C).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("T<sub>H</sub> = "..Binesh.ProgressNumber(T_H).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("Eta<sub>max</sub> = ?", "V")
 			
-			Binesh.AddToHTML("Eta<sub>max</sub> = 1- <span>"..Binesh.Convert_e(T_C).."/"..Binesh.Convert_e(T_H).."</span> &#8658; Eta<sub>max</sub> = "..Binesh.Convert_e(Eta))
+			Binesh.AddToHTML("Eta<sub>max</sub> = 1- <span>"..Binesh.ProgressNumber(T_C).."/"..Binesh.ProgressNumber(T_H).."</span> &#8658; Eta<sub>max</sub> = "..Binesh.ProgressNumber(Eta))
 		end
 	end
 	
@@ -44,13 +44,13 @@ function Binesh.F83_1()
 		if Eta ~= nil and T_H ~= nil then
 			Binesh.CreateHTMLFile("Eta<sub>max</sub> = 1- <span>T<sub>C</sub>/T<sub>H</sub></span>", "T<sub>C</sub> = -(-1+Eta<sub>max</sub>)T<sub>H</sub>")
 			
-			TC = -(-1+Eta)*T_H
+			T_C = -(-1+Eta)*T_H
 			
-			Binesh.AddToHTML("Eta<sub>max</sub>: "..Binesh.Convert_e(Eta), "V")
-			Binesh.AddToHTML("T<sub>H</sub>: "..Binesh.Convert_e(T_H).."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("T<sub>C</sub>: ?", "V")
+			Binesh.AddToHTML("Eta<sub>max</sub> = "..Binesh.ProgressNumber(Eta), "V")
+			Binesh.AddToHTML("T<sub>H</sub> = "..Binesh.ProgressNumber(T_H).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("T<sub>C</sub> = ?", "V")
 			
-			Binesh.AddToHTML("T<sub>C</sub> = -(-1+"..Binesh.Convert_e(Eta)..")*"..Binesh.Convert_e(T_H).." &#8658; T<sub>C</sub> = "..Binesh.Convert_e(TC).."<sup>o</sup>K")
+			Binesh.AddToHTML("T<sub>C</sub> = -(-1+"..Binesh.ProgressNumber(Eta)..")*"..Binesh.ProgressNumber(T_H).." &#8658; T<sub>C</sub> = "..Binesh.ProgressNumber(T_C).."<sup>o</sup>K")
 		end
 	end
 	
@@ -59,11 +59,11 @@ function Binesh.F83_1()
 			Binesh.CreateHTMLFile("Eta<sub>max</sub> = 1- <span>T<sub>C</sub>/T<sub>H</sub></span>", "T<sub>H</sub> = - <span>T<sub>C</sub>/(-1+Eta<sub>max</sub>)</span>")
 			T_H = -T_C/(-1+Eta)
 			
-			Binesh.AddToHTML("T<sub>C</sub>: "..Binesh.Convert_e(T_C).."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("Eta<sub>max</sub>: "..Binesh.Convert_e(Eta), "V")
-			Binesh.AddToHTML("T<subH</sub>: ?", "V")
+			Binesh.AddToHTML("T<sub>C</sub> = "..Binesh.ProgressNumber(T_C).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("Eta<sub>max</sub> = "..Binesh.ProgressNumber(Eta), "V")
+			Binesh.AddToHTML("T<subH</sub> = ?", "V")
 			
-			Binesh.AddToHTML("T<sub>H</sub> = - <span>"..Binesh.Convert_e(T_C).."/(-1+"..Binesh.Convert_e(Eta)..")</span> &#8658; T<sub>H</sub> = "..Binesh.Convert_e(T_H).."<sup>o</sup>K")
+			Binesh.AddToHTML("T<sub>H</sub> = - <span>"..Binesh.ProgressNumber(T_C).."/(-1+"..Binesh.ProgressNumber(Eta)..")</span> &#8658; T<sub>H</sub> = "..Binesh.ProgressNumber(T_H).."<sup>o</sup>K")
 		end
 	end
 end

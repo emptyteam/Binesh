@@ -4,11 +4,11 @@ function Binesh.F95()
 			C_Condenser = q/V_Electric
 			
 			Binesh.CreateHTMLFile("C = <span>q/V</span>")
-			Binesh.AddToHTML("C = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(V_Electric).."</span> &#8658; C = "..Binesh.Convert_e(C_Condenser).." F")
+			Binesh.AddToHTML("C = <span>"..Binesh.ProgressNumber(q).."/"..Binesh.ProgressNumber(V_Electric).."</span> &#8658; C = "..Binesh.ProgressNumber(C_Condenser).." F")
 			
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
-			Binesh.AddToHTML("C: ?", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Electric).." V", "V")
+			Binesh.AddToHTML("C = ?", "V")
 		end
 	end
 	
@@ -16,12 +16,12 @@ function Binesh.F95()
 		if C_Condenser ~= nil and V_Electric ~= nil then
 			q = C_Condenser*V_Electric
 			
-			Binesh.CreateHTMLFile("C = <span>q/V</span>", "q =  CV")
-			Binesh.AddToHTML("q = "..Binesh.Convert_e(C_Condenser).."*"..Binesh.Convert_e(V_Electric).."&#8658; q = "..Binesh.Convert_e(q).." C")
+			Binesh.CreateHTMLFile("C = <span>q/V</span>", "q = CV")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(C_Condenser).."*"..Binesh.ProgressNumber(V_Electric).."&#8658; q = "..Binesh.ProgressNumber(q).." C")
 			
-			Binesh.AddToHTML("C: "..Binesh.Convert_e(C_Condenser).." F", "V")
-			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
-			Binesh.AddToHTML("q: ?", "V")
+			Binesh.AddToHTML("C = "..Binesh.ProgressNumber(C_Condenser).." F", "V")
+			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Electric).." V", "V")
+			Binesh.AddToHTML("q = ?", "V")
 		end
 	end
 	
@@ -30,11 +30,11 @@ function Binesh.F95()
 			V_Electric = q/C_Condenser
 			
 			Binesh.CreateHTMLFile("C = <span>q/V</span>", "V = <span>q/C</span>")
-			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(C_Condenser).."</span> &#8658; V = "..Binesh.Convert_e(V_Electric).." V")
+			Binesh.AddToHTML("V = <span>"..Binesh.ProgressNumber(q).."/"..Binesh.ProgressNumber(C_Condenser).."</span> &#8658; V = "..Binesh.ProgressNumber(V_Electric).." V")
 			
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("C: "..Binesh.Convert_e(C_Condenser).." F", "V")
-			Binesh.AddToHTML("V: ?", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("C = "..Binesh.ProgressNumber(C_Condenser).." F", "V")
+			Binesh.AddToHTML("V = ?", "V")
 		end
 	end
 end

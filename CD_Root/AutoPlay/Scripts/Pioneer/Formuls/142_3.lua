@@ -5,11 +5,11 @@ function Binesh.F142_3()
 			
 			Teta = Omega*t
 			
-			Binesh.AddToHTML("Teta = "..Binesh.Convert_e(Omega).."*"..Binesh.Convert_e(t).." &#8658; Teta = "..Binesh.Convert_e(Teta))
+			Binesh.AddToHTML("Teta = "..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t).." &#8658; Teta = "..Binesh.ProgressNumber(Teta))
 			
-			Binesh.AddToHTML("Omega: "..Binesh.Convert_e(Omega).." rad/s", "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("Teta: ?", "V")
+			Binesh.AddToHTML("Omega = "..Binesh.ProgressNumber(Omega).." rad/s", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("Teta = ?", "V")
 		end
 	end
 	
@@ -19,11 +19,11 @@ function Binesh.F142_3()
 			
 			Omega = Teta/t
 			
-			Binesh.AddToHTML("Omega = <span>"..Binesh.Convert_e(Omega).."/"..Binesh.Convert_e(t).."</span> &#8658; Omega = "..Binesh.Convert_e(Omega).." rad/s")
+			Binesh.AddToHTML("Omega = <span>"..Binesh.ProgressNumber(Omega).."/"..Binesh.ProgressNumber(t).."</span> &#8658; Omega = "..Binesh.ProgressNumber(Omega).." rad/s")
 			
-			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("Omega: ?", "V")
+			Binesh.AddToHTML("Teta = "..Binesh.ProgressNumber(Teta), "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("Omega = ?", "V")
 		end
 	end
 	
@@ -33,11 +33,11 @@ function Binesh.F142_3()
 			
 			t = Teta/Omega
 			
-			Binesh.AddToHTML("t = "..Binesh.Convert_e(Teta).."/"..Binesh.Convert_e(Omega).." &#8658; t = "..Binesh.Convert_e(t).." s")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(Teta).."/"..Binesh.ProgressNumber(Omega).." &#8658; t = "..Binesh.ProgressNumber(t).." s")
 			
-			Binesh.AddToHTML("Teta: "..Binesh.Convert_e(Teta), "V")
-			Binesh.AddToHTML("Omega: "..Binesh.Convert_e(Omega).." rad/s", "V")
-			Binesh.AddToHTML("t: ?", "V")
+			Binesh.AddToHTML("Teta = "..Binesh.ProgressNumber(Teta), "V")
+			Binesh.AddToHTML("Omega = "..Binesh.ProgressNumber(Omega).." rad/s", "V")
+			Binesh.AddToHTML("t = ?", "V")
 		end
 	end
 end

@@ -4,11 +4,11 @@ function Binesh.F93_1_1()
 			if E_Electric ~= nil and d ~= nil then
 				Binesh.CreateHTMLFile("DeltaV = Ed")
 				_DeltaV_Electric = E_Electric*d
-				Binesh.AddToHTML("DeltaV = "..Binesh.Convert_e(E_Electric).."*"..Binesh.Convert_e(d).." &#8658; DeltaV = "..Binesh.Convert_e(_DeltaV_Electric).." V")
+				Binesh.AddToHTML("DeltaV = "..Binesh.ProgressNumber(E_Electric).."*"..Binesh.ProgressNumber(d).." &#8658; DeltaV = "..Binesh.ProgressNumber(_DeltaV_Electric).." V")
 				
-				Binesh.AddToHTML("E: "..Binesh.Convert_e(E_Electric).." N/C", "V")
-				Binesh.AddToHTML("d: "..Binesh.Convert_e(d).." m", "V")
-				Binesh.AddToHTML("DeltaV: ?", "V")
+				Binesh.AddToHTML("E = "..Binesh.ProgressNumber(E_Electric).." N/C", "V")
+				Binesh.AddToHTML("d = "..Binesh.ProgressNumber(d).." m", "V")
+				Binesh.AddToHTML("DeltaV = ?", "V")
 			end
 		end
 		
@@ -16,11 +16,11 @@ function Binesh.F93_1_1()
 			if _DeltaV_Electric ~= nil and d ~= nil then
 				Binesh.CreateHTMLFile("DeltaV = Ed", "E = <span>DeltaV/d</span>")
 				E_Electric = _DeltaV_Electric / d
-				Binesh.AddToHTML("E = <span>"..Binesh.Convert_e(_DeltaV_Electric).."/"..Binesh.Convert_e(d).."</span> &#8658; E = "..Binesh.Convert_e(E_Electric).." N/C")
+				Binesh.AddToHTML("E = <span>"..Binesh.ProgressNumber(_DeltaV_Electric).."/"..Binesh.ProgressNumber(d).."</span> &#8658; E = "..Binesh.ProgressNumber(E_Electric).." N/C")
 				
-				Binesh.AddToHTML("DeltaV: "..Binesh.Convert_e(_DeltaV_Electric).." N/C", "V")
-				Binesh.AddToHTML("d: "..Binesh.Convert_e(d).." m", "V")
-				Binesh.AddToHTML("E: ?", "V")
+				Binesh.AddToHTML("DeltaV = "..Binesh.ProgressNumber(_DeltaV_Electric).." N/C", "V")
+				Binesh.AddToHTML("d = "..Binesh.ProgressNumber(d).." m", "V")
+				Binesh.AddToHTML("E = ?", "V")
 			end
 		end
 		
@@ -28,11 +28,11 @@ function Binesh.F93_1_1()
 			if _DeltaV_Electric ~= nil and E_Electric ~= nil then
 				Binesh.CreateHTMLFile("DeltaV = Ed", "d = <span>DeltaV/E</span>")
 				d = _DeltaV_Electric / E_Electric
-				Binesh.AddToHTML("d = <span>"..Binesh.Convert_e(_DeltaV_Electric).."/"..Binesh.Convert_e(E_Electric).."</span> &#8658; d = "..Binesh.Convert_e(d).." m")
+				Binesh.AddToHTML("d = <span>"..Binesh.ProgressNumber(_DeltaV_Electric).."/"..Binesh.ProgressNumber(E_Electric).."</span> &#8658; d = "..Binesh.ProgressNumber(d).." m")
 				
-				Binesh.AddToHTML("DeltaV: "..Binesh.Convert_e(_DeltaV_Electric).." N/C", "V")
-				Binesh.AddToHTML("E: "..Binesh.Convert_e(E_Electric).." m", "V")
-				Binesh.AddToHTML("d: ?", "V")
+				Binesh.AddToHTML("DeltaV = "..Binesh.ProgressNumber(_DeltaV_Electric).." N/C", "V")
+				Binesh.AddToHTML("E = "..Binesh.ProgressNumber(E_Electric).." m", "V")
+				Binesh.AddToHTML("d = ?", "V")
 			end
 		end
 	end

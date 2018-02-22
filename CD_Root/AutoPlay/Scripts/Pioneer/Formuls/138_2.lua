@@ -6,13 +6,13 @@ function Binesh.F138_2()
 			
 			I1 = I2+(Epsilon*_Deltat/L_Self)
 			
-			Binesh.AddToHTML("I<sub>1</sub> = "..Binesh.Convert_e(I2).." + <span>"..Binesh.Convert_e(Epsilon).."*"..Binesh.Convert_e(_Deltat).."/"..Binesh.Convert_e(L_Self).."</span> &#8658; I<sub>1</sub> = "..Binesh.Convert_e(I1).." A")
+			Binesh.AddToHTML("I<sub>1</sub> = "..Binesh.ProgressNumber(I2).." + <span>"..Binesh.ProgressNumber(Epsilon).."*"..Binesh.ProgressNumber(_Deltat).."/"..Binesh.ProgressNumber(L_Self).."</span> &#8658; I<sub>1</sub> = "..Binesh.ProgressNumber(I1).." A")
 			
-			Binesh.AddToHTML("I<sub>2</sub>: "..Binesh.Convert_e(I2).." A", "V")
-			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
-			Binesh.AddToHTML("Deltat: "..Binesh.Convert_e(_Deltat).." s", "V")
-			Binesh.AddToHTML("L: "..Binesh.Convert_e(L_Self).." H", "V")
-			Binesh.AddToHTML("I<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("I<sub>2</sub> = "..Binesh.ProgressNumber(I2).." A", "V")
+			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(Epsilon).." V", "V")
+			Binesh.AddToHTML("Deltat = "..Binesh.ProgressNumber(_Deltat).." s", "V")
+			Binesh.AddToHTML("L = "..Binesh.ProgressNumber(L_Self).." H", "V")
+			Binesh.AddToHTML("I<sub>1</sub> = ?", "V")
 		end
 	end
 	
@@ -23,13 +23,13 @@ function Binesh.F138_2()
 			
 			I2 = I1-(Epsilon*_Deltat/L_Self)
 			
-			Binesh.AddToHTML("I<sub>2</sub> = "..Binesh.Convert_e(I1).." - <span>"..Binesh.Convert_e(Epsilon).."*"..Binesh.Convert_e(_Deltat).."/"..Binesh.Convert_e(L_Self).."</span> &#8658; I<sub>2</sub> = "..Binesh.Convert_e(I2).." A")
+			Binesh.AddToHTML("I<sub>2</sub> = "..Binesh.ProgressNumber(I1).." - <span>"..Binesh.ProgressNumber(Epsilon).."*"..Binesh.ProgressNumber(_Deltat).."/"..Binesh.ProgressNumber(L_Self).."</span> &#8658; I<sub>2</sub> = "..Binesh.ProgressNumber(I2).." A")
 			
-			Binesh.AddToHTML("I<sub>1</sub>: "..Binesh.Convert_e(I1).." A", "V")
-			Binesh.AddToHTML("Epsilon: "..Binesh.Convert_e(Epsilon).." V", "V")
-			Binesh.AddToHTML("Deltat: "..Binesh.Convert_e(_Deltat).." s", "V")
-			Binesh.AddToHTML("L: "..Binesh.Convert_e(L_Self).." H", "V")
-			Binesh.AddToHTML("I<sub>2</sub>: ?", "V")
+			Binesh.AddToHTML("I<sub>1</sub> = "..Binesh.ProgressNumber(I1).." A", "V")
+			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(Epsilon).." V", "V")
+			Binesh.AddToHTML("Deltat = "..Binesh.ProgressNumber(_Deltat).." s", "V")
+			Binesh.AddToHTML("L = "..Binesh.ProgressNumber(L_Self).." H", "V")
+			Binesh.AddToHTML("I<sub>2</sub> = ?", "V")
 		end
 	end
 end
