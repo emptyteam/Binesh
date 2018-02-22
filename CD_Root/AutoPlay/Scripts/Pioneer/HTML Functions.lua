@@ -30,6 +30,7 @@ function Binesh.ConvertToHTML(sFormule, WhatFile)
 		sFormule = String.Replace(sFormule, "J</span><span class='fdn'>KgC", "J/KgC", true);
 		sFormule = String.Replace(sFormule, "N</span><span class='fdn'>m", "N/m", true);
 		sFormule = String.Replace(sFormule, "Kg</span><span class='fdn'>m", "Kg/m", true);
+		sFormule = String.Replace(sFormule, "g</span><span class='fdn'>m", "g/m", true);
 		sFormule = String.Replace(sFormule, "Kg</span><span class='fdn'>L", "Kg/L", true);
 		sFormule = String.Replace(sFormule, "J</span><span class='fdn'>Kg", "J/Kg", true);
 		sFormule = String.Replace(sFormule, "1</span><span class='fdn'>C", "1/C", true);
@@ -44,19 +45,21 @@ function Binesh.ConvertToHTML(sFormule, WhatFile)
 		sFormule = String.Replace(sFormule, "/", " / ", true);
 	end
 	
-	sFormule = String.Replace(sFormule, "Alpha", "&ùalpha;", true);
+	sFormule = String.Replace(sFormule, "Alpha", "&alpha;", true);
 	sFormule = String.Replace(sFormule, "Beta", "&beta;", true);
 	sFormule = String.Replace(sFormule, "Delta", "&Delta;", true);
 	sFormule = String.Replace(sFormule, "Epsilon", "&epsilon;", true);
 	sFormule = String.Replace(sFormule, "Eta", "&eta;", true);
 	sFormule = String.Replace(sFormule, "Teta", "&theta;", true);
-	sFormule = String.Replace(sFormule, "Pi", "&Pi;", true);
+	sFormule = String.Replace(sFormule, "Pi", "&pi;", true);
 	sFormule = String.Replace(sFormule, "Ru", "&rho;", true);
 	sFormule = String.Replace(sFormule, "Sigma", "&sigma;", true);
 	sFormule = String.Replace(sFormule, "Fi", "&Phi;", true);
-	sFormule = String.Replace(sFormule, "Ohm", "&Omega;", true);
 	sFormule = String.Replace(sFormule, "Omega", "&omega;", true);
+	sFormule = String.Replace(sFormule, "&&omega;;", "&Omega;", true);
+	sFormule = String.Replace(sFormule, "Ohm", "&Omega;", true);
 	sFormule = String.Replace(sFormule, "Mu", "&mu;", true);
+	sFormule = String.Replace(sFormule, "Kapa", "&kappa;", true);
 	
 	if WhatFile == "V" then
 		sFormule = String.Replace(sFormule, "VBar", "<span style='Bar-White'>V</span>", false);

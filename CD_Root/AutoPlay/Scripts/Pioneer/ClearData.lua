@@ -1,17 +1,28 @@
 function Binesh.ClearData()
 	Binesh.ClearHTMLFile()
-	Binesh.ClearHTMLFile("V")	
+	Binesh.ClearHTMLFile("V")
+	
 	l = nil
 	n = nil
 	U = nil
 	Alpha = nil
 	F = nil
 	d = nil
+	r = nil
 	_x1 = nil
 	_x2 = nil
 	t0 = nil
 	V1_Speed = nil
+	_V1_Speed = nil
 	V2_Speed = nil
+	_V2_Speed = nil
+	_DeltaI = nil
+	_I1 = nil
+	_I2 = nil
+	_DeltaR = nil
+	_R1 = nil
+	_R2 = nil
+	U_PipeWire = nil
 	h = nil
 	P = nil
 	P0 = nil

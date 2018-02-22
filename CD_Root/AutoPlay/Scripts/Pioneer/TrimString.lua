@@ -159,13 +159,15 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "Õ·ﬁÂ", "œÊ—", false);
 		result = String.Replace(result, "Å— ‰", "Å—Ê Ê‰", false);
 		result = String.Replace(result, "Å—Ê ‰", "Å—Ê Ê‰", false);
-		result = String.Replace(result, "‘»«‰Â —Ê“", "—Ê“", false);
-		
+		result = String.Replace(result, " €ÌÌ—« ", " €ÌÌ—", false);
 		result = String.Replace(result, "ê—„« ‰Â«‰", "", false);
 		result = String.Replace(result, "ê—„«  »ŒÌ—", " »ŒÌ—", false);
 		result = String.Replace(result, "ê—„« „Ì⁄«‰", "„Ì⁄«‰", false);
 		result = String.Replace(result, "ê—„« –Ê»", "–Ê»", false);
 		result = String.Replace(result, "ê—„« «‰Ã„«œ", "«‰Ã„«œ", false);
+		result = String.Replace(result, "„Ì«‰Â —«Â", "Ê”ÿ—«Â", false);
+		result = String.Replace(result, "„Ì«‰ —«Â", "Ê”ÿ—«Â", false);
+		result = String.Replace(result, "Ê”ÿ —«Â", "Ê”ÿ—«Â", false);
 		
 		result = String.Replace(result, "œ— Â— À«‰ÌÂ", "“„«‰ 1 À«‰ÌÂ", false);
 		result = String.Replace(result, "œ— Â— œﬁÌﬁÂ", "“„«‰ 60 À«‰ÌÂ", false);
@@ -191,14 +193,12 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "atmosphere", "atm", false);
 		result = String.Replace(result, "minute", "min", false);
 		result = String.Replace(result, "minutes", "min", false);
-		result = String.Replace(result, "day", "day", false);
 		result = String.Replace(result, "j", "J", true);
 		result = String.Replace(result, "eta", "Eta", false);
 		result = String.Replace(result, "teta", "Teta", false);
-		result = String.Replace(result, "deg", "œ—ÃÂ", true);
-		result = String.Replace(result, "	", " ", true);
+		result = String.Replace(result, "deg", "œ—ÃÂ", false);
 		result = String.Replace(result, "lv", "LV", false);
-		result = String.Replace(result, "ohm", "Ohm", true);
+		result = String.Replace(result, "ohm", "Ohm", false);
 		result = String.Replace(result, "fsmax", "fs,max", false);
 		result = String.Replace(result, "fs max", "fs,max", false);
 		result = String.Replace(result, "f smax", "fs,max", false);
@@ -207,13 +207,20 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "qc", "QC", false);
 		result = String.Replace(result, "muk", "Muk", false);
 		result = String.Replace(result, "mus", "Mus", false);
-		result = String.Replace(result, "fk", "fk", false);
-		result = String.Replace(result, "kg", "Kg", false);
-			
-		result = String.Replace(result, "=", " = ", false);
+		result = String.Replace(result, "omega", "Omega", false);
+		result = String.Replace(result, "V0", "V1", true);
+		result = String.Replace(result, "rt", "RT", false);
+		result = String.Replace(result, "vt", "VT", false);
 		
-		result = String.Replace(result, "!", " ! ", false);
-		result = String.Replace(result, "%", " % ", false);
+		result = String.Replace(result, "=", " = ", false);
+		result = String.Replace(result, "=", "", false);
+		
+		-- Convert '/' to '.'
+		for number1 = 0, 9 do
+			for number2 = 0, 9 do
+				result = String.Replace(result, number1.."/"..number2, number1.."."..number2, false);
+			end
+		end
 		
 		result = String.Replace(result, " |", "|", false);
 		result = String.Replace(result, "| ", "|", false);
@@ -224,6 +231,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "tan", "tan ", false);
 		result = String.Replace(result, "Sqrt", "Sqrt ", false);
 		
+		result = String.Replace(result, "	", " ", false); -- it Tab
 		result = String.Replace(result, "  ", " ", false);
 		return result;
 	end

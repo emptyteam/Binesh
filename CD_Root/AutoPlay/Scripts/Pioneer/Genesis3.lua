@@ -3,8 +3,8 @@ function Binesh.Genesis3(NamePersian, Symbol, PrePersian, Pre, PreValue, Unit, U
 	Binesh.Join(UnitPersian);
 	
 	function FindNumber(Find)
-		TextNumber = ListBox.GetItemText("Words", Find-1);
-		Number = tonumber(TextNumber)
+		textNumber = ListBox.GetItemText("Words", Find-1);
+		Number = tonumber(textNumber)
 		if Number ~= nil then -- this is number
 			
 			Number = Number/PreValue
@@ -29,8 +29,8 @@ function Binesh.Genesis3(NamePersian, Symbol, PrePersian, Pre, PreValue, Unit, U
 		end
 	end -- function
 	
-	FindNameFA = ListBox.FindItem("Words", -1, LB_BYTEXT, UnitPersian);
-	FindSymbol = ListBox.FindItem("Words", -1, LB_BYTEXT, Unit);
+	FindNameFA = ListBox.FindItem("Words", -1, LB_BYtext, UnitPersian);
+	FindSymbol = ListBox.FindItem("Words", -1, LB_BYtext, Unit);
 	if FindNameFA ~= -1 or FindSymbol ~= -1 then
 		if FindNameFA ~= -1 then
 			Find = FindNameFA
@@ -44,19 +44,18 @@ function Binesh.Genesis3(NamePersian, Symbol, PrePersian, Pre, PreValue, Unit, U
 	end -- find
 	
 	-- For work with Symbol Unit
-	TextNumber = nil
+	textNumber = nil
 	Number = nil
 	
 	Count = ListBox.GetCount("Words");
 	for index = 1, Count do
-		Text = ListBox.GetItemText("Words", index);
-		if String.Find(Text, Unit, 1, true) ~= -1 then
-			TextNumber = ListBox.GetItemText("Words", index-1);
-			Number = tonumber(TextNumber)
+		text = ListBox.GetItemText("Words", index);
+		if String.Find(text, Unit, 1, true) ~= -1 then
+			textNumber = ListBox.GetItemText("Words", index-1);
+			Number = tonumber(textNumber)
 			if Number ~= nil then -- this is number
 				for indexPre = 1, Table.Count(Pres.Value) do
-					
-					if String.Mid(Text, 1, #Pres.Symbol[indexPre]) == Pres.Symbol[indexPre] and String.Mid(Text, #Pres.Symbol[indexPre]+1, #Text) == Unit then
+					if String.Mid(text, 1, #Pres.Symbol[indexPre]) == Pres.Symbol[indexPre] and String.Mid(text, #Pres.Symbol[indexPre]+1, #text) == Unit then
 						Number = (Number*Pres.Value[indexPre])/PreValue
 						
 						ListBox.DeleteItem("Words", index); -- Delete Unit Symbol
@@ -66,7 +65,7 @@ function Binesh.Genesis3(NamePersian, Symbol, PrePersian, Pre, PreValue, Unit, U
 					end
 					
 					if indexPre == Table.Count(Pres.Value) then
-						if String.Mid(Text, #Pres.Symbol[indexPre]+1, #Text) == Unit then
+						if String.Mid(text, #Pres.Symbol[indexPre]+1, #text) == Unit then
 							Number = Number/PreValue
 							
 							ListBox.DeleteItem("Words", index); -- Delete Unit Symbol

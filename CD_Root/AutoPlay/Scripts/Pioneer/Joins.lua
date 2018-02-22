@@ -191,8 +191,4 @@ function Binesh.Joins()
 	Binesh.Join('ѕж— «жбнд');
 	Binesh.Join('ѕжгнд ѕж—');
 	Binesh.Join('ѕж— ѕжгнд');
-	
-	
-	-- DONT MOVE IT:
-	Binesh.Join('гё«жг  жнОе');
 end
