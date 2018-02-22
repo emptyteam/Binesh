@@ -3,13 +3,13 @@ function Binesh.F77_2_2()
 		if n ~= nil and W ~= nil and _T2 ~= nil then
 			Binesh.CreateHTMLFile("W = nR(T<sub>2</sub>-T<sub>1</sub>)", "T<sub>2</sub>-T<sub>1</sub> = <span>W/nR</span>")
 			Binesh.AddToHTML("T<sub>1</sub> = T<sub>2</sub>- <span>W/nR</span> &#8658; ")
-			_T1 = _T2+(-W/(n*Zarib.R))
-			Binesh.AddToHTML("T<sub>1</sub> = "..Binesh.Convert_e(_T2).."- <span>"..Binesh.Convert_e(W).."/"..Binesh.Convert_e(n).."*"..Binesh.Convert_e(Zarib.R).."</span> &#8658; T<sub>1</sub> = "..Binesh.Convert_e(_T1).."<sup>o</sup>K")
+			_T1 = _T2+(-W/(n*Settings.Zarib.R))
+			Binesh.AddToHTML("T<sub>1</sub> = "..Binesh.ProgressNumber(_T2).."- <span>"..Binesh.ProgressNumber(W).."/"..Binesh.ProgressNumber(n).."*"..Binesh.ProgressNumber(Settings.Zarib.R).."</span> &#8658; T<sub>1</sub> = "..Binesh.ProgressNumber(_T1).."<sup>o</sup>K")
 			
-			Binesh.AddToHTML("T<sub>2</sub>: "..Binesh.Convert_e(_T2).."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
-			Binesh.AddToHTML("n: "..Binesh.Convert_e(n).." mol", "V")
-			Binesh.AddToHTML("T<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("T<sub>2</sub> = "..Binesh.ProgressNumber(_T2).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(W).." J", "V")
+			Binesh.AddToHTML("n = "..Binesh.ProgressNumber(n).." mol", "V")
+			Binesh.AddToHTML("T<sub>1</sub> = ?", "V")
 		end
 	end
 	
@@ -17,13 +17,13 @@ function Binesh.F77_2_2()
 		if n ~= nil and W ~= nil and _T1 ~= nil then
 			Binesh.CreateHTMLFile("W = nR(T<sub>2</sub>-T<sub>1</sub>)", "T<sub>2</sub>-T<sub>1</sub> = <span>W/nR</span>")
 			Binesh.AddToHTML("T<sub>2</sub> = T<sub>1</sub>+ <span>W/nR</span> &#8658; ")
-			_T2 = _T1+(W/(n*Zarib.R))
-			Binesh.AddToHTML("T<sub>2</sub> = "..Binesh.Convert_e(_T1).."+ <span>"..Binesh.Convert_e(W).."/"..Binesh.Convert_e(n).."*"..Binesh.Convert_e(Zarib.R).."</span> &#8658; T<sub>2</sub> = "..Binesh.Convert_e(_T2).."<sup>o</sup>K")
+			_T2 = _T1+(W/(n*Settings.Zarib.R))
+			Binesh.AddToHTML("T<sub>2</sub> = "..Binesh.ProgressNumber(_T1).."+ <span>"..Binesh.ProgressNumber(W).."/"..Binesh.ProgressNumber(n).."*"..Binesh.ProgressNumber(Settings.Zarib.R).."</span> &#8658; T<sub>2</sub> = "..Binesh.ProgressNumber(_T2).."<sup>o</sup>K")
 			
-			Binesh.AddToHTML("T<sub>1</sub>: "..Binesh.Convert_e(_T1).."<sup>o</sup>K", "V")
-			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
-			Binesh.AddToHTML("n: "..Binesh.Convert_e(n).." mol", "V")
-			Binesh.AddToHTML("T<sub>2</sub>: ?", "V")
+			Binesh.AddToHTML("T<sub>1</sub> = "..Binesh.ProgressNumber(_T1).."<sup>o</sup>K", "V")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(W).." J", "V")
+			Binesh.AddToHTML("n = "..Binesh.ProgressNumber(n).." mol", "V")
+			Binesh.AddToHTML("T<sub>2</sub> = ?", "V")
 		end
 	end
 end

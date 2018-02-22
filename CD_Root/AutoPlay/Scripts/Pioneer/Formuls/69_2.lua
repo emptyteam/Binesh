@@ -4,12 +4,12 @@ function Binesh.F69_2()
 			Binesh.CreateHTMLFile("V<sub>2</sub> = V<sub>1</sub>(1+BetaDeltaTeta)", "V<sub>1</sub> = <span>V<sub>2</sub>/1+BetaDeltaTeta</span>")
 			_V1 = _V2/(1+Beta_Length*_DeltaTeta)
 			
-			Binesh.AddToHTML("V<sub>2</sub>: "..Binesh.Convert_e(_V2).." m<sup>3</sup>", "V")
-			Binesh.AddToHTML("Beta: "..Binesh.Convert_e(Beta_Length).." 1/C", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C", "V")
-			Binesh.AddToHTML("V<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("V<sub>2</sub> = "..Binesh.ProgressNumber(_V2).." m<sup>3</sup>", "V")
+			Binesh.AddToHTML("Beta = "..Binesh.ProgressNumber(Beta_Length).." 1/C", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).."<sup>o</sup>C", "V")
+			Binesh.AddToHTML("V<sub>1</sub> = ?", "V")
 			
-			Binesh.AddToHTML("V<sub>1</sub> = <span>"..Binesh.Convert_e(_V2).."/1+"..Binesh.Convert_e(Beta_Length).."*"..Binesh.Convert_e(_DeltaTeta).."</span> &#8658; V<sub>1</sub> = "..Binesh.Convert_e(_V1).." m<sup>3</sup>")
+			Binesh.AddToHTML("V<sub>1</sub> = <span>"..Binesh.ProgressNumber(_V2).."/1+"..Binesh.ProgressNumber(Beta_Length).."*"..Binesh.ProgressNumber(_DeltaTeta).."</span> &#8658; V<sub>1</sub> = "..Binesh.ProgressNumber(_V1).." m<sup>3</sup>")
 		end
 	end
 	
@@ -18,12 +18,12 @@ function Binesh.F69_2()
 			Binesh.CreateHTMLFile("V<sub>2</sub> = V<sub>1</sub>(1+BetaDeltaTeta)")
 			_V2 = _V1*(1+Beta_Length*_DeltaTeta)
 			
-			Binesh.AddToHTML("V<sub>1</sub>: "..Binesh.Convert_e(_V1).." m<sup>3</sup>", "V")
-			Binesh.AddToHTML("Beta: "..Binesh.Convert_e(Beta_Length).." 1/C", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C", "V")
-			Binesh.AddToHTML("V<sub>2</sub>: ?", "V")
+			Binesh.AddToHTML("V<sub>1</sub> = "..Binesh.ProgressNumber(_V1).." m<sup>3</sup>", "V")
+			Binesh.AddToHTML("Beta = "..Binesh.ProgressNumber(Beta_Length).." 1/C", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).."<sup>o</sup>C", "V")
+			Binesh.AddToHTML("V<sub>2</sub> = ?", "V")
 			
-			Binesh.AddToHTML("V<sub>2</sub> = <span>"..Binesh.Convert_e(_V1).."(1+"..Binesh.Convert_e(Beta_Length).."*"..Binesh.Convert_e(_DeltaTeta)..")</span> &#8658; V<sub>2</sub> = "..Binesh.Convert_e(_V2).." m<sup>3</sup>")
+			Binesh.AddToHTML("V<sub>2</sub> = <span>"..Binesh.ProgressNumber(_V1).."(1+"..Binesh.ProgressNumber(Beta_Length).."*"..Binesh.ProgressNumber(_DeltaTeta)..")</span> &#8658; V<sub>2</sub> = "..Binesh.ProgressNumber(_V2).." m<sup>3</sup>")
 		end
 	end
 end

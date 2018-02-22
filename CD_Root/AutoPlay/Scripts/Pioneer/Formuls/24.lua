@@ -5,10 +5,10 @@ function Binesh.F24()
 				Binesh.CreateHTMLFile("D = <span>1/f</span>")
 				D = 1/f
 				
-				Binesh.AddToHTML("D = <span>1/"..Binesh.Convert_e(f).."</span> &#8658; D = "..Binesh.Convert_e(D).." diopter")
+				Binesh.AddToHTML("D = <span>1/"..Binesh.ProgressNumber(f).."</span> &#8658; D = "..Binesh.ProgressNumber(D).." diopter")
 				
-				Binesh.AddToHTML("D: "..Binesh.Convert_e(D).." diopter", "V")
-				Binesh.AddToHTML("f: ?", "V")
+				Binesh.AddToHTML("D = "..Binesh.ProgressNumber(D).." diopter", "V")
+				Binesh.AddToHTML("f = ?", "V")
 			end
 		end
 		
@@ -17,10 +17,10 @@ function Binesh.F24()
 				Binesh.CreateHTMLFile("D = <span>1/f</span>", "f = <span>1/D</span>")
 				f = 1/D
 				
-				Binesh.AddToHTML("f = <span>1/"..Binesh.Convert_e(D).."</span> &#8658; f = "..Binesh.Convert_e(f).." m")
+				Binesh.AddToHTML("f = <span>1/"..Binesh.ProgressNumber(D).."</span> &#8658; f = "..Binesh.ProgressNumber(f).." m")
 				
-				Binesh.AddToHTML("f: "..Binesh.Convert_e(f).." m", "V")
-				Binesh.AddToHTML("D: ?", "V")
+				Binesh.AddToHTML("f = "..Binesh.ProgressNumber(f).." m", "V")
+				Binesh.AddToHTML("D = ?", "V")
 			end
 		end
 	end

@@ -4,11 +4,11 @@ function Binesh.F10_2()
 			Binesh.CreateHTMLFile("P = IV")
 			P_Power = (V_Electric*I)
 			
-			Binesh.AddToHTML("P = "..Binesh.Convert_e(V_Electric).."*"..Binesh.Convert_e(I).." &#8658; P = "..Binesh.Convert_e(P_Power).." W")
+			Binesh.AddToHTML("P = "..Binesh.ProgressNumber(V_Electric).."*"..Binesh.ProgressNumber(I).." &#8658; P = "..Binesh.ProgressNumber(P_Power).." W")
 			
-			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
-			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("P: ?", "V")
+			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Electric).." V", "V")
+			Binesh.AddToHTML("I = "..Binesh.ProgressNumber(I).." A", "V")
+			Binesh.AddToHTML("P = ?", "V")
 		end
 	end
 	
@@ -17,11 +17,11 @@ function Binesh.F10_2()
 			Binesh.CreateHTMLFile("P = IV", "V = <span>P/I</span>")
 			V_Electric = P_Power/I
 			
-			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(P_Power).."/"..Binesh.Convert_e(I).."<sup>2</sup></span> &#8658; V = "..Binesh.Convert_e(V_Electric).." V")
+			Binesh.AddToHTML("V = <span>"..Binesh.ProgressNumber(P_Power).."/"..Binesh.ProgressNumber(I).."<sup>2</sup></span> &#8658; V = "..Binesh.ProgressNumber(V_Electric).." V")
 			
-			Binesh.AddToHTML("P: "..Binesh.Convert_e(P_Power).." W", "V")
-			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("V: ?", "V")
+			Binesh.AddToHTML("P = "..Binesh.ProgressNumber(P_Power).." W", "V")
+			Binesh.AddToHTML("I = "..Binesh.ProgressNumber(I).." A", "V")
+			Binesh.AddToHTML("V = ?", "V")
 		end
 	end
 	
@@ -30,11 +30,11 @@ function Binesh.F10_2()
 			Binesh.CreateHTMLFile("P = IV", "I = <span>P/V</span>")
 			I = P_Power/V_Electric
 			
-			Binesh.AddToHTML("I = <span>"..Binesh.Convert_e(P_Power).."/"..Binesh.Convert_e(V_Electric).."</span> &#8658; I = "..Binesh.Convert_e(I).." A")
+			Binesh.AddToHTML("I = <span>"..Binesh.ProgressNumber(P_Power).."/"..Binesh.ProgressNumber(V_Electric).."</span> &#8658; I = "..Binesh.ProgressNumber(I).." A")
 			
-			Binesh.AddToHTML("P: "..Binesh.Convert_e(P_Power).." W", "V")
-			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Electric).." V", "V")
-			Binesh.AddToHTML("I: ?", "V")
+			Binesh.AddToHTML("P = "..Binesh.ProgressNumber(P_Power).." W", "V")
+			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Electric).." V", "V")
+			Binesh.AddToHTML("I = ?", "V")
 		end
 	end
 end

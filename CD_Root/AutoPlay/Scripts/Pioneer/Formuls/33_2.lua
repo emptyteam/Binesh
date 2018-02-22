@@ -4,11 +4,11 @@ function Binesh.F33_2()
 			Binesh.CreateHTMLFile("Deltax = Vt")
 			_Deltax = V_Speed*t
 			
-			Binesh.AddToHTML("Deltax = "..Binesh.Convert_e(V_Speed).."*"..Binesh.Convert_e(t).." &#8658; Deltax = "..Binesh.Convert_e(_Deltax).." m")
+			Binesh.AddToHTML("Deltax = "..Binesh.ProgressNumber(V_Speed).."*"..Binesh.ProgressNumber(t).." &#8658; Deltax = "..Binesh.ProgressNumber(_Deltax).." m")
 			
-			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("Deltax: ?" , "V")
+			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("Deltax = ?" , "V")
 		end
 	end
 	
@@ -17,11 +17,11 @@ function Binesh.F33_2()
 			Binesh.CreateHTMLFile("Deltax = Vt", "V = <span>Deltax/t</span>")
 			V_Speed = _Deltax/t
 			
-			Binesh.AddToHTML("V = <span>"..Binesh.Convert_e(_Deltax).."/"..Binesh.Convert_e(t).."</span> &#8658; V = "..Binesh.Convert_e(V_Speed).." m/s")
+			Binesh.AddToHTML("V = <span>"..Binesh.ProgressNumber(_Deltax).."/"..Binesh.ProgressNumber(t).."</span> &#8658; V = "..Binesh.ProgressNumber(V_Speed).." m/s")
 			
-			Binesh.AddToHTML("Deltax: "..Binesh.Convert_e(_Deltax).." m" , "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("V: ?", "V")
+			Binesh.AddToHTML("Deltax = "..Binesh.ProgressNumber(_Deltax).." m" , "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("V = ?", "V")
 		end
 	end
 	
@@ -30,11 +30,11 @@ function Binesh.F33_2()
 			Binesh.CreateHTMLFile("Deltax = Vt", "t = <span>Deltax/V</span>")
 			t = _Deltax/V_Speed
 			
-			Binesh.AddToHTML("t = <span>"..Binesh.Convert_e(_Deltax).."/"..Binesh.Convert_e(V_Speed).."</span> &#8658; t = "..Binesh.Convert_e(t).." s")
+			Binesh.AddToHTML("t = <span>"..Binesh.ProgressNumber(_Deltax).."/"..Binesh.ProgressNumber(V_Speed).."</span> &#8658; t = "..Binesh.ProgressNumber(t).." s")
 			
-			Binesh.AddToHTML("Deltax: "..Binesh.Convert_e(_Deltax).." m" , "V")
-			Binesh.AddToHTML("V: "..Binesh.Convert_e(V_Speed).." m/s", "V")
-			Binesh.AddToHTML("t: ?", "V")
+			Binesh.AddToHTML("Deltax = "..Binesh.ProgressNumber(_Deltax).." m" , "V")
+			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Speed).." m/s", "V")
+			Binesh.AddToHTML("t = ?", "V")
 		end
 	end
 end

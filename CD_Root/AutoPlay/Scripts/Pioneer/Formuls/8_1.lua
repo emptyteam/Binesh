@@ -4,12 +4,12 @@ function Binesh.F8_1()
 			Binesh.CreateHTMLFile("U = RI<sup>2</sup>t")
 			U = R*(I^2)*t
 			
-			Binesh.AddToHTML("U = "..Binesh.Convert_e(R).."*"..Binesh.Convert_e(I).."<sup>2</sup>*"..Binesh.Convert_e(t).." &#8658; U = "..Binesh.Convert_e(U).." J")
+			Binesh.AddToHTML("U = "..Binesh.ProgressNumber(R).."*"..Binesh.ProgressNumber(I).."<sup>2</sup>*"..Binesh.ProgressNumber(t).." &#8658; U = "..Binesh.ProgressNumber(U).." J")
 			
-			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).." Ohm", "V")
-			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("U: ?", "V")
+			Binesh.AddToHTML("R = "..Binesh.ProgressNumber(R).." Ohm", "V")
+			Binesh.AddToHTML("I = "..Binesh.ProgressNumber(I).." A", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("U = ?", "V")
 		end
 	end
 	
@@ -18,12 +18,12 @@ function Binesh.F8_1()
 			Binesh.CreateHTMLFile("U = RI<sup>2</sup>t", "R = <span>U/I<sup>2</sup>t</span>")
 			R = U/((I^2)*t)
 			
-			Binesh.AddToHTML("R = <span>"..Binesh.Convert_e(U).."/"..Binesh.Convert_e(I).."<sup>2</sup>*"..Binesh.Convert_e(t).."</span> &#8658; R = "..Binesh.Convert_e(R).." Ohm")
+			Binesh.AddToHTML("R = <span>"..Binesh.ProgressNumber(U).."/"..Binesh.ProgressNumber(I).."<sup>2</sup>*"..Binesh.ProgressNumber(t).."</span> &#8658; R = "..Binesh.ProgressNumber(R).." Ohm")
 			
-			Binesh.AddToHTML("U: "..Binesh.Convert_e(W).." J", "V")
-			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("R: ?", "V")
+			Binesh.AddToHTML("U = "..Binesh.ProgressNumber(W).." J", "V")
+			Binesh.AddToHTML("I = "..Binesh.ProgressNumber(I).." A", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("R = ?", "V")
 		end
 	end
 	
@@ -32,12 +32,12 @@ function Binesh.F8_1()
 			Binesh.CreateHTMLFile("U = RI<sup>2</sup>t", "I = sqrt(<span>U/Rt</span>)")
 			I = Math.Sqrt(U/(R*t))
 			
-			Binesh.AddToHTML("I = Sqrt(<span>"..Binesh.Convert_e(U).."/"..Binesh.Convert_e(R).."</span>*"..Binesh.Convert_e(t)..") &#8658; I = "..Binesh.Convert_e(I).." A")
+			Binesh.AddToHTML("I = Sqrt(<span>"..Binesh.ProgressNumber(U).."/"..Binesh.ProgressNumber(R).."</span>*"..Binesh.ProgressNumber(t)..") &#8658; I = "..Binesh.ProgressNumber(I).." A")
 			
-			Binesh.AddToHTML("U: "..Binesh.Convert_e(W).." J", "V")
-			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).." Ohm", "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("I: ?", "V")
+			Binesh.AddToHTML("U = "..Binesh.ProgressNumber(W).." J", "V")
+			Binesh.AddToHTML("R = "..Binesh.ProgressNumber(R).." Ohm", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("I = ?", "V")
 		end
 	end
 	
@@ -46,12 +46,12 @@ function Binesh.F8_1()
 			Binesh.CreateHTMLFile("U = RI<sup>2</sup>t", "t = <span>U/RI<sup>2</sup></span>")
 			t = U/(R*I^2)
 			
-			Binesh.AddToHTML("t = <span>"..Binesh.Convert_e(U).."/"..Binesh.Convert_e(R).."*"..Binesh.Convert_e(I).."<sup>2</sup></span> &#8658; t = "..Binesh.Convert_e(t).." s")
+			Binesh.AddToHTML("t = <span>"..Binesh.ProgressNumber(U).."/"..Binesh.ProgressNumber(R).."*"..Binesh.ProgressNumber(I).."<sup>2</sup></span> &#8658; t = "..Binesh.ProgressNumber(t).." s")
 			
-			Binesh.AddToHTML("U: "..Binesh.Convert_e(W).." J", "V")
-			Binesh.AddToHTML("R: "..Binesh.Convert_e(R).." Ohm", "V")
-			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("t: ?", "V")
+			Binesh.AddToHTML("U = "..Binesh.ProgressNumber(W).." J", "V")
+			Binesh.AddToHTML("R = "..Binesh.ProgressNumber(R).." Ohm", "V")
+			Binesh.AddToHTML("I = "..Binesh.ProgressNumber(I).." A", "V")
+			Binesh.AddToHTML("t = ?", "V")
 		end
 	end
 end

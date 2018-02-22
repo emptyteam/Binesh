@@ -4,14 +4,14 @@ function Binesh.F71_1()
 			Binesh.CreateHTMLFile("<span>Q/t</span> = K <span>ADeltaTeta/L</span>", "Q = <span>tKADeltaTeta/L</span>")
 			Q = t*K_71*A*_DeltaTeta/L
 			
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("K: "..Binesh.Convert_e(K_71).." J/msC", "V")
-			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C", "V")
-			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
-			Binesh.AddToHTML("Q: ?", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("K = "..Binesh.ProgressNumber(K_71).." J/msC", "V")
+			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).."<sup>o</sup>C", "V")
+			Binesh.AddToHTML("L = "..Binesh.ProgressNumber(L).." m", "V")
+			Binesh.AddToHTML("Q = ?", "V")
 			
-			Binesh.AddToHTML("Q = <span>"..Binesh.Convert_e(t).."*"..Binesh.Convert_e(K_71).."*"..Binesh.Convert_e(A).."*"..Binesh.Convert_e(_DeltaTeta).."/"..Binesh.Convert_e(L).."</span> &#8658; Q = "..Binesh.Convert_e(Q).." J")
+			Binesh.AddToHTML("Q = <span>"..Binesh.ProgressNumber(t).."*"..Binesh.ProgressNumber(K_71).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(_DeltaTeta).."/"..Binesh.ProgressNumber(L).."</span> &#8658; Q = "..Binesh.ProgressNumber(Q).." J")
 		end
 	end
 	
@@ -20,14 +20,14 @@ function Binesh.F71_1()
 			Binesh.CreateHTMLFile("<span>Q/t</span> = K <span>ADeltaTeta/L</span>", "t = <span>QL/KADeltaTeta</span>")
 			t = (Q*L)/(K_71*A*_DeltaTeta)
 			
-			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
-			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
-			Binesh.AddToHTML("K: "..Binesh.Convert_e(K_71).." J/msC", "V")
-			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C", "V")
-			Binesh.AddToHTML("t: ?", "V")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
+			Binesh.AddToHTML("L = "..Binesh.ProgressNumber(L).." m", "V")
+			Binesh.AddToHTML("K = "..Binesh.ProgressNumber(K_71).." J/msC", "V")
+			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).."<sup>o</sup>C", "V")
+			Binesh.AddToHTML("t = ?", "V")
 			
-			Binesh.AddToHTML("t = <span>"..Binesh.Convert_e(Q).."*"..Binesh.Convert_e(L).."/"..Binesh.Convert_e(K_71).."*"..Binesh.Convert_e(A).."*"..Binesh.Convert_e(_DeltaTeta).."</span> &#8658; t = "..Binesh.Convert_e(t).." s")
+			Binesh.AddToHTML("t = <span>"..Binesh.ProgressNumber(Q).."*"..Binesh.ProgressNumber(L).."/"..Binesh.ProgressNumber(K_71).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(_DeltaTeta).."</span> &#8658; t = "..Binesh.ProgressNumber(t).." s")
 		end
 	end
 	
@@ -36,14 +36,14 @@ function Binesh.F71_1()
 			Binesh.CreateHTMLFile("<span>Q/t</span> = K <span>ADeltaTeta/L</span>", "K = <span>QL/tADeltaTeta</span>")
 			K_71 = (Q*L)/(t*A*_DeltaTeta)
 			
-			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
-			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C", "V")
-			Binesh.AddToHTML("K: ?", "V")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
+			Binesh.AddToHTML("L = "..Binesh.ProgressNumber(L).." m", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).."<sup>o</sup>C", "V")
+			Binesh.AddToHTML("K = ?", "V")
 			
-			Binesh.AddToHTML("K = <span>"..Binesh.Convert_e(Q).."*"..Binesh.Convert_e(L).."/"..Binesh.Convert_e(t).."*"..Binesh.Convert_e(A).."*"..Binesh.Convert_e(_DeltaTeta).."</span> &#8658; K = "..Binesh.Convert_e(K_71).." J/msC")
+			Binesh.AddToHTML("K = <span>"..Binesh.ProgressNumber(Q).."*"..Binesh.ProgressNumber(L).."/"..Binesh.ProgressNumber(t).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(_DeltaTeta).."</span> &#8658; K = "..Binesh.ProgressNumber(K_71).." J/msC")
 		end
 	end
 	
@@ -52,14 +52,14 @@ function Binesh.F71_1()
 			Binesh.CreateHTMLFile("<span>Q/t</span> = K <span>ADeltaTeta/L</span>", "A = <span>QL/tKDeltaTeta</span>")
 			A = (Q*L)/(t*K_71*_DeltaTeta)
 			
-			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
-			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("K: "..Binesh.Convert_e(K_71).." J/msC", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C", "V")
-			Binesh.AddToHTML("A: ?", "V")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
+			Binesh.AddToHTML("L = "..Binesh.ProgressNumber(L).." m", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("K = "..Binesh.ProgressNumber(K_71).." J/msC", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).."<sup>o</sup>C", "V")
+			Binesh.AddToHTML("A = ?", "V")
 			
-			Binesh.AddToHTML("A = <span>"..Binesh.Convert_e(Q).."*"..Binesh.Convert_e(L).."/"..Binesh.Convert_e(t).."*"..Binesh.Convert_e(K_71).."*"..Binesh.Convert_e(_DeltaTeta).."</span> &#8658; A = "..Binesh.Convert_e(A).." m<sup>2</sup>")
+			Binesh.AddToHTML("A = <span>"..Binesh.ProgressNumber(Q).."*"..Binesh.ProgressNumber(L).."/"..Binesh.ProgressNumber(t).."*"..Binesh.ProgressNumber(K_71).."*"..Binesh.ProgressNumber(_DeltaTeta).."</span> &#8658; A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>")
 		end
 	end
 	
@@ -68,14 +68,14 @@ function Binesh.F71_1()
 			Binesh.CreateHTMLFile("<span>Q/t</span> = K <span>ADeltaTeta/L</span>", "DeltaTeta = <span>QL/tKA</span>")
 			_DeltaTeta = (Q*L)/(t*K_71*A)
 			
-			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
-			Binesh.AddToHTML("L: "..Binesh.Convert_e(L).." m", "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("K: "..Binesh.Convert_e(K_71).." J/msC", "V")
-			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
-			Binesh.AddToHTML("DeltaTeta: ?", "V")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
+			Binesh.AddToHTML("L = "..Binesh.ProgressNumber(L).." m", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("K = "..Binesh.ProgressNumber(K_71).." J/msC", "V")
+			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("DeltaTeta = ?", "V")
 			
-			Binesh.AddToHTML("DeltaTeta = <span>"..Binesh.Convert_e(Q).."*"..Binesh.Convert_e(L).."/"..Binesh.Convert_e(t).."*"..Binesh.Convert_e(K_71).."*"..Binesh.Convert_e(A).."</span> &#8658; DeltaTeta = "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C")
+			Binesh.AddToHTML("DeltaTeta = <span>"..Binesh.ProgressNumber(Q).."*"..Binesh.ProgressNumber(L).."/"..Binesh.ProgressNumber(t).."*"..Binesh.ProgressNumber(K_71).."*"..Binesh.ProgressNumber(A).."</span> &#8658; DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).."<sup>o</sup>C")
 		end
 	end
 	
@@ -84,14 +84,14 @@ function Binesh.F71_1()
 			Binesh.CreateHTMLFile("<span>Q/t</span> = K <span>ADeltaTeta/L</span>", "L = <span>tKADeltaTeta/Q</span>")
 			L = t*K_71*A*_DeltaTeta/Q
 			
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("K: "..Binesh.Convert_e(K_71).." J/msC", "V")
-			Binesh.AddToHTML("A: "..Binesh.Convert_e(A).." m<sup>2</sup>", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C", "V")
-			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
-			Binesh.AddToHTML("L: ?", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("K = "..Binesh.ProgressNumber(K_71).." J/msC", "V")
+			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).."<sup>o</sup>C", "V")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
+			Binesh.AddToHTML("L = ?", "V")
 			
-			Binesh.AddToHTML("L = <span>"..Binesh.Convert_e(t).."*"..Binesh.Convert_e(K_71).."*"..Binesh.Convert_e(A).."*"..Binesh.Convert_e(_DeltaTeta).."/"..Binesh.Convert_e(Q).."</span> &#8658; L = "..Binesh.Convert_e(L).." m")
+			Binesh.AddToHTML("L = <span>"..Binesh.ProgressNumber(t).."*"..Binesh.ProgressNumber(K_71).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(_DeltaTeta).."/"..Binesh.ProgressNumber(Q).."</span> &#8658; L = "..Binesh.ProgressNumber(L).." m")
 		end
 	end
 end

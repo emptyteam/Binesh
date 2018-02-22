@@ -4,7 +4,7 @@ function Binesh.F75_1()
 		if _U1_In ~= nil and _U2_In ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>")
 			_DeltaU_In = _U2_In - _U1_In
-			Binesh.AddToHTML("DeltaU = "..Binesh.Convert_e(_U2_In).."-"..Binesh.Convert_e(_U1_In).." &#8658; DeltaU = "..Binesh.Convert_e(_DeltaU_In).." J")
+			Binesh.AddToHTML("DeltaU = "..Binesh.ProgressNumber(_U2_In).."-"..Binesh.ProgressNumber(_U1_In).." &#8658; DeltaU = "..Binesh.ProgressNumber(_DeltaU_In).." J")
 		end
 	end
 	
@@ -12,7 +12,7 @@ function Binesh.F75_1()
 		if _DeltaU_In ~= nil and _U2_In ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>", "U<sub>1</sub> = U<sub>2</sub>-DeltaU")
 			_U1_In = _U2_In-_DeltaU_In
-			Binesh.AddToHTML("U<sub>1</sub> = "..Binesh.Convert_e(_U2_In).."-"..Binesh.Convert_e(_DeltaU_In).." &#8658; U<sub>1</sub> = "..Binesh.Convert_e(_U1_In).." J")
+			Binesh.AddToHTML("U<sub>1</sub> = "..Binesh.ProgressNumber(_U2_In).."-"..Binesh.ProgressNumber(_DeltaU_In).." &#8658; U<sub>1</sub> = "..Binesh.ProgressNumber(_U1_In).." J")
 		end
 	end
 	
@@ -20,7 +20,7 @@ function Binesh.F75_1()
 		if _DeltaU_In ~= nil and _U1_In ~= nil then
 			Binesh.CreateHTMLFile("DeltaU = U<sub>2</sub>-U<sub>1</sub>", "U<sub>2</sub> = DeltaU+U<sub>1</sub>")
 			_U2_In = _U1_In+_DeltaU_In
-			Binesh.AddToHTML("U<sub>2</sub> = "..Binesh.Convert_e(_DeltaU_In).."+"..Binesh.Convert_e(_U1_In).." &#8658; U<sub>2</sub> = "..Binesh.Convert_e(_U2_In).." J")
+			Binesh.AddToHTML("U<sub>2</sub> = "..Binesh.ProgressNumber(_DeltaU_In).."+"..Binesh.ProgressNumber(_U1_In).." &#8658; U<sub>2</sub> = "..Binesh.ProgressNumber(_U2_In).." J")
 		end
 	end
 	--------------------------END {DELTA}--------------------------
@@ -29,11 +29,11 @@ function Binesh.F75_1()
 			Binesh.CreateHTMLFile("DeltaU = Q+W", " Q = DeltaU-W")
 			Q = _DeltaU_In-W
 			
-			Binesh.AddToHTML("DeltaU: "..Binesh.Convert_e(_DeltaU_In).." J", "V")
-			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
-			Binesh.AddToHTML("Q: ?", "V")
+			Binesh.AddToHTML("DeltaU = "..Binesh.ProgressNumber(_DeltaU_In).." J", "V")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(W).." J", "V")
+			Binesh.AddToHTML("Q = ?", "V")
 			
-			Binesh.AddToHTML("Q = "..Binesh.Convert_e(_DeltaU_In).."-"..Binesh.Convert_e(W).." &#8658; Q = "..Binesh.Convert_e(Q).." J")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(_DeltaU_In).."-"..Binesh.ProgressNumber(W).." &#8658; Q = "..Binesh.ProgressNumber(Q).." J")
 		end
 	end
 	
@@ -42,11 +42,11 @@ function Binesh.F75_1()
 			Binesh.CreateHTMLFile("DeltaU = Q+W", "W = DeltaU-Q")
 			W = _DeltaU_In-Q
 			
-			Binesh.AddToHTML("DeltaU: "..Binesh.Convert_e(_DeltaU_In).." J", "V")
-			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
-			Binesh.AddToHTML("W: ?", "V")
+			Binesh.AddToHTML("DeltaU = "..Binesh.ProgressNumber(_DeltaU_In).." J", "V")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
+			Binesh.AddToHTML("W = ?", "V")
 			
-			Binesh.AddToHTML("W = "..Binesh.Convert_e(_DeltaU_In).."-"..Binesh.Convert_e(Q).." &#8658; W = "..Binesh.Convert_e(W).." J")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(_DeltaU_In).."-"..Binesh.ProgressNumber(Q).." &#8658; W = "..Binesh.ProgressNumber(W).." J")
 		end
 	end
 	
@@ -55,11 +55,11 @@ function Binesh.F75_1()
 			Binesh.CreateHTMLFile("DeltaU = Q+W")
 			_DeltaU_In = Q+W
 			
-			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
-			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
-			Binesh.AddToHTML("DeltaU: ?", "V")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(W).." J", "V")
+			Binesh.AddToHTML("DeltaU = ?", "V")
 			
-			Binesh.AddToHTML("DeltaU = "..Binesh.Convert_e(Q).."+"..Binesh.Convert_e(W).." &#8658; DeltaU = "..Binesh.Convert_e(_DeltaU_In).." J")
+			Binesh.AddToHTML("DeltaU = "..Binesh.ProgressNumber(Q).."+"..Binesh.ProgressNumber(W).." &#8658; DeltaU = "..Binesh.ProgressNumber(_DeltaU_In).." J")
 		end
 	end
 end

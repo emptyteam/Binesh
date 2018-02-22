@@ -4,11 +4,11 @@ function Binesh.F43_EX()
 			Binesh.CreateHTMLFile("F = -kx")
 			F = -k_Coil*d
 			
-			Binesh.AddToHTML("F = -"..Binesh.Convert_e(k_Coil).."*"..Binesh.Convert_e(d).." &#8658; F = "..Binesh.Convert_e(F).." N")
+			Binesh.AddToHTML("F = -"..Binesh.ProgressNumber(k_Coil).."*"..Binesh.ProgressNumber(d).." &#8658; F = "..Binesh.ProgressNumber(F).." N")
 			
-			Binesh.AddToHTML("k: "..Binesh.Convert_e(k_Coil).." N/m", "V")
-			Binesh.AddToHTML("x: "..Binesh.Convert_e(d).." m", "V")
-			Binesh.AddToHTML("F: ?", "V")
+			Binesh.AddToHTML("k = "..Binesh.ProgressNumber(k_Coil).." N/m", "V")
+			Binesh.AddToHTML("x = "..Binesh.ProgressNumber(d).." m", "V")
+			Binesh.AddToHTML("F = ?", "V")
 		end
 	end
 	
@@ -17,11 +17,11 @@ function Binesh.F43_EX()
 			Binesh.CreateHTMLFile("F = -kx", "k = - <span>F/x</span>")
 			k_Coil = -F/d
 			
-			Binesh.AddToHTML("k = - <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(d).."</span> &#8658; k = "..Binesh.Convert_e(k_Coil).." N/m")
+			Binesh.AddToHTML("k = - <span>"..Binesh.ProgressNumber(F).."/"..Binesh.ProgressNumber(d).."</span> &#8658; k = "..Binesh.ProgressNumber(k_Coil).." N/m")
 			
-			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
-			Binesh.AddToHTML("x: "..Binesh.Convert_e(_Deltax).." m", "V")
-			Binesh.AddToHTML("k: ?", "V")
+			Binesh.AddToHTML("F = "..Binesh.ProgressNumber(F).." N", "V")
+			Binesh.AddToHTML("x = "..Binesh.ProgressNumber(_Deltax).." m", "V")
+			Binesh.AddToHTML("k = ?", "V")
 		end
 	end
 	
@@ -30,11 +30,11 @@ function Binesh.F43_EX()
 			Binesh.CreateHTMLFile("F = -kx", "x = - <span>F/k</span>")
 			d = -F/k_Coil
 			
-			Binesh.AddToHTML("x = - <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(k_Coil).."</span> &#8658; x = "..Binesh.Convert_e(d).." m")
+			Binesh.AddToHTML("x = - <span>"..Binesh.ProgressNumber(F).."/"..Binesh.ProgressNumber(k_Coil).."</span> &#8658; x = "..Binesh.ProgressNumber(d).." m")
 			
-			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
-			Binesh.AddToHTML("k: "..Binesh.Convert_e(k_Coil).." N/m", "V")
-			Binesh.AddToHTML("x: ?", "V")
+			Binesh.AddToHTML("F = "..Binesh.ProgressNumber(F).." N", "V")
+			Binesh.AddToHTML("k = "..Binesh.ProgressNumber(k_Coil).." N/m", "V")
+			Binesh.AddToHTML("x = ?", "V")
 		end
 	end
 end

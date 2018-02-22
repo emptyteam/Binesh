@@ -4,12 +4,12 @@ function Binesh.F66_2()
 			Binesh.CreateHTMLFile("L<sub>2</sub> = L<sub>1</sub>(1+AlphaDeltaTeta)", "L<sub>1</sub> = <span>L<sub>2</sub>/1+AlphaDeltaTeta</span>")
 			_L1 = _L2/(1+Alpha_Length*_DeltaTeta)
 			
-			Binesh.AddToHTML("L<sub>1</sub> = <span>"..Binesh.Convert_e(_L2).."/1+"..Binesh.Convert_e(Alpha_Length).."*"..Binesh.Convert_e(_DeltaTeta).."</span> &#8658; L<sub>1</sub> = "..Binesh.Convert_e(_L1).." m")
+			Binesh.AddToHTML("L<sub>1</sub> = <span>"..Binesh.ProgressNumber(_L2).."/1+"..Binesh.ProgressNumber(Alpha_Length).."*"..Binesh.ProgressNumber(_DeltaTeta).."</span> &#8658; L<sub>1</sub> = "..Binesh.ProgressNumber(_L1).." m")
 			
-			Binesh.AddToHTML("L<sub>2</sub>: "..Binesh.Convert_e(_L2).." m", "V")
-			Binesh.AddToHTML("Alpha: "..Binesh.Convert_e(Alpha_Length).." 1/C", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).." <sup>o</sup>C", "V")
-			Binesh.AddToHTML("L<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("L<sub>2</sub> = "..Binesh.ProgressNumber(_L2).." m", "V")
+			Binesh.AddToHTML("Alpha = "..Binesh.ProgressNumber(Alpha_Length).." 1/C", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).." <sup>o</sup>C", "V")
+			Binesh.AddToHTML("L<sub>1</sub> = ?", "V")
 		end
 	end
 	
@@ -18,12 +18,12 @@ function Binesh.F66_2()
 			Binesh.CreateHTMLFile("L<sub>2</sub> = L<sub>1</sub>(1+AlphaDeltaTeta)")
 			_L2 = _L1*(1+Alpha_Length*_DeltaTeta)
 			
-			Binesh.AddToHTML("L<sub>2</sub> = "..Binesh.Convert_e(_L1).."(1+"..Binesh.Convert_e(Alpha_Length).."*"..Binesh.Convert_e(_DeltaTeta)..")</span> &#8658; L<sub>2</sub> = "..Binesh.Convert_e(_L2).." m")
+			Binesh.AddToHTML("L<sub>2</sub> = "..Binesh.ProgressNumber(_L1).."(1+"..Binesh.ProgressNumber(Alpha_Length).."*"..Binesh.ProgressNumber(_DeltaTeta)..")</span> &#8658; L<sub>2</sub> = "..Binesh.ProgressNumber(_L2).." m")
 			
-			Binesh.AddToHTML("L<sub>1</sub>: "..Binesh.Convert_e(_L1).." m", "V")
-			Binesh.AddToHTML("Alpha: "..Binesh.Convert_e(Alpha_Length).." 1/C", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).." <sup>o</sup>C", "V")
-			Binesh.AddToHTML("L<sub>2</sub>: ?", "V")
+			Binesh.AddToHTML("L<sub>1</sub> = "..Binesh.ProgressNumber(_L1).." m", "V")
+			Binesh.AddToHTML("Alpha = "..Binesh.ProgressNumber(Alpha_Length).." 1/C", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).." <sup>o</sup>C", "V")
+			Binesh.AddToHTML("L<sub>2</sub> = ?", "V")
 		end
 	end
 end

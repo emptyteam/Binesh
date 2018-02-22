@@ -19,11 +19,11 @@ function Binesh.F6()
 			Binesh.CreateHTMLFile("I = <span>q/t</span>")
 			I = (q)/(t)
 			
-			Binesh.AddToHTML("I = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(t).."</span> &#8658; I = "..Binesh.Convert_e(I).." A")
+			Binesh.AddToHTML("I = <span>"..Binesh.ProgressNumber(q).."/"..Binesh.ProgressNumber(t).."</span> &#8658; I = "..Binesh.ProgressNumber(I).." A")
 			
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("I: ?", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("I = ?", "V")
 		end
 	end
 	
@@ -32,11 +32,11 @@ function Binesh.F6()
 			Binesh.CreateHTMLFile("I = <span>q/t</span>", "q = I*t")
 			q = (I)*(t)
 			
-			Binesh.AddToHTML("q = "..Binesh.Convert_e(I).."*"..Binesh.Convert_e(t).." &#8658; q = "..Binesh.Convert_e(q).." C")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(I).."*"..Binesh.ProgressNumber(t).." &#8658; q = "..Binesh.ProgressNumber(q).." C")
 			
-			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("t: "..Binesh.Convert_e(t).." s", "V")
-			Binesh.AddToHTML("q: ?", "V")
+			Binesh.AddToHTML("I = "..Binesh.ProgressNumber(I).." A", "V")
+			Binesh.AddToHTML("t = "..Binesh.ProgressNumber(t).." s", "V")
+			Binesh.AddToHTML("q = ?", "V")
 		end
 	end
 	
@@ -45,11 +45,11 @@ function Binesh.F6()
 			Binesh.CreateHTMLFile("I = <span>q/t</span>", "t = <span>q/I</span>")
 			t = (q)/(I)
 			
-			Binesh.AddToHTML("t = <span>"..Binesh.Convert_e(q).."/"..Binesh.Convert_e(I).."</span> &#8658; t = "..Binesh.Convert_e(t).." s")
+			Binesh.AddToHTML("t = <span>"..Binesh.ProgressNumber(q).."/"..Binesh.ProgressNumber(I).."</span> &#8658; t = "..Binesh.ProgressNumber(t).." s")
 			
-			Binesh.AddToHTML("I: "..Binesh.Convert_e(I).." A", "V")
-			Binesh.AddToHTML("q: "..Binesh.Convert_e(q).." C", "V")
-			Binesh.AddToHTML("t: ?", "V")
+			Binesh.AddToHTML("I = "..Binesh.ProgressNumber(I).." A", "V")
+			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q).." C", "V")
+			Binesh.AddToHTML("t = ?", "V")
 		end
 	end
 end

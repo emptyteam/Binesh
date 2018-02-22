@@ -4,12 +4,12 @@ function Binesh.F75_2()
 			Binesh.CreateHTMLFile("U<sub>2</sub>-U<sub>1</sub> = Q+W", "U<sub>1</sub> = -(Q+W)+U<sub>2</sub>")
 			_U1_In = -(Q+W)+_U2_In
 			
-			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
-			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
-			Binesh.AddToHTML("U<sub>2</sub>: "..Binesh.Convert_e(_U2_In).." J", "V")
-			Binesh.AddToHTML("U<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(W).." J", "V")
+			Binesh.AddToHTML("U<sub>2</sub> = "..Binesh.ProgressNumber(_U2_In).." J", "V")
+			Binesh.AddToHTML("U<sub>1</sub> = ?", "V")
 			
-			Binesh.AddToHTML("U<sub>1</sub> = -("..Binesh.Convert_e(Q).."+"..Binesh.Convert_e(W)..")+"..Binesh.Convert_e(_U2_In).." &#8658; U<sub>1</sub> = "..Binesh.Convert_e(_U1_In).." J")
+			Binesh.AddToHTML("U<sub>1</sub> = -("..Binesh.ProgressNumber(Q).."+"..Binesh.ProgressNumber(W)..")+"..Binesh.ProgressNumber(_U2_In).." &#8658; U<sub>1</sub> = "..Binesh.ProgressNumber(_U1_In).." J")
 		end
 	end
 	
@@ -18,12 +18,12 @@ function Binesh.F75_2()
 			Binesh.CreateHTMLFile("U<sub>2</sub>-U<sub>1</sub> = Q+W", "U<sub>2</sub> = Q+W+U<sub>1</sub>")
 			_U2_In = Q+W+_U1_In
 			
-			Binesh.AddToHTML("Q: "..Binesh.Convert_e(Q).." J", "V")
-			Binesh.AddToHTML("W: "..Binesh.Convert_e(W).." J", "V")
-			Binesh.AddToHTML("U<sub>1</sub>: "..Binesh.Convert_e(_U2_In).." J", "V")
-			Binesh.AddToHTML("U<sub>2</sub>: ?", "V")
+			Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
+			Binesh.AddToHTML("W = "..Binesh.ProgressNumber(W).." J", "V")
+			Binesh.AddToHTML("U<sub>1</sub> = "..Binesh.ProgressNumber(_U2_In).." J", "V")
+			Binesh.AddToHTML("U<sub>2</sub> = ?", "V")
 			
-			Binesh.AddToHTML("U<sub>2</sub> = "..Binesh.Convert_e(Q).."+"..Binesh.Convert_e(W).."+"..Binesh.Convert_e(_U1_In).." &#8658; U<sub>2</sub> = "..Binesh.Convert_e(_U2_In).." J")
+			Binesh.AddToHTML("U<sub>2</sub> = "..Binesh.ProgressNumber(Q).."+"..Binesh.ProgressNumber(W).."+"..Binesh.ProgressNumber(_U1_In).." &#8658; U<sub>2</sub> = "..Binesh.ProgressNumber(_U2_In).." J")
 		end
 	end
 end

@@ -5,11 +5,11 @@ function Binesh.F22_2()
 				Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>")
 				m_Zoom = ApBp/AB
 				
-				Binesh.AddToHTML("m = <span>"..Binesh.Convert_e(ApBp).."/"..Binesh.Convert_e(AB).."<span> &#8658; m = "..Binesh.Convert_e(m_Zoom))
+				Binesh.AddToHTML("m = <span>"..Binesh.ProgressNumber(ApBp).."/"..Binesh.ProgressNumber(AB).."<span> &#8658; m = "..Binesh.ProgressNumber(m_Zoom))
 			
-				Binesh.AddToHTML("A`B`: "..Binesh.Convert_e(ApBp).." m", "V")
-				Binesh.AddToHTML("AB: "..Binesh.Convert_e(AB).." m", "V")
-				Binesh.AddToHTML("m: ?", "V")
+				Binesh.AddToHTML("A`B` = "..Binesh.ProgressNumber(ApBp).." m", "V")
+				Binesh.AddToHTML("AB = "..Binesh.ProgressNumber(AB).." m", "V")
+				Binesh.AddToHTML("m = ?", "V")
 			end
 		end
 		
@@ -18,11 +18,11 @@ function Binesh.F22_2()
 				Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>", "A`B` = m*AB")
 				ApBp = m_Zoom*AB
 				
-				Binesh.AddToHTML("A`B` = "..Binesh.Convert_e(m_Zoom).."*"..Binesh.Convert_e(AB).." &#8658; A`B` = "..Binesh.Convert_e(ApBp).." m")
+				Binesh.AddToHTML("A`B` = "..Binesh.ProgressNumber(m_Zoom).."*"..Binesh.ProgressNumber(AB).." &#8658; A`B` = "..Binesh.ProgressNumber(ApBp).." m")
 				
-				Binesh.AddToHTML("m: "..Binesh.Convert_e(m_Zoom), "V")
-				Binesh.AddToHTML("AB: "..Binesh.Convert_e(AB).." m", "V")
-				Binesh.AddToHTML("A`B`: ?", "V")
+				Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m_Zoom), "V")
+				Binesh.AddToHTML("AB = "..Binesh.ProgressNumber(AB).." m", "V")
+				Binesh.AddToHTML("A`B` = ?", "V")
 			end
 		end
 		
@@ -31,11 +31,11 @@ function Binesh.F22_2()
 				Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>", "AB = <span>A`B`/m</span>")
 				AB = ApBp/m_Zoom
 				
-				Binesh.AddToHTML("AB = <span>"..Binesh.Convert_e(ApBp).."/"..Binesh.Convert_e(m_Zoom).."<span> &#8658; AB = "..Binesh.Convert_e(AB).." m")
+				Binesh.AddToHTML("AB = <span>"..Binesh.ProgressNumber(ApBp).."/"..Binesh.ProgressNumber(m_Zoom).."<span> &#8658; AB = "..Binesh.ProgressNumber(AB).." m")
 				
-				Binesh.AddToHTML("m: "..Binesh.Convert_e(m_Zoom), "V")
-				Binesh.AddToHTML("A`B`: "..Binesh.Convert_e(ApBp).." m", "V")
-				Binesh.AddToHTML("AB: ?", "V")
+				Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m_Zoom), "V")
+				Binesh.AddToHTML("A`B` = "..Binesh.ProgressNumber(ApBp).." m", "V")
+				Binesh.AddToHTML("AB = ?", "V")
 			end
 		end
 	end

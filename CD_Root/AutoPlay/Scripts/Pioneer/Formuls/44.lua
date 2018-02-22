@@ -4,11 +4,11 @@ function Binesh.F44()
 			Binesh.CreateHTMLFile("F = ma")
 			F = (m)*(a)
 			
-			Binesh.AddToHTML("F = "..Binesh.Convert_e(m).."*"..Binesh.Convert_e(a).." &#8658; F = "..Binesh.Convert_e(F).." N")
+			Binesh.AddToHTML("F = "..Binesh.ProgressNumber(m).."*"..Binesh.ProgressNumber(a).." &#8658; F = "..Binesh.ProgressNumber(F).." N")
 			
-			Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
-			Binesh.AddToHTML("a: "..Binesh.Convert_e(a).." m/s<sup>2</sup>", "V")
-			Binesh.AddToHTML("F: ?", "V")
+			Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m).." Kg", "V")
+			Binesh.AddToHTML("a = "..Binesh.ProgressNumber(a).." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("F = ?", "V")
 		end
 	end
 	
@@ -17,11 +17,11 @@ function Binesh.F44()
 			Binesh.CreateHTMLFile("F = ma", "m = <span>F/a</span>")
 			m = (F)/(a)
 			
-			Binesh.AddToHTML("m = <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(a).."</span> &#8658; m = "..Binesh.Convert_e(math.abs(m)).." Kg")
+			Binesh.AddToHTML("m = <span>"..Binesh.ProgressNumber(F).."/"..Binesh.ProgressNumber(a).."</span> &#8658; m = "..Binesh.ProgressNumber(math.abs(m)).." Kg")
 			
-			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
-			Binesh.AddToHTML("a: "..Binesh.Convert_e(a).." m/s<sup>2</sup>", "V")
-			Binesh.AddToHTML("m: ?", "V")
+			Binesh.AddToHTML("F = "..Binesh.ProgressNumber(F).." N", "V")
+			Binesh.AddToHTML("a = "..Binesh.ProgressNumber(a).." m/s<sup>2</sup>", "V")
+			Binesh.AddToHTML("m = ?", "V")
 		end
 	end
 	
@@ -30,11 +30,11 @@ function Binesh.F44()
 			Binesh.CreateHTMLFile("F = ma", "a = <span>F/m</span>")
 			a = (F)/(m)
 			
-			Binesh.AddToHTML("a = <span>"..Binesh.Convert_e(F).."/"..Binesh.Convert_e(m).."</span> &#8658; a = "..Binesh.Convert_e(a).." m/s<sup>2</sup>")
+			Binesh.AddToHTML("a = <span>"..Binesh.ProgressNumber(F).."/"..Binesh.ProgressNumber(m).."</span> &#8658; a = "..Binesh.ProgressNumber(a).." m/s<sup>2</sup>")
 			
-			Binesh.AddToHTML("F: "..Binesh.Convert_e(F).." N", "V")
-			Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." Kg", "V")
-			Binesh.AddToHTML("a: ?", "V")
+			Binesh.AddToHTML("F = "..Binesh.ProgressNumber(F).." N", "V")
+			Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m).." Kg", "V")
+			Binesh.AddToHTML("a = ?", "V")
 		end
 	end
 end

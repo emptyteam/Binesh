@@ -8,7 +8,7 @@ function Binesh.F67_1()
 		if A ~= nil and _A2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaA = A<sub>2</sub>-A<sub>1</sub>")
 			_DeltaA = math.abs(_A2 - A)
-			Binesh.AddToHTML("DeltaA = "..Binesh.Convert_e(_A2).."-"..Binesh.Convert_e(A).." &#8658; DeltaA = "..Binesh.Convert_e(_DeltaA).." m^2")
+			Binesh.AddToHTML("DeltaA = "..Binesh.ProgressNumber(_A2).."-"..Binesh.ProgressNumber(A).." &#8658; DeltaA = "..Binesh.ProgressNumber(_DeltaA).." m^2")
 		end
 	end
 	
@@ -16,7 +16,7 @@ function Binesh.F67_1()
 		if _DeltaA ~= nil and _A2 ~= nil then
 			Binesh.CreateHTMLFile("DeltaA = A<sub>2</sub>-A<sub>1</sub>", "A<sub>1</sub> = A<sub>2</sub>-DeltaA")
 			A = math.abs(_A2-_DeltaA)
-			Binesh.AddToHTML("A<sub>1</sub> = "..Binesh.Convert_e(_A2).."-"..Binesh.Convert_e(_DeltaA).." &#8658; A<sub>1</sub> = "..Binesh.Convert_e(A).." m^2")
+			Binesh.AddToHTML("A<sub>1</sub> = "..Binesh.ProgressNumber(_A2).."-"..Binesh.ProgressNumber(_DeltaA).." &#8658; A<sub>1</sub> = "..Binesh.ProgressNumber(A).." m^2")
 		end
 	end
 	
@@ -24,7 +24,7 @@ function Binesh.F67_1()
 		if _DeltaA ~= nil and A ~= nil then
 			Binesh.CreateHTMLFile("DeltaA = A<sub>2</sub>-A<sub>1</sub>", "A<sub>2</sub> = DeltaA+A<sub>1</sub>")
 			_A2 = math.abs(A+_DeltaA)
-			Binesh.AddToHTML("A<sub>2</sub> = "..Binesh.Convert_e(_DeltaA).."+"..Binesh.Convert_e(A).." &#8658; A<sub>2</sub> = "..Binesh.Convert_e(_A2).." m^2")
+			Binesh.AddToHTML("A<sub>2</sub> = "..Binesh.ProgressNumber(_DeltaA).."+"..Binesh.ProgressNumber(A).." &#8658; A<sub>2</sub> = "..Binesh.ProgressNumber(_A2).." m^2")
 		end
 	end
 	--------------------------END {DEATA}--------------------------
@@ -33,12 +33,12 @@ function Binesh.F67_1()
 			Binesh.CreateHTMLFile("DeltaA = A<sub>1</sub>(2Alpha)DeltaTeta")
 			_DeltaA = A*2*Alpha_Length*_DeltaTeta
 			
-			Binesh.AddToHTML("DeltaA = "..Binesh.Convert_e(A).."(2*"..Binesh.Convert_e(Alpha_Length)..")"..Binesh.Convert_e(_DeltaTeta).." &#8658; DeltaA = "..Binesh.Convert_e(_DeltaA).." m^2")
+			Binesh.AddToHTML("DeltaA = "..Binesh.ProgressNumber(A).."(2*"..Binesh.ProgressNumber(Alpha_Length)..")"..Binesh.ProgressNumber(_DeltaTeta).." &#8658; DeltaA = "..Binesh.ProgressNumber(_DeltaA).." m^2")
 			
-			Binesh.AddToHTML("A<sub>1</sub>: "..Binesh.Convert_e(A).." m^2", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).." <sup>o</sup>C", "V")
-			Binesh.AddToHTML("Alpha: "..Binesh.Convert_e(Alpha_Length).." 1/C", "V")
-			Binesh.AddToHTML("DeltaA: ?", "V")
+			Binesh.AddToHTML("A<sub>1</sub> = "..Binesh.ProgressNumber(A).." m^2", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).." <sup>o</sup>C", "V")
+			Binesh.AddToHTML("Alpha = "..Binesh.ProgressNumber(Alpha_Length).." 1/C", "V")
+			Binesh.AddToHTML("DeltaA = ?", "V")
 		end
 	end
 	
@@ -47,12 +47,12 @@ function Binesh.F67_1()
 			Binesh.CreateHTMLFile("DeltaA = A<sub>1</sub>(2Alpha)DeltaTeta", "A<sub>1</sub> = <span>DeltaA/(2Alpha)DeltaTeta</span>")
 			A = _DeltaA/(2*Alpha_Length*_DeltaTeta)
 			
-			Binesh.AddToHTML("A<sub>1</sub> = <span>"..Binesh.Convert_e(_DeltaA).."/(2*"..Binesh.Convert_e(Alpha_Length)..")"..Binesh.Convert_e(_DeltaTeta).."</span> &#8658; A<sub>1</sub> = "..Binesh.Convert_e(A).." m")
+			Binesh.AddToHTML("A<sub>1</sub> = <span>"..Binesh.ProgressNumber(_DeltaA).."/(2*"..Binesh.ProgressNumber(Alpha_Length)..")"..Binesh.ProgressNumber(_DeltaTeta).."</span> &#8658; A<sub>1</sub> = "..Binesh.ProgressNumber(A).." m")
 			
-			Binesh.AddToHTML("DeltaA: "..Binesh.Convert_e(_DeltaA).." m", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).." <sup>o</sup>C", "V")
-			Binesh.AddToHTML("Alpha: "..Binesh.Convert_e(Alpha_Length).." 1/C", "V")
-			Binesh.AddToHTML("A<sub>1</sub>: ?", "V")
+			Binesh.AddToHTML("DeltaA = "..Binesh.ProgressNumber(_DeltaA).." m", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).." <sup>o</sup>C", "V")
+			Binesh.AddToHTML("Alpha = "..Binesh.ProgressNumber(Alpha_Length).." 1/C", "V")
+			Binesh.AddToHTML("A<sub>1</sub> = ?", "V")
 		end
 	end
 	
@@ -61,12 +61,12 @@ function Binesh.F67_1()
 			Binesh.CreateHTMLFile("DeltaA = A<sub>1</sub>(2Alpha)DeltaTeta", "Alpha = <span>DeltaA/2A<sub>1</sub>DeltaTeta</span>")
 			Alpha_Length = _DeltaA/(2*A*_DeltaTeta)
 			
-			Binesh.AddToHTML("Alpha = <span>"..Binesh.Convert_e(_DeltaA).."/2*"..Binesh.Convert_e(A).."*"..Binesh.Convert_e(_DeltaTeta).."</span> &#8658; Alpha = "..Binesh.Convert_e(Alpha_Length).." 1/C")
+			Binesh.AddToHTML("Alpha = <span>"..Binesh.ProgressNumber(_DeltaA).."/2*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(_DeltaTeta).."</span> &#8658; Alpha = "..Binesh.ProgressNumber(Alpha_Length).." 1/C")
 			
-			Binesh.AddToHTML("DeltaA: "..Binesh.Convert_e(_DeltaA).." m", "V")
-			Binesh.AddToHTML("A<sub>1</sub>: "..Binesh.Convert_e(A).." m", "V")
-			Binesh.AddToHTML("DeltaTeta: "..Binesh.Convert_e(_DeltaTeta).." <sup>o</sup>C", "V")
-			Binesh.AddToHTML("Alpha: ?", "V")
+			Binesh.AddToHTML("DeltaA = "..Binesh.ProgressNumber(_DeltaA).." m", "V")
+			Binesh.AddToHTML("A<sub>1</sub> = "..Binesh.ProgressNumber(A).." m", "V")
+			Binesh.AddToHTML("DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).." <sup>o</sup>C", "V")
+			Binesh.AddToHTML("Alpha = ?", "V")
 		end
 	end
 	
@@ -75,12 +75,12 @@ function Binesh.F67_1()
 			Binesh.CreateHTMLFile("DeltaA = A<sub>1</sub>(2Alpha)DeltaTeta", "DeltaTeta = <span>DeltaA/A<sub>1</sub>(2Alpha)</span>")
 			_DeltaTeta = _DeltaA/(A*2*Alpha_Length)
 			
-			Binesh.AddToHTML("DeltaTeta = <span>"..Binesh.Convert_e(_DeltaA).."/"..Binesh.Convert_e(A).."(2"..Binesh.Convert_e(Alpha_Length)..")</span> &#8658; DeltaTeta = "..Binesh.Convert_e(_DeltaTeta).."<sup>o</sup>C")
+			Binesh.AddToHTML("DeltaTeta = <span>"..Binesh.ProgressNumber(_DeltaA).."/"..Binesh.ProgressNumber(A).."(2"..Binesh.ProgressNumber(Alpha_Length)..")</span> &#8658; DeltaTeta = "..Binesh.ProgressNumber(_DeltaTeta).."<sup>o</sup>C")
 			
-			Binesh.AddToHTML("DeltaA: "..Binesh.Convert_e(_DeltaA).." m", "V")
-			Binesh.AddToHTML("A<sub>1</sub>: "..Binesh.Convert_e(A).." m", "V")
-			Binesh.AddToHTML("Alpha: "..Binesh.Convert_e(Alpha_Length).." 1/C", "V")
-			Binesh.AddToHTML("DeltaTeta: ?", "V")
+			Binesh.AddToHTML("DeltaA = "..Binesh.ProgressNumber(_DeltaA).." m", "V")
+			Binesh.AddToHTML("A<sub>1</sub> = "..Binesh.ProgressNumber(A).." m", "V")
+			Binesh.AddToHTML("Alpha = "..Binesh.ProgressNumber(Alpha_Length).." 1/C", "V")
+			Binesh.AddToHTML("DeltaTeta = ?", "V")
 		end
 	end
 end

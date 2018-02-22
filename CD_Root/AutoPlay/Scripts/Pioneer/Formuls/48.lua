@@ -5,22 +5,22 @@ function Binesh.F48()
 		if a ~= nil and m ~= nil then
 			if UP ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g+a)")
-				N = m*(Zarib.g+a)
+				N = m*(Settings.Zarib.g+a)
 				
-				Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." m", "V")
-				Binesh.AddToHTML("a: "..Binesh.Convert_e(a).." m/s<sup>2</sup>", "V")
-				Binesh.AddToHTML("N: ?", "V")
+				Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m).." m", "V")
+				Binesh.AddToHTML("a = "..Binesh.ProgressNumber(a).." m/s<sup>2</sup>", "V")
+				Binesh.AddToHTML("N = ?", "V")
 				
-				Binesh.AddToHTML("N = "..Binesh.Convert_e(m).."*("..Binesh.Convert_e(Zarib.g).."+"..Binesh.Convert_e(a)..") &#8658; N = "..Binesh.Convert_e(N).." N")
+				Binesh.AddToHTML("N = "..Binesh.ProgressNumber(m).."*("..Binesh.ProgressNumber(Settings.Zarib.g).."+"..Binesh.ProgressNumber(a)..") &#8658; N = "..Binesh.ProgressNumber(N).." N")
 			elseif DOWN ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g-a)")
-				N = m*(Zarib.g-a)
+				N = m*(Settings.Zarib.g-a)
 				
-				Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." m", "V")
-				Binesh.AddToHTML("a: "..Binesh.Convert_e(a).." m/s<sup>2</sup>", "V")
-				Binesh.AddToHTML("N: ?", "V")
+				Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m).." m", "V")
+				Binesh.AddToHTML("a = "..Binesh.ProgressNumber(a).." m/s<sup>2</sup>", "V")
+				Binesh.AddToHTML("N = ?", "V")
 				
-				Binesh.AddToHTML("N = "..Binesh.Convert_e(m).."*("..Binesh.Convert_e(Zarib.g).."+"..Binesh.Convert_e(a)..") &#8658; N = "..Binesh.Convert_e(N).." N")
+				Binesh.AddToHTML("N = "..Binesh.ProgressNumber(m).."*("..Binesh.ProgressNumber(Settings.Zarib.g).."+"..Binesh.ProgressNumber(a)..") &#8658; N = "..Binesh.ProgressNumber(N).." N")
 			end
 		end
 	end
@@ -29,22 +29,22 @@ function Binesh.F48()
 		if N ~= nil and a ~= nil then
 			if UP ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g+a)", "m = <span>N/(g+a)</span>")
-				m = N/(Zarib.g+a)
+				m = N/(Settings.Zarib.g+a)
 				
-				Binesh.AddToHTML("N: "..Binesh.Convert_e(N).." N", "V")
-				Binesh.AddToHTML("a: "..Binesh.Convert_e(a).." m/s<sup>2</sup>", "V")
-				Binesh.AddToHTML("m: ?", "V")
+				Binesh.AddToHTML("N = "..Binesh.ProgressNumber(N).." N", "V")
+				Binesh.AddToHTML("a = "..Binesh.ProgressNumber(a).." m/s<sup>2</sup>", "V")
+				Binesh.AddToHTML("m = ?", "V")
 				
-				Binesh.AddToHTML("m = <span>N/("..Binesh.Convert_e(Zarib.g).."+a)</span> &#8658; m = "..Binesh.Convert_e(math.abs(m)).." Kg")
+				Binesh.AddToHTML("m = <span>N/("..Binesh.ProgressNumber(Settings.Zarib.g).."+a)</span> &#8658; m = "..Binesh.ProgressNumber(math.abs(m)).." Kg")
 			elseif DOWN ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g+a)", "m = -<span>N/(-g+a)</span>")
-				m = -N/(-Zarib.g+a)
+				m = -N/(-Settings.Zarib.g+a)
 				
-				Binesh.AddToHTML("N: "..Binesh.Convert_e(N).." N", "V")
-				Binesh.AddToHTML("a: "..Binesh.Convert_e(a).." m/s<sup>2</sup>", "V")
-				Binesh.AddToHTML("m: ?", "V")
+				Binesh.AddToHTML("N = "..Binesh.ProgressNumber(N).." N", "V")
+				Binesh.AddToHTML("a = "..Binesh.ProgressNumber(a).." m/s<sup>2</sup>", "V")
+				Binesh.AddToHTML("m = ?", "V")
 				
-				Binesh.AddToHTML("m = -<span>"..Binesh.Convert_e(N).."/(-"..Binesh.Convert_e(Zarib.g).."+"..Binesh.Convert_e(a)..")</span> &#8658; m = "..Binesh.Convert_e(math.abs(m)).." Kg")
+				Binesh.AddToHTML("m = -<span>"..Binesh.ProgressNumber(N).."/(-"..Binesh.ProgressNumber(Settings.Zarib.g).."+"..Binesh.ProgressNumber(a)..")</span> &#8658; m = "..Binesh.ProgressNumber(math.abs(m)).." Kg")
 			end
 		end
 	end
@@ -53,22 +53,22 @@ function Binesh.F48()
 		if m ~= nil and N ~= nil then
 			if UP ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g+a)", "a = -<span>(gm-N)/m</span>")
-				a = -1*(Zarib.g*m-N)/m
+				a = -1*(Settings.Zarib.g*m-N)/m
 				
-				Binesh.AddToHTML("N: "..Binesh.Convert_e(N).." N", "V")
-				Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." m", "V")
-				Binesh.AddToHTML("a: ?", "V")
+				Binesh.AddToHTML("N = "..Binesh.ProgressNumber(N).." N", "V")
+				Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m).." m", "V")
+				Binesh.AddToHTML("a = ?", "V")
 				
-				Binesh.AddToHTML("a = -<span>("..Binesh.Convert_e(Zarib.g).."*"..Binesh.Convert_e(m).."-"..Binesh.Convert_e(N)..")/"..Binesh.Convert_e(m).."</span> &#8658; a = "..Binesh.Convert_e(a).." m/s")
+				Binesh.AddToHTML("a = -<span>("..Binesh.ProgressNumber(Settings.Zarib.g).."*"..Binesh.ProgressNumber(m).."-"..Binesh.ProgressNumber(N)..")/"..Binesh.ProgressNumber(m).."</span> &#8658; a = "..Binesh.ProgressNumber(a).." m/s")
 			elseif DOWN ~= -1 then
 				Binesh.CreateHTMLFile("N = m(g+a)", "a = <span>(gm-N)/m</span>")
-				a = (Zarib.g*m-N)/m
+				a = (Settings.Zarib.g*m-N)/m
 				
-				Binesh.AddToHTML("N: "..Binesh.Convert_e(N).." N", "V")
-				Binesh.AddToHTML("m: "..Binesh.Convert_e(m).." m", "V")
-				Binesh.AddToHTML("a: ?", "V")
+				Binesh.AddToHTML("N = "..Binesh.ProgressNumber(N).." N", "V")
+				Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m).." m", "V")
+				Binesh.AddToHTML("a = ?", "V")
 				
-				Binesh.AddToHTML("a = <span>("..Binesh.Convert_e(Zarib.g).."*"..Binesh.Convert_e(m).."-"..Binesh.Convert_e(N).."/"..Binesh.Convert_e(m)..")</span> &#8658; a = "..Binesh.Convert_e(a).." m/s")
+				Binesh.AddToHTML("a = <span>("..Binesh.ProgressNumber(Settings.Zarib.g).."*"..Binesh.ProgressNumber(m).."-"..Binesh.ProgressNumber(N).."/"..Binesh.ProgressNumber(m)..")</span> &#8658; a = "..Binesh.ProgressNumber(a).." m/s")
 			end
 		end
 	end
