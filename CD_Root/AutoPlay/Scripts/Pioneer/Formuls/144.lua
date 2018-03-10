@@ -4,7 +4,7 @@ function Binesh.F144()
 			Binesh.CreateHTMLFile("Epsilon = NABOmegaSinOmegat")
 			Epsilon = N_Ring*A*B*Omega*Math.Sin(Omega*t)
 			
-			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(N_Ring).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(Omega).."*sin"..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t).." &#8658; Epsilon = "..Binesh.ProgressNumber(Epsilon).." V")
+			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(N_Ring).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(Omega).."*Sin("..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t)..") &#8658; Epsilon = "..Binesh.ProgressNumber(Epsilon).." V")
 			
 			Binesh.AddToHTML("N = "..Binesh.ProgressNumber(N_Ring), "V")
 			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
@@ -20,7 +20,7 @@ function Binesh.F144()
 			Binesh.CreateHTMLFile("Epsilon = NABOmegaSinOmegat", "N = <span>Epsilon/ABOmegaSinOmegat</span>")
 			N_Ring = Epsilon/(A*B*Omega*Math.Sin(Omega*t))
 			
-			Binesh.AddToHTML("N = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(Omega).."*Sin"..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t).."</span> &#8658; N = "..Binesh.ProgressNumber(N_Ring))
+			Binesh.AddToHTML("N = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(Omega).."*Sin("..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t)..")</span> &#8658; N = "..Binesh.ProgressNumber(N_Ring))
 			
 			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(Epsilon).." V", "V")
 			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
@@ -36,7 +36,7 @@ function Binesh.F144()
 			Binesh.CreateHTMLFile("Epsilon = NABOmegaSinOmegat", "A = <span>Epsilon/NBOmegaSinOmegat</span>")
 			A = Epsilon/(N_Ring*B*Omega*Math.Sin(Omega*t))
 			
-			Binesh.AddToHTML("A = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(N_Ring).."*"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(Omega).."*Sin"..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t).."</span> &#8658; A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>")
+			Binesh.AddToHTML("A = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(N_Ring).."*"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(Omega).."*Sin("..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t)..")</span> &#8658; A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>")
 			
 			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(Epsilon).." V", "V")
 			Binesh.AddToHTML("N = "..Binesh.ProgressNumber(N_Ring), "V")
@@ -52,7 +52,7 @@ function Binesh.F144()
 			Binesh.CreateHTMLFile("Epsilon = NABOmegaSinOmegat", "B = <span>Epsilon/NAOmegaSinOmegat</span>")
 			B = Epsilon/(N_Ring*A*Omega*Math.Sin(Omega*t))
 			
-			Binesh.AddToHTML("B = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(N_Ring).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(Omega).."*Sin"..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t).."</span> &#8658; B = "..Binesh.ProgressNumber(B).." T")
+			Binesh.AddToHTML("B = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(N_Ring).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(Omega).."*Sin("..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t)..")</span> &#8658; B = "..Binesh.ProgressNumber(B).." T")
 			
 			Binesh.AddToHTML("Epsilon = "..Binesh.ProgressNumber(Epsilon).." V", "V")
 			Binesh.AddToHTML("N = "..Binesh.ProgressNumber(N_Ring), "V")
@@ -73,7 +73,7 @@ function Binesh.F144()
 			t_1 = Omegat_1/Omega
 			t_2 = Omegat_2/Omega
 			
-			Binesh.AddToHTML("SinOmegat = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(N_Ring).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(Omega).."</span> &#8658; SinOmegat = "..Binesh.ProgressNumber(SinOmegat).."<br> &#8658; Omegat = sin<sup>-1</sup>("..Binesh.ProgressNumber(SinOmegat)..")")
+			Binesh.AddToHTML("SinOmegat = <span>"..Binesh.ProgressNumber(Epsilon).."/"..Binesh.ProgressNumber(N_Ring).."*"..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."*"..Binesh.ProgressNumber(Omega).."</span> &#8658; SinOmegat = "..Binesh.ProgressNumber(SinOmegat).."<br> &#8658; Omegat = Sin<sup>-1</sup>("..Binesh.ProgressNumber(SinOmegat)..")")
 			
 			Binesh.AddCommentToHTML("«Ì‰ „⁄«œ·Â œÊ ÃÊ«» œ«—œ:")
 			

@@ -14,7 +14,7 @@ function Binesh.F132()
 			end
 		end
 		
-		if l == nil or ((ListBox.GetItemData("unknowns", Findl) == "L" and ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "l") ~= -1)) then
+		if l == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, "Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ãÊÑ") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "l") ~= -1) then
 			if I ~= nil and B ~= nil and N_Ring ~= nil then
 				Binesh.CreateHTMLFile("B = Mu<sub>0</sub><span>N/l</span>I", "l = Mu<sub>0</sub><span>N/B</span>I")
 				l = 4*Settings.Zarib.Pi*10^-7*(N_Ring/B)*I

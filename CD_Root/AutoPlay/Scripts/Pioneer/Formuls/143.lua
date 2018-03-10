@@ -4,7 +4,7 @@ function Binesh.F143()
 			Binesh.CreateHTMLFile("Fi = ABCosOmegat")
 			Fi = A*B*Math.Cos(Omega*t)
 			
-			Binesh.AddToHTML("Fi = "..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."*Cos"..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t).." &#8658; Fi = "..Binesh.ProgressNumber(Fi).." Wb")
+			Binesh.AddToHTML("Fi = "..Binesh.ProgressNumber(A).."*"..Binesh.ProgressNumber(B).."*Cos("..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t)..") &#8658; Fi = "..Binesh.ProgressNumber(Fi).." Wb")
 			
 			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
 			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
@@ -19,7 +19,7 @@ function Binesh.F143()
 			Binesh.CreateHTMLFile("Fi = ABCosOmegat", "A = <span>Fi/BCosOmegat</span>")
 			A = Fi/(B*Math.Cos(Omega*t))
 			
-			Binesh.AddToHTML("A = <span>"..Binesh.ProgressNumber(Fi).."/"..Binesh.ProgressNumber(B).."*Cos"..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t).."</span> &#8658; A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>")
+			Binesh.AddToHTML("A = <span>"..Binesh.ProgressNumber(Fi).."/"..Binesh.ProgressNumber(B).."*Cos("..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t)..")</span> &#8658; A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>")
 			
 			Binesh.AddToHTML("Fi = "..Binesh.ProgressNumber(Fi).." Wb", "V")
 			Binesh.AddToHTML("B = "..Binesh.ProgressNumber(B).." T", "V")
@@ -66,10 +66,10 @@ function Binesh.F143()
 	
 	if B == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„Ìœ«‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "B") ~= -1) then
 		if A ~= nil and Fi ~= nil and t ~= nil and Omega ~= nil then
-			Binesh.CreateHTMLFile("Fi = ABCosOmegat", "B = <span>Fi/ACosOmegat</span>")
+			Binesh.CreateHTMLFile("Fi = ABCosOmegat", "B = <span>Fi/AcosOmegat</span>")
 			B = Fi/(A*Math.Cos(Omega*t))
 			
-			Binesh.AddToHTML("B = <span>"..Binesh.ProgressNumber(Fi).."/"..Binesh.ProgressNumber(A).."*Cos"..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t).."</span> &#8658; B = "..Binesh.ProgressNumber(B).." T")
+			Binesh.AddToHTML("B = <span>"..Binesh.ProgressNumber(Fi).."/"..Binesh.ProgressNumber(A).."*Cos("..Binesh.ProgressNumber(Omega).."*"..Binesh.ProgressNumber(t)..")</span> &#8658; B = "..Binesh.ProgressNumber(B).." T")
 			
 			Binesh.AddToHTML("Fi = "..Binesh.ProgressNumber(Fi).." Wb", "V")
 			Binesh.AddToHTML("A = "..Binesh.ProgressNumber(A).." m<sup>2</sup>", "V")
