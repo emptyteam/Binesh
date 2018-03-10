@@ -8,7 +8,7 @@ function Binesh.F65_1()
 				Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(m).."*"..Binesh.ProgressNumber(LV).." &#8658; Q = "..Binesh.ProgressNumber(Q).." J")
 				
 				Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m).." Kg", "V")
-				Binesh.AddToHTML("L<sub>V</sub> = "..Binesh.ProgressNumber(LV).." <span>J/kg</span>", "V")
+				Binesh.AddToHTML("L<sub>V</sub> = "..Binesh.ProgressNumber(LV).." <span>J/Kg</span>", "V")
 				Binesh.AddToHTML("Q = ?", "V")
 			end
 		end
@@ -21,7 +21,7 @@ function Binesh.F65_1()
 				Binesh.AddToHTML("m = <span>"..Binesh.ProgressNumber(Q).."/"..Binesh.ProgressNumber(LV).."</span> &#8658; m = "..Binesh.ProgressNumber(math.abs(m)).." Kg")
 				
 				Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
-				Binesh.AddToHTML("L<sub>V</sub> = "..Binesh.ProgressNumber(LV).." <span>J/kg</span>", "V")
+				Binesh.AddToHTML("L<sub>V</sub> = "..Binesh.ProgressNumber(LV).." <span>J/Kg</span>", "V")
 				Binesh.AddToHTML("m = ?", "V")
 			end
 		end
@@ -31,7 +31,7 @@ function Binesh.F65_1()
 				Binesh.CreateHTMLFile("Q = mL<sub>V</sub>", "L<sub>V</sub> = <span>Q/m</span>")
 				LV = Q/m
 				
-				Binesh.AddToHTML("L<sub>V</sub> = <span>"..Binesh.ProgressNumber(Q).."/"..Binesh.ProgressNumber(m).."</span> &#8658; L<sub>V</sub> = "..Binesh.ProgressNumber(LV).." J/kg")
+				Binesh.AddToHTML("L<sub>V</sub> = <span>"..Binesh.ProgressNumber(Q).."/"..Binesh.ProgressNumber(m).."</span> &#8658; L<sub>V</sub> = "..Binesh.ProgressNumber(LV).." J/Kg")
 				
 				Binesh.AddToHTML("Q = "..Binesh.ProgressNumber(Q).." J", "V")
 				Binesh.AddToHTML("m = "..Binesh.ProgressNumber(m).." Kg", "V")

@@ -8,12 +8,12 @@ function Binesh.F20()
 	
 	if C == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "“«ÊÌÂ Õœ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "C") ~= -1) then
 		if n_Glass ~= nil then
-			Binesh.CreateHTMLFile("sinC = <span>1/n</span>")
+			Binesh.CreateHTMLFile("SinC = <span>1/n</span>")
 			SinC = 1/n_Glass
 			C_Radian = Math.Asin(Math.Asin(Math.Sin(SinC)))
 			C = Math.RadToDeg(C_Radian)
 			
-			Binesh.AddToHTML("sinC = <span> 1/"..Binesh.ProgressNumber(n_Glass).."</span> &#8658; sinC = "..Binesh.ProgressNumber(SinC).." &#8658 C<sub>Radian</sub> = "..Binesh.ProgressNumber(C_Radian).." &#8658 C = "..Binesh.ProgressNumber(C).."<sup>o</sup>")
+			Binesh.AddToHTML("SinC = <span> 1/"..Binesh.ProgressNumber(n_Glass).."</span> &#8658; SinC = "..Binesh.ProgressNumber(SinC).." &#8658 C<sub>Radian</sub> = "..Binesh.ProgressNumber(C_Radian).." &#8658 C = "..Binesh.ProgressNumber(C).."<sup>o</sup>")
 			
 			Binesh.AddToHTML("n = "..Binesh.ProgressNumber(n_Glass), "V")
 			Binesh.AddToHTML("C = ?", "V")
@@ -22,10 +22,10 @@ function Binesh.F20()
 	
 	if n_Glass == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "÷—Ì» ‘ò” ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1) then
 		if C ~= nil then
-			Binesh.CreateHTMLFile("sinC = <span>1/n</span>", "n = <span>1/sinC</span>")
+			Binesh.CreateHTMLFile("SinC = <span>1/n</span>", "n = <span>1/SinC</span>")
 			n_Glass = 1/Math.Sin(Math.Rad(C))
 			
-			Binesh.AddToHTML("n = <span>1/sin"..Binesh.ProgressNumber(C).."</span> &#8658; n = "..Binesh.ProgressNumber(n_Glass).." m")
+			Binesh.AddToHTML("n = <span>1/Sin"..Binesh.ProgressNumber(C).."</span> &#8658; n = "..Binesh.ProgressNumber(n_Glass).." m")
 			
 			Binesh.AddToHTML("C = "..Binesh.ProgressNumber(C).." <sup>o</sup>", "V")
 			Binesh.AddToHTML("n = ?", "V")

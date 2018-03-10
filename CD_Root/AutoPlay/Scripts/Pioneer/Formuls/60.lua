@@ -16,7 +16,7 @@ function Binesh.F60()
 	if P0 == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÝÔÇÑ ÇØÑÇÝ ãÇíÚ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "P0") ~= -1) then
 		if P ~= nil and Ru ~= nil and h ~= nil then
 			Binesh.CreateHTMLFile("P = P<sub>0</sub>+Rugh", "P<sub>0</sub> = P-Rugh")
-			P0 = P-Ru*Settings.Zarib.g*h
+			P0 = P-(Ru*Settings.Zarib.g*h)
 			
 			Binesh.AddToHTML("P = "..Binesh.ProgressNumber(P).." Pa", "V")
 			Binesh.AddToHTML("Ru = "..Binesh.ProgressNumber(Ru).." g/m<sup>3</sup>", "V")
@@ -44,7 +44,7 @@ function Binesh.F60()
 	if h == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÇÑÊÝÇÚ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "h") ~= -1) then
 		if P ~= nil and P0 ~= nil and Ru ~= nil then
 			Binesh.CreateHTMLFile("P = P<sub>0</sub>+Rugh", "h = <span>P-P<sub>0</sub>/Rug</span>")
-			h = P-P0/Ru*Settings.Zarib.g
+			h = (P-P0)/(Ru*Settings.Zarib.g)
 			
 			Binesh.AddToHTML("P = "..Binesh.ProgressNumber(P).." Pa", "V")
 			Binesh.AddToHTML("P<sub>0</sub> = "..Binesh.ProgressNumber(P0).." Pa", "V")

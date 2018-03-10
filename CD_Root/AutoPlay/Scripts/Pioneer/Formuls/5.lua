@@ -9,7 +9,7 @@ function Binesh.F5()
 	
 	if q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "–—Â") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 		if n_e ~= nil or n_p ~= nil then
-			Binesh.CreateHTMLFile("q = ne")
+			Binesh.CreateHTMLFile("q = MoMne")
 			if n_e ~= nil then
 				q = n_e*(1.6*10^-19)
 				Binesh.AddToHTML("q = "..Binesh.ProgressNumber(n_e).."*"..Binesh.ProgressNumber((1.6*10^-19)).." &#8658; q = "..Binesh.ProgressNumber(q).." C")
@@ -25,7 +25,7 @@ function Binesh.F5()
 	
 	if n_e == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " ⁄œ«œ «·ò —Ê‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, " ⁄œ«œ Å—Ê Ê‰") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, " ⁄œ«œ –—Â") ~= -1) or ListBox.FindItem("Words", -1, LB_BYTEXT, "n") ~= -1) then
 		if q ~= nil then
-			Binesh.CreateHTMLFile("q = ne", "n = <span>q/e</span>")
+			Binesh.CreateHTMLFile("MoMq = ne", "n = <span>q/e</span>")
 			n_e = q / (1.6*10^-19)
 			Binesh.AddToHTML("n = <span>"..Binesh.ProgressNumber(q).."/"..Binesh.ProgressNumber((1.6*10^-19)).."</span> &#8658; n = "..Binesh.ProgressNumber(n_e))
 			

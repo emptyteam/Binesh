@@ -29,6 +29,7 @@ function Binesh.F66_1()
 	end
 	--------------------------END {DELTA}--------------------------
 	if _DeltaL == nil and ((ListBox.FindItem("Words", -1, LB_BYTEXT, " €ÌÌ— ÿÊ·") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "ÿÊ·  €ÌÌ—") ~= -1) or (ListBox.FindItem("Words", -1, LB_BYTEXT, "DeltaL") ~= -1)) then
+		Dialog.Message("Notice", L, MB_OK, MB_ICONINFORMATION, MB_DEFBUTTON1);
 		if _DeltaTeta ~= nil and Alpha_Length ~= nil and L ~= nil then
 			Binesh.CreateHTMLFile("DeltaL = L<sub>1</sub>AlphaDeltaTeta")
 			_DeltaL = L*Alpha_Length*_DeltaTeta

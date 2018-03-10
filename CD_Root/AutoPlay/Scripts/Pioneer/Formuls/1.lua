@@ -1,6 +1,6 @@
 function Binesh.F1()
 	if m_Ton ~= nil and m == nil then
-		m = m_Ton * 1000
+		m = math.abs(m_Ton * 1000)
 		Binesh.CreateHTMLFile("m<sub>Kg</sub>= m<sub>Ton</sub>*10<sup>3</sup>", "m<sub>Kg</sub>= "..Binesh.ProgressNumber(m_Ton).."*10<sup>3</sup>")
 		Binesh.AddToHTML("m<sub>Kg</sub>= "..Binesh.ProgressNumber(m).." Kg");
 		Binesh.AddToHTML("<br>");
@@ -43,9 +43,9 @@ function Binesh.F1()
 	if m == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÌÑã") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "m") ~= -1) then
 		if K ~= nil and V_Speed ~= nil then
 			Binesh.CreateHTMLFile("K = <span>1/2</span>mV<sup>2</sup>", "m = <span>2K/V<sup>2</sup></span>")
-			m = (2*K)/(V_Speed^2)
+			m = math.abs((2*K)/(V_Speed^2))
 			
-			Binesh.AddToHTML("m = <span>2*"..Binesh.ProgressNumber(K).."/"..Binesh.ProgressNumber(V_Speed).."<sup>2</sup></span> &#8658; m = "..Binesh.ProgressNumber(math.abs(m)).." Kg")
+			Binesh.AddToHTML("m = <span>2*"..Binesh.ProgressNumber(K).."/"..Binesh.ProgressNumber(V_Speed).."<sup>2</sup></span> &#8658; m = "..Binesh.ProgressNumber(m).." Kg")
 					
 			Binesh.AddToHTML("K = "..Binesh.ProgressNumber(K).." J", "V")
 			Binesh.AddToHTML("V = "..Binesh.ProgressNumber(V_Speed).." m/s", "V")

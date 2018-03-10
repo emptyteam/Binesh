@@ -29,7 +29,7 @@ function Binesh.F6()
 	
 	if q == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÐÑå") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 		if I ~= nil and t ~= nil then
-			Binesh.CreateHTMLFile("I = <span>q/t</span>", "q = I*t")
+			Binesh.CreateHTMLFile("I = <span>q/t</span>", "q = It")
 			q = (I)*(t)
 			
 			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(I).."*"..Binesh.ProgressNumber(t).." &#8658; q = "..Binesh.ProgressNumber(q).." C")
