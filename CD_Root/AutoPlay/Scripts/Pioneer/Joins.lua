@@ -1,6 +1,7 @@
 function Binesh.Joins()
 	Binesh.Join('˜íáæ Ñã ÈÑ ãÊÑ ã˜ÚÈ');
 	Binesh.Join('ÖÑíÈ ÇäÈÓÇØ Øæá');
+	Binesh.Join('ÖÑíÈ ÇäÈÓÇØ ÓØÍ');
 	Binesh.Join('ÖÑíÈ ÇäÈÓÇØ ÍÌã');
 	Binesh.Join('ÖÑíÈ ÇÕØ˜Ç˜ ÌäÈÔí');
 	Binesh.Join('ÖÑíÈ ÇÕØ˜Ç˜ ÇíÓÊÇíí');
@@ -191,4 +192,11 @@ function Binesh.Joins()
 	Binesh.Join('ÏæÑ Çæáíä');
 	Binesh.Join('Ïæãíä ÏæÑ');
 	Binesh.Join('ÏæÑ Ïæãíä');
+	
+	Binesh.Join('ÊÛííÑ ÓØÍ');
+	Binesh.Join('ÓØÍ ÊÛííÑ');
+	Binesh.Join('Çæáíä ÓØÍ');
+	Binesh.Join('ÓØÍ Çæáíä');
+	Binesh.Join('Ïæãíä ÓØÍ');
+	Binesh.Join('ÓØÍ Ïæãíä');
 end

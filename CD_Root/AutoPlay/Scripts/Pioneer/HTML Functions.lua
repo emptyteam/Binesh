@@ -1,21 +1,26 @@
 function Binesh.ClearHTMLFile(Name)
-	if Name ~= "V" then
-		if Name == nil then
-			Name = "F"
-		end
+	if Name == nil or Name == "F" then
+		Name = "F"
 		Color = "#fff"
 		TextColor = "#000"
-	elseif Name == "V" then
-		Color = "#D51748"
+	else
+		Color = INIFile.GetValue("Skins\\bsp-"..Settings.SKIN.Name..".ini", "Color", "Second");
 		TextColor = "#fff"
 	end
-	TextFile.WriteFromString(Name..".html", '<!DOCTYPE html><html><head><link rel="stylesheet" href="style.css"><style>*{background: '..Color..'; color: '..TextColor..';}</style></head><body></body></html>', false);
+	
+	if Name == "C" then
+		Size = "12"
+	else
+		Size = "25"
+	end
+	
+	TextFile.WriteFromString(Name..".html", '<!DOCTYPE html><html><head><link rel="stylesheet" href="style.css"><style>*{background: '..Color..'; color: '..TextColor..'; font-size:'..Size..'px;}</style></head><body></body></html>', false);
 end
 
 function Binesh.ConvertToHTML(sFormule, WhatFile)
 	
 	-- Taghsim --> Kasr
-	if WhatFile ~= "V" then
+	if WhatFile == nil or WhatFile == "F" then
 		sFormule = String.Replace(sFormule, "÷", "/", true);
 		sFormule = String.Replace(sFormule, "<span>", "<span class='fraction'><span class='fup'>", true);
 		sFormule = String.Replace(sFormule, "</span>", "</span></span>", true);
@@ -41,8 +46,6 @@ function Binesh.ConvertToHTML(sFormule, WhatFile)
 		sFormule = String.Replace(sFormule, "N</span><span class='fdn'>C", "N/C", true);
 		sFormule = String.Replace(sFormule, "C</span><span class='fdn'>m", "C/m", true);
 		sFormule = String.Replace(sFormule, "rad</span><span class='fdn'>s", "rad/s", true);
-	else
-		sFormule = String.Replace(sFormule, "/", " / ", true);
 	end
 	
 	sFormule = String.Replace(sFormule, "Alpha", "&alpha;", true);
@@ -61,7 +64,7 @@ function Binesh.ConvertToHTML(sFormule, WhatFile)
 	sFormule = String.Replace(sFormule, "Mu", "&mu;", true);
 	sFormule = String.Replace(sFormule, "Kapa", "&kappa;", true);
 	
-	if WhatFile == "V" then
+	if WhatFile ~= nil then
 		sFormule = String.Replace(sFormule, "VBar", "<span style='Bar-White'>V</span>", false);
 		sFormule = String.Replace(sFormule, "aBar", "<span class='Bar-White'>a</span>", false);
 		sFormule = String.Replace(sFormule, "IBar", "<span class='Bar-White'>I</span>", false);
@@ -75,6 +78,7 @@ function Binesh.ConvertToHTML(sFormule, WhatFile)
 	sFormule = String.Replace(sFormule, "*", "×", true);
 	sFormule = String.Replace(sFormule, "÷", "/", true);
 	sFormule = String.Replace(sFormule, "MOM", "&#177;", true); -- +-
+	sFormule = String.Replace(sFormule, "MoM", "&#177;", true); -- +-
 	
 	sFormule = String.Replace(sFormule, "< / ", "</", true);
 	sFormule = String.Replace(sFormule, "  ", " ", true);
@@ -121,5 +125,5 @@ function Binesh.AddCommentToHTML(Comment, WhatFile)
 		WhatFile = "F"
 	end
 	
-	TextFile.WriteFromString(_SourceFolder.."\\"..WhatFile..".html", "<p style='direction: rtl; font-family: IRANSans; color: red; font-size: 15px;'>"..Comment.."</p>", true);
+	TextFile.WriteFromString(_SourceFolder.."\\"..WhatFile..".html", "<p style='direction: rtl; font-family: IRANSans; color: "..INIFile.GetValue("Skins\\bsp-"..Settings.SKIN.Name..".ini", "Color", "Second").."; font-size: 15px;'>"..Comment.."</p>", true);
 end

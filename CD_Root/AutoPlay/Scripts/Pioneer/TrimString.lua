@@ -168,6 +168,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "„Ì«‰Â —«Â", "Ê”ÿ—«Â", false);
 		result = String.Replace(result, "„Ì«‰ —«Â", "Ê”ÿ—«Â", false);
 		result = String.Replace(result, "Ê”ÿ —«Â", "Ê”ÿ—«Â", false);
+		result = String.Replace(result, "”ÿÕÌ", "”ÿÕ", false);
 		
 		result = String.Replace(result, "œ— Â— À«‰ÌÂ", "“„«‰ 1 À«‰ÌÂ", false);
 		result = String.Replace(result, "œ— Â— œﬁÌﬁÂ", "“„«‰ 60 À«‰ÌÂ", false);
@@ -188,29 +189,110 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "œÊ„Ì‰Ì‰", "œÊ„Ì‰", false);
 		
 		result = String.Replace(result, "bar", "Bar", false);
-		result = String.Replace(result, "bar", "Bar", false);
+		
 		result = String.Replace(result, "atmosfer", "atm", false);
 		result = String.Replace(result, "atmosphere", "atm", false);
+		
 		result = String.Replace(result, "minute", "min", false);
 		result = String.Replace(result, "minutes", "min", false);
+		
 		result = String.Replace(result, "j", "J", true);
+		
 		result = String.Replace(result, "eta", "Eta", false);
+		result = String.Replace(result, "epsilon", "Epsilon", false);
 		result = String.Replace(result, "teta", "Teta", false);
+		result = String.Replace(result, "beta", "Beta", false);
+		result = String.Replace(result, "Pi", Settings.Zarib.Pi, true);
+		
 		result = String.Replace(result, "deg", "œ—ÃÂ", false);
+		
 		result = String.Replace(result, "lv", "LV", false);
+		
 		result = String.Replace(result, "ohm", "Ohm", false);
+		
 		result = String.Replace(result, "fsmax", "fs,max", false);
 		result = String.Replace(result, "fs max", "fs,max", false);
 		result = String.Replace(result, "f smax", "fs,max", false);
 		result = String.Replace(result, "f s max", "fs,max", false);
 		result = String.Replace(result, "fsmaks", "fs,max", false);
+		
 		result = String.Replace(result, "qc", "QC", false);
+		
 		result = String.Replace(result, "muk", "Muk", false);
+		
 		result = String.Replace(result, "mus", "Mus", false);
+		
 		result = String.Replace(result, "omega", "Omega", false);
+		
 		result = String.Replace(result, "V0", "V1", true);
+		
 		result = String.Replace(result, "rt", "RT", false);
+		
 		result = String.Replace(result, "vt", "VT", false);
+		
+		result = String.Replace(result, "j/ckg", "J/Kg.C", false);
+		result = String.Replace(result, "j/c.kg", "J/Kg.C", false);
+		result = String.Replace(result, "j/c . kg", "J/Kg.C", false);
+		result = String.Replace(result, "j/c .kg", "J/Kg.C", false);
+		result = String.Replace(result, "j/c. kg", "J/Kg.C", false);
+		result = String.Replace(result, "j/kgc", "J/Kg.C", false);
+		result = String.Replace(result, "j/kg.c", "J/Kg.C", false);
+		result = String.Replace(result, "j/kg . c", "J/Kg.C", false);
+		result = String.Replace(result, "j/kg .c", "J/Kg.C", false);
+		result = String.Replace(result, "j/kg. c", "J/Kg.C", false);
+		
+		result = String.Replace(result, "j/msc", "J/m.s.C", false);
+		result = String.Replace(result, "j/m.sc", "J/m.s.C", false);
+		result = String.Replace(result, "j/m . sc", "J/m.s.C", false);
+		result = String.Replace(result, "j/m .sc", "J/m.s.C", false);
+		result = String.Replace(result, "j/m. sc", "J/m.s.C", false);
+		result = String.Replace(result, "j/mcs", "J/m.s.C", false);
+		result = String.Replace(result, "j/m.scs", "J/m.s.C", false);
+		result = String.Replace(result, "j/m . cs", "J/m.s.C", false);
+		result = String.Replace(result, "j/m .cs", "J/m.s.C", false);
+		result = String.Replace(result, "j/m. cs", "J/m.s.C", false);
+		result = String.Replace(result, "j/smc", "J/m.s.C", false);
+		result = String.Replace(result, "j/s.mc", "J/m.s.C", false);
+		result = String.Replace(result, "j/s . mc", "J/m.s.C", false);
+		result = String.Replace(result, "j/s .mc", "J/m.s.C", false);
+		result = String.Replace(result, "j/s. mc", "J/m.s.C", false);
+		result = String.Replace(result, "j/smc", "J/m.s.C", false);
+		result = String.Replace(result, "j/s.cm", "J/m.s.C", false);
+		result = String.Replace(result, "j/s . cm", "J/m.s.C", false);
+		result = String.Replace(result, "j/s .cm", "J/m.s.C", false);
+		result = String.Replace(result, "j/s. cm", "J/m.s.C", false);
+		result = String.Replace(result, "j/csm", "J/m.s.C", false);
+		result = String.Replace(result, "j/c.sm", "J/m.s.C", false);
+		result = String.Replace(result, "j/c . sm", "J/m.s.C", false);
+		result = String.Replace(result, "j/c .sm", "J/m.s.C", false);
+		result = String.Replace(result, "j/c. sm", "J/m.s.C", false);
+		result = String.Replace(result, "j/cms", "J/m.s.C", false);
+		result = String.Replace(result, "j/c.ms", "J/m.s.C", false);
+		result = String.Replace(result, "j/c . ms", "J/m.s.C", false);
+		result = String.Replace(result, "j/c .ms", "J/m.s.C", false);
+		result = String.Replace(result, "j/c. ms", "J/m.s.C", false);
+		
+		result = String.Replace(result, "j/molk", "J/mol.K", false);
+		result = String.Replace(result, "j/mol.k", "J/mol.K", false);
+		result = String.Replace(result, "j/mol . k", "J/mol.K", false);
+		result = String.Replace(result, "j/mol .k", "J/mol.K", false);
+		result = String.Replace(result, "j/mol. k", "J/mol.K", false);
+		result = String.Replace(result, "j/kmol", "J/mol.K", false);
+		result = String.Replace(result, "j/k.mol", "J/mol.K", false);
+		result = String.Replace(result, "j/k . mol", "J/mol.K", false);
+		result = String.Replace(result, "j/k .mol", "J/mol.K", false);
+		result = String.Replace(result, "j/k. mol", "J/mol.K", false);
+		
+		result = String.Replace(result, "ohmm", "Ohm.m", false);
+		result = String.Replace(result, "ohm.m", "Ohm.m", true);
+		result = String.Replace(result, "ohm . m", "Ohm.m", false);
+		result = String.Replace(result, "ohm .m", "Ohm.m", false);
+		result = String.Replace(result, "ohm. m", "Ohm.m", false);
+		result = String.Replace(result, "mohm", "Ohm.m", false);
+		result = String.Replace(result, "m.ohm", "Ohm.m", false);
+		result = String.Replace(result, "m . ohm", "Ohm.m", false);
+		result = String.Replace(result, "m .ohm", "Ohm.m", false);
+		result = String.Replace(result, "m. ohm", "Ohm.m", false);
 		
 		result = String.Replace(result, "=", " = ", false);
 		result = String.Replace(result, "=", "", false);
