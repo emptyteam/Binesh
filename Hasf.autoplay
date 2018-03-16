@@ -17,7 +17,7 @@
 <ProjectInfo ToolTipStyle="1">
 <Office2007Theme Theme="5"/>
 <WindowStyles>
-<Width>800</Width>
+<Width>1000</Width>
 <Height>600</Height>
 <WindowTitle>»Ì‰‘</WindowTitle>
 <WindowStyle>0</WindowStyle>
@@ -1735,42 +1735,6 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		ListBox.AddItem("Words", Word);
 	end
 	
-	-- Include Joins
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Joins.lua") then
-		Binesh.Include("Joins", false);
-		Binesh.Joins()
-	end
-	
-	isLens = false
-	
-	for index = 1, ListBox.GetCount("Words") do
-		Text = ListBox.GetItemText("Words", index);
-		if Text == "" then
-			ListBox.DeleteItem("Words", index);
-		end
-		
-		if Text == "Oh m" then
-			ListBox.SetItemText("Words", index, "Ohm");
-		end
-		
-		if String.Find(Text, "⁄œ”Ì", 1, false) ~= -1 then
-			isLens = true
-		end
-		
-		if Text == "„Ã«“Ì" then
-			ListBox.SetItemText("Words", index, "”«ÌÂ");
-		end
-		
-		if Text == "«Œ ·«› Å «‰”Ì·" then
-			ListBox.SetItemText("Words", index, "Ê· «é");
-		end
-	end
-	
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ClearData.lua") then
-		Binesh.Include("ClearData", false);
-		Binesh.ClearData()
-	end
-	
 	function SetJ(Variable)
 		if Variable ~= nil then
 			QH			= Variable
@@ -1863,36 +1827,32 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		return Variable
 	end
 	
-	Binesh.Joins("„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰")
-	Binesh.Joins("«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ")
-	Binesh.Joins("„ﬁ«Ê„  ÊÌéÂ")
-	
-	-- Convert numbers from specific pres to normal pre
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ConvertSpecificPre.lua") then
-		Binesh.Include("ConvertSpecificPre", false);
+	--[[ Convert special pre numbers: EN ]]--
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ConvertSpecificPreEN.lua") then
+		Binesh.Include("ConvertSpecificPreEN", false);
 		
-		Binesh.ConvertSpecificPre.Type1("m/s")
-		Binesh.ConvertSpecificPre.Type1("m/h")
-		Binesh.ConvertSpecificPre.Type1("mile/s")
-		Binesh.ConvertSpecificPre.Type1("mile/h")
-		Binesh.ConvertSpecificPre.Type1("N/m")
-		Binesh.ConvertSpecificPre.Type1("J/g", 10^3, "J/Kg")
-		Binesh.ConvertSpecificPre.Type1("g/mol")
-		Binesh.ConvertSpecificPre.Type1("N/C")
-		Binesh.ConvertSpecificPre.Type1("g/L", 10^-3, "Kg/L")
-		Binesh.ConvertSpecificPre.Type1("rad/s")
+		Binesh.ConvertSpecificPreEN.Type1("m/s")
+		Binesh.ConvertSpecificPreEN.Type1("m/h")
+		Binesh.ConvertSpecificPreEN.Type1("mile/s")
+		Binesh.ConvertSpecificPreEN.Type1("mile/h")
+		Binesh.ConvertSpecificPreEN.Type1("N/m")
+		Binesh.ConvertSpecificPreEN.Type1("J/g", 10^3, "J/Kg")
+		Binesh.ConvertSpecificPreEN.Type1("g/mol")
+		Binesh.ConvertSpecificPreEN.Type1("N/C")
+		Binesh.ConvertSpecificPreEN.Type1("g/L", 10^-3, "Kg/L")
+		Binesh.ConvertSpecificPreEN.Type1("rad/s")
 		
-		Binesh.ConvertSpecificPre.Type2("m^2")
-		Binesh.ConvertSpecificPre.Type2("m^3")
+		Binesh.ConvertSpecificPreEN.Type2("m^2")
+		Binesh.ConvertSpecificPreEN.Type2("m^3")
 		
-		Binesh.ConvertSpecificPre.Type3("Ohm.m")
+		Binesh.ConvertSpecificPreEN.Type3("Ohm.m")
 		
-		Binesh.ConvertSpecificPre.Type4("m/s^2")
-		Binesh.ConvertSpecificPre.Type4("g/m^3", 10^-3, "Kg/m^3")
-		Binesh.ConvertSpecificPre.Type4("C/m^2")
+		Binesh.ConvertSpecificPreEN.Type4("m/s^2")
+		Binesh.ConvertSpecificPreEN.Type4("g/m^3", 10^-3, "Kg/m^3")
+		Binesh.ConvertSpecificPreEN.Type4("C/m^2")
 		
-		Binesh.ConvertSpecificPre.Type5("1/C")
-		Binesh.ConvertSpecificPre.Type5("1/K")
+		Binesh.ConvertSpecificPreEN.Type5("1/C")
+		Binesh.ConvertSpecificPreEN.Type5("1/K")
 		
 		--[[ J/KgC ]]--
 		for indexText = 1, ListBox.GetCount("Words") do
@@ -2029,13 +1989,65 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 			end -- if: This item have J/
 		end -- for: Get items from ListBox
 	end
+	--[[ -END- Convert special pre numbers: EN ]]--
 	
+	--[[ Convert special pre numbers: FA ]]--
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ConvertSpecificPreFA.lua") then
+		Binesh.Include("ConvertSpecificPreFA", false);
+		
+		Binesh.ConvertSpecificPreFA.Type1("„ — »— À«‰ÌÂ")
+		
+		Binesh.ConvertSpecificPreFA.Type2("„ — „—»⁄")
+	end
+	--[[ -END- Convert special pre numbers: FA ]]--
+	
+	-- Include Joins
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Joins.lua") then
+		Binesh.Include("Joins", false);
+		Binesh.Joins()
+		
+		Binesh.Joins("„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰")
+		Binesh.Joins("«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ")
+		Binesh.Joins("„ﬁ«Ê„  ÊÌéÂ")
+	end
+	
+	isLens = false
+	
+	for index = 1, ListBox.GetCount("Words") do
+		Text = ListBox.GetItemText("Words", index);
+		if Text == "" then
+			ListBox.DeleteItem("Words", index);
+		end
+		
+		if Text == "Oh m" then
+			ListBox.SetItemText("Words", index, "Ohm");
+		end
+		
+		if String.Find(Text, "⁄œ”Ì", 1, false) ~= -1 then
+			isLens = true
+		end
+		
+		if Text == "„Ã«“Ì" then
+			ListBox.SetItemText("Words", index, "”«ÌÂ");
+		end
+		
+		if Text == "«Œ ·«› Å «‰”Ì·" then
+			ListBox.SetItemText("Words", index, "Ê· «é");
+		end
+	end
+	
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ClearData.lua") then
+		Binesh.Include("ClearData", false);
+		Binesh.ClearData()
+	end
+	
+	--[[
 	for indexOfCalculate = 1, 5 do
 		Page.ClickObject("xButton2"); -- Genesis 1
 		Page.ClickObject("xButton3"); -- Genesis 2
 		Page.ClickObject("xButton4"); -- Genesis 3
 		Page.ClickObject("xButton1"); -- Calculate &amp; Show
-	end
+	end]]
 	Web.Refresh("Web1");
 	Web.Refresh("Web2");
 	
@@ -2057,8 +2069,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>329</DesignCodeLine>
-<DesignCodeCol>10</DesignCodeCol>
+<DesignCodeLine>291</DesignCodeLine>
+<DesignCodeCol>2</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -24946,18 +24958,7 @@ ShapeEx.SetFillColor("BMenu - Item5 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BookMarks count="0">
 </BookMarks>
 </Event>
-<Actions>
-<Action>
-<Type>0</Type>
-<Name>None</Name>
-<Exit>0</Exit>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-</Action>
-</Actions>
+<Actions/>
 <MouseOverSound/>
 <MouseOverSoundMode>0</MouseOverSoundMode>
 <MouseClickSound/>
