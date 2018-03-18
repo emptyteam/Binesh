@@ -93,6 +93,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÚãŞí", "ÇÑÊİÇÚ", false);
 		result = String.Replace(result, "ÇÑÊİÇÚí", "ÇÑÊİÇÚ", false);
 		result = String.Replace(result, "ãÌĞæÑ ÓØÍ", "ãÊÑ ã˜ÚÈ", false);
+		result = String.Replace(result, "ãÌĞæÑ", "ãÑÈÚ", false);
 		result = String.Replace(result, "ÈÒÑäãÇíí", "ÈÒÑ äãÇíí", false);
 		result = String.Replace(result, "ÓÇäÊíÑÇÏ", "ÓáÓíæÓ", false);
 		result = String.Replace(result, "ÓÇäÊí ÑÇÏ", "ÓáÓíæÓ", false);
@@ -125,7 +126,7 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "˜íáæíí", "˜íáæ Ñã", false);
 		result = String.Replace(result, "ãÊÑí", "ãÊÑ", false);
 		result = String.Replace(result, "ËÇÈÊ İäÑ", "ÖÑíÈ İäÑ", false);
-		result = String.Replace(result, "Çåã ÏÑ ãÊÑ", "Çåã ãÊÑ", false);
+		result = String.Replace(result, "Çåã ãÊÑ", "Çåã ÏÑ ãÊÑ", false);
 		result = String.Replace(result, "Çáí ÓØÍí", "Çáí ÓØÍ", false);
 		result = String.Replace(result, "ÈÓÇãÏ", "İÑ˜ÇäÓ", false);
 		result = String.Replace(result, "ÈÓÇãÏ ÒÇæíå", "ÓÑÚÊ ÒÇæíå", false);
@@ -142,7 +143,6 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÌÑíÇä Çá˜ÊÑí˜í ãÊæÓØ", "ÌÑíÇä ãÊæÓØ", false);
 		result = String.Replace(result, "ÇäÑí ãİíÏ", "ÇäÑí ÊæáíÏí", false);
 		result = String.Replace(result, "ÇäÑí ãİíÏ", "ÇäÑí ÊæáíÏí", false);
-		result = String.Replace(result, "Çåã ÏÑ ãÊÑ", "Çåã ãÊÑ", false);
 		result = String.Replace(result, "ÊÑãÒ", "ÊæŞİ", false);
 		result = String.Replace(result, "ÇäÈÓÇØ Øæá", "ÊÛííÑ Øæá", false);
 		result = String.Replace(result, "ÖÑíÈ ÊÛííÑ Øæá", "ÖÑíÈ ÇäÈÓÇØ Øæá", false);
@@ -169,6 +169,8 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ãíÇä ÑÇå", "æÓØÑÇå", false);
 		result = String.Replace(result, "æÓØ ÑÇå", "æÓØÑÇå", false);
 		result = String.Replace(result, "ÓØÍí", "ÓØÍ", false);
+		result = String.Replace(result, "ÑÇÏíÇä Èå ËÇäíå", "ÑÇÏíÇä ÈÑ ËÇäíå", false);
+		result = String.Replace(result, "í˜ ÈÑ", "ÈÑ", false);
 		
 		result = String.Replace(result, "ÏÑ åÑ ËÇäíå", "ÒãÇä 1 ËÇäíå", false);
 		result = String.Replace(result, "ÏÑ åÑ ÏŞíŞå", "ÒãÇä 60 ËÇäíå", false);

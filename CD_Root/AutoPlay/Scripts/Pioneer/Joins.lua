@@ -67,7 +67,7 @@ function Binesh.Joins()
 	Binesh.Join('Ýิวั วุัวÝ ใวํฺ');
 	Binesh.Join('ๅใ Ýิวั');
 	Binesh.Join('ๅใ ฯใว');
-	Binesh.Join('วๅใ ใสั');
+	Binesh.Join('วๅใ ฯั ใสั');
 	Binesh.Join('ใสั ใฺศ');
 	Binesh.Join('ัวฯํวไ ศๅ หวไํๅ');
 	Binesh.Join('ำัฺส าวๆํๅ');
