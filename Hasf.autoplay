@@ -461,24 +461,11 @@ if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\PreparationSearc
 end
 
 -- Include Math Functions
-	-- Include Factorial Function
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Factorial.lua") then
-		Binesh.Include("Factorial", false)
-	end
-	
-	-- Include Power Function
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Power.lua") then
-		Binesh.Include("Power", false)
-	end
 	
 	-- Include Radians To Degrees Function
 	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\RadToDeg.lua") then
 		Binesh.Include("RadToDeg", false)
 	end
-	
-if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\MathProccess.lua") then
-	Binesh.Include("MathProccess", false)
-end
 
 -- Include Html Function
 if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\HTML Functions.lua") then
@@ -498,14 +485,14 @@ Binesh.Include("Genesis2", false);
 Binesh.Include("Genesis3", false);</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>26</DesignCodeLine>
-<DesignCodeCol>44</DesignCodeCol>
+<DesignCodeLine>402</DesignCodeLine>
+<DesignCodeCol>4</DesignCodeCol>
 </Globals>
 <Defaults>
 <StartupPage>_PageFirst</StartupPage>
 <MouseOverSoundDefault>AutoPlay\Audio\High1.ogg</MouseOverSoundDefault>
 <MouseClickSoundDefault>AutoPlay\Audio\Click1.ogg</MouseClickSoundDefault>
-<MemMngMethod>0</MemMngMethod>
+<MemMngMethod>1</MemMngMethod>
 <UserPrivilegeLevel>0</UserPrivilegeLevel>
 </Defaults>
 <TargetMedia>
@@ -1996,8 +1983,27 @@ if InputQuiz ~= "" and InputQuiz ~= "ÓæÇá ÑÇ æÇÑÏ ˜äíÏ..." then
 		Binesh.Include("ConvertSpecificPreFA", false);
 		
 		Binesh.ConvertSpecificPreFA.Type1("ãÊÑ ÈÑ ËÇäíå")
+		Binesh.ConvertSpecificPreFA.Type1("ãÊÑ ÈÑ ÓÇÚÊ")
+		Binesh.ConvertSpecificPreFA.Type1("ãÇíá ÈÑ ËÇäíå")
+		Binesh.ConvertSpecificPreFA.Type1("ãÇíá ÈÑ ÓÇÚÊ")
+		Binesh.ConvertSpecificPreFA.Type1("äíæÊæä ÈÑ ãÊÑ")
+		Binesh.ConvertSpecificPreFA.Type1("æá ÈÑ Ñã", 10^-3, "æá ÈÑ ˜íáæ Ñã")
+		Binesh.ConvertSpecificPreFA.Type1("Ñã ÈÑ ãæá")
+		Binesh.ConvertSpecificPreFA.Type1("äíæÊæä ÈÑ ˜æáä")
+		Binesh.ConvertSpecificPreFA.Type1("Ñã ÈÑ áíÊÑ", 10^-3, "˜íáæ Ñã ÈÑ áíÊÑ")
+		Binesh.ConvertSpecificPreFA.Type1("ÑÇÏíÇä ÈÑ ËÇäíå")
 		
 		Binesh.ConvertSpecificPreFA.Type2("ãÊÑ ãÑÈÚ")
+		Binesh.ConvertSpecificPreFA.Type2("ãÊÑ ã˜ÚÈ")
+		
+		Binesh.ConvertSpecificPreFA.Type3("Çåã ÏÑ ãÊÑ")
+		
+		Binesh.ConvertSpecificPreFA.Type4("ãÊÑ ÈÑ ãÑÈÚ ËÇäíå")
+		Binesh.ConvertSpecificPreFA.Type4("Ñã ÈÑ ãÊÑ ã˜ÚÈ", 10^-3, "˜íáæ Ñã ÈÑ ãÊÑ ã˜ÚÈ")
+		Binesh.ConvertSpecificPreFA.Type4("˜æáä ÈÑ ãÊÑ ãÑÈÚ")
+		
+		Binesh.ConvertSpecificPreFA.Type5("ÈÑ ÓáÓíæÓ")
+		Binesh.ConvertSpecificPreFA.Type5("ÈÑ ˜áæíä")
 	end
 	--[[ -END- Convert special pre numbers: FA ]]--
 	
@@ -2069,8 +2075,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>291</DesignCodeLine>
-<DesignCodeCol>2</DesignCodeCol>
+<DesignCodeLine>299</DesignCodeLine>
+<DesignCodeCol>35</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -2815,7 +2821,7 @@ end
 	
 	-- 35
 	if a == nil then
-		a = Binesh.Genesis1("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÌĞæÑ ËÇäíå");
+		a = Binesh.Genesis1("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÑÈÚ ËÇäíå");
 	end
 	
 	-- 37
@@ -3175,7 +3181,7 @@ end
 	
 	-- 111
 	if Ru_Resistor == nil then
-		Ru_Resistor = Binesh.Genesis1("ãŞÇæãÊ æíå", "Ru", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		Ru_Resistor = Binesh.Genesis1("ãŞÇæãÊ æíå", "Ru", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 	end
 	ABS(Ru_Resistor)
 	
@@ -3696,22 +3702,22 @@ end
 	
 	-- 112
 	if _DeltaRu_Resistor == nil then
-		_DeltaRu_Resistor =  Binesh.Genesis1("ÊÛííÑ ãŞÇæãÊ æíå", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		_DeltaRu_Resistor =  Binesh.Genesis1("ÊÛííÑ ãŞÇæãÊ æíå", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		if _DeltaRu_Resistor == nil then
-			_DeltaRu_Resistor =  Binesh.Genesis1("ãŞÇæãÊ æíå ÊÛííÑ", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+			_DeltaRu_Resistor =  Binesh.Genesis1("ãŞÇæãÊ æíå ÊÛííÑ", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		end
 	end
 	if _Ru_Resistor1 == nil then
-		_Ru_Resistor1 =  Binesh.Genesis1("Çæáíä ãŞÇæãÊ æíå", "Ru1", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		_Ru_Resistor1 =  Binesh.Genesis1("Çæáíä ãŞÇæãÊ æíå", "Ru1", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		if _Ru_Resistor1 == nil then
-			_Ru_Resistor1 =  Binesh.Genesis1("ãŞÇæãÊ æíå Çæáíä", "Ru1", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+			_Ru_Resistor1 =  Binesh.Genesis1("ãŞÇæãÊ æíå Çæáíä", "Ru1", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		end
 	end
 	ABS(_Ru_Resistor1)
 	if _Ru_Resistor2 == nil then
-		_Ru_Resistor2 =  Binesh.Genesis1("Ïæãíä ãŞÇæãÊ æíå", "Ru2", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		_Ru_Resistor2 =  Binesh.Genesis1("Ïæãíä ãŞÇæãÊ æíå", "Ru2", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		if _Ru_Resistor2 == nil then
-			_Ru_Resistor2 =  Binesh.Genesis1("ãŞÇæãÊ æíå Ïæãíä", "Ru2", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+			_Ru_Resistor2 =  Binesh.Genesis1("ãŞÇæãÊ æíå Ïæãíä", "Ru2", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		end
 	end
 	ABS(_Ru_Resistor2)
@@ -3908,8 +3914,8 @@ end
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>432</DesignCodeLine>
-<DesignCodeCol>9</DesignCodeCol>
+<DesignCodeLine>285</DesignCodeLine>
+<DesignCodeCol>67</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -4309,7 +4315,7 @@ end
 	
 	-- 35
 	if a == nil then
-		a = Binesh.Genesis2("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÌĞæÑ ËÇäíå");
+		a = Binesh.Genesis2("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÑÈÚ ËÇäíå");
 	end
 	
 	-- 37
@@ -4666,7 +4672,7 @@ end
 	
 	-- 111
 	if Ru_Resistor == nil then
-		Ru_Resistor = Binesh.Genesis2("ãŞÇæãÊ æíå", "Ru", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		Ru_Resistor = Binesh.Genesis2("ãŞÇæãÊ æíå", "Ru", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 	end
 	ABS(Ru_Resistor)
 	
@@ -5187,22 +5193,22 @@ end
 	
 	-- 112
 	if _DeltaRu_Resistor == nil then
-		_DeltaRu_Resistor =  Binesh.Genesis2("ÊÛííÑ ãŞÇæãÊ æíå", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		_DeltaRu_Resistor =  Binesh.Genesis2("ÊÛííÑ ãŞÇæãÊ æíå", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		if _DeltaRu_Resistor == nil then
-			_DeltaRu_Resistor =  Binesh.Genesis2("ãŞÇæãÊ æíå ÊÛííÑ", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+			_DeltaRu_Resistor =  Binesh.Genesis2("ãŞÇæãÊ æíå ÊÛííÑ", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		end
 	end
 	if _Ru_Resistor1 == nil then
-		_Ru_Resistor1 =  Binesh.Genesis2("Çæáíä ãŞÇæãÊ æíå", "Ru1", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		_Ru_Resistor1 =  Binesh.Genesis2("Çæáíä ãŞÇæãÊ æíå", "Ru1", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		if _Ru_Resistor1 == nil then
-			_Ru_Resistor1 =  Binesh.Genesis2("ãŞÇæãÊ æíå Çæáíä", "Ru1", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+			_Ru_Resistor1 =  Binesh.Genesis2("ãŞÇæãÊ æíå Çæáíä", "Ru1", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		end
 	end
 	ABS(_Ru_Resistor1)
 	if _Ru_Resistor2 == nil then
-		_Ru_Resistor2 =  Binesh.Genesis2("Ïæãíä ãŞÇæãÊ æíå", "Ru2", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		_Ru_Resistor2 =  Binesh.Genesis2("Ïæãíä ãŞÇæãÊ æíå", "Ru2", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		if _Ru_Resistor2 == nil then
-			_Ru_Resistor2 =  Binesh.Genesis2("ãŞÇæãÊ æíå Ïæãíä", "Ru2", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+			_Ru_Resistor2 =  Binesh.Genesis2("ãŞÇæãÊ æíå Ïæãíä", "Ru2", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		end
 	end
 	ABS(_Ru_Resistor2)
@@ -5399,8 +5405,8 @@ end
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>13</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>285</DesignCodeLine>
+<DesignCodeCol>67</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -5829,7 +5835,7 @@ end
 		V_Speed ,_V2_Speed = V2_Speed, V2_Speed
 	end
 	if a == nil then
-		a = Binesh.Genesis3("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÌĞæÑ ËÇäíå");
+		a = Binesh.Genesis3("ÔÊÇÈ", "a", "", "", 1, "m/s^2", "ãÊÑ ÈÑ ãÑÈÚ ËÇäíå");
 	end
 	if V0_Speed == nil then
 		V0_Speed = Binesh.Genesis3("Çæáíä ÓÑÚÊ", "V0", "", "", 1, "m/s", "ãÊÑ ÈÑ ËÇäíå");
@@ -6209,7 +6215,7 @@ end
 	
 	-- 111
 	if Ru_Resistor == nil then
-		Ru_Resistor = Binesh.Genesis3("ãŞÇæãÊ æíå", "Ru", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		Ru_Resistor = Binesh.Genesis3("ãŞÇæãÊ æíå", "Ru", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 	end
 	ABS(Ru_Resistor)
 	
@@ -6727,22 +6733,22 @@ end
 	
 	-- 112
 	if _DeltaRu_Resistor == nil then
-		_DeltaRu_Resistor =  Binesh.Genesis3("ÊÛííÑ ãŞÇæãÊ æíå", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		_DeltaRu_Resistor =  Binesh.Genesis3("ÊÛííÑ ãŞÇæãÊ æíå", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		if _DeltaRu_Resistor == nil then
-			_DeltaRu_Resistor =  Binesh.Genesis3("ãŞÇæãÊ æíå ÊÛííÑ", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+			_DeltaRu_Resistor =  Binesh.Genesis3("ãŞÇæãÊ æíå ÊÛííÑ", "DeltaRu", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		end
 	end
 	if _Ru_Resistor1 == nil then
-		_Ru_Resistor1 =  Binesh.Genesis3("Çæáíä ãŞÇæãÊ æíå", "Ru1", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		_Ru_Resistor1 =  Binesh.Genesis3("Çæáíä ãŞÇæãÊ æíå", "Ru1", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		if _Ru_Resistor1 == nil then
-			_Ru_Resistor1 =  Binesh.Genesis3("ãŞÇæãÊ æíå Çæáíä", "Ru1", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+			_Ru_Resistor1 =  Binesh.Genesis3("ãŞÇæãÊ æíå Çæáíä", "Ru1", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		end
 	end
 	ABS(_Ru_Resistor1)
 	if _Ru_Resistor2 == nil then
-		_Ru_Resistor2 =  Binesh.Genesis3("Ïæãíä ãŞÇæãÊ æíå", "Ru2", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+		_Ru_Resistor2 =  Binesh.Genesis3("Ïæãíä ãŞÇæãÊ æíå", "Ru2", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		if _Ru_Resistor2 == nil then
-			_Ru_Resistor2 =  Binesh.Genesis3("ãŞÇæãÊ æíå Ïæãíä", "Ru2", "", "", 1, "Ohm.m", "Çåã ãÊÑ");
+			_Ru_Resistor2 =  Binesh.Genesis3("ãŞÇæãÊ æíå Ïæãíä", "Ru2", "", "", 1, "Ohm.m", "Çåã ÏÑ ãÊÑ");
 		end
 	end
 	ABS(_Ru_Resistor2)
@@ -6937,8 +6943,8 @@ end
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>514</DesignCodeLine>
-<DesignCodeCol>50</DesignCodeCol>
+<DesignCodeLine>314</DesignCodeLine>
+<DesignCodeCol>67</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
