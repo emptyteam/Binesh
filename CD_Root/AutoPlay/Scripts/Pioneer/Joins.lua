@@ -79,6 +79,7 @@ function Binesh.Joins()
 	Binesh.Join('ÊæÇä ãÊæÓØ');
 	Binesh.Join('ÑÓÇääÏí ÓØÍ');
 	Binesh.Join('ÊÚÏÇÏ ĞÑå');
+	Binesh.Join('ÓíáÓíæã ÎÇáÕ');
 	
 	-- Delta:
 	Binesh.Join('ÊÛííÑ ÏãÇ');

@@ -18,7 +18,7 @@ function Binesh.Genesis2(NamePersian, Symbol, PrePersian, Pre, PreValue, Unit, U
 						if text == Pres.NameFA[indexPre] or text == Pres.Symbol[indexPre] then
 							textUnit = ListBox.GetItemText("Words", index+2);
 							if String.Find(textUnit, Unit, 1, true) ~= -1 or String.Find(textUnit, UnitPersian, 1, false) ~= -1 then
-								if String.Length(textUnit) == String.Length(Unit) or String.Length(textUnit) == String.Length(UnitPersian) then
+								if #textUnit == #Unit or (#textUnit == #UnitPersian and String.Find(textUnit, UnitPersian, 1, false) ~= -1) then
 									Number = (Number*Pres.Value[indexPre])/PreValue
 									
 									ListBox.DeleteItem("Words", Find); -- Delete NamePersian or Symbol
@@ -48,7 +48,7 @@ function Binesh.Genesis2(NamePersian, Symbol, PrePersian, Pre, PreValue, Unit, U
 					end
 					
 					if String.Find(text, Unit, 1, true) ~= -1 or String.Find(text, UnitPersian, 1, false) ~= -1 then
-						if String.Length(text) == String.Length(Unit) or String.Length(text) == String.Length(UnitPersian) then
+						if #text == #Unit or (#text == #UnitPersian and String.Find(text, UnitPersian, 1, false) ~= -1) then
 							Number = Number/PreValue
 							
 							ListBox.DeleteItem("Words", Find); -- Delete NamePersian or Symbol

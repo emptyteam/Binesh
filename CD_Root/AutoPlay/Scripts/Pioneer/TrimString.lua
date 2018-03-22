@@ -171,11 +171,26 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÓØÍí", "ÓØÍ", false);
 		result = String.Replace(result, "ÑÇÏíÇä Èå ËÇäíå", "ÑÇÏíÇä ÈÑ ËÇäíå", false);
 		result = String.Replace(result, "í˜ ÈÑ", "ÈÑ", false);
+		result = String.Replace(result, "ÓáÓíã", "ÓíáíÓíã", false);
+		result = String.Replace(result, "ÓíáíÓã", "ÓíáíÓíã", false);
+		result = String.Replace(result, "ÓáÓíæã", "ÓíáíÓíã", false);
+		result = String.Replace(result, "ÓíáíÓíæã", "ÓíáíÓíã", false);
+		result = String.Replace(result, "ÓíáíÓæã", "ÓíáíÓíã", false);
+		result = String.Replace(result, "íÎí", "íÎ", false);
+		result = String.Replace(result, "íÎÒÏå", "íÎ", false);
+		result = String.Replace(result, "åæÇí", "åæÇ", false);
+		result = String.Replace(result, "Óäí", "Óä", false);
+		result = String.Replace(result, "ãÑãÑí", "ãÑãÑ", false);
 		
 		result = String.Replace(result, "ÏÑ åÑ ËÇäíå", "ÒãÇä 1 ËÇäíå", false);
 		result = String.Replace(result, "ÏÑ åÑ ÏŞíŞå", "ÒãÇä 60 ËÇäíå", false);
 		result = String.Replace(result, "ÏÑ åÑ ÓÇÚÊ", "ÒãÇä 3600 ËÇäíå", false);
 		result = String.Replace(result, "ÏÑ åÑ ÑæÒ", "ÒãÇä 86400 ËÇäíå", false);
+	
+		result = String.Replace(result, "hour", "hour", false);
+		result = String.Replace(result, "diopter", "diopter", false);
+		result = String.Replace(result, "vbar", "VBar", false);
+		result = String.Replace(result, "pbar", "PBar", false);
 		
 		-- For Delta:
 		for indexDelta = 1, Table.Count(tbl.Delta.Words) do

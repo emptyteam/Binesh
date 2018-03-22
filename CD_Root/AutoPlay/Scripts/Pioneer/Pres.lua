@@ -12,7 +12,6 @@ Pres.NameFA[9]		= "òÌ·Ê"
 Pres.NameFA[10]		= "„ê«"
 Pres.NameFA[11]		= "êÌê«"
 Pres.NameFA[12]		= " —«"
-Pres.NameFA[13]		= "¬‰ê” —Ê„"
 
 Pres.Symbol = {}
 Pres.Symbol[1]		= "p"
@@ -27,7 +26,6 @@ Pres.Symbol[9]		= "K"
 Pres.Symbol[10]		= "M"
 Pres.Symbol[11]		= "G"
 Pres.Symbol[12]		= "T"
-Pres.Symbol[13]		= "Angstrom"
 
 Pres.Value = {}
 Pres.Value[1]	= 10^(-12);
@@ -42,4 +40,3 @@ Pres.Value[9]	= 10^3
 Pres.Value[10]	= 10^6
 Pres.Value[11]	= 10^9
 Pres.Value[12]	= 10^12
-Pres.Value[13]	= 10^(-10);
