@@ -53,16 +53,18 @@ function Binesh.F136_1()
 	end
 	
 	if R == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ«Ê„ ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "R") ~= -1) then
-		if N_Ring ~= nil and _DeltaFi ~= nil and _Deltaq ~= nil then
-			Binesh.CreateHTMLFile("Deltaq = <span>N/R</span>DeltaFi", "R = <span>N/Deltaq</span>DeltaFi")
-			R = (N_Ring/_Deltaq)*_DeltaFi
-			
-			Binesh.AddToHTML("R = <span>"..Binesh.ProgressNumber(N_Ring).."/"..Binesh.ProgressNumber(_Deltaq).."</span>"..Binesh.ProgressNumber(_DeltaFi).." &#8658; R = "..Binesh.ProgressNumber(R).." Ohm")
-			
-			Binesh.AddToHTML("N = "..Binesh.ProgressNumber(N_Ring), "V")
-			Binesh.AddToHTML("Deltaq = "..Binesh.ProgressNumber(_Deltaq).." C", "V")
-			Binesh.AddToHTML("DeltaFi = "..Binesh.ProgressNumber(_DeltaFi).." Wb", "V")
-			Binesh.AddToHTML("R = ?", "V")
+		if ListBox.GetItemText("Words", ListBox.FindItem("Words", -1, LB_BYTEXT, "R")) == "R" then
+			if N_Ring ~= nil and _DeltaFi ~= nil and _Deltaq ~= nil then
+				Binesh.CreateHTMLFile("Deltaq = <span>N/R</span>DeltaFi", "R = <span>N/Deltaq</span>DeltaFi")
+				R = (N_Ring/_Deltaq)*_DeltaFi
+				
+				Binesh.AddToHTML("R = <span>"..Binesh.ProgressNumber(N_Ring).."/"..Binesh.ProgressNumber(_Deltaq).."</span>"..Binesh.ProgressNumber(_DeltaFi).." &#8658; R = "..Binesh.ProgressNumber(R).." Ohm")
+				
+				Binesh.AddToHTML("N = "..Binesh.ProgressNumber(N_Ring), "V")
+				Binesh.AddToHTML("Deltaq = "..Binesh.ProgressNumber(_Deltaq).." C", "V")
+				Binesh.AddToHTML("DeltaFi = "..Binesh.ProgressNumber(_DeltaFi).." Wb", "V")
+				Binesh.AddToHTML("R = ?", "V")
+			end
 		end
 	end
 	
