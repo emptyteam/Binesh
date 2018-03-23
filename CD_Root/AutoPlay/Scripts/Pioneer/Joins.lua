@@ -26,8 +26,8 @@ function Binesh.Joins()
 	Binesh.Join('ÖÑíÈ Ô˜ÓÊ');
 	Binesh.Join('ÒÇæíå ÊÇÈÔ');
 	Binesh.Join('ÒÇæíå Ô˜ÓÊ');
-	Binesh.Join('ÚãŞ ÙÇåÑí');
-	Binesh.Join('ÚãŞ æÇŞÚí');
+	Binesh.Join('ÇÑÊİÇÚ ÙÇåÑí');
+	Binesh.Join('ÇÑÊİÇÚ æÇŞÚí');
 	Binesh.Join('ÒÇæíå ÍÏ');
 	Binesh.Join('İÇÕáå ˜Çäæäí');
 	Binesh.Join('ÊæÇä ÚÏÓí');
@@ -80,6 +80,13 @@ function Binesh.Joins()
 	Binesh.Join('ÑÓÇääÏí ÓØÍ');
 	Binesh.Join('ÊÚÏÇÏ ĞÑå');
 	Binesh.Join('ÓíáÓíæã ÎÇáÕ');
+	Binesh.Join('İÇÕáå ÌÓã');
+	Binesh.Join('İÇÕáå ÊÕæíÑ');
+	Binesh.Join('Ú ÏÓí');
+	Binesh.Join('Øæá ÌÓã');
+	Binesh.Join('Øæá ÊÕæíÑ');
+	Binesh.Join('ÓØÍ ÌÓã');
+	Binesh.Join('ÓØÍ ÊÕæíÑ');
 	
 	-- Delta:
 	Binesh.Join('ÊÛííÑ ÏãÇ');

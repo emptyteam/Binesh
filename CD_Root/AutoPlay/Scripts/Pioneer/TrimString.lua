@@ -47,11 +47,6 @@ function Binesh.TrimString(sInput)
 		
 		result = String.Replace(result, " ’ÊÌ—‘", " ’ÊÌ—", false);
 		result = String.Replace(result, " ’ÊÌ—Ì", " ’ÊÌ—", false);
-		result = String.Replace(result, " ’ÊÌ—", "„Ã«“Ì", false);
-		result = String.Replace(result, "„Ã«“Ì „Ã«“Ì", "”«ÌÂ", false);
-		result = String.Replace(result, "„Ã«“Ì ”«ÌÂ", "”«ÌÂ", false);
-		result = String.Replace(result, "„Ã«“Ì ÕﬁÌﬁÌ", "Ã”„", false);
-		result = String.Replace(result, "„Ã«“Ì Ã”„", "Ã”„", false);
 		result = String.Replace(result, "‰Ê—Ì ", "‰Ê— ", false);
 		result = String.Replace(result, "‰Ê—", "„ÕÌÿ ‘›«›", false);
 		result = String.Replace(result, "„Õœ»Ì", "„Õœ»", false);
@@ -310,6 +305,14 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "m . ohm", "Ohm.m", false);
 		result = String.Replace(result, "m .ohm", "Ohm.m", false);
 		result = String.Replace(result, "m. ohm", "Ohm.m", false);
+		result = String.Replace(result, "ohm*m", "Ohm.m", true);
+		result = String.Replace(result, "ohm * m", "Ohm.m", false);
+		result = String.Replace(result, "ohm *m", "Ohm.m", false);
+		result = String.Replace(result, "ohm* m", "Ohm.m", false);
+		result = String.Replace(result, "m*ohm", "Ohm.m", false);
+		result = String.Replace(result, "m * ohm", "Ohm.m", false);
+		result = String.Replace(result, "m *ohm", "Ohm.m", false);
+		result = String.Replace(result, "m* ohm", "Ohm.m", false);
 		
 		result = String.Replace(result, "=", " = ", false);
 		result = String.Replace(result, "=", "", false);
