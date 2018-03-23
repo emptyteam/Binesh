@@ -9,10 +9,14 @@ function Binesh.F12()
 			Binesh.AddToHTML("p = "..Binesh.ProgressNumber(p_Glass).." m", "V")
 			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q_Glass).." m", "V")
 			Binesh.AddToHTML("f = ?", "V")
+			if Binesh.F13_1 ~= nil and Binesh.F13_2 ~= nil then
+				Binesh.F13_1()
+				Binesh.F13_2()
+			end
 		end
 	end
 	
-	if q_Glass == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â ”«ÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
+	if q_Glass == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â  ’ÊÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 		if p_Glass ~= nil and f ~= nil then
 			Binesh.CreateHTMLFile("<span>1/f</span> = <span>1/p</span> + <span>1/q</span>", "<span>1/q</span> = <span>1/f</span> - <span>1/p</span> &#8658; q = <span>pf/p-f</span>")
 			q_Glass = p_Glass*f/(p_Glass-f)
@@ -22,6 +26,10 @@ function Binesh.F12()
 			Binesh.AddToHTML("p = "..Binesh.ProgressNumber(p_Glass).." m", "V")
 			Binesh.AddToHTML("f = "..Binesh.ProgressNumber(f).." m", "V")
 			Binesh.AddToHTML("q = ?", "V")
+			if Binesh.F13_1 ~= nil and Binesh.F13_2 ~= nil then
+				Binesh.F13_1()
+				Binesh.F13_2()
+			end
 		end
 	end
 	
@@ -35,6 +43,10 @@ function Binesh.F12()
 			Binesh.AddToHTML("q = "..Binesh.ProgressNumber(q_Glass).." m", "V")
 			Binesh.AddToHTML("f = "..Binesh.ProgressNumber(f).." m", "V")
 			Binesh.AddToHTML("p = ?", "V")
+			if Binesh.F13_1 ~= nil and Binesh.F13_2 ~= nil then
+				Binesh.F13_1()
+				Binesh.F13_2()
+			end
 		end
 	end
 end

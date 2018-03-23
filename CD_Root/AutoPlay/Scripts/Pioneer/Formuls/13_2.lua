@@ -13,7 +13,7 @@ function Binesh.F13_2()
 		end
 	end
 	
-	if ApBp == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÓÇíå Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A`B`") ~= -1) then
+	if ApBp == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "ÊÕæíÑ Øæá") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "A`B`") ~= -1) then
 		if m_Zoom ~= nil and AB ~= nil then
 			Binesh.CreateHTMLFile("m = <span>A`B`/AB</span>", "A`B` = m*AB")
 			ApBp = m_Zoom*AB

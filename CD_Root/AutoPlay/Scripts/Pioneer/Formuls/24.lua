@@ -1,6 +1,6 @@
 function Binesh.F24()
 	if isLens == true then
-		if D == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, " Ê«‰ ⁄œ”Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "D") ~= -1) then
+		if D == nil then
 			if f ~= nil then
 				Binesh.CreateHTMLFile("D = <span>1/f</span>")
 				D = 1/f
@@ -12,7 +12,7 @@ function Binesh.F24()
 			end
 		end
 		
-		if f == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â ò«‰Ê‰Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "f") ~= -1) then
+		if f == nil then
 			if D ~= nil then
 				Binesh.CreateHTMLFile("D = <span>1/f</span>", "f = <span>1/D</span>")
 				f = 1/D

@@ -13,7 +13,7 @@ function Binesh.F21()
 			end
 		end
 		
-		if q_Lens == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â ”«ÌÂ") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
+		if q_Lens == nil and (ListBox.FindItem("Words", -1, LB_BYTEXT, "›«’·Â  ’ÊÌ—") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "q") ~= -1) then
 			if p_Lens ~= nil and f ~= nil then
 				Binesh.CreateHTMLFile("<span>1/f</span> = <span>1/p+1/q</span>", "<span>1/q</span> = <span>1/f</span>-<span>1/p</span>")
 				Binesh.AddToHTML("q = <span>fp/f-p</span> &#8658; ")
