@@ -176,6 +176,10 @@ function Binesh.TrimString(sInput)
 		result = String.Replace(result, "ÂÊ«Ì", "ÂÊ«", false);
 		result = String.Replace(result, "”‰êÌ", "”‰ê", false);
 		result = String.Replace(result, "„—„—Ì", "„—„—", false);
+		result = String.Replace(result, " «»Ã”„", " «»‘", false);
+		result = String.Replace(result, "⁄ œ”Ì", "⁄œ”Ì", false);
+		result = String.Replace(result, "«‰œ«“Â", "ÿÊ·", false);
+		result = String.Replace(result, "Œ«“‰Ì", "Œ«“‰", false);
 		
 		result = String.Replace(result, "œ— Â— À«‰ÌÂ", "“„«‰ 1 À«‰ÌÂ", false);
 		result = String.Replace(result, "œ— Â— œﬁÌﬁÂ", "“„«‰ 60 À«‰ÌÂ", false);
@@ -242,16 +246,16 @@ function Binesh.TrimString(sInput)
 		
 		result = String.Replace(result, "vt", "VT", false);
 		
-		result = String.Replace(result, "j/ckg", "J/Kg.C", false);
-		result = String.Replace(result, "j/c.kg", "J/Kg.C", false);
-		result = String.Replace(result, "j/c . kg", "J/Kg.C", false);
-		result = String.Replace(result, "j/c .kg", "J/Kg.C", false);
-		result = String.Replace(result, "j/c. kg", "J/Kg.C", false);
-		result = String.Replace(result, "j/kgc", "J/Kg.C", false);
-		result = String.Replace(result, "j/kg.c", "J/Kg.C", false);
-		result = String.Replace(result, "j/kg . c", "J/Kg.C", false);
-		result = String.Replace(result, "j/kg .c", "J/Kg.C", false);
-		result = String.Replace(result, "j/kg. c", "J/Kg.C", false);
+		result = String.Replace(result, "j/ckg", "J/kg.C", false);
+		result = String.Replace(result, "j/c.kg", "J/kg.C", false);
+		result = String.Replace(result, "j/c . kg", "J/kg.C", false);
+		result = String.Replace(result, "j/c .kg", "J/kg.C", false);
+		result = String.Replace(result, "j/c. kg", "J/kg.C", false);
+		result = String.Replace(result, "j/kgc", "J/kg.C", false);
+		result = String.Replace(result, "j/kg.c", "J/kg.C", false);
+		result = String.Replace(result, "j/kg . c", "J/kg.C", false);
+		result = String.Replace(result, "j/kg .c", "J/kg.C", false);
+		result = String.Replace(result, "j/kg. c", "J/kg.C", false);
 		
 		result = String.Replace(result, "j/msc", "J/m.s.C", false);
 		result = String.Replace(result, "j/m.sc", "J/m.s.C", false);

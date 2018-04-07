@@ -82,11 +82,9 @@ function Binesh.Joins()
 	Binesh.Join('гэсгэцу ЮЧсе');
 	Binesh.Join('нЧесх Ьгу');
 	Binesh.Join('нЧесх Ъецэб');
-	Binesh.Join('к Ягэ');
 	Binesh.Join('ицс Ьгу');
 	Binesh.Join('ицс Ъецэб');
 	Binesh.Join('гиЭ Ьгу');
-	Binesh.Join('гиЭ Ъецэб');
 	
 	-- Delta:
 	Binesh.Join('Ълээб ЯуЧ');

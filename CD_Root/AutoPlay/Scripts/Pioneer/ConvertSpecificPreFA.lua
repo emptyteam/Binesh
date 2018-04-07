@@ -52,13 +52,14 @@ function Binesh.ConvertSpecificPreFA.Type1(Variable, Factor, UnitResult) -- This
 						ListBox.DeleteItem("Words", Find+1);
 						ListBox.SetItemText("Words", Find, UnitResult);
 						return true;
+					else
+						ListBox.DeleteItem("Words", Find+3);
+						ListBox.DeleteItem("Words", Find+2);
+						ListBox.DeleteItem("Words", Find+1);
+						ListBox.SetItemText("Words", Find, UnitResult);
+						return true;
 					end
 				end
-				ListBox.DeleteItem("Words", Find+3);
-				ListBox.DeleteItem("Words", Find+2);
-				ListBox.DeleteItem("Words", Find+1);
-				ListBox.SetItemText("Words", Find, UnitResult);
-				return true;
 			end
 		end
 	end
@@ -159,13 +160,14 @@ function Binesh.ConvertSpecificPreFA.Type3(Variable, Factor, UnitResult) -- This
 						ListBox.DeleteItem("Words", Find+1);
 						ListBox.SetItemText("Words", Find, UnitResult);
 						return true;
+					else
+						ListBox.DeleteItem("Words", Find+3);
+						ListBox.DeleteItem("Words", Find+2);
+						ListBox.DeleteItem("Words", Find+1);
+						ListBox.SetItemText("Words", Find, UnitResult);
+						return true;
 					end
 				end
-				ListBox.DeleteItem("Words", Find+3);
-				ListBox.DeleteItem("Words", Find+2);
-				ListBox.DeleteItem("Words", Find+1);
-				ListBox.SetItemText("Words", Find, UnitResult);
-				return true;
 			end
 		end
 	end
@@ -235,14 +237,15 @@ function Binesh.ConvertSpecificPreFA.Type4(Variable, Factor, UnitResult) -- This
 						ListBox.DeleteItem("Words", Find+1);
 						ListBox.SetItemText("Words", Find, UnitResult);
 						return true;
+					else
+						ListBox.DeleteItem("Words", Find+4);
+						ListBox.DeleteItem("Words", Find+3);
+						ListBox.DeleteItem("Words", Find+2);
+						ListBox.DeleteItem("Words", Find+1);
+						ListBox.SetItemText("Words", Find, UnitResult);
+						return true;
 					end
 				end
-				ListBox.DeleteItem("Words", Find+4);
-				ListBox.DeleteItem("Words", Find+3);
-				ListBox.DeleteItem("Words", Find+2);
-				ListBox.DeleteItem("Words", Find+1);
-				ListBox.SetItemText("Words", Find, UnitResult);
-				return true;
 			end
 		end
 	end

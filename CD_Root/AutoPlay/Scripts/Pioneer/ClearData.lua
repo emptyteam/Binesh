@@ -2,6 +2,16 @@ function Binesh.ClearData()
 	Binesh.ClearHTMLFile()
 	Binesh.ClearHTMLFile("V")
 	
+	_DeltaA = nil
+	_A1 = nil
+	_A2 = nil
+	ic = nil
+	ic_Radian = nil
+	i = nil
+	i_Radian = nil
+	r_Glass = nil
+	r_Glass_Radian = nil
+	H = nil
 	l = nil
 	n = nil
 	U = nil
@@ -54,10 +64,10 @@ function Binesh.ClearData()
 	P_Power = nil
 	S = nil
 	Sp = nil
-	p_Source = nil
-	q_Source = nil
 	p_Glass = nil
 	q_Glass = nil
+	p_Lens = nil
+	q_Lens = nil
 	f = nil
 	R_Radius = nil
 	ApBp = nil
@@ -109,7 +119,7 @@ function Binesh.ClearData()
 	q2 = nil
 	E_Electric = nil
 	q_0_87 = nil
-	SSigma = nil
+	Sigma = nil
 	d_Distance = nil
 	W_Out = nil
 	WE = nil
