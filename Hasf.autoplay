@@ -89,7 +89,7 @@ tbl.End = {" Å«Ì«‰ ", " «‰ Â« ", " À«‰ÊÌÂ ", " œÊ„ ", " «‰ Â« ", " Å«Ì«‰Ì ", " ¬
 -- Software Informations
 	_BINESH = {}
 	_BINESH.Email = ""
-	_BINESH.WebSite = "http://zantium.ir/Binesh"
+	_BINESH.WebSite = "localhost/Binesh"
 
 -- For Error Dialog Box
 	MB_RTL		= 1048576
@@ -100,57 +100,30 @@ PageNumber = 1
 Settings = {}
 -- Settings.Zarib Vars
 Settings.Zarib = {}
-if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga") ~= "" then
-	Settings.Zarib.ga = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga"))
-else
-	Settings.Zarib.g = 9.80665
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga", "9.80665");
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ga_r", "false");
+function Settings.Zarib.Load(Name, Number)
+	n = 1
+	if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", Name) ~= "" then
+		n = INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", Name)
+		if String.Find(n, "*10^", 1, false) ~= -1 then
+			Seprator = AMS.DelimitedStringToTable(n, "*10^");
+			n = tonumber(Seprator[1])*10^tonumber(Seprator[2])
+		else
+			n = tonumber(n)
+		end
+	else
+		n = Number
+		INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", Name, Number);
+		INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", Name.."_r", "false");
+	end
+	return n
 end
-if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e") ~= "" then
-	Settings.Zarib.e = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e"))
-else
-	Settings.Zarib.e = 1.602*10^-19
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e", "1.602*10^-19");
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "e_r", "false");
-end
-if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G") ~= "" then
-	Settings.Zarib.G = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G"))
-else
-	Settings.Zarib.G = 6.67384*10^-11
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G", "6.67384*10^-11");
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "G_r", "false");
-end
-if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k") ~= "" then
-	Settings.Zarib.k = INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k")
-	Seprator = AMS.DelimitedStringToTable(Settings.Zarib.k, "*10^");
-	Settings.Zarib.k = tonumber(Seprator[1])*10^tonumber(Seprator[2])
-else
-	Settings.Zarib.k = 8.9879*10^9
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k", "8.9879*10^9");
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "k_r", "false");
-end
-if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R") ~= "" then
-	Settings.Zarib.R = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R"))
-else
-	Settings.Zarib.R = 8.314472
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R", "8.314472");
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "R_r", "false");
-end
-if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ec") ~= "" then
-	Settings.Zarib.ec = tonumber(INIFile.GetValue("Settings.bin", "Zarib", "ec"))
-else
-	Settings.Zarib.ec = 8.854187817*10^-12
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ec", "8.854187817*10^-12");
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "ec_r", "false");
-end
-if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi") ~= "" then
-	Settings.Zarib.Pi = tonumber(INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi"))
-else
-	Settings.Zarib.Pi = math.pi
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi", tostring(math.pi));
-	INIFile.SetValue(_SourceFolder.."\\Settings.bin", "Zarib", "Pi_r", "false");
-end
+Settings.Zarib.g = Settings.Zarib.Load("ga", 9.80665)
+Settings.Zarib.e = Settings.Zarib.Load("e", 1.602*10^-19)
+Settings.Zarib.G = Settings.Zarib.Load("G", 6.67384*10^-11)
+Settings.Zarib.k = Settings.Zarib.Load("k", 8.9879*10^9)
+Settings.Zarib.R = Settings.Zarib.Load("R", 8.314472)
+Settings.Zarib.ec = Settings.Zarib.Load("ec", 8.854187817*10^-12)
+Settings.Zarib.Pi = Settings.Zarib.Load("Pi", math.pi)
 
 -- Skin Vars
 if INIFile.GetValue(_SourceFolder.."\\Settings.bin", "Skin", "Name") == "" then
@@ -194,6 +167,48 @@ else
 end
 
 --------------------------------------------- GLOBAL VARIABLES ---------------------------------------------
+
+--------------------------------------------- REGISTRY FOR UPDATE PROGRAM ---------------------------------------------
+
+if System.Is64BitOS() then
+	if not Wow64.RegistryDoesKeyExist(HKEY_LOCAL_MACHINE, "Software\\empty", Wow64.KEY64) then
+		Wow64.RegistryCreateKey(HKEY_LOCAL_MACHINE, "Software\\empty", Wow64.KEY64);
+	end
+	
+	if not Wow64.RegistryDoesKeyExist(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", Wow64.KEY64) then
+		Wow64.RegistryCreateKey(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", Wow64.KEY64);
+	end
+	
+	Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "Location", _SourceFolder, REG_SZ, Wow64.KEY64);
+	
+	Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "SkinName", Settings.SKIN.Name, REG_SZ, Wow64.KEY64);
+	Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MainColor", Settings.SKIN.MainColor, REG_SZ, Wow64.KEY64);
+	Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "SecondColor", Settings.SKIN.SecondColor, REG_SZ, Wow64.KEY64);
+	Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MenuMainColor", Settings.SKIN.MenuMainColor, REG_SZ, Wow64.KEY64);
+	Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MenuSecondColor", Settings.SKIN.MenuSecondColor, REG_SZ, Wow64.KEY64);
+	
+	Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "Update", "false", REG_SZ, Wow64.KEY64);
+else
+	if not Registry.DoesKeyExist(HKEY_LOCAL_MACHINE, "Software\\empty") then
+		Registry.CreateKey(HKEY_LOCAL_MACHINE, "Software\\empty");
+	end
+	
+	if not Registry.DoesKeyExist(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh") then
+		Registry.CreateKey(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh");
+	end
+	
+	Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "Location", _SourceFolder, REG_SZ);
+	
+	Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "SkinName", Settings.SKIN.Name, REG_SZ);
+	Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MainColor", Settings.SKIN.MainColor, REG_SZ);
+	Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "SecondColor", Settings.SKIN.SecondColor, REG_SZ);
+	Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MenuMainColor", Settings.SKIN.MenuMainColor, REG_SZ);
+	Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MenuSecondColor", Settings.SKIN.MenuSecondColor, REG_SZ);
+	
+	Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "Update", "false", REG_SZ);
+end
+
+--------------------------------------------- REGISTRY FOR UPDATE PROGRAM ---------------------------------------------
 
 KeyPressed = {
 	LeftMouseButton = 1,
@@ -379,7 +394,7 @@ function Escribir_Input(Input_Name, Estilo)
 end
 
 function Pre_Input(Input_Name, Default_Text)
-	if Input.IsEnabled(Input_Name) then Input.SetProperties(Input_Name, {Text = Default_Text, FontName = "Behdad", FontItalic = true, FontColor = Math.HexColorToNumber("ffffff"), InputStyle = 0, FontSize = 11}); end
+	if Input.IsEnabled(Input_Name) then Input.SetProperties(Input_Name, {Text = Default_Text, FontName = "B Yekan", FontItalic = true, FontColor = Math.HexColorToNumber("ffffff"), InputStyle = 0, FontSize = 11}); end
 end
 
 
@@ -395,32 +410,71 @@ function Binesh.Include(FileAddress, Decrypt)
 	
 	if FileAddress ~= nil or FileAddress ~= "" then
 		if Decrypt == true then
-			if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\"..FileAddress..".empty") then
+			if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\"..FileAddress..".empty") then
 				FileAddress = tostring(FileAddress)
-				Crypto.Base64DecodeFromFile(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\"..FileAddress..".empty", _SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\"..FileAddress..".dec");
-				Crypto.BlowfishDecrypt(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\"..FileAddress..".dec", _SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\"..FileAddress..".lua", "515253545556575859We aRe empty");
-				File.Delete(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\"..FileAddress..".dec", false, false, false, nil);
+				Crypto.Base64DecodeFromFile(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\"..FileAddress..".empty", _SourceFolder.."\\AutoPlay\\Scripts\\Core\\"..FileAddress..".dec");
+				Crypto.BlowfishDecrypt(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\"..FileAddress..".dec", _SourceFolder.."\\AutoPlay\\Scripts\\Core\\"..FileAddress..".lua", "515253545556575859We aRe empty");
+				File.Delete(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\"..FileAddress..".dec", false, false, false, nil);
 				if String.Find(FileAddress, "\\", 1, false) ~= -1 then
 					_FileAddress = String.Replace(FileAddress, "\\", ".", false);
 				else
 					_FileAddress = FileAddress
 				end
-				require("Pioneer.".._FileAddress)
-				File.Delete(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\"..FileAddress..".lua", false, false, false, nil);
+				require("Core.".._FileAddress)
+				File.Delete(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\"..FileAddress..".lua", false, false, false, nil);
 			end
 		elseif Decrypt == false then
-			require("Pioneer."..FileAddress)
+			require("Core."..FileAddress)
 		end
 	end
 end
 	
-function Error(ErrorText, Exit)
-	Dialog.Message("Œÿ«", ErrorText, MB_OK + MB_RTL + MB_RIGHT, MB_ICONSTOP, MB_DEFBUTTON1);
-	if Exit == nil then
-		Exit = true;
+function Message(Text, Status, Exit)
+	local toast_width = 350;
+	local toast_height = 150;
+	local estimated_taskbar_height = 40;
+	local tbDispInfo = System.GetDisplayInfo();
+	
+	local tblOverlayWndProps = {}
+	
+	tblOverlayWndProps.X				= tbDispInfo.Width - 5 - toast_width;
+	tblOverlayWndProps.Y				= tbDispInfo.Height - estimated_taskbar_height - 5 - toast_height;
+	tblOverlayWndProps.Width			= toast_width;
+	tblOverlayWndProps.Height			= toast_height;
+	tblOverlayWndProps.FadeIn			= true;
+	tblOverlayWndProps.FadeOut			= true;
+	tblOverlayWndProps.CloseOnClick		= true;
+	if Status == "Error" then
+		tblOverlayWndProps.TextColor		= 192;
+	else
+		tblOverlayWndProps.TextColor		= 5767104;
 	end
-	if Exit == true then
-		StatusDlg.Hide();
+	tblOverlayWndProps.Text				= tostring(Text);
+	tblOverlayWndProps.FontFace			= "B Yekan";
+	tblOverlayWndProps.FontSize			= 22;
+	tblOverlayWndProps.Bold				= true; 
+	tblOverlayWndProps.Italic			= false; 
+	tblOverlayWndProps.Underline		= false; 
+	tblOverlayWndProps.StrikeOut		= false;
+	tblOverlayWndProps.TextAlign		= 1; -- 0:left 1:center 2:right
+	tblOverlayWndProps.Opacity			= 230; -- 0 - 255
+	tblOverlayWndProps.BackColor		= 2105376;
+	tblOverlayWndProps.TimeOut			= 3000; -- in milliseconds
+	tblOverlayWndProps.BackImage		= "";
+	tblOverlayWndProps.CornerRadius		= 20;
+	
+	local bShowing = ScreenOverlay.Showing(ToasterHandle);
+	
+	if(bShowing == true) then -- close existing instance if exist
+		ScreenOverlay.Close(ToasterHandle);
+	end
+		
+	ToasterHandle = ScreenOverlay.Show(tblOverlayWndProps);
+	
+	if(ToasterHandle == 0) then
+		 Dialog.Message("Error", "Failed to create overlay window.", MB_OK, MB_ICONEXCLAMATION, MB_DEFBUTTON1);
+	end
+	if (Exit == nil or Exit == true) and Status == "Error" then
 		Application.ExitScript();
 	end
 end
@@ -431,37 +485,37 @@ Binesh.Include("Pres", false);
 -- Include Scripts
 
 -- Include Binesh.Join()
-if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Join.lua") then
+if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\Join.lua") then
 	Binesh.Include("Join", false)
 end
 
-if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ProgressNumber.lua") then
+if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\ProgressNumber.lua") then
 	Binesh.Include("ProgressNumber", false)
 end
 
-if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\SendKeys.lua") then
+if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\SendKeys.lua") then
 	Binesh.Include("SendKeys", false);
 end
 
 -- Include Binesh.TrimString()
-if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\TrimString.lua") then
+if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\TrimString.lua") then
 	Binesh.Include("TrimString", false)
 end
 
 -- Include Math Functions
 	
 	-- Include Radians To Degrees Function
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\RadToDeg.lua") then
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\RadToDeg.lua") then
 		Binesh.Include("RadToDeg", false)
 	end
 
 -- Include Html Function
-if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\HTML Functions.lua") then
+if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\HTML Functions.lua") then
 	Binesh.Include("HTML Functions", false)
 end
 
 -- Include Add-ons
-Add_ons = File.Find(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Add-ons", "*.lua", false, false, nil, nil);
+Add_ons = File.Find(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\Add-ons", "*.lua", false, false, nil, nil);
 if Add_ons ~= nil then
 	for indexAdd_ons = 1, Table.Count(Add_ons) do
 		Binesh.Include("Add-ons."..String.SplitPath(Add_ons[indexAdd_ons]).Filename, false)
@@ -473,7 +527,7 @@ Binesh.Include("Genesis2", false);
 Binesh.Include("Genesis3", false);</Script>
 <BookMarks count="0">
 </BookMarks>
-<DesignCodeLine>383</DesignCodeLine>
+<DesignCodeLine>101</DesignCodeLine>
 <DesignCodeCol>3</DesignCodeCol>
 </Globals>
 <Defaults>
@@ -481,7 +535,7 @@ Binesh.Include("Genesis3", false);</Script>
 <MouseOverSoundDefault>AutoPlay\Audio\High1.ogg</MouseOverSoundDefault>
 <MouseClickSoundDefault>AutoPlay\Audio\Click1.ogg</MouseClickSoundDefault>
 <MemMngMethod>1</MemMngMethod>
-<UserPrivilegeLevel>0</UserPrivilegeLevel>
+<UserPrivilegeLevel>2</UserPrivilegeLevel>
 </Defaults>
 <TargetMedia>
 <TargetMediaSize>4</TargetMediaSize>
@@ -494,7 +548,9 @@ Binesh.Include("Genesis3", false);</Script>
 <Plugin>AMS\AMS.lmd</Plugin>
 <Plugin>FTP\FTP.lmd</Plugin>
 <Plugin>JSON\JSON.lmd</Plugin>
+<Plugin>ScreenOverlay\ScreenOverlay.lmd</Plugin>
 <Plugin>WebAPI - Free\WebAPI.lmd</Plugin>
+<Plugin>Wow64\Wow64.lmd</Plugin>
 </ActionPlugins>
 <TemplateInfo>
 <Name/>
@@ -526,7 +582,7 @@ Binesh.Include("Genesis3", false);</Script>
 <SkinSubStyle/>
 </RuntimeSkin>
 <Databases>
-<MySQL>1</MySQL>
+<MySQL>0</MySQL>
 <SQLite3>0</SQLite3>
 <Oracle>0</Oracle>
 <ODBC>0</ODBC>
@@ -536,14 +592,26 @@ Binesh.Include("Genesis3", false);</Script>
 <Name>On Startup</Name>
 <Args/>
 <Script>Binesh.ClearHTMLFile()
-Binesh.ClearHTMLFile("V")</Script>
+Binesh.ClearHTMLFile("V")
+
+if HTTP.TestConnection(_BINESH.WebSite.."/test.html", 20, 80, nil, nil) then
+	NEW = {}
+	Current = {}
+	
+	NEW.Version = HTTP.Submit(_BINESH.WebSite.."/Update/index.php", {Get="Version"}, SUBMITWEB_POST, 20, 80, nil, nil);
+	Current.Version = INIFile.GetValue("Informations.dll", "Version", "Version");
+	
+	if tonumber(Current.Version) &lt; tonumber(NEW.Version) then
+		Message("»—Ê“—”«‰Ì ÃœÌœÌ »—«Ì »Ì‰‘ ¬„«œÂ ‘œÂ «” ")
+	end
+end</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>1</DesignCodeLine>
-<DesignCodeCol>25</DesignCodeCol>
+<DesignCodeLine>11</DesignCodeLine>
+<DesignCodeCol>50</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -811,7 +879,7 @@ Input.SetText("ConvertPre-Number", "");</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeLine>44</DesignCodeLine>
 <DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
@@ -833,21 +901,34 @@ ForSend = ""
 Pre_Input("Input1", TextInput1)
 Page.StartTimer(1, 1);
 
--- Load All Functions
+-- Load All Functions: Pioneer
 --StatusDlg.Show(MB_ICONINFORMATION, false);
 --StatusDlg.SetTitle("Ê÷⁄Ì ");
 --StatusDlg.SetMessage("›—«ŒÊ«‰Ì ›—„Ê· Â«");
-AllFormuls = File.Find("AutoPlay\\Scripts\\Pioneer\\Formuls", "*.lua", false, false);
-if AllFormuls then
-	for Counter, FormuleAddress in pairs(AllFormuls) do
-		--StatusDlg.SetStatusText(Counter);
-		--StatusDlg.SetMeterPos(0);
-		FormuleName = String.SplitPath(FormuleAddress).Filename
-		--StatusDlg.SetMeterPos(50);
-		Binesh.Include("Formuls."..FormuleName, false);
-		--StatusDlg.SetMeterPos(100);
+AllPioneer = File.Find("AutoPlay\\Scripts\\Core\\Pioneer", "*.lua", false, false);
+if AllPioneer then
+	--StatusDlg.SetStatusText(0);
+	--StatusDlg.SetMeterPos(0);
+	Binesh.Pioneer = {}
+	for Counter, FormuleAddress in pairs(AllPioneer) do
+		FormuleName = String.SplitPath(FormuleAddress).Filename		
+		Binesh.Include("Pioneer."..FormuleName, false);
 	end
 end
+--StatusDlg.SetStatusText(50);
+--StatusDlg.SetMeterPos(50);
+
+-- Load All Functions: SuperSonic
+AllSuperSonic = File.Find("AutoPlay\\Scripts\\Core\\SuperSonic", "*.lua", false, false);
+if AllSuperSonic then
+	Binesh.SuperSonic = {}
+	for Counter, FormuleAddress in pairs(AllSuperSonic) do
+		FormuleName = String.SplitPath(FormuleAddress).Filename
+		Binesh.Include("SuperSonic."..FormuleName, false);
+	end
+end
+--StatusDlg.SetStatusText(100);
+--StatusDlg.SetMeterPos(100);
 --StatusDlg.Hide();
 
 --[[ For ConvertPre ]]--
@@ -926,8 +1007,8 @@ To_State	= false -- For Toggle
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>4</DesignCodeLine>
-<DesignCodeCol>16</DesignCodeCol>
+<DesignCodeLine>42</DesignCodeLine>
+<DesignCodeCol>19</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -1691,7 +1772,15 @@ end</Script>
 <Args/>
 <Script>InputQuiz = Input.GetText("Input1");
 if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
-	Quiz = InputQuiz.." " -- «Ì‰ »—«Ì ¬—«ÌÂ  ÊÌ ê·Ê»«· Â”  òÂ »« «”ÅÌ” «⁄÷« ¬—«ÌÂ „‘Œ’ ‘œÂ «‰œ çÊ‰ «Ì‰ ò·„«  «ê— œ— ¬Œ— Ã·„Â »Ì«‰ „⁄„Ê·« «”ÅÌ” ‰œ«—‰
+	if String.Find(InputQuiz, " ", #InputQuiz-1, false) ~= -1 then
+		Quiz = String.Left(InputQuiz, #InputQuiz-1);
+	else
+		Quiz = InputQuiz
+	end
+	Quiz = Quiz.." " -- «Ì‰ »—«Ì ¬—«ÌÂ  ÊÌ ê·Ê»«· Â”  òÂ »« «”ÅÌ” «⁄÷« ¬—«ÌÂ „‘Œ’ ‘œÂ «‰œ çÊ‰ «Ì‰ ò·„«  «ê— œ— ¬Œ— Ã·„Â »Ì«‰ „⁄„Ê·« «”ÅÌ” ‰œ«—‰
+	if String.Find(Quiz, ".", #Quiz-2, false) ~= -1 then
+		Quiz = String.Left(Quiz, #Quiz-2);
+	end
 	Quiz = Binesh.TrimString(Quiz);
 	
 	Quiz = String.Replace(Quiz, "”«‰ Ìê—«œ", "”·”ÌÊ”", false);
@@ -1785,7 +1874,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		end
 	end
 	
-	function SetJKg(Variable)
+	function SetJkg(Variable)
 		if Variable ~= nil then
 			L_F	= Variable
 			LV	= Variable
@@ -1801,7 +1890,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	end
 	
 	--[[ Convert special pre numbers: EN ]]--
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ConvertSpecificPreEN.lua") then
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\ConvertSpecificPreEN.lua") then
 		Binesh.Include("ConvertSpecificPreEN", false);
 		
 		Binesh.ConvertSpecificPreEN.Type1("m/s")
@@ -1809,10 +1898,10 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		Binesh.ConvertSpecificPreEN.Type1("mile/s")
 		Binesh.ConvertSpecificPreEN.Type1("mile/h")
 		Binesh.ConvertSpecificPreEN.Type1("N/m")
-		Binesh.ConvertSpecificPreEN.Type1("J/g", 10^3, "J/Kg")
+		Binesh.ConvertSpecificPreEN.Type1("J/g", 10^3, "J/kg")
 		Binesh.ConvertSpecificPreEN.Type1("g/mol")
 		Binesh.ConvertSpecificPreEN.Type1("N/C")
-		Binesh.ConvertSpecificPreEN.Type1("g/L", 10^-3, "Kg/L")
+		Binesh.ConvertSpecificPreEN.Type1("g/L", 10^-3, "kg/L")
 		Binesh.ConvertSpecificPreEN.Type1("rad/s")
 		
 		Binesh.ConvertSpecificPreEN.Type2("m^2")
@@ -1821,13 +1910,13 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		Binesh.ConvertSpecificPreEN.Type3("Ohm.m")
 		
 		Binesh.ConvertSpecificPreEN.Type4("m/s^2")
-		Binesh.ConvertSpecificPreEN.Type4("g/m^3", 10^-3, "Kg/m^3")
+		Binesh.ConvertSpecificPreEN.Type4("g/m^3", 10^3, "kg/m^3")
 		Binesh.ConvertSpecificPreEN.Type4("C/m^2")
 		
 		Binesh.ConvertSpecificPreEN.Type5("1/C")
 		Binesh.ConvertSpecificPreEN.Type5("1/K")
 		
-		--[[ J/KgC ]]--
+		--[[ J/kgC ]]--
 		for indexText = 1, ListBox.GetCount("Words") do
 			Text = ListBox.GetItemText("Words", indexText);
 			if String.Find(Text, "J/", 1, true) ~= -1 then
@@ -1859,7 +1948,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 								Number = tonumber(ListBox.GetItemText("Words", indexText-1));
 								if Number ~= nil then
 									Number = Number*(NumberPre1/(NumberPre2*NumberPre3))*10^-3
-									ListBox.SetItemText("Words", indexText, "J/Kg.C");
+									ListBox.SetItemText("Words", indexText, "J/kg.C");
 									ListBox.SetItemText("Words", indexText-1, Number);
 								end -- if: its Number
 							end -- if: Text
@@ -1965,10 +2054,10 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	--[[ -END- Convert special pre numbers: EN ]]--
 	
 	--[[ Convert special pre numbers: FA ]]--
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ConvertSpecificPreFA.lua") then
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\ConvertSpecificPreFA.lua") then
 		Binesh.Include("ConvertSpecificPreFA", false);
 		
-		--[[ J/KgC ]]--
+		--[[ J/kgC ]]--
 		-- Reset Variables
 		Find		= nil
 		indexPre1	= nil
@@ -2222,7 +2311,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		Binesh.ConvertSpecificPreFA.Type1("„«Ì· »— À«‰ÌÂ")
 		Binesh.ConvertSpecificPreFA.Type1("„«Ì· »— ”«⁄ ")
 		Binesh.ConvertSpecificPreFA.Type1("‰ÌÊ Ê‰ »— „ —")
-		Binesh.ConvertSpecificPreFA.Type1("éÊ· »— ê—„", 10^-3, "éÊ· »— òÌ·Ê ê—„")
+		Binesh.ConvertSpecificPreFA.Type1("éÊ· »— ê—„", 10^3, "éÊ· »— òÌ·Ê ê—„")
 		Binesh.ConvertSpecificPreFA.Type1("ê—„ »— „Ê·")
 		Binesh.ConvertSpecificPreFA.Type1("‰ÌÊ Ê‰ »— òÊ·‰")
 		Binesh.ConvertSpecificPreFA.Type1("ê—„ »— ·Ì —", 10^-3, "òÌ·Ê ê—„ »— ·Ì —")
@@ -2234,7 +2323,7 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		Binesh.ConvertSpecificPreFA.Type3("«Â„ œ— „ —")
 		
 		Binesh.ConvertSpecificPreFA.Type4("„ — »— „—»⁄ À«‰ÌÂ")
-		Binesh.ConvertSpecificPreFA.Type4("ê—„ »— „ — „ò⁄»", 10^-3, "òÌ·Ê ê—„ »— „ — „ò⁄»")
+		Binesh.ConvertSpecificPreFA.Type4("ê—„ »— „ — „ò⁄»", 10^3, "òÌ·Ê ê—„ »— „ — „ò⁄»")
 		Binesh.ConvertSpecificPreFA.Type4("òÊ·‰ »— „ — „—»⁄")
 		
 		Binesh.ConvertSpecificPreFA.Type5("»— ”·”ÌÊ”")
@@ -2243,19 +2332,18 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 	--[[ -END- Convert special pre numbers: FA ]]--
 	
 	-- Include Joins
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Joins.lua") then
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\Joins.lua") then
 		Binesh.Include("Joins", false);
 		Binesh.Joins()
 		
-		Binesh.Joins("„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰")
-		Binesh.Joins("«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ")
-		Binesh.Joins("„ﬁ«Ê„  ÊÌéÂ")
+		Binesh.Join("„ﬁ«Ê„  ÊÌéÂ «Ê·Ì‰")
+		Binesh.Join("«Ê·Ì‰ „ﬁ«Ê„  ÊÌéÂ")
+		Binesh.Join("„ﬁ«Ê„  ÊÌéÂ")
 	end
 	
 	isLens = false
-	
-	if ListBox.FindItem("Words", -1, LB_BYTEXT, "⁄ œ”Ì") ~= -1 then
-		ListBox.SetItemText("Words", ListBox.FindItem("Words", -1, LB_BYTEXT, "⁄ œ”Ì"), "⁄œ”Ì");
+	if ListBox.FindItem("Words", -1, LB_BYTEXT, "⁄œ”Ì") ~= -1 or ListBox.FindItem("Words", -1, LB_BYTEXT, "Lens") ~= -1 then
+		isLens = true
 	end
 	
 	for index = 1, ListBox.GetCount("Words") do
@@ -2268,10 +2356,6 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 			ListBox.SetItemText("Words", index, "Ohm");
 		end
 		
-		if String.Find(Text, "⁄œ”Ì", 1, false) ~= -1 then
-			isLens = true
-		end
-		
 		if Text == "„Ã«“Ì" then
 			ListBox.SetItemText("Words", index, "”«ÌÂ");
 		end
@@ -2281,20 +2365,26 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		end
 	end
 	
-	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\ClearData.lua") then
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\PreprationDelta.lua") then
+		Binesh.Include("PreprationDelta", false)
+		
+		Binesh.PreprationDelta("”—⁄ ", "V", "„ — »— À«‰ÌÂ", "m/s")
+	end
+	
+	if File.DoesExist(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\ClearData.lua") then
 		Binesh.Include("ClearData", false);
 		Binesh.ClearData()
 	end
 	
 	-- Include all tables
-	Tables = File.Find(_SourceFolder.."\\AutoPlay\\Scripts\\Pioneer\\Formuls\\Tables", "*.lua", false, false, nil, nil);
+	Tables = File.Find(_SourceFolder.."\\AutoPlay\\Scripts\\Core\\Tables", "*.lua", false, false, nil, nil);
 	if Tables ~= nil then
 		List = {}
 		List.Set = {}
 		List.Name = {}
 		List.Number = {}
 		for indexTables = 1, Table.Count(Tables) do
-			Binesh.Include("Formuls.Tables."..String.SplitPath(Tables[indexTables]).Filename, false)
+			Binesh.Include("Tables."..String.SplitPath(Tables[indexTables]).Filename, false)
 		end
 	end
 	
@@ -2302,6 +2392,9 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		Page.ClickObject("xButton2"); -- Genesis 1
 		Page.ClickObject("xButton3"); -- Genesis 2
 		Page.ClickObject("xButton4"); -- Genesis 3
+		if _V1_Speed ~= nil and _V2_Speed == nil and V_Speed ~= nil then
+			_V2_Speed = V_Speed
+		end
 		Page.ClickObject("xButton1"); -- Calculate &amp; Show
 	end
 	Web.Refresh("Web1");
@@ -2318,15 +2411,15 @@ if InputQuiz ~= "" and InputQuiz ~= "”Ê«· —« Ê«—œ ò‰Ìœ..." then
 		end
 	end
 else
-	Error("”Ê«· —« Ê«—œ ò‰Ìœ.")
+	Message("”Ê«· —« Ê«—œ ò‰Ìœ.", "Error")
 end</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>566</DesignCodeLine>
-<DesignCodeCol>80</DesignCodeCol>
+<DesignCodeLine>598</DesignCodeLine>
+<DesignCodeCol>58</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -2491,187 +2584,385 @@ end</Script>
 <Event>
 <Name>On Click</Name>
 <Args/>
-<Script>Binesh.F1();
-Binesh.F2();
-Binesh.F1_2EX();
-Binesh.F4_1();
-Binesh.F4_2();
-Binesh.F5();
-Binesh.F6();
-Binesh.F7();
-Binesh.F8_1();
-Binesh.F8_2();
-Binesh.F8_3();
-Binesh.F9();
-Binesh.F10_1();
-Binesh.F10_2();
-Binesh.F10_3();
-Binesh.F11();
-Binesh.F12_EX();
-Binesh.F12();
-Binesh.F13_1();
-Binesh.F13_2();
-Binesh.F16();
-Binesh.F17();
-Binesh.F18();
-Binesh.F20();
-Binesh.F21();
-Binesh.F22_1();
-Binesh.F22_2();
-Binesh.F24();
-Binesh.F32_1();
-Binesh.F32_2();
-Binesh.F32_3();
-Binesh.F33_1();
-Binesh.F33_2();
-Binesh.F34_1();
-Binesh.F34_2();
-Binesh.F34_3();
-Binesh.F35_1();
-Binesh.F35_2();
-Binesh.F36();
-Binesh.F37();
-Binesh.F38_1();
-Binesh.F38_2();
-Binesh.F38_3();
-Binesh.F39_1();
-Binesh.F39_2();
-Binesh.F40_1();
-Binesh.F40_2();
-Binesh.F41_1();
-Binesh.F41_2();
-Binesh.F43_1();
-Binesh.F43_2();
-Binesh.F43_EX();
-Binesh.F44();
-Binesh.F47_1();
-Binesh.F47_2();
-Binesh.F48();
-Binesh.F49();
-Binesh.F50();
-Binesh.F51();
-Binesh.F55();
-Binesh.F56();
-Binesh.F57();
-Binesh.F58();
-Binesh.F59();
-Binesh.F60();
-Binesh.F61();
-Binesh.F64_1();
-Binesh.F64_2();
-Binesh.F65_1();
-Binesh.F65_2();
-Binesh.F66_1();
-Binesh.F66_2();
-Binesh.F66_3();
-Binesh.F67_1();
-Binesh.F67_2();
-Binesh.F67_3();
-Binesh.F69_1();
-Binesh.F69_2();
-Binesh.F69_3();
-Binesh.F71_1();
-Binesh.F71_2();
-Binesh.F73();
-Binesh.F74();
-Binesh.F75_1();
-Binesh.F75_2();
-Binesh.F76_1();
-Binesh.F76_2();
-Binesh.F76_3();
-Binesh.F77_1_1();
-Binesh.F77_1_2();
-Binesh.F77_2_1();
-Binesh.F77_2_2();
-Binesh.F78_1_1();
-Binesh.F78_1_2();
-Binesh.F78_2_1();
-Binesh.F78_2_2();
-Binesh.F79_1_1();
-Binesh.F79_1_2();
-Binesh.F79_2_1();
-Binesh.F79_2_2();
-Binesh.F81();
-Binesh.F82_1();
-Binesh.F82_2();
-Binesh.F83_1();
-Binesh.F83_2();
-Binesh.F84();
-Binesh.F85();
-Binesh.F86();
-Binesh.F87();
-Binesh.F88();
-Binesh.F90();
-Binesh.F91_1();
-Binesh.F91_2();
-Binesh.F92_1();
-Binesh.F92_2();
-Binesh.F92_3();
-Binesh.F93_1_1();
-Binesh.F93_1_2();
-Binesh.F93_2_1();
-Binesh.F93_2_2();
-Binesh.F94_2_1();
-Binesh.F94_2_2();
-Binesh.F95();
-Binesh.F96();
-Binesh.F97_1();
-Binesh.F97_2();
-Binesh.F97_3();
-Binesh.F102();
-Binesh.F109_1();
-Binesh.F109_2();
-Binesh.F109_3();
-Binesh.F111();
-Binesh.F112_1();
-Binesh.F112_2();
-Binesh.F112_3();
-Binesh.F113_1();
-Binesh.F113_2();
-Binesh.F113_3();
-Binesh.F114_2();
-Binesh.F114_3();
-Binesh.F115_1();
-Binesh.F115_2();
-Binesh.F115_3();
-Binesh.F118_1();
-Binesh.F118_2();
-Binesh.F123();
-Binesh.F126();
-Binesh.F128();
-Binesh.F129();
-Binesh.F130();
-Binesh.F131();
-Binesh.F132();
-Binesh.F133();
-Binesh.F134();
-Binesh.F135_1();
-Binesh.F135_2();
-Binesh.F135_3();
-Binesh.F136_1();
-Binesh.F136_2();
-Binesh.F136_3();
-Binesh.F137();
-Binesh.F138_1();
-Binesh.F138_2();
-Binesh.F138_3();
-Binesh.F139();
-Binesh.F140();
-Binesh.F142_1();
-Binesh.F142_2();
-Binesh.F142_3();
-Binesh.F143();
-Binesh.F144();
-Binesh.F145();
-Binesh.F146();
-Binesh.F147();</Script>
+<Script>--[[ Pioneer ]]--
+Binesh.Pioneer.F1();
+Binesh.Pioneer.F2();
+Binesh.Pioneer.F1_2EX();
+Binesh.Pioneer.F4_1();
+Binesh.Pioneer.F4_2();
+Binesh.Pioneer.F5();
+Binesh.Pioneer.F6();
+Binesh.Pioneer.F7();
+Binesh.Pioneer.F8_1();
+Binesh.Pioneer.F8_2();
+Binesh.Pioneer.F8_3();
+Binesh.Pioneer.F9();
+Binesh.Pioneer.F10_1();
+Binesh.Pioneer.F10_2();
+Binesh.Pioneer.F10_3();
+Binesh.Pioneer.F11();
+Binesh.Pioneer.F12_EX();
+Binesh.Pioneer.F12();
+Binesh.Pioneer.F13_EX();
+Binesh.Pioneer.F13_1();
+Binesh.Pioneer.F13_2();
+Binesh.Pioneer.F16();
+Binesh.Pioneer.F17();
+Binesh.Pioneer.F18();
+Binesh.Pioneer.F19();
+Binesh.Pioneer.F19_EX();
+Binesh.Pioneer.F20();
+Binesh.Pioneer.F20_EX();
+Binesh.Pioneer.F21();
+Binesh.Pioneer.F22_EX();
+Binesh.Pioneer.F22_1();
+Binesh.Pioneer.F22_2();
+Binesh.Pioneer.F24();
+Binesh.Pioneer.F32_1();
+Binesh.Pioneer.F32_2();
+Binesh.Pioneer.F32_3();
+Binesh.Pioneer.F33_1();
+Binesh.Pioneer.F33_2();
+Binesh.Pioneer.F34_1();
+Binesh.Pioneer.F34_2();
+Binesh.Pioneer.F34_3();
+Binesh.Pioneer.F35_1();
+Binesh.Pioneer.F35_2();
+Binesh.Pioneer.F36();
+Binesh.Pioneer.F37();
+Binesh.Pioneer.F38_1();
+Binesh.Pioneer.F38_2();
+Binesh.Pioneer.F38_3();
+Binesh.Pioneer.F39_1();
+Binesh.Pioneer.F39_2();
+Binesh.Pioneer.F40_1();
+Binesh.Pioneer.F40_2();
+Binesh.Pioneer.F40_EX_1();
+Binesh.Pioneer.F40_EX_2();
+Binesh.Pioneer.F41_1();
+Binesh.Pioneer.F41_2();
+Binesh.Pioneer.F43_1();
+Binesh.Pioneer.F43_2();
+Binesh.Pioneer.F43_EX();
+Binesh.Pioneer.F44();
+Binesh.Pioneer.F47_1();
+Binesh.Pioneer.F47_2();
+Binesh.Pioneer.F48();
+Binesh.Pioneer.F49();
+Binesh.Pioneer.F50();
+Binesh.Pioneer.F51();
+Binesh.Pioneer.F56();
+Binesh.Pioneer.F57();
+Binesh.Pioneer.F58();
+Binesh.Pioneer.F59();
+Binesh.Pioneer.F60();
+Binesh.Pioneer.F61();
+Binesh.Pioneer.F64_1();
+Binesh.Pioneer.F64_2();
+Binesh.Pioneer.F65_1();
+Binesh.Pioneer.F65_2();
+Binesh.Pioneer.F66_1();
+Binesh.Pioneer.F66_2();
+Binesh.Pioneer.F66_3();
+Binesh.Pioneer.F67_1();
+Binesh.Pioneer.F67_2();
+Binesh.Pioneer.F67_3();
+Binesh.Pioneer.F69_1();
+Binesh.Pioneer.F69_2();
+Binesh.Pioneer.F69_3();
+Binesh.Pioneer.F71_1();
+Binesh.Pioneer.F71_2();
+Binesh.Pioneer.F73();
+Binesh.Pioneer.F74();
+Binesh.Pioneer.F75_1();
+Binesh.Pioneer.F75_2();
+Binesh.Pioneer.F76_1();
+Binesh.Pioneer.F76_2();
+Binesh.Pioneer.F76_3();
+Binesh.Pioneer.F77_1_1();
+Binesh.Pioneer.F77_1_2();
+Binesh.Pioneer.F77_2_1();
+Binesh.Pioneer.F77_2_2();
+Binesh.Pioneer.F77_EX_1();
+Binesh.Pioneer.F77_EX_2();
+Binesh.Pioneer.F77_EX_3();
+Binesh.Pioneer.F78_1_1();
+Binesh.Pioneer.F78_1_2();
+Binesh.Pioneer.F78_2_1();
+Binesh.Pioneer.F78_2_2();
+Binesh.Pioneer.F78_EX_1();
+Binesh.Pioneer.F78_EX_2();
+Binesh.Pioneer.F78_EX_3();
+Binesh.Pioneer.F79_1_1();
+Binesh.Pioneer.F79_1_2();
+Binesh.Pioneer.F79_2_1();
+Binesh.Pioneer.F79_2_2();
+Binesh.Pioneer.F79_EX_1();
+Binesh.Pioneer.F79_EX_2();
+Binesh.Pioneer.F79_EX_3();
+Binesh.Pioneer.F81();
+Binesh.Pioneer.F82_1();
+Binesh.Pioneer.F82_2();
+Binesh.Pioneer.F83_1();
+Binesh.Pioneer.F83_2();
+Binesh.Pioneer.F84();
+Binesh.Pioneer.F85();
+Binesh.Pioneer.F86();
+Binesh.Pioneer.F87();
+Binesh.Pioneer.F88();
+Binesh.Pioneer.F90();
+Binesh.Pioneer.F91_1();
+Binesh.Pioneer.F91_2();
+Binesh.Pioneer.F92_1();
+Binesh.Pioneer.F92_2();
+Binesh.Pioneer.F92_3();
+Binesh.Pioneer.F93_1_1();
+Binesh.Pioneer.F93_1_2();
+Binesh.Pioneer.F93_2_1();
+Binesh.Pioneer.F93_2_2();
+Binesh.Pioneer.F94_2_1();
+Binesh.Pioneer.F94_2_2();
+Binesh.Pioneer.F95();
+Binesh.Pioneer.F96();
+Binesh.Pioneer.F97_1();
+Binesh.Pioneer.F97_2();
+Binesh.Pioneer.F97_3();
+Binesh.Pioneer.F102();
+Binesh.Pioneer.F109_1();
+Binesh.Pioneer.F109_2();
+Binesh.Pioneer.F109_3();
+Binesh.Pioneer.F111();
+Binesh.Pioneer.F112_1();
+Binesh.Pioneer.F112_2();
+Binesh.Pioneer.F112_3();
+Binesh.Pioneer.F113_1();
+Binesh.Pioneer.F113_2();
+Binesh.Pioneer.F113_3();
+Binesh.Pioneer.F114_2();
+Binesh.Pioneer.F114_3();
+Binesh.Pioneer.F115_1();
+Binesh.Pioneer.F115_2();
+Binesh.Pioneer.F115_3();
+Binesh.Pioneer.F118_1();
+Binesh.Pioneer.F118_2();
+Binesh.Pioneer.F123();
+Binesh.Pioneer.F126();
+Binesh.Pioneer.F128();
+Binesh.Pioneer.F129();
+Binesh.Pioneer.F130();
+Binesh.Pioneer.F131();
+Binesh.Pioneer.F132();
+Binesh.Pioneer.F133();
+Binesh.Pioneer.F134();
+Binesh.Pioneer.F135_1();
+Binesh.Pioneer.F135_2();
+Binesh.Pioneer.F135_3();
+Binesh.Pioneer.F136_1();
+Binesh.Pioneer.F136_2();
+Binesh.Pioneer.F136_3();
+Binesh.Pioneer.F137();
+Binesh.Pioneer.F138_1();
+Binesh.Pioneer.F138_2();
+Binesh.Pioneer.F138_3();
+Binesh.Pioneer.F139();
+Binesh.Pioneer.F140();
+Binesh.Pioneer.F142_1();
+Binesh.Pioneer.F142_2();
+Binesh.Pioneer.F142_3();
+Binesh.Pioneer.F143();
+Binesh.Pioneer.F144();
+Binesh.Pioneer.F145();
+Binesh.Pioneer.F146();
+Binesh.Pioneer.F147();
+--[[ -END- Pioneer ]]--
+
+--[[ SuperSoinc ]]--
+Binesh.SuperSonic.F1();
+Binesh.SuperSonic.F2();
+Binesh.SuperSonic.F1_2EX();
+Binesh.SuperSonic.F4_1();
+Binesh.SuperSonic.F4_2();
+Binesh.SuperSonic.F5();
+Binesh.SuperSonic.F6();
+Binesh.SuperSonic.F7();
+Binesh.SuperSonic.F8_1();
+Binesh.SuperSonic.F8_2();
+Binesh.SuperSonic.F8_3();
+Binesh.SuperSonic.F9();
+Binesh.SuperSonic.F10_1();
+Binesh.SuperSonic.F10_2();
+Binesh.SuperSonic.F10_3();
+Binesh.SuperSonic.F11();
+Binesh.SuperSonic.F12_EX();
+Binesh.SuperSonic.F12();
+Binesh.SuperSonic.F13_1();
+Binesh.SuperSonic.F13_2();
+Binesh.SuperSonic.F16();
+Binesh.SuperSonic.F17();
+Binesh.SuperSonic.F18();
+Binesh.SuperSonic.F19();
+Binesh.SuperSonic.F19_EX();
+Binesh.SuperSonic.F20();
+Binesh.SuperSonic.F20_EX();
+Binesh.SuperSonic.F21();
+Binesh.SuperSonic.F22_1();
+Binesh.SuperSonic.F22_2();
+Binesh.SuperSonic.F24();
+Binesh.SuperSonic.F32_1();
+Binesh.SuperSonic.F32_2();
+Binesh.SuperSonic.F32_3();
+Binesh.SuperSonic.F33_1();
+Binesh.SuperSonic.F33_2();
+Binesh.SuperSonic.F34_1();
+Binesh.SuperSonic.F34_2();
+Binesh.SuperSonic.F34_3();
+Binesh.SuperSonic.F35_1();
+Binesh.SuperSonic.F35_2();
+Binesh.SuperSonic.F36();
+Binesh.SuperSonic.F37();
+Binesh.SuperSonic.F38_1();
+Binesh.SuperSonic.F38_2();
+Binesh.SuperSonic.F38_3();
+Binesh.SuperSonic.F39_1();
+Binesh.SuperSonic.F39_2();
+Binesh.SuperSonic.F40_1();
+Binesh.SuperSonic.F40_2();
+Binesh.SuperSonic.F40_EX_1();
+Binesh.SuperSonic.F40_EX_2();
+Binesh.SuperSonic.F41_1();
+Binesh.SuperSonic.F41_2();
+Binesh.SuperSonic.F43_1();
+Binesh.SuperSonic.F43_2();
+Binesh.SuperSonic.F43_EX();
+Binesh.SuperSonic.F44();
+Binesh.SuperSonic.F47_1();
+Binesh.SuperSonic.F47_2();
+Binesh.SuperSonic.F48();
+Binesh.SuperSonic.F49();
+Binesh.SuperSonic.F50();
+Binesh.SuperSonic.F51();
+Binesh.SuperSonic.F56();
+Binesh.SuperSonic.F57();
+Binesh.SuperSonic.F58();
+Binesh.SuperSonic.F59();
+Binesh.SuperSonic.F60();
+Binesh.SuperSonic.F61();
+Binesh.SuperSonic.F64_1();
+Binesh.SuperSonic.F64_2();
+Binesh.SuperSonic.F65_1();
+Binesh.SuperSonic.F65_2();
+Binesh.SuperSonic.F66_1();
+Binesh.SuperSonic.F66_2();
+Binesh.SuperSonic.F66_3();
+Binesh.SuperSonic.F67_1();
+Binesh.SuperSonic.F67_2();
+Binesh.SuperSonic.F67_3();
+Binesh.SuperSonic.F69_1();
+Binesh.SuperSonic.F69_2();
+Binesh.SuperSonic.F69_3();
+Binesh.SuperSonic.F71_1();
+Binesh.SuperSonic.F71_2();
+Binesh.SuperSonic.F73();
+Binesh.SuperSonic.F74();
+Binesh.SuperSonic.F75_1();
+Binesh.SuperSonic.F75_2();
+Binesh.SuperSonic.F76_1();
+Binesh.SuperSonic.F76_2();
+Binesh.SuperSonic.F76_3();
+Binesh.SuperSonic.F77_1_1();
+Binesh.SuperSonic.F77_1_2();
+Binesh.SuperSonic.F77_2_1();
+Binesh.SuperSonic.F77_2_2();
+Binesh.SuperSonic.F78_1_1();
+Binesh.SuperSonic.F78_1_2();
+Binesh.SuperSonic.F78_2_1();
+Binesh.SuperSonic.F78_2_2();
+Binesh.SuperSonic.F79_1_1();
+Binesh.SuperSonic.F79_1_2();
+Binesh.SuperSonic.F79_2_1();
+Binesh.SuperSonic.F79_2_2();
+Binesh.SuperSonic.F81();
+Binesh.SuperSonic.F82_1();
+Binesh.SuperSonic.F82_2();
+Binesh.SuperSonic.F83_1();
+Binesh.SuperSonic.F83_2();
+Binesh.SuperSonic.F84();
+Binesh.SuperSonic.F85();
+Binesh.SuperSonic.F86();
+Binesh.SuperSonic.F87();
+Binesh.SuperSonic.F88();
+Binesh.SuperSonic.F90();
+Binesh.SuperSonic.F91_1();
+Binesh.SuperSonic.F91_2();
+Binesh.SuperSonic.F92_1();
+Binesh.SuperSonic.F92_2();
+Binesh.SuperSonic.F92_3();
+Binesh.SuperSonic.F93_1_1();
+Binesh.SuperSonic.F93_1_2();
+Binesh.SuperSonic.F93_2_1();
+Binesh.SuperSonic.F93_2_2();
+Binesh.SuperSonic.F94_2_1();
+Binesh.SuperSonic.F94_2_2();
+Binesh.SuperSonic.F95();
+Binesh.SuperSonic.F96();
+Binesh.SuperSonic.F97_1();
+Binesh.SuperSonic.F97_2();
+Binesh.SuperSonic.F97_3();
+Binesh.SuperSonic.F102();
+Binesh.SuperSonic.F109_1();
+Binesh.SuperSonic.F109_2();
+Binesh.SuperSonic.F109_3();
+Binesh.SuperSonic.F111();
+Binesh.SuperSonic.F112_1();
+Binesh.SuperSonic.F112_2();
+Binesh.SuperSonic.F112_3();
+Binesh.SuperSonic.F113_1();
+Binesh.SuperSonic.F113_2();
+Binesh.SuperSonic.F113_3();
+Binesh.SuperSonic.F114_2();
+Binesh.SuperSonic.F114_3();
+Binesh.SuperSonic.F115_1();
+Binesh.SuperSonic.F115_2();
+Binesh.SuperSonic.F115_3();
+Binesh.SuperSonic.F118_1();
+Binesh.SuperSonic.F118_2();
+Binesh.SuperSonic.F123();
+Binesh.SuperSonic.F126();
+Binesh.SuperSonic.F128();
+Binesh.SuperSonic.F129();
+Binesh.SuperSonic.F130();
+Binesh.SuperSonic.F131();
+Binesh.SuperSonic.F132();
+Binesh.SuperSonic.F133();
+Binesh.SuperSonic.F134();
+Binesh.SuperSonic.F135_1();
+Binesh.SuperSonic.F135_2();
+Binesh.SuperSonic.F135_3();
+Binesh.SuperSonic.F136_1();
+Binesh.SuperSonic.F136_2();
+Binesh.SuperSonic.F136_3();
+Binesh.SuperSonic.F137();
+Binesh.SuperSonic.F138_1();
+Binesh.SuperSonic.F138_2();
+Binesh.SuperSonic.F138_3();
+Binesh.SuperSonic.F139();
+Binesh.SuperSonic.F140();
+Binesh.SuperSonic.F142_1();
+Binesh.SuperSonic.F142_2();
+Binesh.SuperSonic.F142_3();
+Binesh.SuperSonic.F143();
+Binesh.SuperSonic.F144();
+Binesh.SuperSonic.F145();
+Binesh.SuperSonic.F146();
+Binesh.SuperSonic.F147();
+--[[ -END- SuperSoinc ]]--</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>22</DesignCodeLine>
-<DesignCodeCol>13</DesignCodeCol>
+<DesignCodeLine>371</DesignCodeLine>
+<DesignCodeCol>11</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -2841,7 +3132,7 @@ if K == nil then
 	_SetJ(K)
 end
 if m == nil then
-	m = Binesh.Genesis1("Ã—„", "m", "òÌ·Ê", "K", 10^3, "g", "ê—„");
+	m = Binesh.Genesis1("Ã—„", "m", "òÌ·Ê", "k", 10^3, "g", "ê—„");
 	if m == nil then
 		m_Ton = Binesh.Genesis1("Ã—„", "m", "", "", 1, "Ton", " ‰");
 		if m_Ton == nil then
@@ -2882,7 +3173,7 @@ if Q == nil then
 	_SetJ(Q)
 end
 if c == nil then
-	c = Binesh.Genesis1("Ÿ—›Ì  ê—„«", "c", "", "", 1, "J/Kg.C", "éÊ· »— òÌ·Ê ê—„ ”·”ÌÊ”");
+	c = Binesh.Genesis1("Ÿ—›Ì  ê—„«", "c", "", "", 1, "J/kg.C", "éÊ· »— òÌ·Ê ê—„ ”·”ÌÊ”");
 end
 
 -- 5
@@ -2946,8 +3237,14 @@ end
 if q_Glass == nil then
 	q_Glass = Binesh.Genesis1("›«’·Â  ’ÊÌ—", "q", "", "", 1, "m", "„ —");
 	if q_Glass ~= nil then
-		if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 then
-			q_Glass = -q_Glass
+		if isLens == false then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 and q_Glass &gt; 0 then
+				q_Glass = -q_Glass
+			end
+		else
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 and q_Glass &gt; 0 then
+				q_Glass = -q_Glass
+			end
 		end
 	end
 end
@@ -2957,35 +3254,24 @@ if f == nil then
 	f = Binesh.Genesis1("›«’·Â ò«‰Ê‰Ì", "f", "", "", 1, "m", "„ —");
 	if f ~= nil then
 		if isLens == false then
-			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 and f &gt; 0 then
 				f = -f
 			end
 		else
-			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 and f &gt; 0 then
 				f = -f
 			end
 		end
 	end
 end
-if R_Radius == nil then
-	R_Radius = Binesh.Genesis1("‘⁄«⁄", "R", "", "", 1, "m", "„ —");
-	if R_Radius == nil then
-		R_Radius = Binesh.Genesis1("‘⁄«⁄", "r", "", "", 1, "m", "„ —");
-		if R_Radius ~= nil then
-			r = R_Radius 
-		end
-	end
-end
-R_Radius = ABS(R_Radius)
-r = ABS(r)
 
 -- 13
 if ApBp == nil then
-	ApBp = Binesh.Genesis1(" ’ÊÌ— ÿÊ·", "A`B`", "", "", 1, "m", "„ —");
+	ApBp = Binesh.Genesis1("ÿÊ·  ’ÊÌ—", "A`B`", "", "", 1, "m", "„ —");
 end
 ApBp = ABS(ApBp)
 if AB == nil then
-	AB = Binesh.Genesis1("Ã”„ ÿÊ·", "AB", "", "", 1, "m", "„ —");
+	AB = Binesh.Genesis1("ÿÊ· Ã”„", "AB", "", "", 1, "m", "„ —");
 end
 AB = ABS(AB)
 
@@ -3023,9 +3309,8 @@ end
 
 -- 24
 if D == nil then
-	D = Binesh.Genesis1(" Ê«‰", "D", "", "", 1, "diopter", "œÌÊÅ —");
+	D = Binesh.Genesis1(" Ê«‰", "D", "", "", 1, "d", "œÌÊÅ —");
 end
-D = ABS(D)
 
 -- 32
 if VBar_Speed == nil and VBar_Speed_mh == nil and VBar_Speed_miles == nil and VBar_Speed_mileh == nil then
@@ -3107,9 +3392,9 @@ if d == nil then
 	if d ~= nil then
 		r = d
 		x0, _Deltax = d, d
-		if p_Glass ~= nil and q_Glass == nil then
+		if p_Glass ~= nil then
 			q_Glass = d
-		elseif p_Glass == nil and q_Glass ~= nil then
+		elseif p_Glass == nil  then
 			p_Glass = d
 		end
 	end
@@ -3164,9 +3449,9 @@ end
 V = ABS(V)
 VL = ABS(VL)
 if Ru == nil then
-	Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »— „ — „ò⁄»");
+	Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "kg/m^3", "òÌ·Ê ê—„ »— „ — „ò⁄»");
 	if Ru == nil then
-		Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »— ·Ì —");
+		Ru = Binesh.Genesis1("çê«·Ì", "Ru", "", "", 1, "kg/L", "òÌ·Ê ê—„ »— ·Ì —");
 	end
 end
 
@@ -3234,17 +3519,17 @@ A2 = ABS(A2)
 
 -- 64
 if L_F == nil then
-	L_F = Binesh.Genesis1("–Ê»", "LF", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+	L_F = Binesh.Genesis1("–Ê»", "LF", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	if L_F == nil then
-		L_F = Binesh.Genesis1("«‰Ã„«œ", "LF", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+		L_F = Binesh.Genesis1("«‰Ã„«œ", "LF", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	end
 end
 
 -- 65
 if LV == nil then
-	LV = Binesh.Genesis1(" »ŒÌ—", "LV", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+	LV = Binesh.Genesis1(" »ŒÌ—", "LV", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	if LV == nil then
-		LV = Binesh.Genesis1("„Ì⁄«‰", "LV", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+		LV = Binesh.Genesis1("„Ì⁄«‰", "LV", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	end
 end
 
@@ -3493,9 +3778,9 @@ I2 = ABS(I2)
 -- 126
 if Epsilon == nil then
 	Epsilon = Binesh.Genesis1("‰Ì—Ê „Õ—òÂ", "Epsilon", "", "", 1, "V", "Ê· ");
-end
-if Epsilon == nil and V_Electric ~= nil then
-	Epsilon = V_Electric
+	if Epsilon == nil and V_Electric ~= nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") == -1 then
+		Epsilon = V_Electric
+	end
 end
 if r_Resistor == nil then
 	if R == nil then
@@ -3639,6 +3924,12 @@ end
 if V_Electric ~= nil then
 	V1_Electric = V_Electric 
 end
+
+-- 12
+if R_Radius == nil then
+	R_Radius = Binesh.Genesis1("‘⁄«⁄", "R", "", "", 1, "m", "„ —");
+end
+R_Radius = ABS(R_Radius)
 
 -- Deltas:
 -- 4
@@ -4078,10 +4369,10 @@ if n_Glass == nil then
 end
 
 -- 20
-if C == nil and C_Radian == nil then
-	C = Binesh.Genesis1("“«ÊÌÂ Õœ", "C", "", "", 1, "", "œ—ÃÂ");	
-	if C == nil then
-		C_Radian = Binesh.Genesis1("“«ÊÌÂ Õœ", "C", "", "", 1, "", "—«œÌ«‰");
+if ic == nil and C_Radian == nil then
+	ic = Binesh.Genesis1("“«ÊÌÂ Õœ", "ic", "", "", 1, "", "œ—ÃÂ");	
+	if ic == nil then
+		ic_Radian = Binesh.Genesis1("“«ÊÌÂ Õœ", "ic", "", "", 1, "", "—«œÌ«‰");
 	end
 end
 
@@ -4173,8 +4464,8 @@ N2 = ABS(N2)</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>216</DesignCodeLine>
-<DesignCodeCol>28</DesignCodeCol>
+<DesignCodeLine>1050</DesignCodeLine>
+<DesignCodeCol>3</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -4333,7 +4624,7 @@ if K == nil then
 	_SetJ(K)
 end
 if m == nil then
-	m = Binesh.Genesis2("Ã—„", "m", "òÌ·Ê", "K", 10^3, "g", "ê—„");
+	m = Binesh.Genesis2("Ã—„", "m", "òÌ·Ê", "k", 10^3, "g", "ê—„");
 	if m == nil then
 		m_Ton = Binesh.Genesis2("Ã—„", "m", "", "", 1, "Ton", " ‰");
 		if m_Ton == nil then
@@ -4371,7 +4662,7 @@ if Q == nil then
 	_SetJ(Q)
 end
 if c == nil then
-	c = Binesh.Genesis2("Ÿ—›Ì  ê—„«", "c", "", "", 1, "J/Kg.C", "éÊ· »— òÌ·Ê ê—„ ”·”ÌÊ”");
+	c = Binesh.Genesis2("Ÿ—›Ì  ê—„«", "c", "", "", 1, "J/kg.C", "éÊ· »— òÌ·Ê ê—„ ”·”ÌÊ”");
 end
 
 -- 5
@@ -4427,8 +4718,14 @@ end
 if q_Glass == nil then
 	q_Glass = Binesh.Genesis2("›«’·Â  ’ÊÌ—", "q", "", "", 1, "m", "„ —");
 	if q_Glass ~= nil then
-		if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 then
-			q_Glass = -q_Glass
+		if isLens == false then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 and q_Glass &gt; 0 then
+				q_Glass = -q_Glass
+			end
+		else
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 and q_Glass &gt; 0 then
+				q_Glass = -q_Glass
+			end
 		end
 	end
 end
@@ -4438,11 +4735,11 @@ if f == nil then
 	f = Binesh.Genesis2("›«’·Â ò«‰Ê‰Ì", "f", "", "", 1, "m", "„ —");
 	if f ~= nil then
 		if isLens == false then
-			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 and f &gt; 0 then
 				f = -f
 			end
 		else
-			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 and f &gt; 0 then
 				f = -f
 			end
 		end
@@ -4450,20 +4747,14 @@ if f == nil then
 end
 if R_Radius == nil then
 	R_Radius = Binesh.Genesis2("‘⁄«⁄", "R", "", "", 1, "m", "„ —");
-	if R_Radius == nil then
-		R_Radius = Binesh.Genesis2("‘⁄«⁄", "r", "", "", 1, "m", "„ —");
-		if R_Radius ~= nil then
-			r = R_Radius 
-		end
-	end
 end
 
 -- 13
 if ApBp == nil then
-	ApBp = Binesh.Genesis2(" ’ÊÌ— ÿÊ·", "A`B`", "", "", 1, "m", "„ —");
+	ApBp = Binesh.Genesis2("ÿÊ·  ’ÊÌ—", "A`B`", "", "", 1, "m", "„ —");
 end
 if AB == nil then
-	AB = Binesh.Genesis2("Ã”„ ÿÊ·", "AB", "", "", 1, "m", "„ —");
+	AB = Binesh.Genesis2("ÿÊ· Ã”„", "AB", "", "", 1, "m", "„ —");
 end
 
 -- 18
@@ -4500,7 +4791,7 @@ end
 
 -- 24
 if D == nil then
-	D = Binesh.Genesis2(" Ê«‰", "D", "", "", 1, "diopter", "œÌÊÅ —");
+	D = Binesh.Genesis2(" Ê«‰", "D", "", "", 1, "d", "œÌÊÅ —");
 end
 
 -- 32
@@ -4583,9 +4874,9 @@ if d == nil then
 	if d ~= nil then
 		r = d
 		x0, _Deltax = d, d
-		if p_Glass ~= nil and q_Glass == nil then
+		if p_Glass ~= nil then
 			q_Glass = d
-		elseif p_Glass == nil and q_Glass ~= nil then
+		elseif p_Glass == nil then
 			p_Glass = d
 		end
 	end
@@ -4636,9 +4927,9 @@ if V == nil and VL == nil then
 	end
 end
 if Ru == nil then
-	Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/m^3", "òÌ·Ê ê—„ »— „ — „ò⁄»");
+	Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "kg/m^3", "òÌ·Ê ê—„ »— „ — „ò⁄»");
 	if Ru == nil then
-		Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "Kg/L", "òÌ·Ê ê—„ »— ·Ì —");
+		Ru = Binesh.Genesis2("çê«·Ì", "Ru", "", "", 1, "kg/L", "òÌ·Ê ê—„ »— ·Ì —");
 	end
 end
 
@@ -4703,17 +4994,17 @@ end
 
 -- 64
 if L_F == nil then
-	L_F = Binesh.Genesis2("–Ê»", "LF", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+	L_F = Binesh.Genesis2("–Ê»", "LF", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	if L_F == nil then
-		L_F = Binesh.Genesis2("«‰Ã„«œ", "LF", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+		L_F = Binesh.Genesis2("«‰Ã„«œ", "LF", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	end
 end
 
 -- 65
 if LV == nil then
-	LV = Binesh.Genesis2(" »ŒÌ—", "LV", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+	LV = Binesh.Genesis2(" »ŒÌ—", "LV", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	if LV == nil then
-		LV = Binesh.Genesis2("„Ì⁄«‰", "LV", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+		LV = Binesh.Genesis2("„Ì⁄«‰", "LV", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	end
 end
 
@@ -4953,9 +5244,9 @@ end
 -- 126
 if Epsilon == nil then
 	Epsilon = Binesh.Genesis2("‰Ì—Ê „Õ—òÂ", "Epsilon", "", "", 1, "V", "Ê· ");
-end
-if Epsilon == nil and V_Electric ~= nil then
-	Epsilon = V_Electric
+	if Epsilon == nil and V_Electric ~= nil and ListBox.FindItem("Words", -1, LB_BYTEXT, "‰Ì—Ê „Õ—òÂ") == -1 then
+		Epsilon = V_Electric
+	end
 end
 if r_Resistor == nil then
 	if R == nil then
@@ -5608,8 +5899,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>190</DesignCodeLine>
-<DesignCodeCol>28</DesignCodeCol>
+<DesignCodeLine>44</DesignCodeLine>
+<DesignCodeCol>43</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -5777,7 +6068,7 @@ if K == nil then
 	SetJ(K)
 end
 if m == nil then
-	m = Binesh.Genesis3("Ã—„", "m", "òÌ·Ê", "K", 10^3, "g", "ê—„");
+	m = Binesh.Genesis3("Ã—„", "m", "òÌ·Ê", "k", 10^3, "g", "ê—„");
 	if m == nil then
 		m_Ton = Binesh.Genesis3("Ã—„", "m", "", "", 1, "Ton", " ‰");
 		if m_Ton == nil then
@@ -5817,7 +6108,7 @@ if Q == nil then
 	SetJ(Q)
 end
 if c == nil then
-	c = Binesh.Genesis3("Ÿ—›Ì  ê—„«", "c", "", "", 1, "J/KgC", "éÊ· »— òÌ·Ê ê—„ ”·”ÌÊ”");
+	c = Binesh.Genesis3("Ÿ—›Ì  ê—„«", "c", "", "", 1, "J/kgC", "éÊ· »— òÌ·Ê ê—„ ”·”ÌÊ”");
 end
 
 -- 5
@@ -5880,11 +6171,11 @@ if q_Glass == nil then
 	q_Glass = Binesh.Genesis3("›«’·Â  ’ÊÌ—", "q", "", "", 1, "m", "„ —");
 	if q_Glass ~= nil then
 		if isLens == false then
-			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 and q_Glass &gt; 0 then
 				q_Glass = -q_Glass
 			end
 		else
-			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 and q_Glass &gt; 0 then
 				q_Glass = -q_Glass
 			end
 		end
@@ -5897,11 +6188,11 @@ if f == nil then
 	Setm(f)
 	if f ~= nil then
 		if isLens == false then
-			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„Õœ»") ~= -1 and f &gt; 0 then
 				f = -f
 			end
 		else
-			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 then
+			if ListBox.FindItem("Words", -1, LB_BYTEXT, "„ﬁ⁄—") ~= -1 and f &gt; 0 then
 				f = -f
 			end
 		end
@@ -5909,12 +6200,6 @@ if f == nil then
 end
 if R_Radius == nil then
 	R_Radius = Binesh.Genesis3("‘⁄«⁄", "R", "", "", 1, "m", "„ —");
-	if R_Radius == nil then
-		R_Radius = Binesh.Genesis3("‘⁄«⁄", "r", "", "", 1, "m", "„ —");
-		if R_Radius ~= nil then
-			r = R_Radius
-		end
-	end
 	Setm(R_Radius)
 end
 
@@ -5961,7 +6246,7 @@ end
 
 -- 24
 if D == nil then
-	D = Binesh.Genesis3(" Ê«‰", "D", "", "", 1, "diopter", "œÌÊÅ —");
+	D = Binesh.Genesis3(" Ê«‰", "D", "", "", 1, "d", "œÌÊÅ —");
 end
 
 -- 32
@@ -6172,20 +6457,20 @@ end
 
 -- 64
 if L_F == nil then
-	L_F = Binesh.Genesis3("–Ê»", "LF", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+	L_F = Binesh.Genesis3("–Ê»", "LF", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	if L_F == nil then
-		L_F = Binesh.Genesis3("«‰Ã„«œ", "LF", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+		L_F = Binesh.Genesis3("«‰Ã„«œ", "LF", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	end
-	SetJKg(L_F)
+	SetJkg(L_F)
 end
 
 -- 65
 if LV == nil then
-	LV = Binesh.Genesis3(" »ŒÌ—", "LV", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+	LV = Binesh.Genesis3(" »ŒÌ—", "LV", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	if LV == nil then
-		LV = Binesh.Genesis3("„Ì⁄«‰", "LV", "", "", 1, "J/Kg", "éÊ· »— òÌ·Ê ê—„");
+		LV = Binesh.Genesis3("„Ì⁄«‰", "LV", "", "", 1, "J/kg", "éÊ· »— òÌ·Ê ê—„");
 	end
-	SetJKg(LV)
+	SetJkg(LV)
 end
 
 -- 66
@@ -6428,9 +6713,6 @@ end
 if Epsilon == nil then
 	Epsilon = Binesh.Genesis3("‰Ì—Ê „Õ—òÂ", "Epsilon", "", "", 1, "V", "Ê· ");
 	SetVolt(Epsilon)
-end
-if Epsilon == nil and V_Electric ~= nil then
-	Epsilon = V_Electric
 end
 if r_Resistor == nil then
 	if R == nil then
@@ -7069,8 +7351,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>216</DesignCodeLine>
-<DesignCodeCol>28</DesignCodeCol>
+<DesignCodeLine>53</DesignCodeLine>
+<DesignCodeCol>43</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -7415,14 +7697,15 @@ if not (e_Key &gt;= 48 and e_Key &lt;= 57) and not (e_Key &gt;= 96 and e_Key &lt
 		end
 	end
 end
-Page.ClickObject("ConvertPre-Action");</Script>
+Page.ClickObject("ConvertPre-Action");
+Page.SetFocus(this);</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>92</DesignCodeLine>
-<DesignCodeCol>3</DesignCodeCol>
+<DesignCodeLine>94</DesignCodeLine>
+<DesignCodeCol>20</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -8758,7 +9041,7 @@ Set = "To"</Script>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -8834,7 +9117,7 @@ Set = "To"</Script>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>1</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -8946,7 +9229,7 @@ Set = "To"</Script>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -9022,7 +9305,7 @@ Set = "To"</Script>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>1</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -9593,7 +9876,7 @@ Set = "To"</Script>
 <Top>140</Top>
 <Bottom>167</Bottom>
 <Left>919</Left>
-<Right>934</Right>
+<Right>933</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -9657,7 +9940,7 @@ Set = "To"</Script>
 </Event>
 <Actions/>
 <Text>
-<Body>K</Body>
+<Body>k</Body>
 <NormalColor>16777215</NormalColor>
 <HighlightColor>16777215</HighlightColor>
 <MouseDownColor>16777215</MouseDownColor>
@@ -9683,7 +9966,7 @@ Set = "To"</Script>
 <Top>140</Top>
 <Bottom>167</Bottom>
 <Left>919</Left>
-<Right>934</Right>
+<Right>933</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -9886,7 +10169,7 @@ Set = "To"</Script>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -9962,7 +10245,7 @@ Set = "To"</Script>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>1</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -10074,7 +10357,7 @@ Set = "To"</Script>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -10150,7 +10433,7 @@ Set = "To"</Script>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>1</MaintainAspectRatio>
-<Pin>0</Pin>
+<Pin>1</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
@@ -10339,7 +10622,7 @@ Set = "To"</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -10451,7 +10734,7 @@ Set = "To"</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -10581,6 +10864,20 @@ Spin.SetPos("History - Spin", 20);</Script>
 	-- Save Skin
 	Settings.SKIN.Name = Paragraph.GetText("Skin Preview - Title");
 	INIFile.SetValue("Settings.bin", "Skin", "Name", Settings.SKIN.Name);
+		-- Save in registry for update program
+		if System.Is64BitOS() then
+			Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "SkinName", Settings.SKIN.Name, REG_SZ, Wow64.KEY64);
+			Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MainColor", Settings.SKIN.MainColor, REG_SZ, Wow64.KEY64);
+			Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "SecondColor", Settings.SKIN.SecondColor, REG_SZ, Wow64.KEY64);
+			Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MenuMainColor", Settings.SKIN.MenuMainColor, REG_SZ, Wow64.KEY64);
+			Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MenuSecondColor", Settings.SKIN.MenuSecondColor, REG_SZ, Wow64.KEY64);
+		else
+			Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "SkinName", Settings.SKIN.Name, REG_SZ);
+			Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MainColor", Settings.SKIN.MainColor, REG_SZ);
+			Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "SecondColor", Settings.SKIN.SecondColor, REG_SZ);
+			Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MenuMainColor", Settings.SKIN.MenuMainColor, REG_SZ);
+			Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "MenuSecondColor", Settings.SKIN.MenuSecondColor, REG_SZ);
+		end
 	
 	-- Save Round Number
 	Settings.Round = CheckBox.GetChecked("Round");
@@ -10594,8 +10891,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>10</DesignCodeLine>
-<DesignCodeCol>30</DesignCodeCol>
+<DesignCodeLine>21</DesignCodeLine>
+<DesignCodeCol>78</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -11617,7 +11914,7 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -11736,12 +12033,12 @@ ShapeEx.SetFillColor("BMenu - Item2 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>1</Pin>
+<Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>120</Top>
-<Bottom>333</Bottom>
+<Bottom>345</Bottom>
 <Left>14</Left>
 <Right>786</Right>
 </Coordinates>
@@ -11848,7 +12145,7 @@ end</Script>
 <Top>66</Top>
 <Bottom>98</Bottom>
 <Left>653</Left>
-<Right>791</Right>
+<Right>785</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -11918,7 +12215,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-17</Height>
 <Weight>400</Weight>
@@ -11938,7 +12235,7 @@ end</Script>
 <Top>66</Top>
 <Bottom>98</Bottom>
 <Left>653</Left>
-<Right>791</Right>
+<Right>785</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -11960,7 +12257,7 @@ end</Script>
 <Top>92</Top>
 <Bottom>121</Bottom>
 <Left>568</Left>
-<Right>633</Right>
+<Right>628</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -12030,7 +12327,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -12050,7 +12347,7 @@ end</Script>
 <Top>92</Top>
 <Bottom>121</Bottom>
 <Left>568</Left>
-<Right>633</Right>
+<Right>628</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -12072,7 +12369,7 @@ end</Script>
 <Top>92</Top>
 <Bottom>121</Bottom>
 <Left>429</Left>
-<Right>493</Right>
+<Right>491</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -12142,7 +12439,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -12162,7 +12459,7 @@ end</Script>
 <Top>92</Top>
 <Bottom>121</Bottom>
 <Left>429</Left>
-<Right>493</Right>
+<Right>491</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -12184,7 +12481,7 @@ end</Script>
 <Top>92</Top>
 <Bottom>121</Bottom>
 <Left>278</Left>
-<Right>368</Right>
+<Right>359</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -12254,7 +12551,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -12274,7 +12571,7 @@ end</Script>
 <Top>92</Top>
 <Bottom>121</Bottom>
 <Left>278</Left>
-<Right>368</Right>
+<Right>359</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -12296,7 +12593,7 @@ end</Script>
 <Top>92</Top>
 <Bottom>121</Bottom>
 <Left>141</Left>
-<Right>230</Right>
+<Right>224</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -12366,7 +12663,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -12386,7 +12683,7 @@ end</Script>
 <Top>92</Top>
 <Bottom>121</Bottom>
 <Left>141</Left>
-<Right>230</Right>
+<Right>224</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -12401,12 +12698,12 @@ end</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>1</Pin>
+<Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>342</Top>
-<Bottom>432</Bottom>
+<Top>354</Top>
+<Bottom>444</Bottom>
 <Left>208</Left>
 <Right>589</Right>
 </Coordinates>
@@ -12477,12 +12774,12 @@ end</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>1</MaintainAspectRatio>
-<Pin>1</Pin>
+<Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>344</Top>
-<Bottom>411</Bottom>
+<Top>356</Top>
+<Bottom>423</Bottom>
 <Left>210</Left>
 <Right>586</Right>
 </Coordinates>
@@ -12571,12 +12868,12 @@ end</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>1</Pin>
+<Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>406</Top>
-<Bottom>436</Bottom>
+<Top>418</Top>
+<Bottom>448</Bottom>
 <Left>208</Left>
 <Right>589</Right>
 </Coordinates>
@@ -12683,12 +12980,12 @@ end</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>1</Pin>
+<Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>454</Top>
-<Bottom>474</Bottom>
+<Top>476</Top>
+<Bottom>496</Bottom>
 <Left>14</Left>
 <Right>789</Right>
 </Coordinates>
@@ -12770,7 +13067,7 @@ end</Script>
 </Options>
 <Font>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -12882,14 +13179,14 @@ end</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>1</MaintainAspectRatio>
-<Pin>1</Pin>
+<Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>492</Top>
-<Bottom>521</Bottom>
+<Top>507</Top>
+<Bottom>536</Bottom>
 <Left>518</Left>
-<Right>790</Right>
+<Right>777</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -12959,7 +13256,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -12976,10 +13273,10 @@ end</Script>
 <MouseClickSndMode>0</MouseClickSndMode>
 <MouseClickSound/>
 <OriginalRect>
-<Top>492</Top>
-<Bottom>521</Bottom>
+<Top>507</Top>
+<Bottom>536</Bottom>
 <Left>518</Left>
-<Right>790</Right>
+<Right>777</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -12994,12 +13291,12 @@ end</Script>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>1</Pin>
+<Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>4</AutoResize>
 <Coordinates>
-<Top>489</Top>
-<Bottom>518</Bottom>
+<Top>504</Top>
+<Bottom>533</Bottom>
 <Left>484</Left>
 <Right>517</Right>
 </Coordinates>
@@ -13070,12 +13367,12 @@ end</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>1</Pin>
+<Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>493</Top>
-<Bottom>516</Bottom>
+<Top>508</Top>
+<Bottom>531</Bottom>
 <Left>484</Left>
 <Right>513</Right>
 </Coordinates>
@@ -13166,12 +13463,12 @@ end</Script>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>1</Pin>
+<Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>490</Top>
-<Bottom>517</Bottom>
+<Top>505</Top>
+<Bottom>532</Bottom>
 <Left>463</Left>
 <Right>483</Right>
 </Coordinates>
@@ -13232,7 +13529,12 @@ INIFile.SetValue("Settings.bin", "History", "HistoryCount", e_Pos);</Script>
 <MouseClickSndMode>0</MouseClickSndMode>
 <MouseClickSound/>
 </Object>
-<HGuidelines/>
+<HGuidelines>
+<Guideline>
+<pt>785</pt>
+<locked>0</locked>
+</Guideline>
+</HGuidelines>
 <VGuidelines/>
 </Page>
 <Page>
@@ -13952,23 +14254,31 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 </Event>
 <Actions/>
 <Options>
-<Text>{\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fprq8\fcharset178 Behdad;}{\f1\fnil\fprq6\fcharset0 Begok;}{\f2\fnil\fprq6\fcharset178 Begok;}}
+<Text>{\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fprq5\fcharset178 B Yekan;}{\f1\fnil\fprq6\fcharset0 Begok;}{\f2\fnil\fprq6\fcharset178 Begok;}{\f3\fnil\fprq8\fcharset178 B Yekan;}{\f4\fnil\fprq8\fcharset178 B Yekan;}{\f5\fnil\fprq6\fcharset0 Times New Roman;}{\f6\fnil\fprq6\fcharset178{\*\fname Times New Roman;}Times New Roman (Arabic);}{\f7\fnil\fprq8\fcharset178 B Yekan;}}
 {\colortbl ;\red255\green255\blue255;}
 \viewkind4\uc1\pard\ltrpar\qr\cf1\lang1065\f0\rtlch\fs24\'cf\'d1 \'c7\u1740?\'e4 \'de\'d3\'e3\'ca \'e4\'98\'c7\'ca\u1740? \'c8\'d1\'c7\u1740? \'d4\'d1\'e6\'da \'98\'c7\'d1 \'c8\'c7 \'e4\'d1\'e3 \'c7\'dd\'d2\'c7\'d1 \'d0\'98\'d1 \'d4\'cf\'e5 \'c7\'d3\'ca. \'c8\'e5\'ca\'d1 \'c7\'d3\'ca \'e5\'e4\'90\'c7\'e3 \'e4\'e6\'d4\'ca\'e4 \'d3\'e6\'c7\'e1\'ca\'c7\'e4 \'c7\u1740?\'e4 \'e4\'98\'c7\'ca \'d1\'c7 \'d1\'da\'c7\u1740?\'ca \'dd\'d1\'e3\'c7\u1740?\'ed\'cf:\lang1033\f1\ltrch\par
 \fs32\par
-\pard\rtlpar\qr\lang1065\f2\rtlch\fs22           \bullet\lang1033\f1\ltrch    \f0\rtlch\'de\'c8\'e1 \'c7\'d2 \'8d\'e4\'cf \'c8\'c7\'d1 \'98\'e1\u1740?\'98 \'98\'d1\'cf\'e4 \'d1\'e6\u1740? \'cf\'98\'e3\'e5 \'cd\'e1 \u1740?\'c7 \'d2\'cf\'e4 \'98\'e1\u1740?\'cf \'c7\u1740?\'e4\'ca\'d1 \'cd\'ca\'e3\'c7\'f0 \'d3\'e6\'c7\'e1 \'ce\'e6\'cf \'d1\'c7 \'8d\'98 \'98\'e4\u1740?\'cf \'98\'e5 \'c7\'d4\'ca\'c8\'c7\'e5 \'ca\'c7\u1740?\'81\u1740? \'e4\'cf\'c7\'d4\'ca\'e5 \'c8\'c7\'d4\u1740?\'cf.\lang1065\par
+\pard\rtlpar\qr\lang1065\f2\rtlch\fs22           \bullet\lang1033\f1\ltrch    \f0\rtlch\'de\'c8\'e1 \'c7\'d2 \'8d\'e4\'cf \'c8\'c7\'d1 \'98\'e1\u1740?\'98 \'98\'d1\'cf\'e4 \'d1\'e6\u1740? \'cf\'98\'e3\'e5 \'cd\'e1 \u1740?\'c7 \'d2\'cf\'e4 \'98\'e1\u1740?\'cf \'c7\u1740?\'e4\'ca\'d1 \'cd\'ca\'e3\'c7\'f0 \'d3\'e6\'c7\'e1 \'ce\'e6\'cf \'d1\'c7 \'8d\'98 \'98\'e4\u1740?\'cf \'98\'e5 \'c7\'d4\'ca\'c8\'c7\'e5 \'ca\'c7\u1740?\'81\u1740? \'e4\'cf\'c7\'d4\'ca\'e5 \'c8\'c7\'d4\u1740?\'cf.\lang1065\f3\par
 \lang1033\par
-\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'c7\'da\'cf\'c7\'cf \'d1\'c7  \'c7\'d2 \'cd\'d1\'e6\'dd \'cc\'cf\'c7 \'98\'e4\u1740?\'cf \'ca\'c7 \'e4\'d1\'e3 \'c7\'dd\'d2\'c7\'d1 \'c8\'ca\'e6\'c7\'e4\'cf \'ca\'d4\'ce\u1740?\'d5 \'cf\'e5\'cf.\par
+\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'c7\'da\'cf\'c7\'cf \'d1\'c7  \'c7\'d2 \'cd\'d1\'e6\'dd \'cc\'cf\'c7 \'98\'e4\u1740?\'cf \'ca\'c7 \'e4\'d1\'e3 \'c7\'dd\'d2\'c7\'d1 \'c8\'ca\'e6\'c7\'e4\'cf \'ca\'d4\'ce\u1740?\'d5 \'cf\'e5\'cf.\f3\par
 \par
-\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'e6\'c7\'cd\'cf \'e6 \u1740?\'98\'c7 \'e5\'c7 \'d1\'c7 \'cd\'ca\'e3\'c7\'f0 \'c8\'da\'cf \'c7\'d2 \'da\'cf\'cf \'e6 \'c8\'c7 \'dd\'c7\'d5\'e1\'e5 \'de\'d1\'c7\'d1 \'cf\'e5\u1740?\'cf.\par
+\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'e6\'c7\'cd\'cf \'e6 \u1740?\'98\'c7 \'e5\'c7 \'d1\'c7 \'cd\'ca\'e3\'c7\'f0 \'c8\'da\'cf \'c7\'d2 \'da\'cf\'cf \'e6 \'c8\'c7 \'dd\'c7\'d5\'e1\'e5 \'de\'d1\'c7\'d1 \'cf\'e5\u1740?\'cf.\f3\par
 \f1\ltrch\par
-\lang1065\f2\rtlch           \bullet\lang1033\f1\ltrch    \f0\rtlch\'cf\'d1 \'d5\'e6\'d1\'ca\u1740? \'98\'e5 \'e6\'c7\'cd\'cf\u1740? \'98\'e5 \'e3\u1740?\'ce\'e6\'c7\'e5\u1740?\'cf \'c8\'e4\'e6\u1740?\'d3\u1740?\'cf \'98\'d3\'d1\u1740? \u1740?\'c7 \'ca\'e6\'c7\'e4 \'cf\'c7\'d1 \'c7\'d3\'ca \'c7\'d2 \'98\'e1\u1740?\'cf \'e5\'c7\u1740? \'e3\'e6\'cc\'e6\'cf \'c7\'d3\'ca\'dd\'c7\'cf\'e5 \'98\'e4\u1740?\'cf.\par
+\lang1065\f2\rtlch           \bullet\lang1033\f1\ltrch    \f0\rtlch\'cf\'d1 \'d5\'e6\'d1\'ca\u1740? \'98\'e5 \'e6\'c7\'cd\'cf\u1740? \'98\'e5 \'e3\u1740?\'ce\'e6\'c7\'e5\u1740?\'cf \'c8\'e4\'e6\u1740?\'d3\u1740?\'cf \'98\'d3\'d1\u1740? \u1740?\'c7 \'ca\'e6\'c7\'e4 \'cf\'c7\'d1 \'c7\'d3\'ca \'c7\'d2 \'98\'e1\u1740?\'cf \'e5\'c7\u1740? \'e3\'e6\'cc\'e6\'cf \'c7\'d3\'ca\'dd\'c7\'cf\'e5 \'98\'e4\u1740?\'cf.\f3\par
 \par
-\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'e4\'d1\'e3 \'c7\'dd\'d2\'c7\'d1 \'c8\'e5 \b\'c8\'d2\'d1\'90\u1740? \b0\'e6 \b\'98\'e6\'8d\'98\u1740? \b0\'cd\'d1\'e6\'dd \'c7\'e4\'90\'e1\u1740?\'d3\u1740? \'cd\'d3\'c7\'d3 \'e3\u1740? \'c8\'c7\'d4\'cf \'e5\'e4\'90\'c7\'e3 \'e4\'e6\'d4\'ca\'e4 \'c8\'e5 \'c7\u1740?\'e4 \'e4\'98\'ca\'e5 \'ca\'e6\'cc\'e5 \'cf\'c7\'d4\'ca\'e5 \'c8\'c7\'d4\u1740?\'cf.\par
+\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'e4\'d1\'e3 \'c7\'dd\'d2\'c7\'d1 \'c8\'e5 \'c8\'d2\'d1\'90\u1740? \'e6 \'98\'e6\'8d\'98\u1740? \'cd\'d1\'e6\'dd \'c7\'e4\'90\'e1\u1740?\'d3\u1740? \'cd\'d3\'c7\'d3 \'e3\u1740? \'c8\'c7\'d4\'cf \'e5\'e4\'90\'c7\'e3 \'e4\'e6\'d4\'ca\'e4 \'c8\'e5 \'c7\u1740?\'e4 \'e4\'98\'ca\'e5 \'ca\'e6\'cc\'e5 \'cf\'c7\'d4\'ca\'e5 \'c8\'c7\'d4\u1740?\'cf.\f3\par
 \par
-\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'c7\'90\'d1 \'cf\'d1 \'d3\'e6\'c7\'e1\'ca\'c7\'e4 \'c8\'e5 \'e4\'e3\'c7\'cf \'e5\'c7\u1740? \u1740?\'e6\'e4\'c7\'e4\u1740? \'e4\u1740?\'c7\'d2 \'cf\'c7\'d4\'ca\u1740?\'cf \'c7\'d2 \'98\'e1\u1740?\'cf \'e5\'c7\u1740? \'e3\'e6\'cc\'e6\'cf \'c7\'d3\'ca\'dd\'c7\'cf\'e5 \'e4\'e3\'c7\u1740?\u1740?\'cf.\par
+\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'c7\'90\'d1 \'cf\'d1 \'d3\'e6\'c7\'e1\'ca\'c7\'e4 \'c8\'e5 \'e4\'e3\'c7\'cf \'e5\'c7\u1740? \u1740?\'e6\'e4\'c7\'e4\u1740? \'e4\u1740?\'c7\'d2 \'cf\'c7\'d4\'ca\u1740?\'cf \'c7\'d2 \'98\'e1\u1740?\'cf \'e5\'c7\u1740? \'e3\'e6\'cc\'e6\'cf \'c7\'d3\'ca\'dd\'c7\'cf\'e5 \'e4\'e3\'c7\u1740?\u1740?\'cf.\f3\par
 \par
-\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'cf\'de\'ca \'cb\'c7\'c8\'ca \'e5\'c7\'ed \'e3\'e6\'cc\'e6\'cf \'cf\'d1 \'dd\'d1\'e3\'e6\'e1 \'e5\'c7 \'d1\'c7 \'e3\'ed \'ca\'e6\'c7\'e4\'ed\'cf \'c8\'c7 \'c7\'d3\'ca\'dd\'c7\'cf\'e5 \'c7\'d2 \'cf\'98\'e3\'e5             \'ca\'da\'ed\'ed\'e4 \'98\'e4\'ed\'cf.\f1\ltrch\par
+\lang1065\f2           \bullet\lang1033\f1\ltrch    \f0\rtlch\'cf\'de\'ca \'cb\'c7\'c8\'ca \'e5\'c7\'ed \'e3\'e6\'cc\'e6\'cf \'cf\'d1 \'dd\'d1\'e3\'e6\'e1 \'e5\'c7 \'d1\'c7 \'e3\'ed \'ca\'e6\'c7\'e4\'ed\'cf \'c8\'c7 \'c7\'d3\'ca\'dd\'c7\'cf\'e5 \'c7\'d2 \'cf\'98\'e3\'e5             \'ca\'da\'ed\'ed\'e4 \'98\'e4\'ed\'cf.\lang1065\f3\par
+\par
+\f2           \bullet\lang1033\f1\ltrch    \lang1065\f0\rtlch\'c7\u1740?\'e4 \'e4\'d1\'e3 \'c7\'dd\'d2\'c7\'d1 \'ca\'e4\'e5\'c7 \'c8\'d1\'c7\u1740? \'d3\'e6\'c7\'e1\'c7\'ca\u1740? \'d8\'d1\'c7\'cd\u1740? \'d4\'cf\'e5 \'c7\'d3\'ca \'98\'e5 \'cf\'c7\'d1\'c7\u1740? \'da\'cf\'cf \'e3\u1740? \'c8\'c7\'d4\'e4\'cf. \'c8\'e5 \'da\'e4\'e6\'c7\'e4 \'e3\'cb\'c7\'e1 \'e4\'e3\u1740? \'ca\'e6\'c7\'e4\'cf \'d3\'e6\'c7\'e1\'c7\'ca \'81\'c7\'d1\'c7\'e3\'ca\'d1\u1740? \u1740?\'c7 \'d3\'e6\'c7\'e1\'c7\'ca \'e4\'d3\'c8\u1740? \'d1\'c7 \'cd\'e1 \'98\'e4\'cf.\par
+\lang1033\f1\ltrch\par
+\lang1065\f2\rtlch           \bullet\lang1033\f1\ltrch    \lang1065\f4\rtlch\'e3\'ca\'db\'ed\'ed\'d1 \'e5\'c7\'ed\'ed \'98\'e5 \'d2\'ed\'d1\'e6\'e4\'cf \'cf\'c7\'d1\'e4\'cf\'a1 \'d2\'ed\'d1\'e6\'e4\'cf\'d4\'c7\'e4 \'d1\'c7 \'c8\'c7 \'d1\'da\'c7\'ed\'ca \'c8\'d2\'d1\'90 \'e6 \'98\'e6\'8d\'98\'ed \'e6 \'c8\'cf\'e6\'e4 \'dd\'c7\'d5\'e1\'e5 \'cf\'d1 \'98\'e4\'c7\'d1 \'cd\'d1\'dd \'c7\'d5\'e1\'ed \'c8\'e4\'e6\'ed\'d3\'ed\'cf: \'e3\'c7\'e4\'e4\'cf \lang1033\f5\ltrch fk, TC, CV\lang1065\f6\rtlch  \f4\'e6...\f2\par
+\par
+          \bullet\lang1033\f1\ltrch    \lang1065\f4\rtlch\'e3\'ca\'db\'ed\'ed\'d1 \'e5\'c7\'ed\'ed \'98\'e5 \'d2\'ed\'d1\'e6\'e4\'cf \'da\'cf\'cf\'ed \'cf\'c7\'d1\'e4\'cf\'a1 \'da\'cf\'cf\'d4\'c7\'e4 \'c7\'d2 1 \'d4\'d1\'e6\'da \'e3\'ed \'d4\'e6\'cf. \'e3\'c7\'e4\'e4\'cf \lang1033\f5\ltrch V1, x1, P1\lang1065\f6\rtlch  \f4\'e6...\par
+\par
+\f2           \bullet\lang1033\f1\ltrch    \lang1065\f7\rtlch\'cf\'d1 \'e3\'ca\'e4 \'d3\'e6\'c7\'e1 \'cd\'ca\'e3\'c7\'f0 \'c7\'d3\'e3 \'e3\'cc\'e5\'e6\'e1 \'d1\'c7 \'c8\'e4\'e6\'ed\'d3\'ed\'cf.\lang1033\f5\ltrch\par
 }
 </Text>
 <TransparentBackground>1</TransparentBackground>
@@ -14000,8 +14310,8 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Coordinates>
 <Top>380</Top>
 <Bottom>406</Bottom>
-<Left>319</Left>
-<Right>345</Right>
+<Left>325</Left>
+<Right>351</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -14076,8 +14386,8 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Coordinates>
 <Top>388</Top>
 <Bottom>398</Bottom>
-<Left>325</Left>
-<Right>338</Right>
+<Left>331</Left>
+<Right>344</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -14243,7 +14553,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -14355,7 +14665,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -14467,7 +14777,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -15814,7 +16124,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -15926,7 +16236,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -16038,7 +16348,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -17330,7 +17640,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -17442,7 +17752,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -17554,7 +17864,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-15</Height>
 <Weight>400</Weight>
@@ -18122,7 +18432,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>88</Top>
 <Bottom>118</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -18186,13 +18496,13 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 </Event>
 <Actions/>
 <Text>
-<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
+<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
 <NormalColor>16777215</NormalColor>
 <HighlightColor>16777215</HighlightColor>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -18212,7 +18522,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>88</Top>
 <Bottom>118</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -18232,7 +18542,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <AutoResize>0</AutoResize>
 <Coordinates>
 <Top>71</Top>
-<Bottom>522</Bottom>
+<Bottom>433</Bottom>
 <Left>380</Left>
 <Right>410</Right>
 </Coordinates>
@@ -18304,7 +18614,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -18322,7 +18632,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <MouseClickSound/>
 <OriginalRect>
 <Top>71</Top>
-<Bottom>522</Bottom>
+<Bottom>433</Bottom>
 <Left>380</Left>
 <Right>410</Right>
 </OriginalRect>
@@ -18418,7 +18728,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -18530,7 +18840,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -18570,7 +18880,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>128</Top>
 <Bottom>158</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -18634,13 +18944,13 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 </Event>
 <Actions/>
 <Text>
-<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
+<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
 <NormalColor>16777215</NormalColor>
 <HighlightColor>16777215</HighlightColor>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -18660,7 +18970,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>128</Top>
 <Bottom>158</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -18754,7 +19064,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -18866,7 +19176,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -18906,7 +19216,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>168</Top>
 <Bottom>198</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -18970,13 +19280,13 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 </Event>
 <Actions/>
 <Text>
-<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
+<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
 <NormalColor>16777215</NormalColor>
 <HighlightColor>16777215</HighlightColor>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -18996,7 +19306,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>168</Top>
 <Bottom>198</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -19090,7 +19400,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -19202,7 +19512,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -19242,7 +19552,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>208</Top>
 <Bottom>238</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -19306,13 +19616,13 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 </Event>
 <Actions/>
 <Text>
-<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
+<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
 <NormalColor>16777215</NormalColor>
 <HighlightColor>16777215</HighlightColor>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -19332,7 +19642,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>208</Top>
 <Bottom>238</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -19426,7 +19736,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -19560,7 +19870,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>248</Top>
 <Bottom>278</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -19624,13 +19934,13 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 </Event>
 <Actions/>
 <Text>
-<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
+<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
 <NormalColor>16777215</NormalColor>
 <HighlightColor>16777215</HighlightColor>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -19650,7 +19960,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>248</Top>
 <Bottom>278</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -19744,7 +20054,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -19856,7 +20166,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -19896,7 +20206,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>288</Top>
 <Bottom>318</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -19960,13 +20270,13 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 </Event>
 <Actions/>
 <Text>
-<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
+<Body>‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹</Body>
 <NormalColor>16777215</NormalColor>
 <HighlightColor>16777215</HighlightColor>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -19986,7 +20296,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Top>288</Top>
 <Bottom>318</Bottom>
 <Left>15</Left>
-<Right>771</Right>
+<Right>777</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -20080,7 +20390,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -20192,7 +20502,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -20304,7 +20614,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -20416,7 +20726,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -20528,7 +20838,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -20640,7 +20950,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -20752,7 +21062,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -20856,7 +21166,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 </Event>
 <Actions/>
 <Text>
-<Body>K</Body>
+<Body>k</Body>
 <NormalColor>16777215</NormalColor>
 <HighlightColor>16777215</HighlightColor>
 <MouseDownColor>16777215</MouseDownColor>
@@ -20864,7 +21174,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -20976,7 +21286,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -21088,7 +21398,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -21200,7 +21510,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -21312,7 +21622,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -21424,7 +21734,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -21536,7 +21846,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -22356,7 +22666,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <BorderColor>0</BorderColor>
 <BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-16</Height>
 <Weight>400</Weight>
@@ -25102,27 +25412,17 @@ end</Script>
 <Script>Value1 = Dialog.Input("", "⁄œœ Å«ÌÂ —« Ê«—œ ò‰Ìœ:", "0", MB_ICONQUESTION);
 if Value1 ~= "CANCEL" then
 	if Value1 ~= "" then
-		Value1 = tonumber(Value1);
-		if Value1 ~= nil then
-			Value2 = Dialog.Input("", "⁄œœ  Ê«‰ —« Ê«—œ ò‰Ìœ:", "0", MB_ICONQUESTION);
-			if Value2 ~= "CANCEL" then
-				if Value2 ~= "" then
-					Value2 = tonumber(Value2);
-					if Value2 ~= nil then
-						Page.SetFocus("Input1");
-						Binesh.SendKeys(Value1.." ^ "..Value2)
-					else
-						Error("›ﬁÿ „Ì  Ê«‰Ìœ ⁄œœ Ê«—œ ò‰Ìœ.")
-					end
-				else
-					Error("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.")
-				end
+		Value2 = Dialog.Input("", "⁄œœ  Ê«‰ —« Ê«—œ ò‰Ìœ:", "0", MB_ICONQUESTION);
+		if Value2 ~= "CANCEL" then
+			if Value2 ~= "" then
+				Page.SetFocus("Input1");
+				Binesh.SendKeys(Value1.."^"..Value2)
+			else
+				Message("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.", "Error")
 			end
-		else
-			Error("›ﬁÿ „Ì  Ê«‰Ìœ ⁄œœ Ê«—œ ò‰Ìœ.")
 		end
 	else
-		Error("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.")
+		Messasge("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.", "Error")
 	end
 end</Script>
 <TreeStates>
@@ -25130,7 +25430,7 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>25</DesignCodeLine>
+<DesignCodeLine>15</DesignCodeLine>
 <DesignCodeCol>3</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
@@ -25207,13 +25507,13 @@ if Value1 ~= "CANCEL" then
 		if Value2 ~= "CANCEL" then
 			if Value2 ~= "" then
 				Page.SetFocus("Input1");
-				Binesh.SendKeys(Value1.." ^ "..Value2)
+				Binesh.SendKeys(Value1.."^"..Value2)
 			else
-				Error("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.")
+				Message("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.", "Error")
 			end
 		end
 	else
-		Error("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.")
+		Messasge("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.", "Error")
 	end
 end</Script>
 <TreeStates>
@@ -25221,8 +25521,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>3</DesignCodeLine>
-<DesignCodeCol>2</DesignCodeCol>
+<DesignCodeLine>7</DesignCodeLine>
+<DesignCodeCol>29</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -25311,36 +25611,26 @@ end</Script>
 <Args/>
 <Script>Value1 = Dialog.Input("", "’Ê—  —« Ê«—œ ò‰Ìœ:", "0", MB_ICONQUESTION);
 if Value1 ~= "CANCEL" then
-	if Value1 ~= "" then
-		Value1 = tonumber(Value1);
-		if Value1 ~= nil then
-			repeat
-			Value2 = Dialog.Input("", "„Œ—Ã —« Ê«—œ ò‰Ìœ:", "1", MB_ICONQUESTION);
-			if Value2 ~= "CANCEL" then
-				if Value2 ~= "" then
-					Value2 = tonumber(Value2);
-					if Value2 ~= nil then
-						if tostring(Value2) ~= "0" then
-							Page.SetFocus("Input1");
-							Binesh.SendKeys(Value1.." / "..Value2);
-						else
-							Error("„Œ—Ã ‰„Ì  Ê«‰œ ’›— »«‘œ.", false)
-						end
-					else
-						Error("›ﬁÿ „Ì  Ê«‰Ìœ ⁄œœ Ê«—œ ò‰Ìœ.")
-					end
+	if Value1 ~= nil then
+		repeat
+		Value2 = Dialog.Input("", "„Œ—Ã —« Ê«—œ ò‰Ìœ:", "1", MB_ICONQUESTION);
+		if Value2 ~= "CANCEL" then
+			if Value2 ~= nil then
+				if tostring(Value2) ~= "0" then
+					Page.SetFocus("Input1");
+					Binesh.SendKeys(Value1.." / "..Value2);
 				else
-					Error("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.")
+					Message("„Œ—Ã ‰„Ì  Ê«‰œ ’›— »«‘œ.", "Error", false)
 				end
 			else
-				Application.ExitScript();
+				Message("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.", "Error")
 			end
-			until tostring(Value2) ~= "0";
 		else
-			Error("›ﬁÿ „Ì  Ê«‰Ìœ ⁄œœ Ê«—œ ò‰Ìœ.")
+			Application.ExitScript();
 		end
+		until tostring(Value2) ~= "0";
 	else
-		Error("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.")
+		Message("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.", "Error")
 	end
 end</Script>
 <TreeStates>
@@ -25348,8 +25638,8 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>33</DesignCodeLine>
-<DesignCodeCol>3</DesignCodeCol>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -25420,36 +25710,26 @@ end</Script>
 <Args/>
 <Script>Value1 = Dialog.Input("", "’Ê—  —« Ê«—œ ò‰Ìœ:", "0", MB_ICONQUESTION);
 if Value1 ~= "CANCEL" then
-	if Value1 ~= "" then
-		Value1 = tonumber(Value1);
-		if Value1 ~= nil then
-			repeat
-			Value2 = Dialog.Input("", "„Œ—Ã —« Ê«—œ ò‰Ìœ:", "1", MB_ICONQUESTION);
-			if Value2 ~= "CANCEL" then
-				if Value2 ~= "" then
-					Value2 = tonumber(Value2);
-					if Value2 ~= nil then
-						if tostring(Value2) ~= "0" then
-							Page.SetFocus("Input1");
-							Binesh.SendKeys(Value1.." / "..Value2);
-						else
-							Error("„Œ—Ã ‰„Ì  Ê«‰œ ’›— »«‘œ.", false)
-						end
-					else
-						Error("›ﬁÿ „Ì  Ê«‰Ìœ ⁄œœ Ê«—œ ò‰Ìœ.")
-					end
+	if Value1 ~= nil then
+		repeat
+		Value2 = Dialog.Input("", "„Œ—Ã —« Ê«—œ ò‰Ìœ:", "1", MB_ICONQUESTION);
+		if Value2 ~= "CANCEL" then
+			if Value2 ~= nil then
+				if tostring(Value2) ~= "0" then
+					Page.SetFocus("Input1");
+					Binesh.SendKeys(Value1.." / "..Value2);
 				else
-					Error("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.")
+					Message("„Œ—Ã ‰„Ì  Ê«‰œ ’›— »«‘œ.", "Error", false)
 				end
 			else
-				Application.ExitScript();
+				Message("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.", "Error")
 			end
-			until tostring(Value2) ~= "0";
 		else
-			Error("›ﬁÿ „Ì  Ê«‰Ìœ ⁄œœ Ê«—œ ò‰Ìœ.")
+			Application.ExitScript();
 		end
+		until tostring(Value2) ~= "0";
 	else
-		Error("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.")
+		Message("„ﬁœ«—Ì »«Ìœ Ê«—œ ‘Êœ.", "Error")
 	end
 end</Script>
 <TreeStates>
@@ -25457,7 +25737,7 @@ end</Script>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>33</DesignCodeLine>
+<DesignCodeLine>23</DesignCodeLine>
 <DesignCodeCol>3</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
@@ -28694,14 +28974,41 @@ ShapeEx.SetFillColor("BMenu - Item7 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Event>
 <Name>On Click</Name>
 <Args/>
-<Script/>
+<Script>Folder.Create(_TempFolder.."\\empty");
+Folder.Create(_TempFolder.."\\empty\\Binesh");
+
+Folder.DeleteTree(_TempFolder.."\\empty\\Binesh");
+
+NEW = {}
+Current = {}
+
+NEW.Version = HTTP.Submit(_BINESH.WebSite.."/Update/index.php", {Get="Version"}, SUBMITWEB_POST, 20, 80, nil, nil);
+Current.Version = INIFile.GetValue("Informations.dll", "Version", "Version");
+
+if tonumber(Current.Version) &lt; tonumber(NEW.Version) then
+	Update_it = DialogEx.Show("Update", true, nil, nil);
+	
+	if Update_it == 1 then -- Update
+		if System.Is64BitOS() then
+			Wow64.RegistrySetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "Update", "true", REG_SZ, Wow64.KEY64);
+		else
+			Registry.SetValue(HKEY_LOCAL_MACHINE, "Software\\empty\\Binesh", "Update", "true", REG_SZ);
+		end
+	elseif Update_it == 2 then -- Changelog
+		DialogEx.Show("Update - Changelog", true, nil, nil);
+	end
+elseif tonumber(Current.Version) == tonumber(NEW.Version) then
+	Message("»Ì‰‘ ‘„« »—Ê“ «” .")
+elseif tonumber(Current.Version) &gt; tonumber(NEW.Version) then
+	Message("œ— ›«Ì· Â«Ì »Ì‰‘ ‘„« „‘ò·Ì ÅÌ‘ ¬„œÂ ·ÿ›« ‰—„ «›“«— —« œÊ»«—Â ‰’» ò‰Ìœ", "Error")
+end</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>0</DesignCodeCol>
+<DesignCodeLine>16</DesignCodeLine>
+<DesignCodeCol>3</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -29343,7 +29650,7 @@ end</Script>
 </Tree>
 <Font>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
@@ -29372,7 +29679,7 @@ end</Script>
 <Top>38</Top>
 <Bottom>64</Bottom>
 <Left>65</Left>
-<Right>167</Right>
+<Right>161</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -29442,7 +29749,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -29462,7 +29769,7 @@ end</Script>
 <Top>38</Top>
 <Bottom>64</Bottom>
 <Left>65</Left>
-<Right>167</Right>
+<Right>161</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -29614,7 +29921,7 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -29878,7 +30185,7 @@ SaveSettingsZarib()</Script>
 <Top>160</Top>
 <Bottom>186</Bottom>
 <Left>75</Left>
-<Right>169</Right>
+<Right>168</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -29948,7 +30255,7 @@ SaveSettingsZarib()</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -29968,7 +30275,7 @@ SaveSettingsZarib()</Script>
 <Top>160</Top>
 <Bottom>186</Bottom>
 <Left>75</Left>
-<Right>169</Right>
+<Right>168</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -30096,7 +30403,7 @@ SaveSettingsZarib()</Script>
 </Options>
 <Font>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -30255,7 +30562,7 @@ SaveSettingsZarib()</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -30336,6 +30643,10 @@ Binesh.ClearInput()
 DialogEx.StartTimer(1, 1);
 
 -- Load Skin
+	
+	Application.SetDialogProperties(this, {BackgroundColor = Settings.SKIN.MainColor});
+	DialogEx.Redraw();
+	
 	Input.SetProperties("Input - Name", {BackgroundColor = Settings.SKIN.SecondColor});
 	Input.SetProperties("Input - Email", {BackgroundColor = Settings.SKIN.SecondColor});
 	Input.SetProperties("Input - Text", {BackgroundColor = Settings.SKIN.SecondColor});
@@ -30350,9 +30661,6 @@ DialogEx.StartTimer(1, 1);
 	Shape.SetFillColor("Back - Text", Settings.SKIN.SecondColor);	Shape.SetStrokeColor("Back - Text", Settings.SKIN.MainColor);
 	Shape.SetFillColor("BMenu - Back", Settings.SKIN.SecondColor);	Shape.SetStrokeColor("BMenu - Back", Settings.SKIN.MainColor);
 	
-	Application.SetDialogProperties(this, {BackgroundColor = Settings.SKIN.MainColor});
-	DialogEx.Redraw();
-	
 	MenuSkin(1)
 	Shape.SetFillColor("BMenu - Back", Settings.SKIN.MenuMainColor);
 -- END Load Skin</Script>
@@ -30361,8 +30669,8 @@ DialogEx.StartTimer(1, 1);
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>23</DesignCodeLine>
-<DesignCodeCol>63</DesignCodeCol>
+<DesignCodeLine>4</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -30582,7 +30890,7 @@ end</Script>
 <Top>72</Top>
 <Bottom>98</Bottom>
 <Left>346</Left>
-<Right>446</Right>
+<Right>442</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -30652,7 +30960,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -30672,7 +30980,7 @@ end</Script>
 <Top>72</Top>
 <Bottom>98</Bottom>
 <Left>346</Left>
-<Right>446</Right>
+<Right>442</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -30851,7 +31159,7 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -30963,7 +31271,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -31162,7 +31470,7 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -31392,7 +31700,7 @@ end</Script>
 <Top>208</Top>
 <Bottom>234</Bottom>
 <Left>404</Left>
-<Right>453</Right>
+<Right>448</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -31462,7 +31770,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -31482,7 +31790,7 @@ end</Script>
 <Top>208</Top>
 <Bottom>234</Bottom>
 <Left>404</Left>
-<Right>453</Right>
+<Right>448</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -31504,7 +31812,7 @@ end</Script>
 <Top>250</Top>
 <Bottom>276</Bottom>
 <Left>417</Left>
-<Right>457</Right>
+<Right>455</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -31574,7 +31882,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -31594,7 +31902,7 @@ end</Script>
 <Top>250</Top>
 <Bottom>276</Bottom>
 <Left>417</Left>
-<Right>457</Right>
+<Right>455</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -31773,7 +32081,7 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -31986,7 +32294,7 @@ end</Script>
 </Options>
 <Font>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-12</Height>
 <Weight>400</Weight>
@@ -32037,7 +32345,7 @@ end</Script>
 <Top>292</Top>
 <Bottom>318</Bottom>
 <Left>424</Left>
-<Right>455</Right>
+<Right>453</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -32107,7 +32415,7 @@ end</Script>
 <MouseDownColor>16777215</MouseDownColor>
 <DisabledColor>12632256</DisabledColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -32127,7 +32435,7 @@ end</Script>
 <Top>292</Top>
 <Bottom>318</Bottom>
 <Left>424</Left>
-<Right>455</Right>
+<Right>453</Right>
 </OriginalRect>
 </Text>
 </Object>
@@ -32306,7 +32614,7 @@ end</Script>
 <TextColor>16777215</TextColor>
 <BackgroundColor>4724693</BackgroundColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
 <Height>-13</Height>
 <Weight>400</Weight>
@@ -32715,27 +33023,27 @@ local Title = Input.GetText("Input - Title");
 local Text = Input.GetText("Input - Text");
 
 if Name == "" then
-	Error("‰«„ Ì« ‰«„ ò«—»—Ì ŒÊœ —« Ê«—œ ‰„«ÌÌœ.")
+	Message("‰«„ Ì« ‰«„ ò«—»—Ì ŒÊœ —« Ê«—œ ‰„«ÌÌœ.", "Error")
 end
 
 if Email == "" then
-	Error("«Ì„Ì· ŒÊœ —« Ê«—œ ‰„«ÌÌœ.")
+	Message("«Ì„Ì· ŒÊœ —« Ê«—œ ‰„«ÌÌœ.", "Error")
 end
 
 if SubjectSelect == 1 then
-	Error("„Ê÷Ê⁄ ÅÌ«„ —« «‰ Œ«» ‰„«ÌÌœ.")
+	Message("„Ê÷Ê⁄ ÅÌ«„ —« «‰ Œ«» ‰„«ÌÌœ.", "Error")
 end
 
 if Title == "" then
-	Error("⁄‰Ê«‰ ÅÌ«„ —« Ê«—œ ‰„«ÌÌœ.")
+	Message("⁄‰Ê«‰ ÅÌ«„ —« Ê«—œ ‰„«ÌÌœ.", "Error")
 end
 
 if Text == "" then
-	Error("„ ‰ ÅÌ«„ —« Ê«—œ ‰„«ÌÌœ.")
+	Message("„ ‰ ÅÌ«„ —« Ê«—œ ‰„«ÌÌœ.", "Error")
 end
 
 if _BINESH.Email == nil or _BINESH.Email == "" then
-	Error("Œÿ« œ— »—‰«„Â ‰ÊÌ”Ì ‰—„ «›“«—.")
+	Message("Œÿ« œ— »—‰«„Â ‰ÊÌ”Ì ‰—„ «›“«—.", "Error")
 end
 
 Content = "&lt;p&gt;‰«„ Ì« ‰«„ ò«—»—Ì: "..Name.."&lt;/p&gt;"
@@ -32745,17 +33053,17 @@ Content = Content.."&lt;p&gt;„ ‰ ÅÌ«„: "..Text.."&lt;/p&gt;"
 
 _Send = WebAPI.SendEmail(Email, Name, _BINESH.Email, "Binesh - Contact", Title, Content);
 if _Send == 1 then
-	Dialog.Message("", "»«  ‘ò—\r\nÅÌ«„ »« „Ê›ﬁÌ  «—”«· ‘œ. œ— ’Ê—  ‰Ì«“ »« ‘„«  „«” ŒÊ«ÂÌ„ ê—› ", MB_OK + MB_RTL + MB_RIGHT, MB_ICONINFORMATION, MB_DEFBUTTON1);
+	Message("ÅÌ«„ »« „Ê›ﬁÌ  «—”«· ‘œ. œ— ’Ê—  ‰Ì«“ »« ‘„«  „«” ŒÊ«ÂÌ„ ê—› ")
 elseif _Send == 0 or _Send == -1 then
-	Error("Œÿ« œ— «— »«ÿ »« ”—Ê—")
+	Message("Œÿ« œ— «— »«ÿ »« ”—Ê—", "Error")
 end</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>41</DesignCodeLine>
-<DesignCodeCol>3</DesignCodeCol>
+<DesignCodeLine>38</DesignCodeLine>
+<DesignCodeCol>72</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -32813,7 +33121,7 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <VGuidelines/>
 </Page>
 </PageDialog>
-<PageDialog width="300" height="300" dialog_title=" «—ÌŒçÂ ”Ê«·« " dialog_style="0" movable="1" use_custom_icon="0" custom_icon="" always_on_top="0" resizable="0" min_width="480" min_height="300" fit_custom_mask_to_window="1" custom_mask="">
+<PageDialog width="800" height="300" dialog_title=" «—ÌŒçÂ ”Ê«·« " dialog_style="0" movable="1" use_custom_icon="0" custom_icon="" always_on_top="0" resizable="0" min_width="600" min_height="300" fit_custom_mask_to_window="1" custom_mask="">
 <Page>
 <Name>History</Name>
 <InheritObs/>
@@ -32849,32 +33157,53 @@ ShapeEx.SetFillColor("BMenu - Item1 - Back", Settings.SKIN.MenuMainColor);</Scri
 <Event>
 <Name>On Show</Name>
 <Args/>
-<Script>-- Load Skin
-	ListBox.SetProperties("ListBox1", {BackgroundColor = Settings.SKIN.MainColor});
--- END Load Skin
-RTL:Obj("ListBox1");
+<Script>for indexRow = 0, GridEx.GetNumberRows("Plugin1") do
+	GridEx.DeleteRow("Plugin1", indexRow);
+	for indexCol = 0, GridEx.GetNumberCols("Plugin1") do
+		GridEx.SetCellText("Plugin1", indexCol, indexRow, "")
+	end
+end
+for indexRow = 0, GridEx.GetNumberRows("Plugin1") do
+	GridEx.DeleteRow("Plugin1", indexRow);
+end
 
-ListBox.SetUpdate("ListBox1", false);
-
-ListBox.DeleteItem("ListBox1", -1);
-All_Quiz = TextFile.ReadToTable("History.bin");
-if All_Quiz ~= nil then
-	for indexQuiz = 1, Table.Count(All_Quiz) do
-		ListBox.AddItem("ListBox1", All_Quiz[indexQuiz]);
-		if indexQuiz == Settings.HistoryCount then
-			break;
+AllQuiz = TextFile.ReadToTable("History.bin");
+if AllQuiz ~= nil then
+	Font = GridEx.AddFont("Plugin1", "B Yekan", 10, FW_NORMAL, false, false, false);
+	GridEx.SetDefaultFont("Plugin1", Font);
+	GridEx.SetNumberRows("Plugin1", Settings.HistoryCount-1);
+	GridEx.SetTH_Height("Plugin1", 0);
+	GridEx.SetSH_Width("Plugin1", 0);
+	for indexQuiz = 1, Settings.HistoryCount do
+		GridEx.SetCellText("Plugin1", 0, indexQuiz-1, AllQuiz[indexQuiz])
+		GridEx.SetCellTextColor("Plugin1", 0, indexQuiz-1, 16777215);
+		GridEx.SetCellAlignment("Plugin1", 0, indexQuiz-1, GEX_ALIGNRIGHT);
+		if (indexQuiz-1)%2 == 0 then
+			GridEx.SetCellBackColor("Plugin1", 0, indexQuiz-1, Settings.SKIN.MainColor);
+		else
+			GridEx.SetCellBackColor("Plugin1", 0, indexQuiz-1, Settings.SKIN.SecondColor);
 		end
+	end
+	
+	if Settings.HistoryCount%2 == 0 then
+		GridEx.SetBackgroundColor("Plugin1", Settings.SKIN.MainColor);
+		GridEx.SetCellBorderColor("Plugin1", 0, Settings.HistoryCount-1, Settings.SKIN.MainColor);
+	else
+		GridEx.SetBackgroundColor("Plugin1", Settings.SKIN.SecondColor);
+		GridEx.SetCellBorderColor("Plugin1", 0, Settings.HistoryCount-1, Settings.SKIN.SecondColor);
 	end
 end
 
-ListBox.SetUpdate("ListBox1", true);</Script>
+
+
+GridEx.RedrawAll("Plugin1");</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>3</DesignCodeLine>
-<DesignCodeCol>17</DesignCodeCol>
+<DesignCodeLine>18</DesignCodeLine>
+<DesignCodeCol>46</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -32991,50 +33320,511 @@ ListBox.SetUpdate("ListBox1", true);</Script>
 </BookMarks>
 </Event>
 <Object>
-<Type>9</Type>
-<Name>ListBox1</Name>
+<Type>40</Type>
+<Name>Plugin1</Name>
 <VisibleAtDesignTime>1</VisibleAtDesignTime>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>»—«Ì «‰ Œ«» ”Ê«· —ÊÌ ¬‰ œÊ»«— ò·Ìò ò‰Ìœ.</ToolTip>
+<ToolTip/>
 <Cursor>0</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>1</Pin>
 <TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
+<AutoResize>13</AutoResize>
 <Coordinates>
 <Top>0</Top>
 <Bottom>300</Bottom>
 <Left>0</Left>
-<Right>300</Right>
+<Right>800</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
 <HeightRatio>-1.000000</HeightRatio>
 </Ratios>
 <Event>
-<Name>On Double-Click</Name>
+<Name>OnSetUp</Name>
 <Args/>
-<Script>Select = ListBox.GetSelected("ListBox1");
-if Select ~= nil then
-	Select = Select[1]
-	SelectHistory = DialogEx.Close(Select);
-end</Script>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnMBLeftClick</Name>
+<Args/>
+<Script>Row = GridEx.GetCurrentRow("Plugin1")
+result = Dialog.Message("Notice", Row, MB_OK, MB_ICONINFORMATION, MB_DEFBUTTON1);</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>1</DesignCodeLine>
+<DesignCodeCol>81</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnMBRightClick</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnColSize</Name>
+<Args>number e_Column , number e_Width</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnRowSize</Name>
+<Args>number e_Row , number e_Height</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnColChange</Name>
+<Args>number e_OldColumn , number e_NewColumn</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnRowChange</Name>
+<Args>number e_OldRow , number e_NewRow</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnCellChange</Name>
+<Args>number e_OldColumn , number e_NewColumn , number e_OldRow , number e_NewRow</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnTabSelected</Name>
+<Args>number e_TabID</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnLClicked</Name>
+<Args>boolean e_SideHeader , boolean e_TopHeader , number e_Column , number e_Row , boolean e_UpDown , number e_X , number e_Y</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnRClicked</Name>
+<Args>boolean e_SideHeader , boolean e_TopHeader , number e_Column , number e_Row , boolean e_UpDown , number e_X , number e_Y</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnDClicked</Name>
+<Args>boolean e_SideHeader , boolean e_TopHeader , number e_Column , number e_Row , number e_X , number e_Y</Args>
+<Script>SelectHistory = DialogEx.Close(e_Row+1);</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>40</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnMouseMove</Name>
+<Args>number e_Column , number e_Row , number e_X , number e_Y</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnEditStart</Name>
+<Args>number e_Column , number e_Row</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnEditFinish</Name>
+<Args>number e_Column , number e_Row ,string e_FinalStr</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnEditContinue</Name>
+<Args>number e_OldColumn , number e_OldRow ,number e_NewColumn , number e_NewRow</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnDropFiles</Name>
+<Args>number e_Count</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnPushButton</Name>
+<Args>number e_Column,number e_Row,number e_BtnState</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnEllipsisButton</Name>
+<Args>number e_Column,number e_Row</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnSpinButton</Name>
+<Args>number e_Column , number e_Row,number e_EventType</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnRadio</Name>
+<Args>number e_Column,number e_Row , number e_RadioIndex</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnDateTime</Name>
+<Args>number e_Column,number e_Row , number e_EventType , table e_Date</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnCheckbox</Name>
+<Args>number e_Column , number e_Row , boolean e_Checked</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnDropList</Name>
+<Args>number e_Column , number e_Row , number e_EventType , number e_Param</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnExpand</Name>
+<Args>number e_Column , number e_Row , boolean e_Expanded</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnSlider</Name>
+<Args>number e_Column , number e_Row , number e_Pos</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>OnToolTip</Name>
+<Args>number e_Column , number e_Row , number e_GridSection</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<PLUGIN>
+<DLLFile>GridEx\GridEx.apo</DLLFile>
+<CustomData>0,0,0,1,20,1,1,0,782,30,0,0,0,0,1,16777215</CustomData>
+</PLUGIN>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
+</Object>
+<HGuidelines/>
+<VGuidelines/>
+</Page>
+</PageDialog>
+<PageDialog width="500" height="150" dialog_title="»—Ê“—”«‰Ì" dialog_style="0" movable="1" use_custom_icon="0" custom_icon="" always_on_top="0" resizable="0" min_width="480" min_height="300" fit_custom_mask_to_window="1" custom_mask="">
+<Page>
+<Name>Update</Name>
+<InheritObs/>
+<InheritBG/>
+<Description/>
+<Keywords/>
+<Background>
+<Type>0</Type>
+<ImageStyle>0</ImageStyle>
+<TopColor>16711680</TopColor>
+<BottomColor>5249772</BottomColor>
+<UseCustomBackgroundSettings>1</UseCustomBackgroundSettings>
+<TransitionEffect/>
+<TransProps/>
+<NormalImage>
+<Filename/>
+</NormalImage>
+</Background>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Show</Name>
+<Args/>
+<Script>-- Load Skin
+	
+	Shape.SetFillColor("Changelog - Back", Settings.SKIN.SecondColor);
+	Shape.SetFillColor("Update - Back", Settings.SKIN.SecondColor);
+	Shape.SetFillColor("Cancel - Back", Settings.SKIN.SecondColor);
+	
+	Application.SetDialogProperties(this, {BackgroundColor = Settings.SKIN.MainColor});
+	DialogEx.Redraw();
+	
+-- END Load Skin
+
+</Script>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
 <DesignCodeLine>4</DesignCodeLine>
-<DesignCodeCol>3</DesignCodeCol>
+<DesignCodeCol>56</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
 <Event>
-<Name>On Select</Name>
+<Name>On Close</Name>
 <Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Timer</Name>
+<Args>number e_ID</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Audio</Name>
+<Args>number e_Channel, string e_State</Args>
 <Script/>
 <TreeStates>
 <TreeState>0</TreeState>
@@ -33061,7 +33851,213 @@ end</Script>
 </BookMarks>
 </Event>
 <Event>
-<Name>On Focus</Name>
+<Name>On Mouse Button</Name>
+<Args>number e_Type, number e_X, number e_Y</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Mouse Move</Name>
+<Args>number e_X, number e_Y</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Mouse Wheel</Name>
+<Args>table e_Flags, number e_Delta, number e_X, number e_Y</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Size</Name>
+<Args>number e_WindowWidth, number e_WindowHeight, number e_DialogWidth, number e_DialogHeight, number e_Type</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Object>
+<Type>2</Type>
+<Name>Paragraph1</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>0</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>31</Top>
+<Bottom>93</Bottom>
+<Left>0</Left>
+<Right>498</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>909180976</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Right-Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>5857125</DesignCodeLine>
+<DesignCodeCol>17747</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>1862271045</DesignCodeLine>
+<DesignCodeCol>15986</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>1684828006</DesignCodeLine>
+<DesignCodeCol>3043941</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<Text>
+<Body>»—Ê“—”«‰Ì ÃœÌœÌ »—«Ì »Ì‰‘ ¬„«œÂ ‘œÂ «” :</Body>
+<NormalColor>16777215</NormalColor>
+<HighlightColor>16777215</HighlightColor>
+<MouseDownColor>16777215</MouseDownColor>
+<DisabledColor>12632256</DisabledColor>
+<BorderColor>0</BorderColor>
+<BackColor>16777215</BackColor>
+<FontData>
+<FontName>B Yekan</FontName>
+<CharacterSet>178</CharacterSet>
+<Height>-21</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<Alignment>1</Alignment>
+<TransBG>1</TransBG>
+<VSMode>0</VSMode>
+<HSMode>2</HSMode>
+<SBStyle>1</SBStyle>
+<SBSkin>Windows7</SBSkin>
+<Border>0</Border>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
+</Text>
+</Object>
+<Object>
+<Type>40</Type>
+<Name>Changelog - Back</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>113</Top>
+<Bottom>137</Bottom>
+<Left>22</Left>
+<Right>164</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script>Binesh.SendKeys("Epsilon")</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
 <Args/>
 <Script/>
 <TreeStates>
@@ -33075,7 +34071,97 @@ end</Script>
 </BookMarks>
 </Event>
 <Event>
-<Name>On Check</Name>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<PLUGIN>
+<DLLFile>Shape\Shape.apo</DLLFile>
+<CustomData>2,1,5052645,3,0,4724693,7,7</CustomData>
+</PLUGIN>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
+</Object>
+<Object>
+<Type>2</Type>
+<Name>Paragraph2</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>112</Top>
+<Bottom>137</Bottom>
+<Left>23</Left>
+<Right>163</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script>Update_it = DialogEx.Close(2);</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>28</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Right-Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
 <Args/>
 <Script/>
 <TreeStates>
@@ -33090,29 +34176,635 @@ end</Script>
 </Event>
 <Actions/>
 <Text>
-<TextColor>16777215</TextColor>
-<BackgroundColor>5249772</BackgroundColor>
+<Body>·Ì”   €ÌÌ—« </Body>
+<NormalColor>16777215</NormalColor>
+<HighlightColor>16777215</HighlightColor>
+<MouseDownColor>16777215</MouseDownColor>
+<DisabledColor>12632256</DisabledColor>
+<BorderColor>0</BorderColor>
+<BackColor>16777215</BackColor>
 <FontData>
-<FontName>Behdad</FontName>
+<FontName>B Yekan</FontName>
 <CharacterSet>178</CharacterSet>
-<Height>-12</Height>
+<Height>-13</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
 <AntiAlias>1</AntiAlias>
 </FontData>
+<Alignment>1</Alignment>
+<TransBG>1</TransBG>
+<VSMode>2</VSMode>
+<HSMode>2</HSMode>
+<SBStyle>1</SBStyle>
+<SBSkin>Windows7</SBSkin>
+<Border>0</Border>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
 </Text>
-<Window>
-<BorderStyle>0</BorderStyle>
-<VerticalScrollbar>1</VerticalScrollbar>
-<HorizontalScrollbar>1</HorizontalScrollbar>
-<Sort>0</Sort>
-<MultipleSelect>0</MultipleSelect>
-<ReadOrder>0</ReadOrder>
-<CheckList>0</CheckList>
-</Window>
-<ListBoxItems/>
+</Object>
+<Object>
+<Type>40</Type>
+<Name>Update - Back</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>113</Top>
+<Bottom>137</Bottom>
+<Left>180</Left>
+<Right>322</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script>Binesh.SendKeys("Epsilon")</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<PLUGIN>
+<DLLFile>Shape\Shape.apo</DLLFile>
+<CustomData>2,1,5052645,3,0,4724693,7,7</CustomData>
+</PLUGIN>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
+</Object>
+<Object>
+<Type>40</Type>
+<Name>Cancel - Back</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>113</Top>
+<Bottom>137</Bottom>
+<Left>339</Left>
+<Right>481</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script>Binesh.SendKeys("Epsilon")</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<PLUGIN>
+<DLLFile>Shape\Shape.apo</DLLFile>
+<CustomData>2,1,5052645,3,0,4724693,7,7</CustomData>
+</PLUGIN>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
+</Object>
+<Object>
+<Type>2</Type>
+<Name>Paragraph3</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>112</Top>
+<Bottom>137</Bottom>
+<Left>182</Left>
+<Right>322</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script>Update_it = DialogEx.Close(1);</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Right-Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<Text>
+<Body>œ—Ì«›  »—Ê“—”«‰Ì</Body>
+<NormalColor>16777215</NormalColor>
+<HighlightColor>16777215</HighlightColor>
+<MouseDownColor>16777215</MouseDownColor>
+<DisabledColor>12632256</DisabledColor>
+<BorderColor>0</BorderColor>
+<BackColor>16777215</BackColor>
+<FontData>
+<FontName>B Yekan</FontName>
+<CharacterSet>178</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<Alignment>1</Alignment>
+<TransBG>1</TransBG>
+<VSMode>2</VSMode>
+<HSMode>2</HSMode>
+<SBStyle>1</SBStyle>
+<SBSkin>Windows7</SBSkin>
+<Border>0</Border>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
+</Text>
+</Object>
+<Object>
+<Type>2</Type>
+<Name>Paragraph4</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>112</Top>
+<Bottom>137</Bottom>
+<Left>340</Left>
+<Right>480</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script>Update_it = DialogEx.Close(0);</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Right-Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<Text>
+<Body>«‰’—«›</Body>
+<NormalColor>16777215</NormalColor>
+<HighlightColor>16777215</HighlightColor>
+<MouseDownColor>16777215</MouseDownColor>
+<DisabledColor>12632256</DisabledColor>
+<BorderColor>0</BorderColor>
+<BackColor>16777215</BackColor>
+<FontData>
+<FontName>B Yekan</FontName>
+<CharacterSet>178</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<Alignment>1</Alignment>
+<TransBG>1</TransBG>
+<VSMode>2</VSMode>
+<HSMode>2</HSMode>
+<SBStyle>1</SBStyle>
+<SBSkin>Windows7</SBSkin>
+<Border>0</Border>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSound/>
+</Text>
+</Object>
+<HGuidelines/>
+<VGuidelines/>
+</Page>
+</PageDialog>
+<PageDialog width="800" height="600" dialog_title="MyDialog" dialog_style="0" movable="1" use_custom_icon="0" custom_icon="" always_on_top="0" resizable="0" min_width="480" min_height="300" fit_custom_mask_to_window="1" custom_mask="">
+<Page>
+<Name>Update - Changelog</Name>
+<InheritObs/>
+<InheritBG/>
+<Description/>
+<Keywords/>
+<Background>
+<Type>0</Type>
+<ImageStyle>0</ImageStyle>
+<TopColor>16711680</TopColor>
+<BottomColor>16777215</BottomColor>
+<UseCustomBackgroundSettings>0</UseCustomBackgroundSettings>
+<TransitionEffect/>
+<TransProps/>
+<NormalImage>
+<Filename/>
+</NormalImage>
+</Background>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>DLL.CallFunction("User32.dll", "EnableWindow", Application.GetWndHandle()..", "..1, DLL_RETURN_TYPE_INTEGER, DLL_CALL_STDCALL);</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>127</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Show</Name>
+<Args/>
+<Script>Web.LoadURL("Web1", _BINESH.WebSite.."/Update/Changelog.php?mcolor="..INIFile.GetValue("Skins\\bsp-"..Settings.SKIN.Name..".ini", "Color", "Main").."&amp;scolor="..INIFile.GetValue("Skins\\bsp-"..Settings.SKIN.Name..".ini", "Color", "Second"));</Script>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>240</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Close</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Timer</Name>
+<Args>number e_ID</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Audio</Name>
+<Args>number e_Channel, string e_State</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Key</Name>
+<Args>number e_Key, table e_Modifiers</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Mouse Button</Name>
+<Args>number e_Type, number e_X, number e_Y</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Mouse Move</Name>
+<Args>number e_X, number e_Y</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Mouse Wheel</Name>
+<Args>table e_Flags, number e_Delta, number e_X, number e_Y</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Size</Name>
+<Args>number e_WindowWidth, number e_WindowHeight, number e_DialogWidth, number e_DialogHeight, number e_Type</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>0</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Object>
+<Type>6</Type>
+<Name>Web1</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip/>
+<Cursor>0</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>1</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>0</Top>
+<Bottom>600</Bottom>
+<Left>0</Left>
+<Right>800</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Navigate</Name>
+<Args>string e_URL</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>2573</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Loaded</Name>
+<Args>string e_URL</Args>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>1869177973</DesignCodeLine>
+<DesignCodeCol>6778368</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions/>
+<WEB_BROWSER>
+<InitialPage/>
+<AltMode>1</AltMode>
+<AltImage/>
+<ShowBorder>1</ShowBorder>
+<ShowScrollbars>1</ShowScrollbars>
+</WEB_BROWSER>
 </Object>
 <HGuidelines/>
 <VGuidelines/>
@@ -33131,7 +34823,7 @@ Please double-click on each item to find out how to install it.</DlgMsg>
 <HelpURL>http://www.yourdomain.com/help.htm</HelpURL>
 </MissingTechs>
 <ProgramPrefs>
-<OutputFolder/>
+<OutputFolder>C:\Users\empty\Desktop\sahdj</OutputFolder>
 <EXEName>autorun.exe</EXEName>
 <EnableAutoPlayFeatureBTF>1</EnableAutoPlayFeatureBTF>
 <EnableAutoPlayFeatureCDRW>1</EnableAutoPlayFeatureCDRW>
@@ -33147,11 +34839,11 @@ Please double-click on each item to find out how to install it.</DlgMsg>
 <CDVolumeIdentifier>NEWDISC</CDVolumeIdentifier>
 <CacheFileData>1</CacheFileData>
 <UseBurnProof>1</UseBurnProof>
-<BuildType>0</BuildType>
+<BuildType>1</BuildType>
 <DriveLetter/>
 <UsePassword>0</UsePassword>
 <OpenFolder>1</OpenFolder>
 <ObscureFilenames>0</ObscureFilenames>
-<ObscureDataFolder>AutoPlay</ObscureDataFolder>
+<ObscureDataFolder>Main</ObscureDataFolder>
 </ProgramPrefs>
 </DocumentData>
